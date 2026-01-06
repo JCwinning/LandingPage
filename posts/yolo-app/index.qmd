@@ -409,5 +409,3 @@ Whether you're interested in computer vision, web development, or AI application
 ---
 
 **GitHub Repository**: [YOLO_app](https://github.com/your-username/YOLO_app)
-**Live Demo**: [https://yolo-live.streamlit.app/](https://yolo-live.streamlit.app/)
-**Dependencies**: [Full requirements.txt](https://github.com/your-username/YOLO_app/blob/main/requirements.txt)

@@ -4550,6 +4550,208 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
   <media:content url="https://your-website-url.example.com/posts/gdp-trend/images/0.png" medium="image" type="image/png" height="83" width="144"/>
 </item>
 <item>
+  <title>Shop Map Manager (店铺地图管理系统)</title>
+  <dc:creator>Tony D</dc:creator>
+  <link>https://your-website-url.example.com/posts/shop-map-manager/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>A map-based shop management application built with Streamlit and Folium, allowing users to manage shop data in a CSV file and visualize them on an interactive map with Gaode (Amap) tiles.</p>
+<section id="live-demo" class="level2">
+<h2 class="anchored" data-anchor-id="live-demo">Live Demo</h2>
+<p><a href="https://chinamap.streamlit.app/" class="uri">https://chinamap.streamlit.app/</a></p>
+</section>
+<section id="screenshot" class="level2">
+<h2 class="anchored" data-anchor-id="screenshot">Screenshot</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://your-website-url.example.com/posts/shop-map-manager/images/1.png" class="img-fluid figure-img"></p>
+<figcaption>Dashboard Overview</figcaption>
+</figure>
+</div>
+</section>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<ul>
+<li><strong>Shop Search &amp; Addition</strong>: Integration with the Gaode Map API to search for shops by name or keyword and automatically add them to your personal list.</li>
+<li><strong>Interactive Map Visualization</strong>:
+<ul>
+<li>Displays all saved shop locations on an interactive map.</li>
+<li>Custom markers with category-specific icons.</li>
+<li>Color-coded markers based on visit status (red for “Visited”, green for “Want to Visit”).</li>
+</ul></li>
+<li><strong>Data Management</strong>:
+<ul>
+<li>Editable table view for managing shop information.</li>
+<li>Auto-save to CSV file.</li>
+<li>Track visit status, ratings, and personal notes.</li>
+</ul></li>
+<li><strong>Categorization</strong>: Organize shops by type (餐饮, 零售, 服务, 娱乐, 教育, 医疗, 风景名胜, etc.).</li>
+<li><strong>Visit Tracking</strong>: Distinguish between shops you’ve visited and those you want to visit.</li>
+<li><strong>Personal Notes &amp; Ratings</strong>: Record experiences, notes, and star ratings (1-5) for visited locations.</li>
+</ul>
+</section>
+<section id="tech-stack" class="level2">
+<h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
+<ul>
+<li><strong>Frontend</strong>: Streamlit</li>
+<li><strong>Mapping</strong>: Folium with streamlit-folium</li>
+<li><strong>Data</strong>: Pandas</li>
+<li><strong>API</strong>: Gaode Map API (高德地图API)</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<ol type="1">
+<li><p>Clone this repository:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>repository-url<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> map_app</span></code></pre></div></div></li>
+<li><p>Install dependencies:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pip</span> install <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> requirements.txt</span></code></pre></div></div></li>
+<li><p>Set up environment variables: Create a <code>.env</code> file in the project root and add your Gaode API key:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">GAODE_API_KEY</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>your_api_key_here</span></code></pre></div></div>
+<p>To get a Gaode API key, visit: <a href="https://console.amap.com/dev/key/app" class="uri">https://console.amap.com/dev/key/app</a></p></li>
+</ol>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>Run the application:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div>
+<p>The app will open in your browser at <code>http://localhost:8501</code></p>
+<section id="adding-shops" class="level3">
+<h3 class="anchored" data-anchor-id="adding-shops">Adding Shops</h3>
+<ol type="1">
+<li>Use the sidebar search to find shops by name.</li>
+<li>Click “Add to List” (添加到列表) on any search result.</li>
+</ol>
+</section>
+<section id="managing-data" class="level3">
+<h3 class="anchored" data-anchor-id="managing-data">Managing Data</h3>
+<ol type="1">
+<li>Switch to the “Data Table” (数据表格) tab.</li>
+<li>Edit shop details, visit status, ratings, and notes.</li>
+<li>Changes are auto-saved to <code>shops_data.csv</code>.</li>
+</ol>
+</section>
+<section id="viewing-on-map" class="level3">
+<h3 class="anchored" data-anchor-id="viewing-on-map">Viewing on Map</h3>
+<ol type="1">
+<li>Switch to the “Map View” (地图视图) tab.</li>
+<li>Click on markers to see shop details.</li>
+</ol>
+</section>
+</section>
+<section id="data-storage" class="level2">
+<h2 class="anchored" data-anchor-id="data-storage">Data Storage</h2>
+<p>Shop data is stored in <code>shops_data.csv</code> with the following columns:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>shop_name</code></td>
+<td>Shop name</td>
+</tr>
+<tr class="even">
+<td><code>city</code></td>
+<td>City name</td>
+</tr>
+<tr class="odd">
+<td><code>address</code></td>
+<td>Full address</td>
+</tr>
+<tr class="even">
+<td><code>latitude</code></td>
+<td>Latitude coordinate</td>
+</tr>
+<tr class="odd">
+<td><code>longitude</code></td>
+<td>Longitude coordinate</td>
+</tr>
+<tr class="even">
+<td><code>shop_type</code></td>
+<td>Shop category</td>
+</tr>
+<tr class="odd">
+<td><code>visit_status</code></td>
+<td>“Want to Visit” or “Visited”</td>
+</tr>
+<tr class="even">
+<td><code>notes</code></td>
+<td>Personal notes</td>
+</tr>
+<tr class="odd">
+<td><code>rating</code></td>
+<td>Star rating (0-5)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="project-structure">Project Structure</h2>
+<pre class="text"><code>map_app/
+├── app.py              # Main Streamlit application
+├── map_utils.py        # Gaode API integration
+├── requirements.txt    # Python dependencies
+├── shops_data.csv      # Data storage (auto-created)
+├── static/
+│   └── style.css       # Custom styles
+└── README.md           # Main documentation</code></pre>
+</section>
+<section id="dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
+<ul>
+<li><code>streamlit</code> - Web application framework</li>
+<li><code>folium</code> - Map visualization</li>
+<li><code>streamlit-folium</code> - Streamlit-Folium integration</li>
+<li><code>pandas</code> - Data manipulation</li>
+<li><code>python-dotenv</code> - Environment variable management</li>
+<li><code>requests</code> - HTTP client for API calls</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This Shop Map Manager provides a simple yet effective way to track and visualize your favorite locations. By leveraging Streamlit for the UI and Gaode Maps for data, it bridges the gap between static lists and interactive exploration.</p>
+
+
+<!-- -->
+
+</section>
+
+ ]]></description>
+  <category>AI</category>
+  <category>API</category>
+  <category>map</category>
+  <guid>https://your-website-url.example.com/posts/shop-map-manager/</guid>
+  <pubDate>Tue, 04 Nov 2025 16:00:00 GMT</pubDate>
+  <media:content url="https://your-website-url.example.com/posts/shop-map-manager/images/0.png" medium="image" type="image/png" height="82" width="144"/>
+</item>
+<item>
   <title>Weight Tracking Dashboard with Shiny,streamlit and AI Integration</title>
   <dc:creator>Tony D</dc:creator>
   <link>https://your-website-url.example.com/posts/weight-tracking/</link>
@@ -8812,7 +9014,7 @@ font-style: inherit;">=</span>your_openrouter_key</span></code></pre></div></div
 <p>The project showcases best practices in: - Modern Python development with dependency management - Streamlit web application architecture - Computer vision API integration - Internationalization and accessibility - Performance optimization for different hardware platforms</p>
 <p>Whether you’re interested in computer vision, web development, or AI applications, this project provides an excellent foundation for building advanced AI-powered web applications.</p>
 <hr>
-<p><strong>GitHub Repository</strong>: <a href="https://github.com/your-username/YOLO_app">YOLO_app</a> <strong>Live Demo</strong>: <a href="https://yolo-live.streamlit.app/">https://yolo-live.streamlit.app/</a> <strong>Dependencies</strong>: <a href="https://github.com/your-username/YOLO_app/blob/main/requirements.txt">Full requirements.txt</a></p>
+<p><strong>GitHub Repository</strong>: <a href="https://github.com/your-username/YOLO_app">YOLO_app</a></p>
 
 
 <!-- -->
