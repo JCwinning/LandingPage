@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import IPython; print(''IPython version:'', IPython.__version__)\")",
+      "Bash(python -c \"import IPython; print(''IPython available'')\")",
+      "Bash(pip install IPython)",
+      "Bash(python -c \"import IPython; print(''IPython version:'', IPython.__version__)\")",
+      "Bash(sudo ln -sf /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 /usr/local/bin/python)",
+      "Bash(export PATH=\"$HOME/.local/bin:$PATH\")",
+      "Bash(quarto render index.qmd)",
+      "Bash(RETICULATE_PYTHON=/Library/Frameworks/Python.framework/Versions/3.13/bin/python3 quarto render index.qmd)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

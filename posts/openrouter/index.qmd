@@ -1,0 +1,802 @@
+---
+title: "OpenRouter: A Unified API for Multiple AI Models"
+author: "Tony D"
+date: "2025-11-01"
+categories: [AI, API, tutorial]
+image: "images.png"
+
+format:
+  html:
+    code-fold: false
+    code-tools: true
+
+execute:
+  eval: false
+  warning: false
+---
+
+
+```{python}
+#| include: false
+# Install required packages
+import subprocess
+import sys
+
+required_packages = ['openai', 'python-dotenv', 'pandas', 'IPython','panel']
+for package in required_packages:
+    try:
+        __import__(package.replace('-', '_'))
+        print(f"{package} already installed")
+    except ImportError:
+        print(f"Installing {package}...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+```
+
+
+
+```{python}
+#| include: false
+import sys, platform
+print(sys.executable)
+```
+
+# Introduction to OpenRouter
+
+OpenRouter is a powerful platform that provides a unified API interface for accessing multiple AI models from various providers. Instead of integrating with each AI service separately, developers can use OpenRouter's single endpoint to access models from OpenAI, Anthropic, Google, and many others.
+
+## Getting Started with OpenRouter
+
+Getting started with OpenRouter is straightforward and can be accomplished in just a few steps. The platform is designed to minimize setup time while maintaining security best practices.
+
+## 1. Create Your OpenRouter Account
+
+First, visit [openrouter.ai](https://openrouter.ai) and create an account. The registration process is simple:
+
+1. **Sign Up**: Use your email or social login (Google, GitHub)
+2. **Verify Email**: Confirm your email address through the verification link
+3. **Access Dashboard**: Navigate to your dashboard where you'll find your API key
+
+**💡 Pro Tip**: Your dashboard provides valuable insights including:
+- Usage statistics and cost tracking
+- Model performance metrics
+- API key management
+- Billing information
+
+## 2. Secure API Key Management
+
+Security is paramount when working with AI APIs. Never hardcode your API keys directly in your code. Instead, use environment variables to keep your credentials safe:
+
+### Why Environment Variables Matter
+- **Security**: Prevents accidental exposure in version control
+- **Flexibility**: Allows different keys for development, staging, and production
+- **Collaboration**: Team members can use their own keys without sharing
+- **Deployment**: Easy management across different hosting environments
+
+### Setting Up Environment Variables
+
+Create a `.env` file in your project root:
+
+OPENROUTER_API_KEY=your_actual_api_key_here
+
+
+
+Install the `python-dotenv` library to load environment variables:
+
+pip install python-dotenv
+
+
+## 3. Your First API Call
+
+Now that you have your API key set up, let's make your first API call. OpenRouter cleverly uses the same API format as OpenAI, which means you can use the familiar `openai` Python library - just with a different base URL.
+
+### Understanding the Architecture
+
+**🔧 How It Works**: OpenRouter acts as a smart proxy that:
+1. Receives your standardized API requests
+2. Routes them to the appropriate AI model provider
+3. Handles provider-specific authentication and formatting
+4. Returns responses in a consistent format
+5. Tracks usage and costs across all models
+
+### Required Dependencies
+
+Before you start, ensure you have the necessary Python packages:
+
+```bash
+pip install openai python-dotenv
+```
+
+- **openai**: The official OpenAI Python client (compatible with OpenRouter)
+- **python-dotenv**: For loading environment variables from `.env` files
+
+### Basic Text Generation Example
+
+
+::: {.panel-tabset}
+
+## python with OpenAI package
+
+```{python}
+#| eval: false
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Initialize the OpenAI client with OpenRouter
+client = OpenAI(
+  base_url="https://openrouter.ai/api/v1",  # OpenRouter's API endpoint
+  api_key=os.getenv("OPENROUTER_API_KEY"),  # Your secure API key
+)
+
+# Create a chat completion with OpenRouter
+completion = client.chat.completions.create(
+  extra_headers={
+    "HTTP-Referer": "https://your-site.com",  # Optional: Helps OpenRouter improve their service
+    "X-Title": "Your Site Name",             # Optional: Your site name for OpenRouter rankings
+  },
+  model="openai/gpt-oss-20b:free",          # Free model for testing/development
+  messages=[
+    {
+      "role": "user",
+      "content": "Hello! Can you explain what OpenRouter is in simple terms?"
+    }
+  ],
+  temperature=0.7  # Controls creativity (0.0 = deterministic, 1.0 = very creative)
+)
+
+# Extract and print the response
+print(completion.choices[0].message.content)
+```
+
+
+
+## python with chatlas package
+
+```{python}
+#| eval: false
+from chatlas import ChatOpenRouter
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Initialize the OpenAI client with OpenRouter
+client = ChatOpenRouter(api_key=os.getenv("OPENROUTER_API_KEY")
+,base_url='https://openrouter.ai/api/v1'
+ ,system_prompt=None
+ ,model="openai/gpt-oss-20b:free")
+```
+
+```{python}
+response=client.chat("What is the capital of France?")
+#str(response)
+```
+
+
+## R with ellmer package
+
+```{r}
+library(ellmer)
+library(dotenv)
+load_dot_env(file = ".env")
+
+chat <- chat_openrouter(
+  system_prompt = NULL,
+  api_key = Sys.getenv("OPENROUTER_API_KEY"),
+ 
+  model = "openai/gpt-oss-20b:free",
+  echo = "none"
+)
+```
+
+
+
+```{r}
+chat$chat("Tell me three jokes about statisticians")
+```
+
+
+:::
+
+
+**Key Components Explained:**
+
+- **`base_url`**: Points to OpenRouter's API instead of OpenAI's
+- **`model`**: Uses OpenRouter's model naming format (`provider/model-name`)
+- **`extra_headers`**: Optional but recommended for OpenRouter's analytics
+- **`temperature`**: Controls response creativity (0.0-2.0 range)
+- **`messages`**: Standard chat format with role-based conversation structure
+
+**💡 Model Selection Tips:**
+- **Free Models**: Great for development (`*free` suffix)
+- **Budget Models**: Cost-effective for production (`*:budget` suffix)
+- **Premium Models**: Best performance (`*`, `*:pro`, `*:latest`)
+- **Specialized**: Task-optimized models (coding, math, creative writing)
+
+
+
+
+
+## 4. Mastering System Prompts
+
+System prompts are powerful tools that shape the AI's behavior, personality, and response style. They set the context and rules for the entire conversation, appearing before user messages in the conversation flow.
+
+### What Are System Prompts?
+
+System prompts act as **meta-instructions** that guide how the AI should respond throughout the conversation. They're processed first and influence all subsequent interactions.
+
+### Why System Prompts Matter
+
+- **Consistent Behavior**: Ensures AI maintains the desired personality throughout
+- **Output Format**: Dictates response structure (JSON, markdown, code blocks)
+- **Safety Constraints**: Sets boundaries and restrictions on responses
+- **Context Setting**: Provides background information for better responses
+- **Task Specialization**: Optimizes AI for specific use cases
+
+### Effective System Prompt Examples
+
+```{python}
+#| eval: false
+# Example with system prompt
+completion = client.chat.completions.create(
+  model="openai/gpt-oss-20b:free",
+  messages=[
+    {
+      "role": "system",
+      "content": "You are a helpful AI assistant that explains technical concepts in simple terms. Always be friendly and use analogies when possible and be simple"
+    },
+    {
+      "role": "user",
+      "content": "How does temperature in LLM model work?"
+    }
+  ],
+  temperature=0.7
+)
+
+print(completion.choices[0].message.content)
+```
+
+Common system prompt patterns:
+
+```{python}
+#| eval: false
+# Different system prompt examples
+system_prompts = {
+    "coding_assistant": "You are an expert programmer. Provide clean, well-commented code solutions and explain your reasoning.",
+    "creative_writer": "You are a creative storyteller. Write engaging narratives with vivid descriptions and compelling characters.",
+    "data_analyst": "You are a data analyst. Provide insights based on data, suggest visualizations, and explain statistical concepts clearly.",
+    "tutor": "You are a patient tutor. Break down complex topics into simple steps and provide encouraging feedback."
+}
+
+def chat_with_persona(persona, user_message):
+    completion = client.chat.completions.create(
+        model="openai/gpt-oss-20b:free",
+        messages=[
+            {"role": "system", "content": system_prompts[persona]},
+            {"role": "user", "content": user_message}
+        ],
+        temperature=0.7
+    )
+    return completion.choices[0].message.content
+
+# Example usage
+#response = chat_with_persona("coding_assistant", "How do I reverse a string in Python?")
+#print(response)
+```
+
+
+## 5. Streaming Responses: Real-Time AI Interaction
+
+Streaming is a game-changer for user experience, especially in chat applications and interactive tools. Instead of waiting for complete responses, streaming delivers content as it's being generated, creating natural and engaging conversations.
+
+### Why Streaming Matters
+
+**🚀 User Experience Benefits:**
+- **Immediate Feedback**: Users see responses starting immediately
+- **Reduced Perceived Latency**: Content appears as it's generated
+- **Natural Conversation Flow**: Mimics human speech patterns
+- **Progress Indication**: Users know the AI is working
+- **Early Termination**: Users can stop lengthy responses if needed
+
+**⚡ Technical Advantages:**
+- **Lower Memory Usage**: No need to buffer complete responses
+- **Faster Time-to-First-Byte**: Content starts flowing immediately
+- **Better Error Handling**: Issues detected earlier in process
+- **Resource Efficiency**: Processes data incrementally
+
+### Implementing Streaming with OpenRouter
+
+```{python}
+#| eval: false
+# Initialize the OpenAI client (if not already done)
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+client = OpenAI(
+  base_url="https://openrouter.ai/api/v1",
+  api_key=os.getenv("OPENROUTER_API_KEY"),
+)
+
+def stream_response(model, message):
+    stream = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": message}],
+        stream=True
+    )
+
+    for chunk in stream:
+        if chunk.choices[0].delta.content is not None:
+            print(chunk.choices[0].delta.content, end='', flush=True)
+
+# Stream example
+print("Streaming response:")
+stream_response("openai/gpt-oss-20b:free", "Tell me a short story about AI")
+print()  # Add newline after streaming
+```
+
+
+
+
+### 6. text to image
+
+
+```{python}
+from openai import OpenAI
+import base64
+import datetime
+```
+
+
+```{python}
+# | eval: false
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Initialize the OpenAI client with OpenRouter
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+)
+```
+
+
+```{python}
+#| eval: false
+# Image generation request
+response = client.chat.completions.create(
+    extra_headers={
+        "HTTP-Referer": "www.tonydotdev.com",
+        "X-Title": "TT_AI_blog",
+    },
+    model="google/gemini-2.5-flash-image",
+    messages=[
+        {
+            "role": "user",
+            "content": "Generate a serene and realistic snowy mountain landscape at sunrise.",
+        }
+    ],
+    modalities=["image", "text"],
+    #image_size="1024x1024",
+)
+```
+
+
+
+
+```{python}
+#| eval: false
+import base64
+import datetime
+# Extract message
+message = response.choices[0].message
+
+# Handle image output (base64 string inside "data:image/png;base64,...")
+if message.images:
+    data_url = message.images[0]["image_url"]["url"]
+
+    # Strip prefix if present
+    if data_url.startswith("data:image"):
+        _, base64_data = data_url.split(",", 1)
+    else:
+        base64_data = data_url
+
+    # Decode and save as PNG
+    image_bytes = base64.b64decode(base64_data)
+    current_time = datetime.datetime.now().strftime("%H%M")
+    output_file = f"text_image_gemini_25_openrouter_{current_time}.png"
+    with open(output_file, "wb") as f:
+        f.write(image_bytes)
+
+    print(f"✅ Image saved as {output_file}")
+else:
+    print("❌ No image returned in response")
+```
+
+```{python}
+#| eval: true
+#| include: false
+# Ensure IPython is available
+try:
+    from IPython.display import Image, display
+    print("IPython loaded successfully")
+except ImportError as e:
+    print(f"IPython import error: {e}")
+    import subprocess
+    import sys
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "IPython"])
+    from IPython.display import Image, display
+```
+
+```{python}
+#| eval: true
+from IPython.display import Image, display
+
+display(Image(filename="text_image_gemini_25_openrouter_1352.png"))
+```
+
+
+### 6 image to text
+
+```{python}
+#| eval: false
+import base64
+
+# Convert local image to data URL
+with open("text_image_gemini_25_openrouter_1352.png", "rb") as image_file:
+    base64_image = base64.b64encode(image_file.read()).decode('utf-8')
+    data_url = f"data:image/png;base64,{base64_image}"
+
+completion = client.chat.completions.create(
+  extra_headers={
+    "HTTP-Referer": "<YOUR_SITE_URL>", # Optional. Site URL for rankings on openrouter.ai.
+    "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
+  },
+  extra_body={},
+  model="nvidia/nemotron-nano-12b-v2-vl:free",
+  messages=[
+              {
+                "role": "user",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "What is in this image?"
+                  },
+                  {
+                    "type": "image_url",
+                    "image_url": {
+                      "url": data_url
+                    }
+                  }
+                ]
+              }
+            ]
+)
+print(completion.choices[0].message.content)
+```
+
+
+
+### 7. text,image to image
+
+```{python}
+# | eval: false
+import base64
+
+# Convert the previously generated image to base64
+with open("text_image_gemini_25_openrouter_1352.png", "rb") as image_file:
+    base64_image = base64.b64encode(image_file.read()).decode("utf-8")
+
+response = client.chat.completions.create(
+    extra_headers={
+        "HTTP-Referer": "www.tonydotdev.com",
+        "X-Title": "TT_AI_blog",
+    },
+    model="google/gemini-2.5-flash-image",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Transform this image into a sunset version with warmer colors and golden light.add one person skiing in the foreground.",
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/png;base64,{base64_image}"},
+                },
+            ],
+        }
+    ],
+    modalities=["image", "text"],
+    # image_size="1024x1024",
+)
+```
+
+
+```{python}
+
+import base64
+import datetime
+# Extract message
+message = response.choices[0].message
+
+# Handle image output (base64 string inside "data:image/png;base64,...")
+if message.images:
+    data_url = message.images[0]["image_url"]["url"]
+
+    # Strip prefix if present
+    if data_url.startswith("data:image"):
+        _, base64_data = data_url.split(",", 1)
+    else:
+        base64_data = data_url
+
+    # Decode and save as PNG
+    image_bytes = base64.b64decode(base64_data)
+    current_time = datetime.datetime.now().strftime("%H%M")
+    output_file = f"text_image_gemini_25_openrouter_{current_time}.png"
+    with open(output_file, "wb") as f:
+        f.write(image_bytes)
+
+    print(f"✅ Image saved as {output_file}")
+else:
+    print("❌ No image returned in response")
+```
+
+
+```{python}
+from IPython.display import Image, display
+
+display(Image(filename="text_image_gemini_25_openrouter_1405.png"))
+```
+
+### 8 Embedding
+
+```{python}
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Initialize the OpenAI client with OpenRouter
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+)
+
+
+embedding = client.embeddings.create(
+  extra_headers={
+    "HTTP-Referer": "<YOUR_SITE_URL>", # Optional. Site URL for rankings on openrouter.ai.
+    "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
+  },
+  model="thenlper/gte-base",
+  input="I can",
+  encoding_format="float"
+)
+
+#print(embedding.data[0].embedding) 
+```
+
+
+```{python}
+len(embedding.data[0].embedding)
+```
+
+
+```{python}
+print(embedding.data[0].embedding[:5])  # Print first 5 dimensions
+```
+
+
+
+## Cost Management: Optimizing Your AI Spending
+
+One of OpenRouter's most powerful features is its transparent pricing model and cost management capabilities. Understanding and managing costs is crucial for production AI applications.
+
+## Why Cost Management Matters
+
+**💰 Financial Planning:**
+- Predictable monthly expenses
+- Budget allocation across different use cases
+- ROI analysis for AI features
+- Cost per user tracking
+
+**🔍 Technical Optimization:**
+- Model selection based on cost/performance ratio
+- Prompt engineering to reduce token usage
+- Caching strategies for repeated requests
+- Batch processing for efficiency
+
+## Real-Time Cost Tracking
+
+OpenRouter provides programmatic access to current pricing for all models:
+
+```{python}
+#| eval: true
+#| include: false
+# Install required packages
+import subprocess
+import sys
+
+required_packages = ['openai', 'python-dotenv', 'pandas', 'IPython','panel']
+for package in required_packages:
+    try:
+        __import__(package.replace('-', '_'))
+        print(f"{package} already installed")
+    except ImportError:
+        print(f"Installing {package}...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+```
+
+```{python}
+#| eval: true
+# Initialize the OpenAI client (if not already done)
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+import pandas as pd
+
+load_dotenv()
+client = OpenAI(
+  base_url="https://openrouter.ai/api/v1",
+  api_key=os.getenv("OPENROUTER_API_KEY"),
+)
+
+def get_model_pricing():
+    models_list = client.models.list()
+    pricing_data = []
+
+    for model in models_list.data:
+        name = model.id
+        pricing = model.pricing
+
+        # Get model metadata
+        context_length = getattr(model, 'context_length', None)
+        description = getattr(model, 'description', '')
+
+        # Get creation date and convert to readable format
+        created_timestamp = getattr(model, 'created', None)
+        if created_timestamp:
+            import datetime
+            created_date = datetime.datetime.fromtimestamp(created_timestamp).strftime('%Y-%m-%d')
+        else:
+            created_date = None
+
+        # Extract company from model name (first part before '/')
+        company = name.split('/')[0] if '/' in name else 'Unknown'
+
+        # Convert per-token prices to cost per 1M tokens
+        prompt_cost = float(pricing.get('prompt', 0)) * 1000000 if pricing and pricing.get('prompt') else 0
+        completion_cost = float(pricing.get('completion', 0)) * 1000000 if pricing and pricing.get('completion') else 0
+        request_cost = float(pricing.get('request', 0)) * 1000000 if pricing and pricing.get('request') else 0
+        image_cost = float(pricing.get('image', 0)) * 1000000 if pricing and pricing.get('image') else 0
+
+        pricing_data.append({
+            'Model': name,
+            'Company': company,
+            'Description': description,
+            'Context_Length': context_length,
+            'Created_Date': created_date,
+            'Prompt_Cost_per_1M': prompt_cost,
+            'Completion_Cost_per_1M': completion_cost,
+            'Request_Cost_per_1M': request_cost,
+            'Image_Cost_per_1M': image_cost
+        })
+
+    # Create pandas DataFrame
+    df = pd.DataFrame(pricing_data)
+
+    # Sort by company then by model name for better organization
+    df = df.sort_values(['Company', 'Model']).reset_index(drop=True)
+
+    return df
+
+# Get pricing DataFrames (all models and paid models only)
+all_models_df = get_model_pricing()
+```
+
+
+
+
+#### Most Expensive Models
+
+
+```{python}
+#| eval: true
+import panel as pn
+
+
+df = all_models_df[
+    [
+        "Model",
+        "Context_Length",
+        "Created_Date",
+        "Prompt_Cost_per_1M",
+        "Completion_Cost_per_1M",
+    ]
+].sort_values("Prompt_Cost_per_1M", ascending=False)
+
+# Create a paginated table
+pn.extension("tabulator")
+table = pn.widgets.Tabulator(df, pagination="local", page_size=10, show_index=False)
+table
+```
+
+
+## Best Practices: Production-Ready AI Development
+
+Following these best practices will help you build robust, secure, and efficient AI applications with OpenRouter.
+
+## 🔒 Security Best Practices
+
+### 1. API Key Management
+- **Never hardcode API keys** in source code or configuration files
+- **Use environment variables** or secret management systems (AWS Secrets Manager, Azure Key Vault)
+- **Rotate API keys regularly** and implement key rotation policies
+- **Use different keys** for development, staging, and production environments
+- **Add .env to .gitignore** - Never commit credentials to version control
+
+### 2. Input Validation and Sanitization
+- **Validate user inputs** before sending to AI models
+- **Sanitize prompts** to prevent prompt injection attacks
+- **Implement rate limiting** to prevent abuse
+- **Log and monitor** for suspicious activity patterns
+
+## ⚡ Performance Best Practices
+
+### 3. Model Selection Strategy
+- **Choose the right model for your use case** - Not all tasks need the most expensive model
+- **Benchmark models** for your specific use cases
+- **Use free models** for development and testing
+- **Consider specialized models** for specific tasks (coding, math, creative writing)
+
+### 4. Optimization Techniques
+- **Implement caching** for repeated requests to reduce costs
+- **Use streaming** for better user experience
+- **Batch requests** when appropriate for efficiency
+- **Optimize prompts** - Well-crafted prompts reduce token usage and improve results
+
+## 🛡️ Reliability Best Practices
+
+### 5. Error Handling and Resilience
+- **Implement comprehensive error handling** - Models can be unavailable or rate-limited
+- **Use fallback models** - Ensure your application remains functional even if one model is down
+- **Implement retry logic** with exponential backoff
+- **Monitor response times** and set appropriate timeouts
+
+### 6. Monitoring and Analytics
+- **Monitor usage** - Keep track of costs and set limits
+- **Track performance metrics** (latency, success rates, error rates)
+- **Set up alerts** for unusual activity patterns
+- **Create dashboards** for real-time monitoring
+
+## 📊 Cost Management Best Practices
+
+### 7. Budget Control
+- **Set spending limits** and alerts in your OpenRouter dashboard
+- **Use cost-effective models** for non-critical tasks
+- **Implement token counting** to estimate costs before requests
+- **Review usage reports** regularly to identify optimization opportunities
+
+## Conclusion: Building the Future of AI Applications
+
+OpenRouter represents a paradigm shift in how developers interact with AI models. By providing a unified, reliable, and cost-effective gateway to the world's most advanced AI models, OpenRouter enables developers to focus on creating value rather than managing infrastructure complexities.
+
+
+
+
+
+
+

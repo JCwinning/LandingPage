@@ -1,0 +1,924 @@
+---
+title: "Retrieval-Augmented Generation(RAG) in R & Python"
+author: "Tony D"
+date: "2025-11-02"
+categories: [AI, API, tutorial]
+image: "images.png"
+
+format:
+  html:
+    code-fold: false
+    code-tools: true
+    code-copy: true
+
+execute:
+
+  warning: false
+---
+
+
+```{r setup, include=FALSE}
+library(reticulate)
+
+# Use Python 3.13
+use_python("/Library/Frameworks/Python.framework/Versions/3.13/bin/python3", required = TRUE)
+
+# Install required packages
+py_install(c("openai", "langchain-core", "langchain-chroma", "langchain-community", "langchain-openai", "markitdown", "beautifulsoup4", "python-dotenv", "llama-index", "llama-index-vector-stores-duckdb"), pip = TRUE)
+
+# Verify Python
+py_config()
+```
+
+
+
+# Introduction
+
+Retrieval-Augmented Generation (RAG) is a powerful technique that combines the generative capabilities of Large Language Models (LLMs) with the precision of information retrieval. By grounding LLM responses in external, verifiable data, RAG reduces hallucinations and enables the model to answer questions about specific, private, or up-to-date information.
+
+In this tutorial, we will build a RAG system using both R and Python. 
+
+In R, we'll leverage the `ragnar` package for RAG workflows and `ellmer` for chat interfaces. 
+
+In Python, we'll use `LangChain` for the RAG pipeline, `ChromaDB` for the vector store, and `OpenAI` for model interaction.
+
+Our goal is to create a system that can answer questions about the OpenRouter API by scraping its documentation.
+
+# Data Collection
+
+::: {.panel-tabset}
+
+
+## R
+
+First, we need to gather the data for our knowledge base. We'll use the `rvest` package to scrape URLs from the OpenRouter documentation. This will give us a list of pages to ingest.
+
+
+```{r}
+library(ragnar)
+library(ellmer)
+library(dotenv)
+load_dot_env(file = ".env")
+```
+
+```{r}
+
+library(rvest)
+
+# URL to scrape
+url <- "https://openrouter.ai/docs/quickstart"
+
+# Read the HTML content of the page
+page <- read_html(url)
+
+# Extract all <a> tags with href
+links <- page %>%
+    html_nodes("a") %>%
+    html_attr("href")
+
+# Remove NAs and duplicates
+links <- unique(na.omit(links))
+
+# Optional: keep only full URLs
+links_full <- paste0("https://openrouter.ai", links[grepl("^/docs/", links)])
+
+# Print all links
+print(links_full)
+```
+
+
+## Python 
+
+First, we need to gather the data for our knowledge base. We'll use `requests` and `BeautifulSoup` to scrape URLs from the OpenRouter documentation. This will give us a list of pages to ingest.
+
+```{python}
+import sys
+print(sys.executable)
+```
+
+```{python}
+
+import requests
+from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
+from markitdown import MarkItDown
+from io import BytesIO
+import re
+
+# Load environment variables
+load_dotenv()
+
+# Helper functions
+def fetch_html(url: str) -> bytes:
+    """Fetch HTML content from URL and return as bytes."""
+    resp = requests.get(url)
+    resp.raise_for_status()
+    return resp.content
+
+def html_to_markdown(html_bytes: bytes) -> str:
+    """Convert HTML bytes to markdown using MarkItDown."""
+    md = MarkItDown()
+    stream = BytesIO(html_bytes)
+    result = md.convert_stream(stream, mime_type="text/html")
+    return result.markdown
+
+def save_markdown(md_content: str, output_path: str):
+    """Save markdown content to file."""
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(md_content)
+
+def sanitize_filename(filename: str) -> str:
+    """Sanitize URL to create a valid filename."""
+    filename = re.sub(r'^https?://[^/]+', '', filename)
+    filename = re.sub(r'[^\w\-_.]', '_', filename)
+    filename = filename.strip('_')
+    if not filename.endswith('.md'):
+        filename += '.md'
+    return filename
+
+# URL to scrape
+url = "https://openrouter.ai/docs/quickstart"
+
+# Read the HTML content of the page
+response = requests.get(url)
+soup = BeautifulSoup(response.content, 'html.parser')
+
+# Extract all <a> tags with href
+links = [a['href'] for a in soup.find_all('a', href=True)]
+
+# Remove duplicates
+links = list(set(links))
+
+# Keep only full URLs for docs
+links_full = [f"https://openrouter.ai{link}" for link in links if link.startswith("/docs/")]
+
+# Explicitly add FAQ
+links_full.append("https://openrouter.ai/docs/faq")
+links_full = list(set(links_full))
+
+# Print all links
+print(f"Found {len(links_full)} documentation URLs")
+print(links_full)
+```
+
+
+:::
+
+# Save web to local data
+
+::: {.panel-tabset}
+
+## R
+
+To perform semantic search, we need to store our text data as vectors (embeddings). We'll use `DuckDB` as our local vector store. We also need an embedding model to convert text into vectors. Here, we configure `ragnar` to use a specific embedding model via an OpenAI-compatible API (SiliconFlow).
+
+
+```{r}
+#| eval: false
+# pages <- ragnar_find_links(base_url)
+pages <- links_full
+store_location <- "openrouter.duckdb"
+
+store <- ragnar_store_create(
+    store_location,
+    overwrite = TRUE,
+    embed = \(x) ragnar::embed_openai(x,
+        model = "BAAI/bge-m3",
+        base_url = "https://api.siliconflow.cn/v1",
+        api_key = Sys.getenv("siliconflow")
+    )
+)
+```
+
+
+With our store initialized, we can now ingest the data. We iterate through the list of pages we scraped earlier. For each page, we:
+1.  Read the content as markdown.
+2.  Split the content into smaller chunks (approx. 600 characters).
+3.  Insert these chunks into our vector store.
+
+This process builds the index that we'll search against.
+
+
+```{r}
+# page="https://openrouter.ai/docs/faq"
+# chunks <- page |>read_as_markdown() |>markdown_chunk(target_size = 2000)
+# ragnar_chunks_view(chunks)
+```
+
+
+```{r}
+#| eval: false
+for (page in pages) {
+    message("ingesting: ", page)
+    print(page)
+    chunks <- page |>
+        read_as_markdown() |>
+        markdown_chunk(target_size = 2000)
+    # print(chunks)
+    # print('chunks done')
+    ragnar_store_insert(store, chunks)
+    print("insrt done")
+}
+```
+
+
+
+```{r}
+#| eval: false
+ragnar_store_build_index(store)
+```
+
+
+
+## Python DuckDB
+```{python}
+#| eval: false
+import os
+from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, StorageContext, Settings
+from llama_index.vector_stores.duckdb import DuckDBVectorStore
+from llama_index.embeddings.openai import OpenAIEmbedding
+
+# --- 1. Configuration ---
+
+# Ensure your API key is available
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY") # or paste string directly
+
+# Initialize the embedding model pointing to OpenRouter
+# We use the OpenAI class because OpenRouter uses an OpenAI-compatible API structure
+embed_model = OpenAIEmbedding(
+    api_key=openrouter_api_key,
+    base_url="https://openrouter.ai/api/v1",
+    model="qwen/qwen3-embedding-8b"  
+)
+
+# Update the global settings so LlamaIndex knows to use this model
+Settings.embed_model = embed_model
+Settings.chunk_size = 2000
+Settings.chunk_overlap = 200
+# --- 2. Ingestion and Indexing ---
+
+# Load data
+documents = SimpleDirectoryReader("markdown_docs").load_data()
+
+# Initialize DuckDB Vector Store
+vector_store = DuckDBVectorStore("open.duckdb", persist_dir="./persist/")
+storage_context = StorageContext.from_defaults(vector_store=vector_store)
+
+# Create the index
+# This will now automatically use the Qwen embeddings defined in Settings
+index = VectorStoreIndex.from_documents(
+    documents, 
+    storage_context=storage_context
+)
+
+```
+
+
+
+
+
+## Python Chroma
+
+To perform semantic search, we need to store our text data as vectors (embeddings). We'll use `ChromaDB` as our local vector store. We also need an embedding model to convert text into vectors. Here, we configure a custom `OpenRouterEmbeddings` class to use the `qwen/qwen3-embedding-8b` model via the OpenRouter API.
+
+
+```{python}
+#| eval: false
+from openai import OpenAI
+from langchain_core.embeddings import Embeddings
+from langchain_chroma import Chroma
+from typing import List
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Custom embeddings class for OpenRouter API
+class OpenRouterEmbeddings(Embeddings):
+    """Custom embeddings class for OpenRouter API."""
+    
+    def __init__(self, api_key: str, model: str = "text-embedding-3-small"):
+        self.client = OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=api_key,
+        )
+        self.model = model
+    
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Embed a list of documents."""
+        response = self.client.embeddings.create(
+            extra_headers={
+                "HTTP-Referer": "https://ai-blog.com",
+                "X-Title": "AI Blog RAG",
+            },
+            model=self.model,
+            input=texts,
+            encoding_format="float"
+        )
+        return [item.embedding for item in response.data]
+    
+    def embed_query(self, text: str) -> List[float]:
+        """Embed a single query."""
+        response = self.client.embeddings.create(
+            extra_headers={
+                "HTTP-Referer": "https://ai-blog.com",
+                "X-Title": "AI Blog RAG",
+            },
+            model=self.model,
+            input=text,
+            encoding_format="float"
+        )
+        return response.data[0].embedding
+
+# Get OpenRouter API key
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+if not openrouter_api_key:
+    raise ValueError("OPENROUTER_API_KEY not found in environment variables")
+
+# Create embeddings instance using OpenRouter
+embeddings = OpenRouterEmbeddings(
+    api_key=openrouter_api_key,
+    model="qwen/qwen3-embedding-8b"
+)
+
+# Define vector store location
+persist_directory = "chroma_db_data"
+```
+
+
+
+
+With our store initialized, we can now ingest the data. We iterate through the markdown files we saved earlier. For each file, we:
+1.  Load the content.
+2.  Split the content into smaller chunks (approx. 2000 characters) using `RecursiveCharacterTextSplitter`.
+3.  Create a new `Chroma` vector store from these chunks.
+
+This process builds the index that we'll search against.
+
+
+
+```{python}
+#| eval: false
+from langchain_core.documents import Document
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+import shutil
+
+# Helper function to load markdown files
+def load_markdown_files(directory: str) -> list[Document]:
+    """Load all markdown files from directory and create Document objects."""
+    documents = []
+    if not os.path.exists(directory):
+        return documents
+        
+    for filename in os.listdir(directory):
+        if filename.endswith('.md'):
+            filepath = os.path.join(directory, filename)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+                doc = Document(
+                    page_content=content,
+                    metadata={
+                        "source": filename,
+                        "filepath": filepath
+                    }
+                )
+                documents.append(doc)
+    return documents
+
+# Create output directory for markdown files
+output_dir = "markdown_docs"
+os.makedirs(output_dir, exist_ok=True)
+
+# Convert each URL to markdown and save
+for i, link_url in enumerate(links_full, 1):
+    try:
+        print(f"Processing {i}/{len(links_full)}: {link_url}")
+        html_content = fetch_html(link_url)
+        markdown_content = html_to_markdown(html_content)
+        filename = sanitize_filename(link_url)
+        output_path = os.path.join(output_dir, filename)
+        save_markdown(markdown_content, output_path)
+        print(f"  ✓ Saved to {output_path}")
+    except Exception as e:
+        print(f"  ✗ Error processing {link_url}: {str(e)}")
+
+# Load markdown documents
+documents = load_markdown_files(output_dir)
+print(f"\nLoaded {len(documents)} markdown documents")
+
+# Split documents into chunks
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=2000,
+    chunk_overlap=200,
+    length_function=len,
+    is_separator_regex=False,
+)
+
+splits = text_splitter.split_documents(documents)
+print(f"Split into {len(splits)} chunks")
+```
+
+
+```{python}
+#| eval: false
+# Remove existing database if it exists
+if os.path.exists(persist_directory):
+    print(f"Removing existing database at {persist_directory}...")
+    shutil.rmtree(persist_directory)
+
+# Create new vector store
+vectorstore = Chroma.from_documents(
+    documents=splits,
+    embedding=embeddings,
+    persist_directory=persist_directory
+)
+
+print(f"\n✓ Successfully created ChromaDB with {len(splits)} chunks!")
+print(f"✓ Database saved to: {persist_directory}")
+```
+
+
+
+:::
+
+
+
+
+
+
+
+
+
+
+# Retrieval
+
+::: {.panel-tabset}
+
+## R
+
+Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like "What are model variants?", and query the store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.
+
+
+```{r}
+
+store_location <- "openrouter.duckdb"
+store <- ragnar_store_connect(store_location)
+
+text <- "What are model variants?"
+
+#' # Retrieving Chunks
+#' Once the store is set up, retrieve the most relevant text chunks like this
+
+relevant_chunks <- ragnar_retrieve(store, text, top_k = 3)
+cat("Retrieved", nrow(relevant_chunks), "chunks:\n\n")
+for (i in seq_len(nrow(relevant_chunks))) {
+    cat(sprintf("--- Chunk %d ---\n%s\n\n", i, relevant_chunks$text[i]))
+}
+```
+
+
+```{r}
+# ragnar_store_inspect(store)
+#ragnar_chunks_view(chunks)
+```
+
+## Python DuckDB
+
+In Python, we can use `LlamaIndex` to interact with our DuckDB vector store. In this step, we'll configure the embedding model and retrieve the top relevant chunks for our query, saving them to a file for inspection. We won't use an LLM for generation yet, focusing solely on verifying the retrieval quality.
+
+```{python}
+
+import os
+import sys
+print(f"Python executable: {sys.executable}")
+print(f"Python path: {sys.path}")
+from typing import Any, List
+from openai import OpenAI
+from llama_index.core import VectorStoreIndex, Settings
+from llama_index.core.embeddings import BaseEmbedding
+from llama_index.vector_stores.duckdb import DuckDBVectorStore
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Ensure your API key is available
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+
+# Custom OpenRouter Embedding class for LlamaIndex
+class OpenRouterEmbedding(BaseEmbedding):
+    """Custom embedding class for OpenRouter API compatible with LlamaIndex."""
+    
+    def __init__(
+        self,
+        api_key: str,
+        model: str = "qwen/qwen3-embedding-8b",
+        **kwargs: Any
+    ):
+        super().__init__(**kwargs)
+        self._client = OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=api_key,
+        )
+        self._model = model
+    
+    def _get_query_embedding(self, query: str) -> List[float]:
+        """Get embedding for a query string."""
+        response = self._client.embeddings.create(
+            extra_headers={
+                "HTTP-Referer": "https://ai-blog.com",
+                "X-Title": "AI Blog RAG",
+            },
+            model=self._model,
+            input=query,
+            encoding_format="float"
+        )
+        return response.data[0].embedding
+    
+    def _get_text_embedding(self, text: str) -> List[float]:
+        """Get embedding for a text string."""
+        return self._get_query_embedding(text)
+    
+    async def _aget_query_embedding(self, query: str) -> List[float]:
+        """Async version of get_query_embedding."""
+        return self._get_query_embedding(query)
+    
+    async def _aget_text_embedding(self, text: str) -> List[float]:
+        """Async version of get_text_embedding."""
+        return self._get_text_embedding(text)
+
+# 1. Configure Embedding Model using custom OpenRouter class
+embed_model = OpenRouterEmbedding(
+    api_key=openrouter_api_key,
+    model="qwen/qwen3-embedding-8b"
+)
+
+# 2. Apply Settings
+Settings.embed_model = embed_model
+
+# 3. Load and Retrieve
+# Load the existing DuckDB vector store
+vector_store = DuckDBVectorStore(database_name="openrouter.duckdb", persist_dir="./persist/")
+index = VectorStoreIndex.from_vector_store(vector_store=vector_store)
+
+# Retrieve top 3 chunks
+retriever = index.as_retriever(similarity_top_k=3)
+nodes = retriever.retrieve("What are model variants?")
+
+# Save retrieved chunks to a markdown file for easy inspection
+with open("retriever.md", "w", encoding="utf-8") as f:
+    f.write(f"# Retrieved {len(nodes)} chunks\n\n")
+    for i, node in enumerate(nodes, 1):
+        content = f"## Chunk {i}\n\n{node.text}\n\n"
+        print(content)
+        f.write(content)
+```
+
+
+
+
+## Python Chroma
+
+Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like "What are model variants?", and query the `Chroma` store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.
+
+```{python}
+from openai import OpenAI
+from langchain_core.embeddings import Embeddings
+from langchain_chroma import Chroma
+from typing import List
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Custom embeddings class for OpenRouter API
+class OpenRouterEmbeddings(Embeddings):
+    """Custom embeddings class for OpenRouter API."""
+    
+    def __init__(self, api_key: str, model: str = "qwen/qwen3-embedding-8b"):
+        self.client = OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=api_key,
+        )
+        self.model = model
+    
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Embed a list of documents."""
+        response = self.client.embeddings.create(
+            extra_headers={
+                "HTTP-Referer": "https://ai-blog.com",
+                "X-Title": "AI Blog RAG",
+            },
+            model=self.model,
+            input=texts,
+            encoding_format="float"
+        )
+        return [item.embedding for item in response.data]
+    
+    def embed_query(self, text: str) -> List[float]:
+        """Embed a single query."""
+        response = self.client.embeddings.create(
+            extra_headers={
+                "HTTP-Referer": "https://ai-blog.com",
+                "X-Title": "AI Blog RAG",
+            },
+            model=self.model,
+            input=text,
+            encoding_format="float"
+        )
+        return response.data[0].embedding
+
+# Get OpenRouter API key
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+if not openrouter_api_key:
+    raise ValueError("OPENROUTER_API_KEY not found in environment variables")
+
+# Create embeddings instance using OpenRouter
+embeddings = OpenRouterEmbeddings(
+    api_key=openrouter_api_key,
+    model="qwen/qwen3-embedding-8b"
+)
+
+# Define vector store location
+persist_directory = "chroma_db_data"
+
+# Load existing vector store
+vectorstore = Chroma(
+    persist_directory=persist_directory,
+    embedding_function=embeddings
+)
+
+# Test query
+query = "What are model variants?"
+
+# Perform similarity search
+results = vectorstore.similarity_search(query, k=5)
+
+print(f"\nQuery: '{query}'")
+print(f"Found {len(results)} relevant chunks:\n")
+
+for i, doc in enumerate(results, 1):
+    print(f"Result {i}:")
+    print(f"Source: {doc.metadata.get('source', 'unknown')}")
+    print(f"Content preview: {doc.page_content[:800]}...")
+    
+```
+
+:::
+
+
+
+# Chat with RAG
+
+::: {.panel-tabset}
+
+## R
+
+The final piece is to connect this retrieval capability to a chat interface. We use `ellmer` to create a chat client. Crucially, we register a "retrieval tool" using `ragnar_register_tool_retrieve`. This gives the LLM the ability to query our vector store whenever it needs information to answer a user's question.
+
+We also provide a system prompt that instructs the model to always check the knowledge base and cite its sources.
+
+
+```{r}
+
+library(ellmer)
+library(dotenv)
+load_dot_env(file = ".env")
+
+chat <- chat_openrouter(
+    api_key = Sys.getenv("OPENROUTER_API_KEY"),
+    model = "openai/gpt-oss-120b",
+    system_prompt = glue::trim("
+  You are an assistant for question-answering tasks. You are concise.
+
+  Before responding, retrieve relevant material from the knowledge store. Quote or
+  paraphrase passages, clearly marking your own words versus the source. Provide a
+  working link for every source cited, as well as any additional relevant links.
+  Do not answer unless you have retrieved and cited a source.If you do not find
+  relevant information, say 'I could not find anything relevant in the knowledge base
+    ")
+) |>
+    ragnar_register_tool_retrieve(store, top_k = 3)
+
+
+```
+
+
+```{r}
+#| results: asis
+chat$chat("What are model variants?")
+```
+
+
+## Python chatlas
+
+We can also use the `chatlas` library to create a chat interface. Here, we define a custom tool `retrieve_trusted_content` that queries our DuckDB index. We then register this tool with the chat model, allowing it to pull in relevant information when answering user questions.
+
+
+```{python}
+import os
+import chatlas as ctl
+from llama_index.core import VectorStoreIndex, Settings
+from llama_index.vector_stores.duckdb import DuckDBVectorStore
+from llama_index.embeddings.openai import OpenAIEmbedding
+from dotenv import load_dotenv
+load_dotenv()
+# Ensure API key
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+
+# 1. Configure Embedding Model (LlamaIndex)
+embed_model = OpenAIEmbedding(
+    api_key=openrouter_api_key,
+    base_url="https://openrouter.ai/api/v1",
+    model="text-embedding-3-small"  # Use standard OpenAI model name; OpenRouter requires this
+)
+Settings.embed_model = embed_model
+
+# 2. Load Vector Store
+vector_store = DuckDBVectorStore(database_name="open.duckdb", persist_dir="./persist/")
+index = VectorStoreIndex.from_vector_store(vector_store=vector_store)
+
+# 3. Define Retrieval Tool
+def retrieve_trusted_content(query: str, top_k: int = 5):
+    """
+    Retrieve relevant content from the knowledge store.
+
+    Parameters
+    ----------
+    query
+        The query used to semantically search the knowledge store.
+    top_k
+        The number of results to retrieve from the knowledge store.
+    """
+    #print(f"Retrieving content for query: '{query}'")
+    retriever = index.as_retriever(similarity_top_k=top_k)
+    nodes = retriever.retrieve(query)
+    return [f"<excerpt>{x.text}</excerpt>" for x in nodes]
+
+# 4. Initialize Chat with System Prompt
+chat = ctl.ChatOpenAI(
+    model="openai/gpt-oss-120b",
+    api_key=openrouter_api_key,
+    base_url="https://openrouter.ai/api/v1",
+    system_prompt=(
+        "You are an assistant for question-answering tasks. "
+        "Use the retrieve_trusted_content tool to find relevant information from the knowledge store. "
+        "Answer questions based on the retrieved content. "
+        "If you cannot find relevant information, say so clearly."
+    )
+)
+
+chat.register_tool(retrieve_trusted_content)
+```
+
+
+```{python}
+#| output: false
+response=chat.chat("What are model variants?", echo="none")
+```
+
+```{python}
+print(response)
+```
+
+
+
+## Python LangChain
+
+The final piece is to connect this retrieval capability to a chat interface. We use `LangChain` to create a RAG chain. We create a `retriever` from our vector store and combine it with a `ChatOpenAI` model (using OpenRouter) and a prompt template. This gives the LLM the ability to query our vector store whenever it needs information to answer a user's question.
+
+```{python}
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
+from openai import OpenAI
+from langchain_core.embeddings import Embeddings
+from langchain_chroma import Chroma
+from typing import List
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Custom embeddings class for OpenRouter API
+class OpenRouterEmbeddings(Embeddings):
+    """Custom embeddings class for OpenRouter API."""
+    
+    def __init__(self, api_key: str, model: str = "qwen/qwen3-embedding-8b"):
+        self.client = OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=api_key,
+        )
+        self.model = model
+    
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Embed a list of documents."""
+        response = self.client.embeddings.create(
+            extra_headers={
+                "HTTP-Referer": "https://ai-blog.com",
+                "X-Title": "AI Blog RAG",
+            },
+            model=self.model,
+            input=texts,
+            encoding_format="float"
+        )
+        return [item.embedding for item in response.data]
+    
+    def embed_query(self, text: str) -> List[float]:
+        """Embed a single query."""
+        response = self.client.embeddings.create(
+            extra_headers={
+                "HTTP-Referer": "https://ai-blog.com",
+                "X-Title": "AI Blog RAG",
+            },
+            model=self.model,
+            input=text,
+            encoding_format="float"
+        )
+        return response.data[0].embedding
+
+# Get OpenRouter API key
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+if not openrouter_api_key:
+    raise ValueError("OPENROUTER_API_KEY not found in environment variables")
+
+# Create embeddings instance using OpenRouter
+embeddings = OpenRouterEmbeddings(
+    api_key=openrouter_api_key,
+    model="qwen/qwen3-embedding-8b"
+)
+
+# Define vector store location
+persist_directory = "chroma_db_data"
+
+# Load existing vector store
+print(f"Loading existing vectorstore from {persist_directory}...")
+vectorstore = Chroma(
+    persist_directory=persist_directory,
+    embedding_function=embeddings
+)
+print(f"✓ Loaded vectorstore")
+
+# Initialize LLM using OpenRouter
+llm = ChatOpenAI(
+    model="openai/gpt-oss-120b",
+    openai_api_key=os.getenv("OPENROUTER_API_KEY"),
+    openai_api_base="https://openrouter.ai/api/v1"
+)
+
+# Create prompt template
+system_prompt = (
+    "You are an assistant for question-answering tasks. "
+    "Use the following pieces of retrieved context to answer "
+    "the question. If you don't know the answer, say that you "
+    "don't know. Use three sentences maximum and keep the "
+    "answer concise."
+    "\n\n"
+    "Context: {context}"
+    "\n\n"
+    "Question: {question}"
+)
+
+prompt = ChatPromptTemplate.from_template(system_prompt)
+
+# Create retriever
+retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+
+# Helper function to format documents
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
+
+# Create RAG chain using LCEL
+rag_chain = (
+    {
+        "context": retriever | format_docs,
+        "question": RunnablePassthrough()
+    }
+    | prompt
+    | llm
+    | StrOutputParser()
+)
+
+print("✓ RAG chain created successfully!")
+
+# Test the RAG chain
+question = "What are model variants?"
+
+print(f"\nQuestion: {question}")
+
+# Get context documents separately for display
+context_docs = retriever.invoke(question)
+
+# Invoke the RAG chain
+answer = rag_chain.invoke(question)
+import textwrap
+
+for line in answer.split('\n'):
+    print(textwrap.fill(line, width=80))
+
+
+```
+
+:::

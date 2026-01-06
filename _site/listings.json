@@ -1,0 +1,14 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/weather-trend/index.html",
+      "/posts/gdp-trend/index.html",
+      "/posts/weight-tracking/index.html",
+      "/posts/whisky-tasting/index.html",
+      "/posts/yolo-app/index.html",
+      "/posts/RAG/index.html",
+      "/posts/openrouter/index.html"
+    ]
+  }
+]
