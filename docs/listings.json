@@ -1,10 +1,27 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/posts.html",
     "items": [
-      "/posts/weather-trend/index.html",
+      "/posts/llm-summary/index.html",
+      "/posts/AI-Chat/index.html",
       "/posts/gdp-trend/index.html",
       "/posts/shop-map-manager/index.html",
+      "/posts/weather-trend/index.html",
+      "/posts/weight-tracking/index.html",
+      "/posts/whisky-tasting/index.html",
+      "/posts/yolo-app/index.html",
+      "/posts/RAG/index.html",
+      "/posts/openrouter/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/llm-summary/index.html",
+      "/posts/AI-Chat/index.html",
+      "/posts/gdp-trend/index.html",
+      "/posts/shop-map-manager/index.html",
+      "/posts/weather-trend/index.html",
       "/posts/weight-tracking/index.html",
       "/posts/whisky-tasting/index.html",
       "/posts/yolo-app/index.html",

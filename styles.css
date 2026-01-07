@@ -239,17 +239,16 @@ table {
 /* Image styling for blog grid items */
 .listing-grid .listing-item img,
 .thumbnail-image.card-img {
-  max-width: 100%;
-  height: auto !important;
-  object-fit: contain;
+  width: 100%;
+  height: 200px !important; /* Set a consistent height */
+  object-fit: cover; /* Ensure image fills the space without distortion */
   border-radius: 4px;
   margin-bottom: 1rem;
-  width: 100%;
   display: block;
 }
 
 .listing-grid .listing-item .thumbnail-image.card-img {
-  height: auto !important;
+  height: 200px !important;
 }
 
 /* Ensure grid items can accommodate varying aspect ratios */

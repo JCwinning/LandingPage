@@ -9,18 +9,39 @@ website:
   description: "A blog built with Quarto"
   site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
   title: "AI Blog"
+  favicon: favicon.png
   navbar:
     right:
+      - text: "Home"
+        href: https://jcwinning.github.io/LandingPage/
+      - text: "Handbook"  # This becomes the clickable/hoverable label
+        menu:
+          - text: "SQL hangbook"
+            href: https://jcwinning.github.io/Into_sql/
+          - text: "R handbook"
+            href: https://jcfly3000.github.io/Into-R/
+          - text: "Python handbook"
+            href: https://jcfly3000.github.io/Into-Python/
+          - text: "tensorflowing handbook"
+            href: https://tonyfly3000.github.io/tensorflowing/ 
+          - text: "AI handbook"
+            href: https://jcfly3000.github.io/into_AI/
+      - text: "Blog"
+        href: https://jcwinning.github.io/posts.html
       - cv.qmd
       - icon: github
         href: https://github.com/JCfly3000
+  page-footer:
+    right: "This blog is built with ❤️ and [Quarto](https://quarto.org/)."
+
 
 format:
   html:
     grid:
-      body-width: 900px
-      sidebar-width: 100px
-      margin-width: 250px
+      body-width: 1000px
+      sidebar-width: 300px
+      margin-width: 300px
+      gutter-width: 1.5rem
 
     fontsize: 1.2em
     page-layout: full

@@ -1,0 +1,22 @@
+---
+title: "Posts"
+listing:
+  contents: posts
+  type: table
+  sort: "date desc"
+  page-size: 100
+  categories: false
+  fields: [image, date, title, categories]
+  filter-ui: [date, title, categories]
+  
+---
+
+
+```{r}
+#| echo: false
+folder <- "./posts"
+files <-  list.files(folder, all.files = FALSE, full.names = TRUE)
+#length(files)
+```
+
+As  `{r} Sys.Date()`. Total number of posts: `{r} length(files)` 

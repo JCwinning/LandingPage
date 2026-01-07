@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tony D">
-<meta name="dcterms.date" content="2025-11-05">
+<meta name="dcterms.date" content="2025-11-08">
 
 <title>Shop Map Manager (店铺地图管理系统) – AI Blog</title>
 <style>
@@ -67,6 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -296,6 +297,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="https://jcwinning.github.io/LandingPage/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-handbook" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Handbook</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-handbook">    
+        <li>
+    <a class="dropdown-item" href="https://jcwinning.github.io/Into_sql/">
+ <span class="dropdown-text">SQL hangbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://jcfly3000.github.io/Into-R/">
+ <span class="dropdown-text">R handbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://jcfly3000.github.io/Into-Python/">
+ <span class="dropdown-text">Python handbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://tonyfly3000.github.io/tensorflowing/">
+ <span class="dropdown-text">tensorflowing handbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://jcfly3000.github.io/into_AI/">
+ <span class="dropdown-text">AI handbook</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://jcwinning.github.io/posts.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">CV / 简历</span></a>
   </li>  
@@ -322,19 +358,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#live-demo" id="toc-live-demo" class="nav-link active" data-scroll-target="#live-demo">Live Demo</a></li>
-  <li><a href="#screenshot" id="toc-screenshot" class="nav-link" data-scroll-target="#screenshot">Screenshot</a></li>
+  <li><a href="#key-architectural-shift-dual-mode-storage" id="toc-key-architectural-shift-dual-mode-storage" class="nav-link" data-scroll-target="#key-architectural-shift-dual-mode-storage">Key Architectural Shift: Dual-Mode Storage</a></li>
   <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
   <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
   <ul class="collapse">
-  <li><a href="#adding-shops" id="toc-adding-shops" class="nav-link" data-scroll-target="#adding-shops">Adding Shops</a></li>
-  <li><a href="#managing-data" id="toc-managing-data" class="nav-link" data-scroll-target="#managing-data">Managing Data</a></li>
-  <li><a href="#viewing-on-map" id="toc-viewing-on-map" class="nav-link" data-scroll-target="#viewing-on-map">Viewing on Map</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">1. Installation</a></li>
+  <li><a href="#environment-configuration" id="toc-environment-configuration" class="nav-link" data-scroll-target="#environment-configuration">2. Environment Configuration</a></li>
+  <li><a href="#launch" id="toc-launch" class="nav-link" data-scroll-target="#launch">3. Launch</a></li>
   </ul></li>
-  <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage">Data Storage</a></li>
-  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project Structure</a></li>
-  <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
+  <li><a href="#data-mastery" id="toc-data-mastery" class="nav-link" data-scroll-target="#data-mastery">Data Mastery</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
@@ -367,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 5, 2025</p>
+      <p class="date">November 8, 2025</p>
     </div>
   </div>
   
@@ -379,94 +412,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>A map-based shop management application built with Streamlit and Folium, allowing users to manage shop data in a CSV file and visualize them on an interactive map with Gaode (Amap) tiles.</p>
+<p>A robust and elegant personal shop management system. Whether you’re tracking your favorite coffee shops, scenic spots, or planning future visits, this application provides a powerful platform for visualization and data management.</p>
 <section id="live-demo" class="level2">
 <h2 class="anchored" data-anchor-id="live-demo">Live Demo</h2>
-<p><a href="https://chinamap.streamlit.app/" class="uri">https://chinamap.streamlit.app/</a></p>
-</section>
-<section id="screenshot" class="level2">
-<h2 class="anchored" data-anchor-id="screenshot">Screenshot</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/1.png" class="img-fluid figure-img"></p>
-<figcaption>Dashboard Overview</figcaption>
+<p><a href="https://china-map.streamlit.app/"><img src="https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&amp;logo=Streamlit&amp;logoColor=white.png" class="img-fluid figure-img"></a></p>
+<figcaption>Live App</figcaption>
 </figure>
 </div>
+</section>
+<section id="key-architectural-shift-dual-mode-storage" class="level2">
+<h2 class="anchored" data-anchor-id="key-architectural-shift-dual-mode-storage">Key Architectural Shift: Dual-Mode Storage</h2>
+<p>The most significant update to the project is the introduction of <strong>Dual Data Storage Modes</strong>, allowing for both privacy and portability:</p>
+<ul>
+<li><strong>Local Mode</strong>: Data is stored securely in a local <code>shops.csv</code> file. Perfect for quick use without any setup.</li>
+<li><strong>Cloud Mode</strong>: Leverages <strong>Supabase</strong> for real-time synchronization across devices. Your journeys follow you wherever you go.</li>
+</ul>
 </section>
 <section id="features" class="level2">
 <h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
-<li><strong>Shop Search &amp; Addition</strong>: Integration with the Gaode Map API to search for shops by name or keyword and automatically add them to your personal list.</li>
-<li><strong>Interactive Map Visualization</strong>:
+<li><strong>🔍 Infinite Discovery</strong>: Seamlessly integrate with the <strong>Gaode (Amap) Map API</strong>. Search for any location and add it to your collection with a single click.</li>
+<li><strong>🎨 Dynamic Visualization</strong>: Interactive maps powered by <strong>Folium</strong>, featuring:
 <ul>
-<li>Displays all saved shop locations on an interactive map.</li>
-<li>Custom markers with category-specific icons.</li>
-<li>Color-coded markers based on visit status (red for “Visited”, green for “Want to Visit”).</li>
+<li>Custom category-specific icons (Coffee, Dining, Scenery, etc.).</li>
+<li>Intuitive color coding: <strong>Red</strong> for “Visited”, <strong>Green</strong> for “Want to Visit”.</li>
 </ul></li>
-<li><strong>Data Management</strong>:
-<ul>
-<li>Editable table view for managing shop information.</li>
-<li>Auto-save to CSV file.</li>
-<li>Track visit status, ratings, and personal notes.</li>
-</ul></li>
-<li><strong>Categorization</strong>: Organize shops by type (餐饮, 零售, 服务, 娱乐, 教育, 医疗, 风景名胜, etc.).</li>
-<li><strong>Visit Tracking</strong>: Distinguish between shops you’ve visited and those you want to visit.</li>
-<li><strong>Personal Notes &amp; Ratings</strong>: Record experiences, notes, and star ratings (1-5) for visited locations.</li>
+<li><strong>📸 Visual Memories</strong>: (Cloud Mode) Capture and upload multiple photos for each location, hosted securely on Supabase Storage.</li>
+<li><strong>⭐ Deep Insights</strong>: Track more than just locations. Store star ratings (1-5), personal notes, and visit timestamps.</li>
+<li><strong>⚡ Live Filtering</strong>: Instantly filter your view by journey type or visit status to focus on what matters.</li>
 </ul>
 </section>
 <section id="tech-stack" class="level2">
 <h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
-<ul>
-<li><strong>Frontend</strong>: Streamlit</li>
-<li><strong>Mapping</strong>: Folium with streamlit-folium</li>
-<li><strong>Data</strong>: Pandas</li>
-<li><strong>API</strong>: Gaode Map API (高德地图API)</li>
-</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Frontend</strong></td>
+<td><a href="https://streamlit.io/">Streamlit</a></td>
+</tr>
+<tr class="even">
+<td><strong>Mapping</strong></td>
+<td><a href="https://python-visualization.github.io/folium/">Folium</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Database/Auth</strong></td>
+<td><a href="https://supabase.com/">Supabase</a></td>
+</tr>
+<tr class="even">
+<td><strong>API</strong></td>
+<td><a href="https://lbs.amap.com/">Gaode Maps API</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Data Logic</strong></td>
+<td>Python &amp; Pandas</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<ol type="1">
-<li><p>Clone this repository:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>repository-url<span class="op">&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> map_app</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Install dependencies:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Set up environment variables: Create a <code>.env</code> file in the project root and add your Gaode API key:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">GAODE_API_KEY</span><span class="op">=</span>your_api_key_here</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To get a Gaode API key, visit: <a href="https://console.amap.com/dev/key/app" class="uri">https://console.amap.com/dev/key/app</a></p></li>
-</ol>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<section id="installation" class="level3">
+<h3 class="anchored" data-anchor-id="installation">1. Installation</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/JCwinning/map_app.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> map_app</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">Usage</h2>
-<p>Run the application:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The app will open in your browser at <code>http://localhost:8501</code></p>
-<section id="adding-shops" class="level3">
-<h3 class="anchored" data-anchor-id="adding-shops">Adding Shops</h3>
-<ol type="1">
-<li>Use the sidebar search to find shops by name.</li>
-<li>Click “Add to List” (添加到列表) on any search result.</li>
-</ol>
+<section id="environment-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="environment-configuration">2. Environment Configuration</h3>
+<p>Create a <code>.env</code> file in the root directory:</p>
+<pre class="env"><code># Essential
+GAODE_API_KEY=your_gaode_key
+
+# Optional: For Cloud Mode
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_anon_key</code></pre>
 </section>
-<section id="managing-data" class="level3">
-<h3 class="anchored" data-anchor-id="managing-data">Managing Data</h3>
-<ol type="1">
-<li>Switch to the “Data Table” (数据表格) tab.</li>
-<li>Edit shop details, visit status, ratings, and notes.</li>
-<li>Changes are auto-saved to <code>shops_data.csv</code>.</li>
-</ol>
-</section>
-<section id="viewing-on-map" class="level3">
-<h3 class="anchored" data-anchor-id="viewing-on-map">Viewing on Map</h3>
-<ol type="1">
-<li>Switch to the “Map View” (地图视图) tab.</li>
-<li>Click on markers to see shop details.</li>
-</ol>
+<section id="launch" class="level3">
+<h3 class="anchored" data-anchor-id="launch">3. Launch</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="data-storage" class="level2">
-<h2 class="anchored" data-anchor-id="data-storage">Data Storage</h2>
-<p>Shop data is stored in <code>shops_data.csv</code> with the following columns:</p>
+<section id="data-mastery" class="level2">
+<h2 class="anchored" data-anchor-id="data-mastery">Data Mastery</h2>
+<p>The application handles complex data structures gracefully, whether stored in a flat CSV or a relational Supabase table:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -477,68 +513,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td><code>shop_name</code></td>
-<td>Shop name</td>
+<td>Name of the location</td>
 </tr>
 <tr class="even">
-<td><code>city</code></td>
-<td>City name</td>
-</tr>
-<tr class="odd">
-<td><code>address</code></td>
-<td>Full address</td>
-</tr>
-<tr class="even">
-<td><code>latitude</code></td>
-<td>Latitude coordinate</td>
-</tr>
-<tr class="odd">
-<td><code>longitude</code></td>
-<td>Longitude coordinate</td>
-</tr>
-<tr class="even">
-<td><code>shop_type</code></td>
-<td>Shop category</td>
-</tr>
-<tr class="odd">
 <td><code>visit_status</code></td>
-<td>“Want to Visit” or “Visited”</td>
-</tr>
-<tr class="even">
-<td><code>notes</code></td>
-<td>Personal notes</td>
+<td>Current status (Visited / Want to Visit)</td>
 </tr>
 <tr class="odd">
 <td><code>rating</code></td>
-<td>Star rating (0-5)</td>
+<td>Your personal star rating (1-5)</td>
+</tr>
+<tr class="even">
+<td><code>shop_type</code></td>
+<td>Category (e.g., Coffee, Retail, Scenery)</td>
+</tr>
+<tr class="odd">
+<td><code>images</code></td>
+<td>(Cloud Mode) Array of hosted image URLs</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="project-structure" class="level2">
-<h2 class="anchored" data-anchor-id="project-structure">Project Structure</h2>
-<pre class="text"><code>map_app/
-├── app.py              # Main Streamlit application
-├── map_utils.py        # Gaode API integration
-├── requirements.txt    # Python dependencies
-├── shops_data.csv      # Data storage (auto-created)
-├── static/
-│   └── style.css       # Custom styles
-└── README.md           # Main documentation</code></pre>
-</section>
-<section id="dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
-<ul>
-<li><code>streamlit</code> - Web application framework</li>
-<li><code>folium</code> - Map visualization</li>
-<li><code>streamlit-folium</code> - Streamlit-Folium integration</li>
-<li><code>pandas</code> - Data manipulation</li>
-<li><code>python-dotenv</code> - Environment variable management</li>
-<li><code>requests</code> - HTTP client for API calls</li>
-</ul>
+<hr>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>This Shop Map Manager provides a simple yet effective way to track and visualize your favorite locations. By leveraging Streamlit for the UI and Gaode Maps for data, it bridges the gap between static lists and interactive exploration.</p>
+<p>The <strong>Shop Map Manager</strong> has evolved from a simple CSV visualizer into a comprehensive personal travel and discovery companion. By bridging the gap between local simplicity and cloud power, it offers the ultimate flexibility for modern explorers.</p>
 
 
 <!-- -->
@@ -1010,147 +1009,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Shop Map Manager (店铺地图管理系统)"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Tony D"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-11-05"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [AI, API, map]</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "images/0.png"</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">  eval: false</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>A map-based shop management application built with Streamlit and Folium, allowing users to manage shop data in a CSV file and visualize them on an interactive map with Gaode (Amap) tiles.</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Live Demo</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://chinamap.streamlit.app/&gt;</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Screenshot</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="al">![Dashboard Overview](images/1.png)</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Features</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Shop Search &amp; Addition**: Integration with the Gaode Map API to search for shops by name or keyword and automatically add them to your personal list.</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Interactive Map Visualization**:</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Displays all saved shop locations on an interactive map.</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Custom markers with category-specific icons.</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Color-coded markers based on visit status (red for "Visited", green for "Want to Visit").</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data Management**:</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Editable table view for managing shop information.</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Auto-save to CSV file.</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Track visit status, ratings, and personal notes.</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Categorization**: Organize shops by type (餐饮, 零售, 服务, 娱乐, 教育, 医疗, 风景名胜, etc.).</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Visit Tracking**: Distinguish between shops you've visited and those you want to visit.</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Personal Notes &amp; Ratings**: Record experiences, notes, and star ratings (1-5) for visited locations.</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tech Stack</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Frontend**: Streamlit</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mapping**: Folium with streamlit-folium</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data**: Pandas</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**API**: Gaode Map API (高德地图API)</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Clone this repository:</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="in">```bash</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> clone <span class="op">&lt;</span>repository-url<span class="op">&gt;</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">cd</span> map_app</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Install dependencies:</span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>    <span class="in">```bash</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    <span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Set up environment variables: Create a <span class="in">`.env`</span> file in the project root and add your Gaode API key:</span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>    <span class="in">```bash</span></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>    <span class="va">GAODE_API_KEY</span><span class="op">=</span>your_api_key_here</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    To get a Gaode API key, visit: <span class="ot">&lt;https://console.amap.com/dev/key/app&gt;</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Usage</span></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>Run the application:</span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run app.py</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>The app will open in your browser at <span class="in">`http://localhost:8501`</span></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### Adding Shops</span></span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Use the sidebar search to find shops by name.</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Click "Add to List" (添加到列表) on any search result.</span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a><span class="fu">### Managing Data</span></span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Switch to the "Data Table" (数据表格) tab.</span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Edit shop details, visit status, ratings, and notes.</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Changes are auto-saved to <span class="in">`shops_data.csv`</span>.</span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="fu">### Viewing on Map</span></span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Switch to the "Map View" (地图视图) tab.</span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Click on markers to see shop details.</span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Storage</span></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>Shop data is stored in <span class="in">`shops_data.csv`</span> with the following columns:</span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> Description <span class="pp">|</span></span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`shop_name`</span> <span class="pp">|</span> Shop name <span class="pp">|</span></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`city`</span> <span class="pp">|</span> City name <span class="pp">|</span></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`address`</span> <span class="pp">|</span> Full address <span class="pp">|</span></span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`latitude`</span> <span class="pp">|</span> Latitude coordinate <span class="pp">|</span></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`longitude`</span> <span class="pp">|</span> Longitude coordinate <span class="pp">|</span></span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`shop_type`</span> <span class="pp">|</span> Shop category <span class="pp">|</span></span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`visit_status`</span> <span class="pp">|</span> "Want to Visit" or "Visited" <span class="pp">|</span></span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`notes`</span> <span class="pp">|</span> Personal notes <span class="pp">|</span></span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`rating`</span> <span class="pp">|</span> Star rating (0-5) <span class="pp">|</span></span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project Structure</span></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="in">map_app/</span></span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="in">├── app.py              # Main Streamlit application</span></span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="in">├── map_utils.py        # Gaode API integration</span></span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="in">├── requirements.txt    # Python dependencies</span></span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="in">├── shops_data.csv      # Data storage (auto-created)</span></span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="in">├── static/</span></span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── style.css       # Custom styles</span></span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="in">└── README.md           # Main documentation</span></span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dependencies</span></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`streamlit`</span> - Web application framework</span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`folium`</span> - Map visualization</span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`streamlit-folium`</span> - Streamlit-Folium integration</span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pandas`</span> - Data manipulation</span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`python-dotenv`</span> - Environment variable management</span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`requests`</span> - HTTP client for API calls</span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>This Shop Map Manager provides a simple yet effective way to track and visualize your favorite locations. By leveraging Streamlit for the UI and Gaode Maps for data, it bridges the gap between static lists and interactive exploration.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Shop Map Manager (店铺地图管理系统)"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Tony D"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-11-08"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [AI, API, map]</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "images/0.png"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">  eval: false</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>A robust and elegant personal shop management system. Whether you're tracking your favorite coffee shops, scenic spots, or planning future visits, this application provides a powerful platform for visualization and data management.</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Live Demo</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Live App](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&amp;logo=Streamlit&amp;logoColor=white)</span><span class="co">](https://china-map.streamlit.app/)</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Architectural Shift: Dual-Mode Storage</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>The most significant update to the project is the introduction of **Dual Data Storage Modes**, allowing for both privacy and portability:</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Local Mode**: Data is stored securely in a local <span class="in">`shops.csv`</span> file. Perfect for quick use without any setup.</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Cloud Mode**: Leverages **Supabase** for real-time synchronization across devices. Your journeys follow you wherever you go.</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Features</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**🔍 Infinite Discovery**: Seamlessly integrate with the **Gaode (Amap) Map API**. Search for any location and add it to your collection with a single click.</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**🎨 Dynamic Visualization**: Interactive maps powered by **Folium**, featuring:</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    *   </span>Custom category-specific icons (Coffee, Dining, Scenery, etc.).</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="ss">    *   </span>Intuitive color coding: **Red** for "Visited", **Green** for "Want to Visit".</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**📸 Visual Memories**: (Cloud Mode) Capture and upload multiple photos for each location, hosted securely on Supabase Storage.</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**⭐ Deep Insights**: Track more than just locations. Store star ratings (1-5), personal notes, and visit timestamps.</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**⚡ Live Filtering**: Instantly filter your view by journey type or visit status to focus on what matters.</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tech Stack</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Component <span class="pp">|</span> Technology <span class="pp">|</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Frontend** <span class="pp">|</span> <span class="co">[</span><span class="ot">Streamlit</span><span class="co">](https://streamlit.io/)</span> <span class="pp">|</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Mapping** <span class="pp">|</span> <span class="co">[</span><span class="ot">Folium</span><span class="co">](https://python-visualization.github.io/folium/)</span> <span class="pp">|</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Database/Auth** <span class="pp">|</span> <span class="co">[</span><span class="ot">Supabase</span><span class="co">](https://supabase.com/)</span> <span class="pp">|</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **API** <span class="pp">|</span> <span class="co">[</span><span class="ot">Gaode Maps API</span><span class="co">](https://lbs.amap.com/)</span> <span class="pp">|</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Data Logic** <span class="pp">|</span> Python &amp; Pandas <span class="pp">|</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting Started</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Installation</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/JCwinning/map_app.git</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> map_app</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Environment Configuration</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>Create a <span class="in">`.env`</span> file in the root directory:</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="in">```env</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="in"># Essential</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="in">GAODE_API_KEY=your_gaode_key</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="in"># Optional: For Cloud Mode</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="in">SUPABASE_URL=your_supabase_url</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="in">SUPABASE_KEY=your_supabase_anon_key</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Launch</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run app.py</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Mastery</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>The application handles complex data structures gracefully, whether stored in a flat CSV or a relational Supabase table:</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> Description <span class="pp">|</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`shop_name`</span> <span class="pp">|</span> Name of the location <span class="pp">|</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`visit_status`</span> <span class="pp">|</span> Current status (Visited / Want to Visit) <span class="pp">|</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`rating`</span> <span class="pp">|</span> Your personal star rating (1-5) <span class="pp">|</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`shop_type`</span> <span class="pp">|</span> Category (e.g., Coffee, Retail, Scenery) <span class="pp">|</span></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`images`</span> <span class="pp">|</span> (Cloud Mode) Array of hosted image URLs <span class="pp">|</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>The **Shop Map Manager** has evolved from a simple CSV visualizer into a comprehensive personal travel and discovery companion. By bridging the gap between local simplicity and cloud power, it offers the ultimate flexibility for modern explorers.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This blog is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 
