@@ -9,6 +9,7 @@ format:
   html:
     code-fold: true
     code-tools: true
+    code-copy: true
     
 execute:
   eval: false
@@ -28,10 +29,17 @@ Live Demo: [https://yolo-live.streamlit.app/](https://yolo-live.streamlit.app/)
 Github: [https://github.com/JCwinning/YOLO_app](https://github.com/JCwinning/YOLO_app)
 
 
+::: {.panel-tabset}
+
+## Object detection
 
 ![Application Screenshot - Main Interface](images/0.png){width="100%"}
 
+## 物体识别
+
 ![Application Screenshot - Detection Results](images/1.png){width="100%"}
+:::
+
 
 ## Key Features
 
@@ -109,7 +117,7 @@ dependencies = [
 The main application (`app.py`) consists of over 1,000 lines of well-structured Python code organized into several key components:
 
 #### 1. Internationalization System
-```python
+```{python}
 from language import translations
 
 def get_translation(key, **kwargs):
@@ -120,7 +128,7 @@ def get_translation(key, **kwargs):
 ```
 
 #### 2. Device Optimization
-```python
+```{python}
 def get_device():
     """Automatically detect the best available device"""
     if torch.backends.mps.is_available():
@@ -134,7 +142,7 @@ st.info(f"Using device: {device.upper()}")
 ```
 
 #### 3. Image Processing Pipeline
-```python
+```{python}
 def encode_image_to_base64(image):
     """Encode PIL Image to base64 string with size compression"""
     max_size_bytes = 8 * 1024 * 1024  # 8MB limit
@@ -154,7 +162,7 @@ def encode_image_to_base64(image):
 #### Local YOLO Processing
 The app supports all YOLO11 model variants with automatic performance optimization:
 
-```python
+```{python}
 # Model selection interface
 model_options = ["yolo11n.pt", "yolo11s.pt", "yolo11m.pt", "yolo11l.pt", "yolo11x.pt"]
 model_descriptions = {
@@ -200,7 +208,7 @@ def detect_objects(image, model, confidence_threshold=0.5):
 #### Cloud API Integration
 For cloud-based models, the app handles API authentication and request formatting:
 
-```python
+```{python}
 def process_with_qwen(image, api_key):
     """Process image using Qwen-Image-Edit via DashScope"""
     try:
@@ -234,7 +242,7 @@ The application uses a professional three-column layout:
 ### Bilingual Support
 The translation system handles all UI elements:
 
-```python
+```{python}
 translations = {
     "en": {
         "title": "YOLO11 Object Detection",
@@ -266,7 +274,7 @@ translations = {
 ### Apple Silicon Acceleration
 The app automatically detects and utilizes Metal Performance Shaders (MPS) on Apple Silicon devices:
 
-```python
+```{python}
 device = "mps" if torch.backends.mps.is_available() else "cpu"
 model = YOLO(selected_model).to(device)
 
@@ -282,7 +290,7 @@ st.metric(f"Inference Time ({device.upper()})", f"{inference_time:.1f}ms")
 ### Image Compression for Cloud APIs
 To meet API size limits, the app implements smart image compression:
 
-```python
+```{python}
 def compress_image_for_api(image, max_size=8*1024*1024):
     """Compress image to meet API requirements"""
     for quality in [95, 85, 75, 65]:
@@ -299,7 +307,7 @@ def compress_image_for_api(image, max_size=8*1024*1024):
 ### Session Management
 The application maintains comprehensive session state:
 
-```python
+```{python}
 session_state_vars = [
     "current_image", "uploaded_image_bytes",
     "current_video", "uploaded_video_bytes",
@@ -312,7 +320,7 @@ session_state_vars = [
 ### Error Handling
 Robust error handling ensures graceful degradation:
 
-```python
+```{python}
 try:
     result = model.predict(image, conf=confidence_threshold)
     st.success(get_translation("detection_success"))
@@ -321,10 +329,6 @@ except Exception as e:
     # Fallback to alternative processing method
 ```
 
-## Live Demo
-
-The application is deployed and accessible at:
-**https://yolo-live.streamlit.app/**
 
 ## Getting Started
 
@@ -407,5 +411,3 @@ The project showcases best practices in:
 Whether you're interested in computer vision, web development, or AI applications, this project provides an excellent foundation for building advanced AI-powered web applications.
 
 ---
-
-**GitHub Repository**: [YOLO_app](https://github.com/your-username/YOLO_app)

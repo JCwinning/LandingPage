@@ -5,16 +5,16 @@ date: "2025-11-05"
 categories: [AI, API, tutorial]
 image: "images/0.png"
 
-
 format:
   html:
     code-fold: true
     code-tools: true
+    code-copy: true
 
 execute:
   eval: false
   warning: false
-  cache: true
+
   
   
 ---
@@ -26,17 +26,35 @@ The whisky tasting application is an advanced AI-powered web application that ge
 
 Live Demo(modelscope): [https://modelscope.cn/studios/ttflying/whisky_AI_tasting](https://modelscope.cn/studios/ttflying/whisky_AI_tasting)
 
-
 Live Demo(shinyapp): [https://jcflyingco.shinyapps.io/ai-whisky-tasting/](https://jcflyingco.shinyapps.io/ai-whisky-tasting)
-
 
 Github: [https://github.com/JCwinning/whisky_tasting](https://github.com/JCwinning/whisky_tasting)
 
 
+::: {.panel-tabset}
+
+
+## AI tasting note
+
+![](images/2.png){width="100%"}
+
+## AI recommendation
+
+![](images/3.png){width="100%"}
 
 
 
-![Application Interface - Agent Selection and Input](images/0.png){width="100%"}
+## AI品鉴词
+![](images/0.png){width="100%"}
+
+
+## AI推荐
+
+![](images/1.png){width="100%"}
+
+
+::: 
+
 
 ## Core Architecture
 
@@ -55,7 +73,7 @@ The application features three specialized AI agents, each with unique character
 - **AI/ML**: OpenAI API, Vector embeddings, RAG system
 - **Data Sources**: Web scraping with BeautifulSoup4
 
-![AI Agent Configuration Panel](images/1.png){width="100%"}
+
 
 ## Database Architecture
 
@@ -83,7 +101,7 @@ CREATE TABLE whiskynote_embed (
 
 ### Data Collection Pipeline
 
-```python
+```{python}
 # Web scraping example from get_data_dt.py
 def scrape_drinktony_reviews():
     """Scrape Chinese whisky reviews from drinktony.netlify.app"""
@@ -138,7 +156,7 @@ The application uses state-of-the-art embedding technology to convert text into 
 
 The application uses BGE-Large-ZH-v1.5 model for generating embeddings:
 
-```python
+```{python}
 def get_embedding(text: str, api_key: str):
     """Generate text embeddings using SiliconFlow API"""
     client = OpenAI(
@@ -185,7 +203,7 @@ flowchart TD
 
 ### Similarity Search Implementation
 
-```python
+```{python}
 def find_similar_chunks(
     query_embedding,
     db_path,
@@ -222,7 +240,7 @@ def find_similar_chunks(
 
 ### DrunkTony (Chinese Agent)
 
-```python
+```{python}
 def run_conversation(query, api_key, model):
     """Generate whisky tasting notes in Chinese format"""
 
@@ -267,7 +285,7 @@ def run_conversation(query, api_key, model):
 
 ### WhiskyFunny (English Agent)
 
-```python
+```{python}
 def run_conversation(query, api_key, model):
     """Generate whisky tasting notes in English format"""
 
@@ -315,7 +333,7 @@ SGP: xxx - xx points
 
 The application uses a separate LLM for generating whisky recommendations:
 
-```python
+```{python}
 def recommend_whiskies_by_profile(tasting_notes, api_key, model):
     """Generate whisky recommendations based on tasting profile"""
 
@@ -352,7 +370,7 @@ Format each recommendation as:
 
 ### Streamlit Implementation
 
-```python
+```{python}
 # Main application interface
 def main():
     st.set_page_config(
@@ -410,13 +428,13 @@ def main():
             st.markdown(recommendations)
 ```
 
-![Tasting Results and Recommendations](images/2.png){width="100%"}
+
 
 ## Rate Limiting and Cost Management
 
 ### API Usage Control
 
-```python
+```{python}
 # Rate limiting implementation
 RATE_LIMIT_FILE = "rate_limit.json"
 MAX_RUNS_PER_DAY = 80
@@ -452,7 +470,7 @@ def check_rate_limit():
 
 ### Vector Database Performance
 
-```python
+```{python}
 # Optimized similarity search with batching
 def batch_similarity_search(query_embedding, db_path, table_name, batch_size=1000):
     """Optimized similarity search with batching for large datasets"""
@@ -498,16 +516,10 @@ conn = duckdb.connect('data/whisky_database.duckdb')
 "
 ```
 
-### Live Deployments
-
-The application is deployed on multiple platforms:
-
-- **ModelScope**: https://modelscope.cn/studios/ttflying/whisky_AI_tasting
-- **ShinyApps**: https://jcflyingco.shinyapps.io/ai-whisky-tasting/
 
 ### Shiny for Python Alternative
 
-```python
+```{python}
 # Alternative UI implementation using Shiny
 from shiny import App, ui, render, reactive, req
 
@@ -537,7 +549,6 @@ def server(input, output, session):
 app = App(app_ui, server)
 ```
 
-![Mobile Interface View](images/3.png){width="100%"}
 
 ## Technical Achievements
 
@@ -586,9 +597,7 @@ Whether you're a whisky enthusiast, AI developer, or data scientist, this projec
 
 ---
 
-**Live Demos**:
-- [ModelScope](https://modelscope.cn/studios/ttflying/whisky_AI_tasting)
-- [ShinyApps](https://jcflyingco.shinyapps.io/ai-whisky-tasting/)
 
 **Technology Stack**: Python, Streamlit, DuckDB, OpenAI API, Vector Embeddings
+
 **Database**: 26K+ real whisky reviews across 3 specialized sources

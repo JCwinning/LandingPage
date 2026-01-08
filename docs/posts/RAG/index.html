@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-462852a1a828e43190b7fb638229e098.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6102f49b80d86bc99601831afae2be9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-462852a1a828e43190b7fb638229e098.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d7ae91b437850ec40fb8359b7ecc6ae0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-cb06e9681ca458196cadc2b80eccd21f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d7ae91b437850ec40fb8359b7ecc6ae0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -371,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Retrieval-Augmented Generation(RAG) in R &amp; Python</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Retrieval-Augmented Generation(RAG) in R &amp; Python</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">AI</div>
     <div class="quarto-category">API</div>
@@ -421,12 +421,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>First, we need to gather the data for our knowledge base. We’ll use the <code>rvest</code> package to scrape URLs from the OpenRouter documentation. This will give us a list of pages to ingest.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ragnar)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dotenv)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load_dot_env</span>(<span class="at">file =</span> <span class="st">".env"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># URL to scrape</span></span>
@@ -448,6 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Print all links</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(links_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "https://openrouter.ai/docs/api-reference/overview"                               
  [2] "https://openrouter.ai/docs/quickstart"                                           
@@ -456,33 +462,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [5] "https://openrouter.ai/docs/guides/overview/principles"                           
  [6] "https://openrouter.ai/docs/guides/overview/models"                               
  [7] "https://openrouter.ai/docs/faq"                                                  
- [8] "https://openrouter.ai/docs/guides/routing/auto-model-selection"                  
+ [8] "https://openrouter.ai/docs/guides/overview/report-feedback"                      
  [9] "https://openrouter.ai/docs/guides/routing/model-fallbacks"                       
 [10] "https://openrouter.ai/docs/guides/routing/provider-selection"                    
 [11] "https://openrouter.ai/docs/guides/features/presets"                              
 [12] "https://openrouter.ai/docs/guides/features/tool-calling"                         
 [13] "https://openrouter.ai/docs/guides/features/structured-outputs"                   
 [14] "https://openrouter.ai/docs/guides/features/message-transforms"                   
-[15] "https://openrouter.ai/docs/guides/features/model-routing"                        
-[16] "https://openrouter.ai/docs/guides/features/zero-completion-insurance"            
-[17] "https://openrouter.ai/docs/guides/features/zdr"                                  
-[18] "https://openrouter.ai/docs/app-attribution"                                      
-[19] "https://openrouter.ai/docs/faq#how-are-rate-limits-calculated"                   
-[20] "https://openrouter.ai/docs/api/reference/streaming"                              
-[21] "https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview"</code></pre>
+[15] "https://openrouter.ai/docs/guides/features/zero-completion-insurance"            
+[16] "https://openrouter.ai/docs/guides/features/zdr"                                  
+[17] "https://openrouter.ai/docs/app-attribution"                                      
+[18] "https://openrouter.ai/docs/faq#how-are-rate-limits-calculated"                   
+[19] "https://openrouter.ai/docs/api/reference/streaming"                              
+[20] "https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview"</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>First, we need to gather the data for our knowledge base. We’ll use <code>requests</code> and <code>BeautifulSoup</code> to scrape URLs from the OpenRouter documentation. This will give us a list of pages to ingest.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.executable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>/Library/Frameworks/Python.framework/Versions/3.13/bin/python3</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
@@ -493,9 +503,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Load environment variables</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper functions</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_html(url: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">bytes</span>:</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fetch HTML content from URL and return as bytes."""</span></span>
@@ -546,12 +559,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Print all links</span></span>
 <span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Found </span><span class="sc">{</span><span class="bu">len</span>(links_full)<span class="sc">}</span><span class="ss"> documentation URLs"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Found 21 documentation URLs</code></pre>
+<pre><code>Found 20 documentation URLs</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(links_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>['https://openrouter.ai/docs/guides/features/structured-outputs', 'https://openrouter.ai/docs/guides/features/presets', 'https://openrouter.ai/docs/guides/overview/principles', 'https://openrouter.ai/docs/api-reference/overview', 'https://openrouter.ai/docs/guides/routing/provider-selection', 'https://openrouter.ai/docs/api/reference/overview', 'https://openrouter.ai/docs/guides/routing/auto-model-selection', 'https://openrouter.ai/docs/guides/features/zdr', 'https://openrouter.ai/docs/guides/features/tool-calling', 'https://openrouter.ai/docs/sdks/call-model/overview', 'https://openrouter.ai/docs/guides/features/message-transforms', 'https://openrouter.ai/docs/faq', 'https://openrouter.ai/docs/app-attribution', 'https://openrouter.ai/docs/guides/routing/model-fallbacks', 'https://openrouter.ai/docs/api/reference/streaming', 'https://openrouter.ai/docs/quickstart', 'https://openrouter.ai/docs/guides/features/model-routing', 'https://openrouter.ai/docs/guides/overview/models', 'https://openrouter.ai/docs/guides/features/zero-completion-insurance', 'https://openrouter.ai/docs/faq#how-are-rate-limits-calculated', 'https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview']</code></pre>
+<pre><code>['https://openrouter.ai/docs/guides/routing/provider-selection', 'https://openrouter.ai/docs/quickstart', 'https://openrouter.ai/docs/guides/overview/models', 'https://openrouter.ai/docs/guides/features/zero-completion-insurance', 'https://openrouter.ai/docs/api/reference/streaming', 'https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview', 'https://openrouter.ai/docs/guides/features/presets', 'https://openrouter.ai/docs/faq#how-are-rate-limits-calculated', 'https://openrouter.ai/docs/app-attribution', 'https://openrouter.ai/docs/api/reference/overview', 'https://openrouter.ai/docs/api-reference/overview', 'https://openrouter.ai/docs/guides/overview/principles', 'https://openrouter.ai/docs/faq', 'https://openrouter.ai/docs/guides/features/structured-outputs', 'https://openrouter.ai/docs/guides/features/zdr', 'https://openrouter.ai/docs/guides/routing/model-fallbacks', 'https://openrouter.ai/docs/guides/overview/report-feedback', 'https://openrouter.ai/docs/guides/features/tool-calling', 'https://openrouter.ai/docs/sdks/call-model/overview', 'https://openrouter.ai/docs/guides/features/message-transforms']</code></pre>
 </div>
 </div>
 </div>
@@ -566,6 +583,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>To perform semantic search, we need to store our text data as vectors (embeddings). We’ll use <code>DuckDB</code> as our local vector store. We also need an embedding model to convert text into vectors. Here, we configure <code>ragnar</code> to use a specific embedding model via an OpenAI-compatible API (SiliconFlow).</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pages &lt;- ragnar_find_links(base_url)</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pages <span class="ot">&lt;-</span> links_full</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>store_location <span class="ot">&lt;-</span> <span class="st">"openrouter.duckdb"</span></span>
@@ -579,15 +598,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">api_key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"siliconflow"</span>)</span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>With our store initialized, we can now ingest the data. We iterate through the list of pages we scraped earlier. For each page, we: 1. Read the content as markdown. 2. Split the content into smaller chunks (approx. 600 characters). 3. Insert these chunks into our vector store.</p>
 <p>This process builds the index that we’ll search against.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># page="https://openrouter.ai/docs/faq"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chunks &lt;- page |&gt;read_as_markdown() |&gt;markdown_chunk(target_size = 2000)</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ragnar_chunks_view(chunks)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (page <span class="cf">in</span> pages) {</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"ingesting: "</span>, page)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(page)</span>
@@ -599,13 +624,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ragnar_store_insert</span>(store, chunks)</span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"insrt done"</span>)</span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ragnar_store_build_index</span>(store)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> llama_index.core <span class="im">import</span> SimpleDirectoryReader, VectorStoreIndex, StorageContext, Settings</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> llama_index.vector_stores.duckdb <span class="im">import</span> DuckDBVectorStore</span>
@@ -643,11 +674,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    documents, </span>
 <span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    storage_context<span class="op">=</span>storage_context</span>
 <span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>To perform semantic search, we need to store our text data as vectors (embeddings). We’ll use <code>ChromaDB</code> as our local vector store. We also need an embedding model to convert text into vectors. Here, we configure a custom <code>OpenRouterEmbeddings</code> class to use the <code>qwen/qwen3-embedding-8b</code> model via the OpenRouter API.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.embeddings <span class="im">import</span> Embeddings</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_chroma <span class="im">import</span> Chroma</span>
@@ -707,10 +741,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-57"><a href="#cb17-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-58"><a href="#cb17-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Define vector store location</span></span>
 <span id="cb17-59"><a href="#cb17-59" aria-hidden="true" tabindex="-1"></a>persist_directory <span class="op">=</span> <span class="st">"chroma_db_data"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>With our store initialized, we can now ingest the data. We iterate through the markdown files we saved earlier. For each file, we: 1. Load the content. 2. Split the content into smaller chunks (approx. 2000 characters) using <code>RecursiveCharacterTextSplitter</code>. 3. Create a new <code>Chroma</code> vector store from these chunks.</p>
 <p>This process builds the index that we’ll search against.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.documents <span class="im">import</span> Document</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_text_splitters <span class="im">import</span> RecursiveCharacterTextSplitter</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
@@ -768,8 +805,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>splits <span class="op">=</span> text_splitter.split_documents(documents)</span>
 <span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Split into </span><span class="sc">{</span><span class="bu">len</span>(splits)<span class="sc">}</span><span class="ss"> chunks"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove existing database if it exists</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> os.path.exists(persist_directory):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Removing existing database at </span><span class="sc">{</span>persist_directory<span class="sc">}</span><span class="ss">..."</span>)</span>
@@ -784,6 +824,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">✓ Successfully created ChromaDB with </span><span class="sc">{</span><span class="bu">len</span>(splits)<span class="sc">}</span><span class="ss"> chunks!"</span>)</span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"✓ Database saved to: </span><span class="sc">{</span>persist_directory<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </div>
 </div>
@@ -797,6 +838,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like “What are model variants?”, and query the store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>store_location <span class="ot">&lt;-</span> <span class="st">"openrouter.duckdb"</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>store <span class="ot">&lt;-</span> <span class="fu">ragnar_store_connect</span>(store_location)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -807,12 +850,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>relevant_chunks <span class="ot">&lt;-</span> <span class="fu">ragnar_retrieve</span>(store, text, <span class="at">top_k =</span> <span class="dv">3</span>)</span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Retrieved"</span>, <span class="fu">nrow</span>(relevant_chunks), <span class="st">"chunks:</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Retrieved 6 chunks:</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(relevant_chunks))) {</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"--- Chunk %d ---</span><span class="sc">\n</span><span class="st">%s</span><span class="sc">\n\n</span><span class="st">"</span>, i, relevant_chunks<span class="sc">$</span>text[i]))</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>--- Chunk 1 ---
 [Zero Completion Insurance](/docs/features/zero-completion-insurance)
@@ -1161,23 +1208,34 @@ On this page
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ragnar_store_inspect(store)</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#ragnar_chunks_view(chunks)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>In Python, we can use <code>LlamaIndex</code> to interact with our DuckDB vector store. In this step, we’ll configure the embedding model and retrieve the top relevant chunks for our query, saving them to a file for inspection. We won’t use an LLM for generation yet, focusing solely on verifying the retrieval quality.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Python executable: </span><span class="sc">{</span>sys<span class="sc">.</span>executable<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Python executable: /Library/Frameworks/Python.framework/Versions/3.13/bin/python3</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Python path: </span><span class="sc">{</span>sys<span class="sc">.</span>path<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Python path: ['', '/Library/Frameworks/Python.framework/Versions/3.13/bin', '/Library/Frameworks/Python.framework/Versions/3.13/lib/python313.zip', '/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13', '/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages', '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/reticulate/python']</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any, List</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> llama_index.core <span class="im">import</span> VectorStoreIndex, Settings</span>
@@ -1187,9 +1245,12 @@ On this page
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load environment variables</span></span>
 <span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure your API key is available</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>openrouter_api_key <span class="op">=</span> os.getenv(<span class="st">"OPENROUTER_API_KEY"</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1260,6 +1321,7 @@ On this page
 <span id="cb31-68"><a href="#cb31-68" aria-hidden="true" tabindex="-1"></a>        content <span class="op">=</span> <span class="ss">f"## Chunk </span><span class="sc">{</span>i<span class="sc">}</span><span class="ch">\n\n</span><span class="sc">{</span>node<span class="sc">.</span>text<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">"</span></span>
 <span id="cb31-69"><a href="#cb31-69" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(content)</span>
 <span id="cb31-70"><a href="#cb31-70" aria-hidden="true" tabindex="-1"></a>        f.write(content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>22</code></pre>
 </div>
@@ -1268,6 +1330,8 @@ On this page
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <p>Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like “What are model variants?”, and query the <code>Chroma</code> store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.embeddings <span class="im">import</span> Embeddings</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_chroma <span class="im">import</span> Chroma</span>
@@ -1276,9 +1340,12 @@ On this page
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom embeddings class for OpenRouter API</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OpenRouterEmbeddings(Embeddings):</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Custom embeddings class for OpenRouter API."""</span></span>
@@ -1343,18 +1410,25 @@ On this page
 <span id="cb35-62"><a href="#cb35-62" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> vectorstore.similarity_search(query, k<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb35-63"><a href="#cb35-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-64"><a href="#cb35-64" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Query: '</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">'"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Query: 'What are model variants?'</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Found </span><span class="sc">{</span><span class="bu">len</span>(results)<span class="sc">}</span><span class="ss"> relevant chunks:</span><span class="ch">\n</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Found 5 relevant chunks:</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, doc <span class="kw">in</span> <span class="bu">enumerate</span>(results, <span class="dv">1</span>):</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Result </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:"</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Source: </span><span class="sc">{</span>doc<span class="sc">.</span>metadata<span class="sc">.</span>get(<span class="st">'source'</span>, <span class="st">'unknown'</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Content preview: </span><span class="sc">{</span>doc<span class="sc">.</span>page_content[:<span class="dv">800</span>]<span class="sc">}</span><span class="ss">..."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Result 1:
 Source: docs_faq_how-are-rate-limits-calculated.md
@@ -1422,6 +1496,8 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <p>The final piece is to connect this retrieval capability to a chat interface. We use <code>ellmer</code> to create a chat client. Crucially, we register a “retrieval tool” using <code>ragnar_register_tool_retrieve</code>. This gives the LLM the ability to query our vector store whenever it needs information to answer a user’s question.</p>
 <p>We also provide a system prompt that instructs the model to always check the knowledge base and cite its sources.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dotenv)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load_dot_env</span>(<span class="at">file =</span> <span class="st">".env"</span>)</span>
@@ -1440,35 +1516,44 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="st">    "</span>)</span>
 <span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
 <span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ragnar_register_tool_retrieve</span>(store, <span class="at">top_k =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What are model variants?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>I could not find anything relevant in the knowledge base. <strong>Model variants</strong> are suffixes you can attach to a model’s slug to modify its behavior when you request it through OpenRouter.</p>
-<ul>
-<li><strong>Static variants</strong> – Available only for certain models and listed in the [models API]. They change how the model is served:
-<ol type="1">
-<li><code>:free</code>   — Provides the model for free (with low rate limits).<br>
-</li>
-<li><code>:beta</code>   — Disables OpenRouter moderation for the request.<br>
-</li>
-<li><code>:extended</code> — Uses a longer‑than‑usual context window.<br>
-</li>
-<li><code>:exacto</code>  — Routes only to OpenRouter‑curated high‑quality endpoints.<br>
-</li>
-<li><code>:thinking</code> — Enables built‑in reasoning support.</li>
-</ol></li>
-<li><strong>Dynamic variants</strong> – Can be added to any model and affect routing or extra processing:
-<ol type="1">
-<li><p><code>:online</code>  — Runs a web‑search query and appends the results to the prompt.<br>
-</p></li>
-<li><p><code>:nitro</code>  — Sorts providers by throughput (speed) rather than the default.</p></li>
-<li><p><code>:floor</code>  — Sorts providers by price, choosing the cheapest option.</p></li>
-</ol></li>
-</ul>
-<p>Source: OpenRouter FAQ “What are model variants?” (https://openrouter.ai/docs/faq)【source=0†L6899-L8873】.</p>
+</details>
+<p><strong>Model variants</strong> are suffixes you can attach to a model’s slug to modify how that model behaves when you call it through OpenRouter.</p>
+<p>There are two kinds:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 40%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variant</th>
+<th>How it works</th>
+<th>Example use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Static variants</strong> – only work with certain models (they are listed in</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>the <a href="https://openrouter.ai/api/v1/models">models API</a>). They change the model’s intrinsic properties. <br>• <code>:free</code> – always provided at no cost, but with low rate limits. <br>• <code>:beta</code> – bypasses OpenRouter‑side moderation. <br>• <code>:extended</code> – gives the model a longer context window than usual. <br>• <code>:exacto</code> – forces use of OpenRouter‑curated high‑quality endpoints only. <br>• <code>:thinking</code> – enables built‑in reasoning support. | | <strong>Dynamic variants</strong> – can be used with any model. They affect how the request is routed or processed. <br>• <code>:online</code> – runs a web‑search query and appends the results to the prompt. <br>• <code>:nitro</code> – sorts providers by throughput, favoring the fastest response. <br>• <code>:floor</code> – sorts providers by price, favoring the cheapest option. |</p>
+<p>Thus, by appending one of these suffixes (e.g., <code>gpt-4o:free</code> or <code>claude-3.5-sonnet:online</code>), you tell OpenRouter to apply the corresponding behavior to that request.</p>
+<p><em>Source: OpenRouter FAQ – “What are model variants?”</em>【https://openrouter.ai/docs/faq】</p>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p>We can also use the <code>chatlas</code> library to create a chat interface. Here, we define a custom tool <code>retrieve_trusted_content</code> that queries our DuckDB index. We then register this tool with the chat model, allowing it to pull in relevant information when answering user questions.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> chatlas <span class="im">as</span> ctl</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> llama_index.core <span class="im">import</span> VectorStoreIndex, Settings</span>
@@ -1476,9 +1561,12 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> llama_index.embeddings.openai <span class="im">import</span> OpenAIEmbedding</span>
 <span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
 <span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure API key</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>openrouter_api_key <span class="op">=</span> os.getenv(<span class="st">"OPENROUTER_API_KEY"</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1525,20 +1613,65 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <span id="cb45-44"><a href="#cb45-44" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb45-45"><a href="#cb45-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-46"><a href="#cb45-46" aria-hidden="true" tabindex="-1"></a>chat.register_tool(retrieve_trusted_content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>response<span class="op">=</span>chat.chat(<span class="st">"What are model variants?"</span>, echo<span class="op">=</span><span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>I’m ready to help! Please provide the question you’d like answered.</code></pre>
+<pre><code>**Model variants** are alternative versions of a base machine‑learning model that share the same overall architecture but differ in one or more of the following attributes:
+
+| Attribute that can differ | What it means for the variant |
+|---------------------------|--------------------------------|
+| **Number of parameters / layers** | Smaller variants (e.g., “base”, “small”, “medium”) have fewer weights, run faster, and cost less to use, while larger variants (e.g., “large”, “XL”) tend to be more accurate but are slower and more expensive. |
+| **Training data** | Some variants are trained on a broader or more recent corpus, while others might be trained on domain‑specific data (e.g., legal texts, code, biomedical literature). |
+| **Fine‑tuning / instruction‑tuning** | A base model can be further fine‑tuned for a particular task (e.g., chat, summarisation, code generation) or to follow user instructions more reliably. The resulting model is a *fine‑tuned variant*. |
+| **Safety/Alignment filters** | Certain variants incorporate additional alignment or content‑filtering steps to reduce harmful or biased outputs. |
+| **Context‑window size** | Some variants are engineered to accept longer input sequences (e.g., 32 k tokens vs. the standard 8 k). |
+| **Output format** | Variants may be specialised for embeddings, token‑level classification, function‑calling APIs, or other downstream formats. |
+| **Hardware optimisation** | A variant might be quantised (e.g., 8‑bit) or otherwise optimised for specific hardware (GPU, CPU, mobile). |
+| **Pricing tier** | In commercial APIs, different variants are often exposed as separate pricing tiers (e.g., *gpt‑3.5‑turbo*, *gpt‑4‑turbo*, *gpt‑4‑32k*). |
+
+### Why create variants?
+
+1. **Trade‑off between cost and performance** – Smaller variants let users run inference cheaply and quickly; larger variants give higher accuracy when that matters.
+2. **Specialisation** – Fine‑tuning on a particular domain or task yields a model that outperforms the generic base model for that use‑case.
+3. **Safety &amp; compliance** – Adding alignment or content‑moderation layers helps meet regulatory or product‑safety requirements.
+4. **Technical constraints** – Longer context windows or quantised weights enable use‑cases (e.g., processing whole documents, running on edge devices) that the original model cannot handle efficiently.
+
+### Common real‑world examples
+
+| Platform | Base model | Notable variants |
+|----------|------------|-------------------|
+| OpenAI   | GPT‑4      | **gpt‑4‑turbo** (faster, cheaper, same quality), **gpt‑4‑32k** (longer context), **gpt‑4‑code‑interpreter** (adds execution capability) |
+| OpenAI   | GPT‑3.5    | **gpt‑3.5‑turbo** (optimised for chat), **gpt‑3.5‑code‑davinci** (code‑focused) |
+| Anthropic| Claude     | **Claude‑2**, **Claude‑2‑Instant** (faster, lower‑cost) |
+| Meta     | LLaMA      | **LLaMA‑7B**, **LLaMA‑13B**, **LLaMA‑30B**, **LLaMA‑70B** (size variants), plus instruction‑tuned “LLaMA‑Chat” variants |
+| Cohere   | Command    | **Command‑R** (retrieval‑augmented), **Command‑Light** (smaller, cheaper) |
+
+### How to think about them
+
+- **All variants stem from the same underlying architecture.** If you think of the base model as a “template,” a variant is a concrete instance of that template with a specific configuration.
+- **Choosing a variant is a matter of matching requirements.** If your application needs sub‑second responses on cheap hardware, you’d pick a small, fast variant. If you need the highest possible reasoning ability on long documents, you’d choose a larger, longer‑context variant, possibly with safety filters turned on or off depending on your risk tolerance.
+- **Variants can be stacked.** A model can first be quantised (hardware optimisation) *and* instruction‑tuned (task specialization), yielding a variant that is both fast and better at following instructions.
+
+In short, **model variants are purpose‑built versions of a core model, each tuned—by size, data, training objective, safety controls, or hardware optimisation—to serve a particular trade‑off or use‑case.**</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <p>The final piece is to connect this retrieval capability to a chat interface. We use <code>LangChain</code> to create a RAG chain. We create a <code>retriever</code> from our vector store and combine it with a <code>ChatOpenAI</code> model (using OpenRouter) and a prompt template. This gives the LLM the ability to query our vector store whenever it needs information to answer a user’s question.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai <span class="im">import</span> ChatOpenAI</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.prompts <span class="im">import</span> ChatPromptTemplate</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.runnables <span class="im">import</span> RunnablePassthrough</span>
@@ -1551,9 +1684,12 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
 <span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom embeddings class for OpenRouter API</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OpenRouterEmbeddings(Embeddings):</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Custom embeddings class for OpenRouter API."""</span></span>
@@ -1607,17 +1743,23 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <span id="cb51-51"><a href="#cb51-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-52"><a href="#cb51-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Load existing vector store</span></span>
 <span id="cb51-53"><a href="#cb51-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Loading existing vectorstore from </span><span class="sc">{</span>persist_directory<span class="sc">}</span><span class="ss">..."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Loading existing vectorstore from chroma_db_data...</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>vectorstore <span class="op">=</span> Chroma(</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    persist_directory<span class="op">=</span>persist_directory,</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    embedding_function<span class="op">=</span>embeddings</span>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"✓ Loaded vectorstore"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>✓ Loaded vectorstore</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize LLM using OpenRouter</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI(</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"openai/gpt-oss-120b"</span>,</span>
@@ -1659,17 +1801,23 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <span id="cb55-39"><a href="#cb55-39" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb55-40"><a href="#cb55-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-41"><a href="#cb55-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"✓ RAG chain created successfully!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>✓ RAG chain created successfully!</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test the RAG chain</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> <span class="st">"What are model variants?"</span></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Question: </span><span class="sc">{</span>question<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Question: What are model variants?</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get context documents separately for display</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>context_docs <span class="op">=</span> retriever.invoke(question)</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1679,13 +1827,14 @@ Question: What are model variants?</code></pre>
 <span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> answer.split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>):</span>
 <span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(textwrap.fill(line, width<span class="op">=</span><span class="dv">80</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Model variants are suffixes you append to a model’s slug to modify its behavior.
 Static variants (e.g., `:free`, `:beta`, `:extended`, `:exacto`, `:thinking`)
-work only with specific models, while dynamic variants
-(e.g., `:online`, `:nitro`, `:floor`) can be used on any model to adjust routing
-or features. They let you control cost, context length, reasoning, web‑search
-integration, speed, or price.</code></pre>
+apply only to specific models, while dynamic variants
+(e.g., `:online`, `:nitro`, `:floor`) work with any model and affect routing or
+usage. These modifiers let you control factors like cost, moderation, context
+length, reasoning support, web‑search integration, speed, or price.</code></pre>
 </div>
 </div>
 </div>
@@ -2171,7 +2320,7 @@ integration, speed, or price.</code></pre>
 <span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
 <span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
 <span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
 <span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a></span>

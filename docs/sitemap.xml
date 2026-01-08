@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://your-website-url.example.com/posts/yolo-app/index.html</loc>
-    <lastmod>2026-01-06T11:03:18.825Z</lastmod>
+    <lastmod>2026-01-08T08:20:30.448Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/weight-tracking/index.html</loc>
-    <lastmod>2025-11-19T09:13:41.194Z</lastmod>
+    <lastmod>2026-01-08T08:08:17.534Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/shop-map-manager/index.html</loc>
-    <lastmod>2026-01-07T14:22:14.152Z</lastmod>
+    <lastmod>2026-01-08T08:00:29.985Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/gdp-trend/index.html</loc>
-    <lastmod>2025-11-19T09:13:32.053Z</lastmod>
+    <lastmod>2026-01-08T07:53:51.662Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://your-website-url.example.com/cv.html</loc>
-    <lastmod>2026-01-06T08:48:01.379Z</lastmod>
+    <lastmod>2026-01-08T06:39:37.040Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/index.html</loc>
@@ -30,19 +30,19 @@
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/RAG/index.html</loc>
-    <lastmod>2026-01-06T09:25:15.528Z</lastmod>
+    <lastmod>2026-01-08T07:54:04.314Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/openrouter/index.html</loc>
-    <lastmod>2025-11-19T11:29:41.969Z</lastmod>
+    <lastmod>2026-01-08T07:54:55.409Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/weather-trend/index.html</loc>
-    <lastmod>2026-01-07T14:21:59.142Z</lastmod>
+    <lastmod>2026-01-08T08:03:31.616Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/whisky-tasting/index.html</loc>
-    <lastmod>2025-11-19T09:14:06.597Z</lastmod>
+    <lastmod>2026-01-08T08:17:04.343Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/AI-Chat/index.html</loc>
@@ -50,6 +50,6 @@
   </url>
   <url>
     <loc>https://your-website-url.example.com/posts/llm-summary/index.html</loc>
-    <lastmod>2026-01-07T16:02:22.034Z</lastmod>
+    <lastmod>2026-01-08T07:54:47.474Z</lastmod>
   </url>
 </urlset>

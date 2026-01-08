@@ -8,6 +8,7 @@ format:
   html:
     code-fold: true
     code-tools: true
+    code-copy: true
     
 execute:
   eval: false
@@ -16,13 +17,30 @@ execute:
 
 # Project Overview
 
+The GDP Trend Dashboard is a sophisticated web application that visualizes and analyzes economic data from the World Bank API. What makes this system unique is its dual approach: traditional interactive visualizations combined with AI-powered natural language querying, making economic data accessible to both technical analysts and general users.
+
+
 Live Demo: [https://world-GDP-trend.streamlit.app](https://world-GDP-trend.streamlit.app)
 
 Github: [https://github.com/JCwinning/GDP_trend](https://github.com/JCwinning/GDP_trend)
 
-![GDP Dashboard - Main Interface](images/0.png){width="100%"}
+::: {.panel-tabset}
 
-The GDP Trend Dashboard is a sophisticated web application that visualizes and analyzes economic data from the World Bank API. What makes this system unique is its dual approach: traditional interactive visualizations combined with AI-powered natural language querying, making economic data accessible to both technical analysts and general users.
+## GDP trend
+![](images/0.png){width="100%"}
+
+
+## AI Query Interface
+![](images/1.png){width="100%"}
+
+
+## AI Summary Generation
+![](images/2.png){width="100%"}
+
+
+:::
+
+
 
 ## Core Architecture
 

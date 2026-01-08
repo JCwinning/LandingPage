@@ -327,7 +327,7 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
 <section id="world-bank-api-integration" class="level3">
 <h3 class="anchored" data-anchor-id="world-bank-api-integration">World Bank API Integration</h3>
 <p>The application uses the World Bank API to collect comprehensive economic data:</p>
-<div id="5fda7fea" class="cell" data-execution_count="1">
+<div id="64b59583" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -528,7 +528,7 @@ font-style: inherit;">return</span> df_all</span></code></pre></div></div>
 <section id="data-schema-and-structure" class="level3">
 <h3 class="anchored" data-anchor-id="data-schema-and-structure">Data Schema and Structure</h3>
 <p>The application uses a clean, normalized data structure:</p>
-<div id="160808ab" class="cell" data-execution_count="2">
+<div id="460fcf86" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
@@ -628,7 +628,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <section id="plotly-express-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="plotly-express-implementation">Plotly Express Implementation</h3>
 <p>The application uses Plotly Express for creating interactive charts with consistent color coding:</p>
-<div id="bfa2f55c" class="cell" data-execution_count="3">
+<div id="6b761d0b" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
@@ -864,7 +864,7 @@ font-style: inherit;">' '</span>).title())</span></code></pre></div></div>
 <section id="natural-language-to-sql-conversion" class="level3">
 <h3 class="anchored" data-anchor-id="natural-language-to-sql-conversion">Natural Language to SQL Conversion</h3>
 <p>The application’s most innovative feature is AI-powered natural language querying:</p>
-<div id="a8fea733" class="cell" data-execution_count="4">
+<div id="39393316" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
@@ -1082,7 +1082,7 @@ font-style: inherit;">0</span>].message.content.strip()</span></code></pre></div
 </section>
 <section id="query-execution-and-ai-summarization" class="level3">
 <h3 class="anchored" data-anchor-id="query-execution-and-ai-summarization">Query Execution and AI Summarization</h3>
-<div id="98ea42a7" class="cell" data-execution_count="5">
+<div id="be23ca6e" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
@@ -1288,7 +1288,7 @@ font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
 <section id="internationalization-architecture" class="level3">
 <h3 class="anchored" data-anchor-id="internationalization-architecture">Internationalization Architecture</h3>
 <p>The application implements comprehensive English/Chinese support:</p>
-<div id="72002585" class="cell" data-execution_count="6">
+<div id="5a42b5ef" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
@@ -1416,7 +1416,7 @@ font-style: inherit;">"zh"</span></span>
 <h2 class="anchored" data-anchor-id="user-interface-design">User Interface Design</h2>
 <section id="main-application-structure" class="level3">
 <h3 class="anchored" data-anchor-id="main-application-structure">Main Application Structure</h3>
-<div id="049af224" class="cell" data-execution_count="7">
+<div id="14db079b" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="kw" style="color: #003B4F;
@@ -1763,7 +1763,7 @@ font-style: inherit;">None</span>:</span>
 <h2 class="anchored" data-anchor-id="performance-optimization">Performance Optimization</h2>
 <section id="data-caching-and-efficiency" class="level3">
 <h3 class="anchored" data-anchor-id="data-caching-and-efficiency">Data Caching and Efficiency</h3>
-<div id="3c40214d" class="cell" data-execution_count="8">
+<div id="bb84b0ee" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
@@ -1886,7 +1886,7 @@ font-style: inherit;">False</span></span></code></pre></div></div>
 </section>
 <section id="error-handling-and-user-experience" class="level3">
 <h3 class="anchored" data-anchor-id="error-handling-and-user-experience">Error Handling and User Experience</h3>
-<div id="53b6a203" class="cell" data-execution_count="9">
+<div id="da4e1e74" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="kw" style="color: #003B4F;
@@ -2165,15 +2165,21 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
 
 
 <p>A robust and elegant personal shop management system. Whether you’re tracking your favorite coffee shops, scenic spots, or planning future visits, this application provides a powerful platform for visualization and data management.</p>
-<section id="live-demo" class="level2">
-<h2 class="anchored" data-anchor-id="live-demo">Live Demo</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://china-map.streamlit.app/"><img src="https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&amp;logo=Streamlit&amp;logoColor=white.png" class="img-fluid figure-img"></a></p>
-<figcaption>Live App</figcaption>
-</figure>
+<p>Live Demo: <a href="https://china-map.streamlit.app">https://china-map.streamlit.app</a></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Map view</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Table view</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">shop photo</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<p><img src="https://your-website-url.example.com/posts/shop-map-manager/images/Picture1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-</section>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<p><img src="https://your-website-url.example.com/posts/shop-map-manager/images/Picture2.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
+<p><img src="https://your-website-url.example.com/posts/shop-map-manager/images/Picture3.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
 <section id="key-architectural-shift-dual-mode-storage" class="level2">
 <h2 class="anchored" data-anchor-id="key-architectural-shift-dual-mode-storage">Key Architectural Shift: Dual-Mode Storage</h2>
 <p>The most significant update to the project is the introduction of <strong>Dual Data Storage Modes</strong>, allowing for both privacy and portability:</p>
@@ -2448,7 +2454,10 @@ font-style: inherit;">&gt;</span> .env</span></code></pre></div></div>
 <section id="interactive-map-with-location-selection" class="level3">
 <h3 class="anchored" data-anchor-id="interactive-map-with-location-selection">1. Interactive Map with Location Selection</h3>
 <p>The map functionality allows users to click anywhere and get weather data for that exact location:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+<div id="ccb08e15" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> folium</span>
 <span id="cb2-2"><span class="im" style="color: #00769E;
@@ -2568,12 +2577,17 @@ font-style: inherit;">'lng'</span>]</span>
 background-color: null;
 font-style: inherit;">=</span> (lat, lon)</span>
 <span id="cb2-30">    get_weather_for_coordinates(lat, lon)</span></code></pre></div></div>
+</details>
+</div>
 <p><strong>Key Features:</strong> - <strong>Click-to-Select</strong>: Users can click anywhere on the map - <strong>Zoom Controls</strong>: Standard map navigation - <strong>Responsive Design</strong>: Adapts to different screen sizes - <strong>Coordinate Capture</strong>: Automatic extraction of clicked locations</p>
 </section>
 <section id="bilingual-city-search-system" class="level3">
 <h3 class="anchored" data-anchor-id="bilingual-city-search-system">2. Bilingual City Search System</h3>
 <p>The app supports both English and Chinese city names with intelligent fallback:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+<div id="d7c350ed" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> re</span>
 <span id="cb3-2"><span class="im" style="color: #00769E;
@@ -2731,12 +2745,17 @@ font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span></code></pre></div></div>
+</details>
+</div>
 <p><strong>Bilingual Features:</strong> - <strong>Chinese Character Detection</strong>: Advanced regex pattern for CJK characters - <strong>City Name Mapping</strong>: Translation database for major cities - <strong>Fallback Handling</strong>: Graceful degradation when geocoding fails - <strong>Unicode Support</strong>: Full international character support</p>
 </section>
 <section id="weather-data-integration" class="level3">
 <h3 class="anchored" data-anchor-id="weather-data-integration">3. Weather Data Integration</h3>
 <p>The application fetches comprehensive weather data from Open-Meteo API:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+<div id="77ad33e6" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> requests</span>
 <span id="cb4-2"><span class="im" style="color: #00769E;
@@ -2984,12 +3003,17 @@ font-style: inherit;">&gt;</span> pd.Timestamp.now()</span>
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> df</span></code></pre></div></div>
+</details>
+</div>
 <p><strong>Data Processing Features:</strong> - <strong>Historical + Forecast</strong>: 7 days past + 5 days future - <strong>Air Quality Integration</strong>: PM2.5 and PM10 data - <strong>Derived Metrics</strong>: Today detection and future projection - <strong>Error Handling</strong>: Robust API error management</p>
 </section>
 <section id="advanced-data-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="advanced-data-visualization">4. Advanced Data Visualization</h3>
 <p>Temperature trends with clear visual distinction between historical and forecast data:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
+<div id="903a144a" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> altair <span class="im" style="color: #00769E;
 background-color: null;
@@ -3192,12 +3216,17 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'independent'</span>)</span></code></pre></div></div>
+</details>
+</div>
 <p><strong>Visualization Features:</strong> - <strong>Line Style Differentiation</strong>: Solid (historical) vs Dotted (forecast) - <strong>Today Indicator</strong>: Clear visual marker for current day - <strong>Color Coding</strong>: Blue for past, red for future - <strong>Interactive Tooltips</strong>: Hover information for data points</p>
 </section>
 <section id="air-quality-monitoring" class="level3">
 <h3 class="anchored" data-anchor-id="air-quality-monitoring">5. Air Quality Monitoring</h3>
 <p>PM2.5 levels with EPA-compliant color coding:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+<div id="864d4555" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> get_air_quality_level(pm25_value):</span>
@@ -3486,6 +3515,8 @@ background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>)</span></code></pre></div></div>
+</details>
+</div>
 <p><strong>Air Quality Features:</strong> - <strong>EPA Standards</strong>: Based on US Environmental Protection Agency - <strong>Visual Indicators</strong>: Color-coded badges with icons - <strong>Accessibility</strong>: High contrast colors for readability - <strong>Educational</strong>: Level descriptions for user understanding</p>
 </section>
 </section>
@@ -3500,7 +3531,10 @@ font-style: inherit;">True</span>)</span></code></pre></div></div>
 <figcaption>AI Weather Recommendations</figcaption>
 </figure>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+<div id="be0a585b" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
 background-color: null;
@@ -3950,6 +3984,8 @@ font-style: inherit;">else</span>:</span>
 <span id="cb7-90">            st.warning(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Please get weather data first."</span>)</span></code></pre></div></div>
+</details>
+</div>
 <p><strong>AI Features:</strong> - <strong>Context-Aware Analysis</strong>: Processes both historical and forecast data - <strong>Multilingual Support</strong>: AI responds in user’s selected language - <strong>Practical Recommendations</strong>: Clothing, activities, and health advice - <strong>Error Handling</strong>: Graceful fallback when AI service unavailable</p>
 </section>
 <section id="ai-prompt-engineering" class="level3">
@@ -3964,7 +4000,10 @@ font-style: inherit;">"Please get weather data first."</span>)</span></code></pr
 <section id="language-management-architecture" class="level3">
 <h3 class="anchored" data-anchor-id="language-management-architecture">Language Management Architecture</h3>
 <p>The app implements a comprehensive bilingual system:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+<div id="8d929abd" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># language.py - Translation management</span></span>
 <span id="cb8-2">TRANSLATIONS <span class="op" style="color: #5E5E5E;
@@ -4187,6 +4226,8 @@ font-style: inherit;">"app_title"</span>, language))</span>
 <span id="cb8-55">    st.sidebar.header(get_text(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"sidebar_header"</span>, language))</span></code></pre></div></div>
+</details>
+</div>
 <p><strong>Internationalization Features:</strong> - <strong>Complete UI Translation</strong>: All interface elements localized - <strong>Dynamic Language Switching</strong>: Instant UI updates on language change - <strong>Chinese Character Support</strong>: Full Unicode and CJK support - <strong>Consistent Language</strong>: AI responses match UI language</p>
 </section>
 </section>
@@ -4195,7 +4236,10 @@ font-style: inherit;">"sidebar_header"</span>, language))</span></code></pre></d
 <section id="weather-data-table-with-visual-indicators" class="level3">
 <h3 class="anchored" data-anchor-id="weather-data-table-with-visual-indicators">Weather Data Table with Visual Indicators</h3>
 <p>The weather table combines data with visual elements for quick understanding:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="kw" style="color: #003B4F;
+<div id="c930b26e" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> create_weather_table(weather_df, language<span class="op" style="color: #5E5E5E;
@@ -4598,6 +4642,8 @@ font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span></span>
 <span id="cb9-55">)</span></code></pre></div></div>
+</details>
+</div>
 <p><strong>Table Features:</strong> - <strong>Weather Icons</strong>: Emoji representation for quick visual understanding - <strong>Today Highlighting</strong>: Larger, bold text for current day - <strong>Air Quality Badges</strong>: Color-coded PM2.5 indicators - <strong>Rain Probability</strong>: Visual indicators with Material Design colors - <strong>Responsive Layout</strong>: Adapts to different screen sizes</p>
 </section>
 </section>
@@ -4765,7 +4811,10 @@ font-style: inherit;">return</span> create_interactive_map(lat, lon)</span></cod
 </section>
 <section id="error-handling-and-resilience" class="level3">
 <h3 class="anchored" data-anchor-id="error-handling-and-resilience">Error Handling and Resilience</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="kw" style="color: #003B4F;
+<div id="0f3be0ae" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> robust_api_call(func, <span class="op" style="color: #5E5E5E;
@@ -4852,6 +4901,8 @@ font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="best-practices-and-lessons-learned" class="level2">
@@ -4920,11 +4971,15 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>This weather forecast application demonstrates how modern web development technologies can be combined to create a comprehensive, intelligent weather service. The integration of AI-powered recommendations elevates it from a simple data display tool to a practical weather assistant that helps users make informed decisions about their daily activities.</p>
-<p>The project showcases: - <strong>Modern Web Development</strong>: Streamlit for rapid prototyping - <strong>Data Visualization</strong>: Professional charts and interactive maps - <strong>AI Integration</strong>: Practical use of language models for data analysis - <strong>Internationalization</strong>: Complete bilingual support - <strong>Production Readiness</strong>: Error handling, caching, and optimization</p>
+<p>The project showcases:</p>
+<ul>
+<li><p><strong>Modern Web Development</strong>: Streamlit for rapid prototyping</p></li>
+<li><p><strong>Data Visualization</strong>: Professional charts and interactive maps</p></li>
+<li><p><strong>AI Integration</strong>: Practical use of language models for data analysis</p></li>
+<li><p><strong>Internationalization</strong>: Complete bilingual support</p></li>
+<li><p><strong>Production Readiness</strong>: Error handling, caching, and optimization</p></li>
+</ul>
 <p>Whether you’re building weather applications, data dashboards, or AI-powered tools, this project provides an excellent foundation for creating sophisticated, user-friendly applications.</p>
-<p><strong>Live Demo</strong>: <a href="https://weather-trend.streamlit.app/">https://weather-trend.streamlit.app/</a> <strong>Technology Stack</strong>: Streamlit, Altair, Folium, ModelScope AI, Open-Meteo API <strong>Source Code</strong>: Available in the weather_trend directory</p>
-<hr>
-<p><em>Ready to build your own weather app? Check out the <a href="https://github.com/your-repo/weather_trend">complete source code</a> and start experimenting with these advanced features today!</em></p>
 
 
 <!-- -->
@@ -4956,29 +5011,42 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <p>The weight tracking application is a comprehensive R Shiny web application that helps users monitor their weight trends, calculate BMI, and receive personalized AI-powered health suggestions. What makes this project particularly interesting is its integration of multiple AI providers and real-time data synchronization capabilities.</p>
 <p>Live Demo: <a href="https://jcflyingco.shinyapps.io/weight_tracking/">https://jcflyingco.shinyapps.io/weight_tracking/</a></p>
 <p>Github: <a href="https://github.com/JCwinning/weight_tracking">https://github.com/JCwinning/weight_tracking</a></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Weight Tracking trend</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">AI feedback</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">体重趋势图</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" aria-controls="tabset-1-4" aria-selected="false" href="">AI反馈</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://your-website-url.example.com/posts/weight-tracking/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Application Dashboard - Weight Tracking View</figcaption>
 </figure>
 </div>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://your-website-url.example.com/posts/weight-tracking/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>AI Configuration Panel</figcaption>
 </figure>
 </div>
+</div>
+<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://your-website-url.example.com/posts/weight-tracking/images/2.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Data Table View</figcaption>
 </figure>
 </div>
+</div>
+<div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://your-website-url.example.com/posts/weight-tracking/images/3.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Code Viewer Section</figcaption>
 </figure>
+</div>
+</div>
+</div>
 </div>
 <section id="core-features" class="level2">
 <h2 class="anchored" data-anchor-id="core-features">Core Features</h2>
@@ -5009,36 +5077,7 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A[User Interface&lt;br/&gt;R Shiny Web App] --&gt; B[Data Management Layer]
-    A --&gt; C[AI Integration Layer]
-    A --&gt; D[Visualization Layer]
 
-    B --&gt; E[Excel File&lt;br/&gt;weight.xlsx]
-    B --&gt; F[Real-time Monitoring&lt;br/&gt;reactivePoll 1000ms]
-    B --&gt; G[Data Processing&lt;br/&gt;BMI Calculation]
-
-    C --&gt; H[AI Provider Config]
-    H --&gt; I[Modelscope&lt;br/&gt;GLM-4.6]
-    H --&gt; J[OpenRouter&lt;br/&gt;GPT Models]
-    H --&gt; K[Gemini&lt;br/&gt;2.5 Flash/Pro]
-    H --&gt; L[OpenAI Compatible&lt;br/&gt;Custom APIs]
-
-    D --&gt; M[Plotly Charts]
-    D --&gt; N[Interactive Tables]
-    D --&gt; O[Code Viewers]
-
-    E --&gt; P[Automatic Refresh]
-    F --&gt; P
-    G --&gt; Q[Health Insights]
-    I --&gt; Q
-    J --&gt; Q
-    K --&gt; Q
-    L --&gt; Q
-
-    P --&gt; A
-    Q --&gt; A
-</pre>
 </div>
 <p></p><figcaption> Weight Tracking Application Architecture</figcaption> </figure><p></p>
 </div>
@@ -5077,17 +5116,7 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A[Excel File&lt;br/&gt;weight.xlsx] --&gt; B[File Monitor&lt;br/&gt;1000ms interval]
-    B --&gt; C[Data Validation&lt;br/&gt;File exists check]
-    C --&gt; D[Data Reading&lt;br/&gt;readxl::read_excel]
-    D --&gt; E[Data Transformation&lt;br/&gt;Date parsing, BMI calc]
-    E --&gt; F[Reactive Update&lt;br/&gt;UI auto-refresh]
 
-    F --&gt; G[Visualizations&lt;br/&gt;Plotly charts]
-    F --&gt; H[Data Table&lt;br/&gt;DT::dataTable]
-    F --&gt; I[AI Analysis&lt;br/&gt;Health recommendations]
-</pre>
 </div>
 <p></p><figcaption> Data Processing Workflow</figcaption> </figure><p></p>
 </div>
@@ -5097,7 +5126,10 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <section id="real-time-file-monitoring" class="level3">
 <h3 class="anchored" data-anchor-id="real-time-file-monitoring">Real-time File Monitoring</h3>
 <p>The application uses <code>reactivePoll()</code> to monitor the Excel data file for changes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Real-time data monitoring with 1000ms interval</span></span>
 <span id="cb2-2">weight_data <span class="ot" style="color: #003B4F;
@@ -5240,6 +5272,8 @@ background-color: null;
 font-style: inherit;">data.frame</span>())</span>
 <span id="cb2-27">  }</span>
 <span id="cb2-28">)</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="bmi-calculation-algorithm" class="level3">
 <h3 class="anchored" data-anchor-id="bmi-calculation-algorithm">BMI Calculation Algorithm</h3>
@@ -5285,7 +5319,10 @@ font-style: inherit;">data.frame</span>())</span>
 </section>
 <section id="unit-conversion-examples" class="level4">
 <h4 class="anchored" data-anchor-id="unit-conversion-examples">Unit Conversion Examples</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># BMI calculation for metric and imperial units</span></span>
 <span id="cb3-2">calculate_bmi <span class="ot" style="color: #003B4F;
@@ -5416,6 +5453,8 @@ font-style: inherit;">1</span>), <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">category =</span> category))</span>
 <span id="cb3-22">}</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 </section>
@@ -5424,7 +5463,10 @@ font-style: inherit;">category =</span> category))</span>
 <section id="multi-provider-ai-system" class="level3">
 <h3 class="anchored" data-anchor-id="multi-provider-ai-system">Multi-Provider AI System</h3>
 <p>The application supports multiple AI providers with dynamic switching:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># AI Provider Configuration</span></span>
 <span id="cb4-2">ai_providers <span class="ot" style="color: #003B4F;
@@ -5520,11 +5562,16 @@ font-style: inherit;">get_provider_models</span>(input<span class="sc" style="co
 background-color: null;
 font-style: inherit;">$</span>ai_provider))</span>
 <span id="cb4-22">})</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="ai-health-recommendation-system" class="level3">
 <h3 class="anchored" data-anchor-id="ai-health-recommendation-system">AI Health Recommendation System</h3>
 <p>The AI generates personalized health advice based on weight trends:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># AI suggestion generation</span></span>
 <span id="cb5-2">get_ai_suggestion <span class="ot" style="color: #003B4F;
@@ -5644,13 +5691,18 @@ font-style: inherit;">$</span>message<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>content)</span>
 <span id="cb5-31">}</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="user-interface-design" class="level2">
 <h2 class="anchored" data-anchor-id="user-interface-design">User Interface Design</h2>
 <section id="multi-tab-navigation-structure" class="level3">
 <h3 class="anchored" data-anchor-id="multi-tab-navigation-structure">Multi-Tab Navigation Structure</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Tab-based interface organization</span></span>
 <span id="cb6-2"><span class="fu" style="color: #4758AB;
@@ -5744,11 +5796,16 @@ font-style: inherit;">"data_table"</span>)</span>
 <span id="cb6-22">    )</span>
 <span id="cb6-23">  )</span>
 <span id="cb6-24">)</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="internationalization-system" class="level3">
 <h3 class="anchored" data-anchor-id="internationalization-system">Internationalization System</h3>
 <p>Complete bilingual support with dynamic language switching:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Language translation system</span></span>
 <span id="cb7-2">translations <span class="ot" style="color: #003B4F;
@@ -5840,6 +5897,8 @@ font-style: inherit;">updateUI</span>()  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Trigger UI update</span></span>
 <span id="cb7-24">})</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="data-visualization" class="level2">
@@ -5847,7 +5906,10 @@ font-style: inherit;"># Trigger UI update</span></span>
 <section id="interactive-plotly-charts" class="level3">
 <h3 class="anchored" data-anchor-id="interactive-plotly-charts">Interactive Plotly Charts</h3>
 <p>The application features dynamic charts with health indicators:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># BMI chart with health ranges</span></span>
 <span id="cb8-2">output<span class="sc" style="color: #5E5E5E;
@@ -6027,6 +6089,8 @@ background-color: null;
 font-style: inherit;">'x unified'</span></span>
 <span id="cb8-19">    )</span>
 <span id="cb8-20">})</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="deployment-and-configuration" class="level2">
@@ -6037,7 +6101,10 @@ font-style: inherit;">'x unified'</span></span>
 </section>
 <section id="url-bookmarking-system" class="level3">
 <h3 class="anchored" data-anchor-id="url-bookmarking-system">URL Bookmarking System</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Enable URL bookmarking in global.R</span></span>
 <span id="cb9-2"><span class="fu" style="color: #4758AB;
@@ -6072,6 +6139,8 @@ background-color: null;
 font-style: inherit;"># Exclude language buttons</span></span>
 <span id="cb9-9">  }</span>
 <span id="cb9-10">)</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="performance-optimizations" class="level2">
@@ -6079,7 +6148,10 @@ font-style: inherit;"># Exclude language buttons</span></span>
 <section id="reactive-programming-best-practices" class="level3">
 <h3 class="anchored" data-anchor-id="reactive-programming-best-practices">Reactive Programming Best Practices</h3>
 <p>The application implements efficient reactive programming:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Efficient data processing with caching</span></span>
 <span id="cb10-2">processed_data <span class="ot" style="color: #003B4F;
@@ -6242,13 +6314,18 @@ background-color: null;
 font-style: inherit;">nrow</span>(data)</span>
 <span id="cb10-30">  )</span>
 <span id="cb10-31">})</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="security-and-best-practices" class="level2">
 <h2 class="anchored" data-anchor-id="security-and-best-practices">Security and Best Practices</h2>
 <section id="api-key-management" class="level3">
 <h3 class="anchored" data-anchor-id="api-key-management">API Key Management</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Secure API key handling (session-only storage)</span></span>
 <span id="cb11-2"><span class="fu" style="color: #4758AB;
@@ -6348,10 +6425,15 @@ font-style: inherit;">renderMarkdown</span>(suggestion))</span>
 <span id="cb11-21">    })</span>
 <span id="cb11-22">  })</span>
 <span id="cb11-23">})</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="error-handling" class="level3">
 <h3 class="anchored" data-anchor-id="error-handling">Error Handling</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Comprehensive error handling</span></span>
 <span id="cb12-2">get_ai_suggestion <span class="ot" style="color: #003B4F;
@@ -6411,6 +6493,8 @@ background-color: null;
 font-style: inherit;">"ai_error_check_config"</span>))</span>
 <span id="cb12-11">  })</span>
 <span id="cb12-12">}</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="usage-examples-and-user-workflows" class="level2">
@@ -6479,8 +6563,9 @@ font-style: inherit;">"ai_error_check_config"</span>))</span>
 </ul>
 <p>Whether you’re interested in health monitoring, data visualization, or AI integration, this project provides an excellent example of building production-grade web applications with R Shiny.</p>
 <hr>
-<p><strong>Live Demo</strong>: <a href="https://jcflyingco.shinyapps.io/weight-tracking/">https://jcflyingco.shinyapps.io/weight-tracking/</a> <strong>Technology Stack</strong>: R, Shiny, Plotly, ellmer, Bootstrap <strong>Source Code</strong>: Available in the weight_tracking directory</p>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -6509,11 +6594,22 @@ font-style: inherit;">"ai_error_check_config"</span>))</span>
 <p>Live Demo(modelscope): <a href="https://modelscope.cn/studios/ttflying/whisky_AI_tasting">https://modelscope.cn/studios/ttflying/whisky_AI_tasting</a></p>
 <p>Live Demo(shinyapp): <a href="https://jcflyingco.shinyapps.io/ai-whisky-tasting">https://jcflyingco.shinyapps.io/ai-whisky-tasting/</a></p>
 <p>Github: <a href="https://github.com/JCwinning/whisky_tasting">https://github.com/JCwinning/whisky_tasting</a></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Application Interface - Agent Selection and Input</figcaption>
-</figure>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">AI tasting note</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">AI recommendation</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">AI品鉴词</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" aria-controls="tabset-1-4" aria-selected="false" href="">AI推荐</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/2.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/3.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
+<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/0.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
+<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 </div>
 <section id="core-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="core-architecture">Core Architecture</h2>
@@ -6535,12 +6631,6 @@ font-style: inherit;">"ai_error_check_config"</span>))</span>
 <li><strong>AI/ML</strong>: OpenAI API, Vector embeddings, RAG system</li>
 <li><strong>Data Sources</strong>: Web scraping with BeautifulSoup4</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>AI Agent Configuration Panel</figcaption>
-</figure>
-</div>
 </section>
 </section>
 <section id="database-architecture" class="level2">
@@ -6609,7 +6699,10 @@ font-style: inherit;">1024</span>]</span>
 </section>
 <section id="data-collection-pipeline" class="level3">
 <h3 class="anchored" data-anchor-id="data-collection-pipeline">Data Collection Pipeline</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div id="6e3f3970" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Web scraping example from get_data_dt.py</span></span>
 <span id="cb2-2"><span class="kw" style="color: #003B4F;
@@ -6707,6 +6800,8 @@ font-style: inherit;">'review'</span>: review_text</span>
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> all_reviews</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="aiml-implementation" class="level2">
@@ -6730,7 +6825,10 @@ font-style: inherit;">return</span> all_reviews</span></code></pre></div></div>
 <section id="embedding-process" class="level4">
 <h4 class="anchored" data-anchor-id="embedding-process">Embedding Process</h4>
 <p>The application uses BGE-Large-ZH-v1.5 model for generating embeddings:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+<div id="69c217de" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> get_embedding(text: <span class="bu" style="color: null;
@@ -6812,6 +6910,8 @@ background-color: null;
 font-style: inherit;">/</span> (np.linalg.norm(v1) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span> np.linalg.norm(v2))</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="rag-system-architecture" class="level3">
@@ -6838,7 +6938,10 @@ flowchart TD
 </section>
 <section id="similarity-search-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="similarity-search-implementation">Similarity Search Implementation</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+<div id="bbb1a061" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> find_similar_chunks(</span>
@@ -6967,13 +7070,18 @@ font-style: inherit;">"</span>)</span>
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> []</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="specialized-agent-implementation" class="level2">
 <h2 class="anchored" data-anchor-id="specialized-agent-implementation">Specialized Agent Implementation</h2>
 <section id="drunktony-chinese-agent" class="level3">
 <h3 class="anchored" data-anchor-id="drunktony-chinese-agent">DrunkTony (Chinese Agent)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+<div id="bb494418" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> run_conversation(query, api_key, model):</span>
@@ -7129,10 +7237,15 @@ font-weight: bold;
 font-style: inherit;">return</span> response.choices[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="whiskyfunny-english-agent" class="level3">
 <h3 class="anchored" data-anchor-id="whiskyfunny-english-agent">WhiskyFunny (English Agent)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="kw" style="color: #003B4F;
+<div id="d7ecee90" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> run_conversation(query, api_key, model):</span>
@@ -7283,6 +7396,8 @@ font-weight: bold;
 font-style: inherit;">return</span> response.choices[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="recommendation-engine" class="level2">
@@ -7290,7 +7405,10 @@ font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
 <section id="dual-llm-recommendation-system" class="level3">
 <h3 class="anchored" data-anchor-id="dual-llm-recommendation-system">Dual-LLM Recommendation System</h3>
 <p>The application uses a separate LLM for generating whisky recommendations:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="kw" style="color: #003B4F;
+<div id="4373ef9d" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> recommend_whiskies_by_profile(tasting_notes, api_key, model):</span>
@@ -7390,13 +7508,18 @@ font-weight: bold;
 font-style: inherit;">return</span> response.choices[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="user-interface-design" class="level2">
 <h2 class="anchored" data-anchor-id="user-interface-design">User Interface Design</h2>
 <section id="streamlit-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="streamlit-implementation">Streamlit Implementation</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+<div id="e80a1540" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Main application interface</span></span>
 <span id="cb9-2"><span class="kw" style="color: #003B4F;
@@ -7588,11 +7711,7 @@ font-style: inherit;">=</span> get_recommendations(tasting_notes, agent_type)</s
 background-color: null;
 font-style: inherit;">"### 🎯 Personalized Recommendations"</span>)</span>
 <span id="cb9-55">            st.markdown(recommendations)</span></code></pre></div></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Tasting Results and Recommendations</figcaption>
-</figure>
+</details>
 </div>
 </section>
 </section>
@@ -7600,7 +7719,10 @@ font-style: inherit;">"### 🎯 Personalized Recommendations"</span>)</span>
 <h2 class="anchored" data-anchor-id="rate-limiting-and-cost-management">Rate Limiting and Cost Management</h2>
 <section id="api-usage-control" class="level3">
 <h3 class="anchored" data-anchor-id="api-usage-control">API Usage Control</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+<div id="5b9f044c" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Rate limiting implementation</span></span>
 <span id="cb10-2">RATE_LIMIT_FILE <span class="op" style="color: #5E5E5E;
@@ -7778,13 +7900,18 @@ background-color: null;
 font-style: inherit;">"can_run"</span>: <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>}</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="performance-optimization" class="level2">
 <h2 class="anchored" data-anchor-id="performance-optimization">Performance Optimization</h2>
 <section id="vector-database-performance" class="level3">
 <h3 class="anchored" data-anchor-id="vector-database-performance">Vector Database Performance</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+<div id="764b95a4" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Optimized similarity search with batching</span></span>
 <span id="cb11-2"><span class="kw" style="color: #003B4F;
@@ -7917,6 +8044,8 @@ font-weight: bold;
 font-style: inherit;">return</span> all_similarities[:<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>]</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="deployment-and-configuration" class="level2">
@@ -7967,17 +8096,12 @@ font-style: inherit;"># Create tables with vector support</span></span>
 background-color: null;
 font-style: inherit;">"</span></span></code></pre></div></div>
 </section>
-<section id="live-deployments" class="level3">
-<h3 class="anchored" data-anchor-id="live-deployments">Live Deployments</h3>
-<p>The application is deployed on multiple platforms:</p>
-<ul>
-<li><strong>ModelScope</strong>: https://modelscope.cn/studios/ttflying/whisky_AI_tasting</li>
-<li><strong>ShinyApps</strong>: https://jcflyingco.shinyapps.io/ai-whisky-tasting/</li>
-</ul>
-</section>
 <section id="shiny-for-python-alternative" class="level3">
 <h3 class="anchored" data-anchor-id="shiny-for-python-alternative">Shiny for Python Alternative</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
+<div id="6df67dc2" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Alternative UI implementation using Shiny</span></span>
 <span id="cb13-2"><span class="im" style="color: #00769E;
@@ -8063,11 +8187,7 @@ font-style: inherit;">input</span>.agent())</span>
 <span id="cb13-27">app <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> App(app_ui, server)</span></code></pre></div></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/3.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Mobile Interface View</figcaption>
-</figure>
+</details>
 </div>
 </section>
 </section>
@@ -8146,8 +8266,8 @@ font-style: inherit;">=</span> App(app_ui, server)</span></code></pre></div></di
 </ul>
 <p>Whether you’re a whisky enthusiast, AI developer, or data scientist, this project provides an excellent example of building production-grade AI applications that combine real-world data with advanced machine learning techniques.</p>
 <hr>
-<p><strong>Live Demos</strong>: - <a href="https://modelscope.cn/studios/ttflying/whisky_AI_tasting">ModelScope</a> - <a href="https://jcflyingco.shinyapps.io/ai-whisky-tasting/">ShinyApps</a></p>
-<p><strong>Technology Stack</strong>: Python, Streamlit, DuckDB, OpenAI API, Vector Embeddings <strong>Database</strong>: 26K+ real whisky reviews across 3 specialized sources</p>
+<p><strong>Technology Stack</strong>: Python, Streamlit, DuckDB, OpenAI API, Vector Embeddings</p>
+<p><strong>Database</strong>: 26K+ real whisky reviews across 3 specialized sources</p>
 
 
 <!-- -->
@@ -8178,17 +8298,26 @@ font-style: inherit;">=</span> App(app_ui, server)</span></code></pre></div></di
 <p>The application is a comprehensive Streamlit web app that provides object detection capabilities using YOLO11 (Ultralytics framework) with support for multiple input sources and processing backends. What makes this project special is its multi-model architecture and production-ready features.</p>
 <p>Live Demo: <a href="https://yolo-live.streamlit.app/">https://yolo-live.streamlit.app/</a></p>
 <p>Github: <a href="https://github.com/JCwinning/YOLO_app">https://github.com/JCwinning/YOLO_app</a></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Object detection</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">物体识别</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://your-website-url.example.com/posts/yolo-app/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Application Screenshot - Main Interface</figcaption>
 </figure>
 </div>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://your-website-url.example.com/posts/yolo-app/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Application Screenshot - Detection Results</figcaption>
 </figure>
+</div>
+</div>
+</div>
 </div>
 <section id="key-features" class="level2">
 <h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
@@ -8310,7 +8439,10 @@ font-style: inherit;">]</span></span></code></pre></div></div>
 <p>The main application (<code>app.py</code>) consists of over 1,000 lines of well-structured Python code organized into several key components:</p>
 <section id="internationalization-system" class="level4">
 <h4 class="anchored" data-anchor-id="internationalization-system">1. Internationalization System</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+<div id="3b8b774a" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> language <span class="im" style="color: #00769E;
 background-color: null;
@@ -8351,10 +8483,15 @@ font-style: inherit;">if</span> kwargs <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span> text</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="device-optimization" class="level4">
 <h4 class="anchored" data-anchor-id="device-optimization">2. Device Optimization</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+<div id="732a5006" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> get_device():</span>
@@ -8402,10 +8539,15 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="image-processing-pipeline" class="level4">
 <h4 class="anchored" data-anchor-id="image-processing-pipeline">3. Image Processing Pipeline</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+<div id="0d2154c5" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> encode_image_to_base64(image):</span>
@@ -8472,6 +8614,8 @@ font-style: inherit;"># Try different compression strategies</span></span>
 <span id="cb4-12">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># ... compression logic</span></span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="multi-model-processing" class="level3">
@@ -8479,7 +8623,10 @@ font-style: inherit;"># ... compression logic</span></span></code></pre></div></
 <section id="local-yolo-processing" class="level4">
 <h4 class="anchored" data-anchor-id="local-yolo-processing">Local YOLO Processing</h4>
 <p>The app supports all YOLO11 model variants with automatic performance optimization:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+<div id="34ee6418" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Model selection interface</span></span>
 <span id="cb5-2">model_options <span class="op" style="color: #5E5E5E;
@@ -8645,11 +8792,16 @@ font-style: inherit;">'bbox'</span>: [x1, y1, x2, y2]</span>
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> detections, results</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="cloud-api-integration" class="level4">
 <h4 class="anchored" data-anchor-id="cloud-api-integration">Cloud API Integration</h4>
 <p>For cloud-based models, the app handles API authentication and request formatting:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+<div id="1760b2b2" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> process_with_qwen(image, api_key):</span>
@@ -8731,6 +8883,8 @@ font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 </section>
@@ -8748,7 +8902,10 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <section id="bilingual-support" class="level3">
 <h3 class="anchored" data-anchor-id="bilingual-support">Bilingual Support</h3>
 <p>The translation system handles all UI elements:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">translations <span class="op" style="color: #5E5E5E;
+<div id="af5be7e6" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">translations <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
 <span id="cb7-2">    <span class="st" style="color: #20794D;
@@ -8796,6 +8953,8 @@ background-color: null;
 font-style: inherit;"># ... corresponding translations</span></span>
 <span id="cb7-13">    }</span>
 <span id="cb7-14">}</span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="performance-optimizations" class="level2">
@@ -8861,7 +9020,10 @@ font-style: inherit;"># ... corresponding translations</span></span>
 <section id="apple-silicon-acceleration" class="level3">
 <h3 class="anchored" data-anchor-id="apple-silicon-acceleration">Apple Silicon Acceleration</h3>
 <p>The app automatically detects and utilizes Metal Performance Shaders (MPS) on Apple Silicon devices:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">device <span class="op" style="color: #5E5E5E;
+<div id="3c8ceb12" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">device <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -8919,11 +9081,16 @@ background-color: null;
 font-style: inherit;">:.1f}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">ms"</span>)</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="image-compression-for-cloud-apis" class="level3">
 <h3 class="anchored" data-anchor-id="image-compression-for-cloud-apis">Image Compression for Cloud APIs</h3>
 <p>To meet API size limits, the app implements smart image compression:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="kw" style="color: #003B4F;
+<div id="04bf9668" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> compress_image_for_api(image, max_size<span class="op" style="color: #5E5E5E;
@@ -9002,6 +9169,8 @@ font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span></code></pre></div></div>
+</details>
+</div>
 </section>
 </section>
 <section id="deployment-and-production-features" class="level2">
@@ -9009,7 +9178,10 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <section id="session-management" class="level3">
 <h3 class="anchored" data-anchor-id="session-management">Session Management</h3>
 <p>The application maintains comprehensive session state:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">session_state_vars <span class="op" style="color: #5E5E5E;
+<div id="c87f9cb1" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">session_state_vars <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [</span>
 <span id="cb10-2">    <span class="st" style="color: #20794D;
@@ -9038,11 +9210,16 @@ font-style: inherit;">"language"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"input_method_index"</span></span>
 <span id="cb10-7">]</span></code></pre></div></div>
+</details>
+</div>
 </section>
 <section id="error-handling" class="level3">
 <h3 class="anchored" data-anchor-id="error-handling">Error Handling</h3>
 <p>Robust error handling ensures graceful degradation:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="cf" style="color: #003B4F;
+<div id="48624ce5" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">try</span>:</span>
@@ -9076,11 +9253,9 @@ font-style: inherit;">"</span>)</span>
 <span id="cb11-6">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Fallback to alternative processing method</span></span></code></pre></div></div>
+</details>
+</div>
 </section>
-</section>
-<section id="live-demo" class="level2">
-<h2 class="anchored" data-anchor-id="live-demo">Live Demo</h2>
-<p>The application is deployed and accessible at: <strong>https://yolo-live.streamlit.app/</strong></p>
 </section>
 <section id="getting-started" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
@@ -9204,7 +9379,6 @@ font-style: inherit;">=</span>your_openrouter_key</span></code></pre></div></div
 <p>The project showcases best practices in: - Modern Python development with dependency management - Streamlit web application architecture - Computer vision API integration - Internationalization and accessibility - Performance optimization for different hardware platforms</p>
 <p>Whether you’re interested in computer vision, web development, or AI applications, this project provides an excellent foundation for building advanced AI-powered web applications.</p>
 <hr>
-<p><strong>GitHub Repository</strong>: <a href="https://github.com/your-username/YOLO_app">YOLO_app</a></p>
 
 
 <!-- -->
@@ -9246,6 +9420,8 @@ font-style: inherit;">=</span>your_openrouter_key</span></code></pre></div></div
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <p>First, we need to gather the data for our knowledge base. We’ll use the <code>rvest</code> package to scrape URLs from the OpenRouter documentation. This will give us a list of pages to ingest.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(ragnar)</span>
@@ -9262,8 +9438,11 @@ background-color: null;
 font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">".env"</span>)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(rvest)</span>
@@ -9339,6 +9518,7 @@ font-style: inherit;"># Print all links</span></span>
 <span id="cb2-21"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">print</span>(links_full)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "https://openrouter.ai/docs/api-reference/overview"                               
  [2] "https://openrouter.ai/docs/quickstart"                                           
@@ -9347,37 +9527,41 @@ font-style: inherit;">print</span>(links_full)</span></code></pre></div></div>
  [5] "https://openrouter.ai/docs/guides/overview/principles"                           
  [6] "https://openrouter.ai/docs/guides/overview/models"                               
  [7] "https://openrouter.ai/docs/faq"                                                  
- [8] "https://openrouter.ai/docs/guides/routing/auto-model-selection"                  
+ [8] "https://openrouter.ai/docs/guides/overview/report-feedback"                      
  [9] "https://openrouter.ai/docs/guides/routing/model-fallbacks"                       
 [10] "https://openrouter.ai/docs/guides/routing/provider-selection"                    
 [11] "https://openrouter.ai/docs/guides/features/presets"                              
 [12] "https://openrouter.ai/docs/guides/features/tool-calling"                         
 [13] "https://openrouter.ai/docs/guides/features/structured-outputs"                   
 [14] "https://openrouter.ai/docs/guides/features/message-transforms"                   
-[15] "https://openrouter.ai/docs/guides/features/model-routing"                        
-[16] "https://openrouter.ai/docs/guides/features/zero-completion-insurance"            
-[17] "https://openrouter.ai/docs/guides/features/zdr"                                  
-[18] "https://openrouter.ai/docs/app-attribution"                                      
-[19] "https://openrouter.ai/docs/faq#how-are-rate-limits-calculated"                   
-[20] "https://openrouter.ai/docs/api/reference/streaming"                              
-[21] "https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview"</code></pre>
+[15] "https://openrouter.ai/docs/guides/features/zero-completion-insurance"            
+[16] "https://openrouter.ai/docs/guides/features/zdr"                                  
+[17] "https://openrouter.ai/docs/app-attribution"                                      
+[18] "https://openrouter.ai/docs/faq#how-are-rate-limits-calculated"                   
+[19] "https://openrouter.ai/docs/api/reference/streaming"                              
+[20] "https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview"</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <p>First, we need to gather the data for our knowledge base. We’ll use <code>requests</code> and <code>BeautifulSoup</code> to scrape URLs from the OpenRouter documentation. This will give us a list of pages to ingest.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> sys</span>
 <span id="cb4-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(sys.executable)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>/Library/Frameworks/Python.framework/Versions/3.13/bin/python3</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> requests</span>
@@ -9412,9 +9596,12 @@ font-style: inherit;">import</span> re</span>
 background-color: null;
 font-style: inherit;"># Load environment variables</span></span>
 <span id="cb6-10">load_dotenv()</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Helper functions</span></span>
@@ -9682,14 +9869,18 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;"> documentation URLs"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Found 21 documentation URLs</code></pre>
+<pre><code>Found 20 documentation URLs</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(links_full)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>['https://openrouter.ai/docs/guides/features/structured-outputs', 'https://openrouter.ai/docs/guides/features/presets', 'https://openrouter.ai/docs/guides/overview/principles', 'https://openrouter.ai/docs/api-reference/overview', 'https://openrouter.ai/docs/guides/routing/provider-selection', 'https://openrouter.ai/docs/api/reference/overview', 'https://openrouter.ai/docs/guides/routing/auto-model-selection', 'https://openrouter.ai/docs/guides/features/zdr', 'https://openrouter.ai/docs/guides/features/tool-calling', 'https://openrouter.ai/docs/sdks/call-model/overview', 'https://openrouter.ai/docs/guides/features/message-transforms', 'https://openrouter.ai/docs/faq', 'https://openrouter.ai/docs/app-attribution', 'https://openrouter.ai/docs/guides/routing/model-fallbacks', 'https://openrouter.ai/docs/api/reference/streaming', 'https://openrouter.ai/docs/quickstart', 'https://openrouter.ai/docs/guides/features/model-routing', 'https://openrouter.ai/docs/guides/overview/models', 'https://openrouter.ai/docs/guides/features/zero-completion-insurance', 'https://openrouter.ai/docs/faq#how-are-rate-limits-calculated', 'https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview']</code></pre>
+<pre><code>['https://openrouter.ai/docs/guides/routing/provider-selection', 'https://openrouter.ai/docs/quickstart', 'https://openrouter.ai/docs/guides/overview/models', 'https://openrouter.ai/docs/guides/features/zero-completion-insurance', 'https://openrouter.ai/docs/api/reference/streaming', 'https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview', 'https://openrouter.ai/docs/guides/features/presets', 'https://openrouter.ai/docs/faq#how-are-rate-limits-calculated', 'https://openrouter.ai/docs/app-attribution', 'https://openrouter.ai/docs/api/reference/overview', 'https://openrouter.ai/docs/api-reference/overview', 'https://openrouter.ai/docs/guides/overview/principles', 'https://openrouter.ai/docs/faq', 'https://openrouter.ai/docs/guides/features/structured-outputs', 'https://openrouter.ai/docs/guides/features/zdr', 'https://openrouter.ai/docs/guides/routing/model-fallbacks', 'https://openrouter.ai/docs/guides/overview/report-feedback', 'https://openrouter.ai/docs/guides/features/tool-calling', 'https://openrouter.ai/docs/sdks/call-model/overview', 'https://openrouter.ai/docs/guides/features/message-transforms']</code></pre>
 </div>
 </div>
 </div>
@@ -9704,6 +9895,8 @@ font-style: inherit;">print</span>(links_full)</span></code></pre></div></div>
 <div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
 <p>To perform semantic search, we need to store our text data as vectors (embeddings). We’ll use <code>DuckDB</code> as our local vector store. We also need an embedding model to convert text into vectors. Here, we configure <code>ragnar</code> to use a specific embedding model via an OpenAI-compatible API (SiliconFlow).</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># pages &lt;- ragnar_find_links(base_url)</span></span>
@@ -9753,10 +9946,13 @@ background-color: null;
 font-style: inherit;">"siliconflow"</span>)</span>
 <span id="cb12-12">    )</span>
 <span id="cb12-13">)</span></code></pre></div></div>
+</details>
 </div>
 <p>With our store initialized, we can now ingest the data. We iterate through the list of pages we scraped earlier. For each page, we: 1. Read the content as markdown. 2. Split the content into smaller chunks (approx. 600 characters). 3. Insert these chunks into our vector store.</p>
 <p>This process builds the index that we’ll search against.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># page="https://openrouter.ai/docs/faq"</span></span>
@@ -9766,8 +9962,11 @@ font-style: inherit;"># chunks &lt;- page |&gt;read_as_markdown() |&gt;markdown_
 <span id="cb13-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># ragnar_chunks_view(chunks)</span></span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -9815,15 +10014,21 @@ font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"insrt done"</span>)</span>
 <span id="cb14-11">}</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ragnar_store_build_index</span>(store)</span></code></pre></div></div>
+</details>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
@@ -9943,11 +10148,14 @@ font-style: inherit;">=</span> VectorStoreIndex.from_documents(</span>
 background-color: null;
 font-style: inherit;">=</span>storage_context</span>
 <span id="cb16-37">)</span></code></pre></div></div>
+</details>
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" aria-labelledby="tabset-2-3-tab">
 <p>To perform semantic search, we need to store our text data as vectors (embeddings). We’ll use <code>ChromaDB</code> as our local vector store. We also need an embedding model to convert text into vectors. Here, we configure a custom <code>OpenRouterEmbeddings</code> class to use the <code>qwen/qwen3-embedding-8b</code> model via the OpenRouter API.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
@@ -10192,10 +10400,13 @@ background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"chroma_db_data"</span></span></code></pre></div></div>
+</details>
 </div>
 <p>With our store initialized, we can now ingest the data. We iterate through the markdown files we saved earlier. For each file, we: 1. Load the content. 2. Split the content into smaller chunks (approx. 2000 characters) using <code>RecursiveCharacterTextSplitter</code>. 3. Create a new <code>Chroma</code> vector store from these chunks.</p>
 <p>This process builds the index that we’ll search against.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.documents <span class="im" style="color: #00769E;
@@ -10474,8 +10685,11 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;"> chunks"</span>)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Remove existing database if it exists</span></span>
@@ -10541,6 +10755,7 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
 </div>
 </div>
 </div>
@@ -10554,6 +10769,8 @@ font-style: inherit;">"</span>)</span></code></pre></div></div>
 <div id="tabset-3-1" class="tab-pane active" aria-labelledby="tabset-3-1-tab">
 <p>Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like “What are model variants?”, and query the store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">store_location <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
@@ -10600,9 +10817,12 @@ background-color: null;
 font-style: inherit;">\n\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Retrieved 6 chunks:</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -10632,6 +10852,7 @@ font-style: inherit;">"</span>, i, relevant_chunks<span class="sc" style="color:
 background-color: null;
 font-style: inherit;">$</span>text[i]))</span>
 <span id="cb22-3">}</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>--- Chunk 1 ---
 [Zero Completion Insurance](/docs/features/zero-completion-insurance)
@@ -10980,17 +11201,22 @@ On this page
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># ragnar_store_inspect(store)</span></span>
 <span id="cb24-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#ragnar_chunks_view(chunks)</span></span></code></pre></div></div>
+</details>
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" aria-labelledby="tabset-3-2-tab">
 <p>In Python, we can use <code>LlamaIndex</code> to interact with our DuckDB vector store. In this step, we’ll configure the embedding model and retrieve the top relevant chunks for our query, saving them to a file for inspection. We won’t use an LLM for generation yet, focusing solely on verifying the retrieval quality.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
@@ -11010,9 +11236,12 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Python executable: /Library/Frameworks/Python.framework/Versions/3.13/bin/python3</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
@@ -11026,9 +11255,12 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Python path: ['', '/Library/Frameworks/Python.framework/Versions/3.13/bin', '/Library/Frameworks/Python.framework/Versions/3.13/lib/python313.zip', '/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13', '/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages', '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/reticulate/python']</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
@@ -11064,9 +11296,12 @@ font-style: inherit;">import</span> load_dotenv</span>
 background-color: null;
 font-style: inherit;"># Load environment variables</span></span>
 <span id="cb29-9">load_dotenv()</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ensure your API key is available</span></span>
@@ -11398,6 +11633,7 @@ font-style: inherit;">"</span></span>
 background-color: null;
 font-style: inherit;">print</span>(content)</span>
 <span id="cb31-70">        f.write(content)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>22</code></pre>
 </div>
@@ -11406,6 +11642,8 @@ font-style: inherit;">print</span>(content)</span>
 <div id="tabset-3-3" class="tab-pane" aria-labelledby="tabset-3-3-tab">
 <p>Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like “What are model variants?”, and query the <code>Chroma</code> store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
@@ -11436,9 +11674,12 @@ background-color: null;
 font-style: inherit;">import</span> load_dotenv</span>
 <span id="cb33-7"></span>
 <span id="cb33-8">load_dotenv()</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Custom embeddings class for OpenRouter API</span></span>
@@ -11702,10 +11943,13 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Query: 'What are model variants?'</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
@@ -11723,9 +11967,12 @@ background-color: null;
 font-style: inherit;">\n</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Found 5 relevant chunks:</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -11782,6 +12029,7 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">..."</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Result 1:
 Source: docs_faq_how-are-rate-limits-calculated.md
@@ -11849,6 +12097,8 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <p>The final piece is to connect this retrieval capability to a chat interface. We use <code>ellmer</code> to create a chat client. Crucially, we register a “retrieval tool” using <code>ragnar_register_tool_retrieve</code>. This gives the LLM the ability to query our vector store whenever it needs information to answer a user’s question.</p>
 <p>We also provide a system prompt that instructs the model to always check the knowledge base and cite its sources.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(ellmer)</span>
@@ -11921,7 +12171,10 @@ background-color: null;
 font-style: inherit;">top_k =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span></code></pre></div></div>
+</details>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1">chat<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
@@ -11929,33 +12182,39 @@ background-color: null;
 font-style: inherit;">chat</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"What are model variants?"</span>)</span></code></pre></div></div>
-<p>I could not find anything relevant in the knowledge base. <strong>Model variants</strong> are suffixes you can attach to a model’s slug to modify its behavior when you request it through OpenRouter.</p>
-<ul>
-<li><strong>Static variants</strong> – Available only for certain models and listed in the [models API]. They change how the model is served:
-<ol type="1">
-<li><code>:free</code>   — Provides the model for free (with low rate limits).<br>
-</li>
-<li><code>:beta</code>   — Disables OpenRouter moderation for the request.<br>
-</li>
-<li><code>:extended</code> — Uses a longer‑than‑usual context window.<br>
-</li>
-<li><code>:exacto</code>  — Routes only to OpenRouter‑curated high‑quality endpoints.<br>
-</li>
-<li><code>:thinking</code> — Enables built‑in reasoning support.</li>
-</ol></li>
-<li><strong>Dynamic variants</strong> – Can be added to any model and affect routing or extra processing:
-<ol type="1">
-<li><p><code>:online</code>  — Runs a web‑search query and appends the results to the prompt.<br>
-</p></li>
-<li><p><code>:nitro</code>  — Sorts providers by throughput (speed) rather than the default.</p></li>
-<li><p><code>:floor</code>  — Sorts providers by price, choosing the cheapest option.</p></li>
-</ol></li>
-</ul>
-<p>Source: OpenRouter FAQ “What are model variants?” (https://openrouter.ai/docs/faq)【source=0†L6899-L8873】.</p>
+</details>
+<p><strong>Model variants</strong> are suffixes you can attach to a model’s slug to modify how that model behaves when you call it through OpenRouter.</p>
+<p>There are two kinds:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 40%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variant</th>
+<th>How it works</th>
+<th>Example use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Static variants</strong> – only work with certain models (they are listed in</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>the <a href="https://openrouter.ai/api/v1/models">models API</a>). They change the model’s intrinsic properties. <br>• <code>:free</code> – always provided at no cost, but with low rate limits. <br>• <code>:beta</code> – bypasses OpenRouter‑side moderation. <br>• <code>:extended</code> – gives the model a longer context window than usual. <br>• <code>:exacto</code> – forces use of OpenRouter‑curated high‑quality endpoints only. <br>• <code>:thinking</code> – enables built‑in reasoning support. | | <strong>Dynamic variants</strong> – can be used with any model. They affect how the request is routed or processed. <br>• <code>:online</code> – runs a web‑search query and appends the results to the prompt. <br>• <code>:nitro</code> – sorts providers by throughput, favoring the fastest response. <br>• <code>:floor</code> – sorts providers by price, favoring the cheapest option. |</p>
+<p>Thus, by appending one of these suffixes (e.g., <code>gpt-4o:free</code> or <code>claude-3.5-sonnet:online</code>), you tell OpenRouter to apply the corresponding behavior to that request.</p>
+<p><em>Source: OpenRouter FAQ – “What are model variants?”</em>【https://openrouter.ai/docs/faq】</p>
 </div>
 <div id="tabset-4-2" class="tab-pane" aria-labelledby="tabset-4-2-tab">
 <p>We can also use the <code>chatlas</code> library to create a chat interface. Here, we define a custom tool <code>retrieve_trusted_content</code> that queries our DuckDB index. We then register this tool with the chat model, allowing it to pull in relevant information when answering user questions.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
@@ -11985,9 +12244,12 @@ font-style: inherit;">from</span> dotenv <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> load_dotenv</span>
 <span id="cb43-7">load_dotenv()</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ensure API key</span></span>
@@ -12156,8 +12418,11 @@ font-style: inherit;">"If you cannot find relevant information, say so clearly."
 <span id="cb45-44">)</span>
 <span id="cb45-45"></span>
 <span id="cb45-46">chat.register_tool(retrieve_trusted_content)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1">response<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>chat.chat(<span class="st" style="color: #20794D;
@@ -12167,19 +12432,61 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"none"</span>)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(response)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>I’m ready to help! Please provide the question you’d like answered.</code></pre>
+<pre><code>**Model variants** are alternative versions of a base machine‑learning model that share the same overall architecture but differ in one or more of the following attributes:
+
+| Attribute that can differ | What it means for the variant |
+|---------------------------|--------------------------------|
+| **Number of parameters / layers** | Smaller variants (e.g., “base”, “small”, “medium”) have fewer weights, run faster, and cost less to use, while larger variants (e.g., “large”, “XL”) tend to be more accurate but are slower and more expensive. |
+| **Training data** | Some variants are trained on a broader or more recent corpus, while others might be trained on domain‑specific data (e.g., legal texts, code, biomedical literature). |
+| **Fine‑tuning / instruction‑tuning** | A base model can be further fine‑tuned for a particular task (e.g., chat, summarisation, code generation) or to follow user instructions more reliably. The resulting model is a *fine‑tuned variant*. |
+| **Safety/Alignment filters** | Certain variants incorporate additional alignment or content‑filtering steps to reduce harmful or biased outputs. |
+| **Context‑window size** | Some variants are engineered to accept longer input sequences (e.g., 32 k tokens vs. the standard 8 k). |
+| **Output format** | Variants may be specialised for embeddings, token‑level classification, function‑calling APIs, or other downstream formats. |
+| **Hardware optimisation** | A variant might be quantised (e.g., 8‑bit) or otherwise optimised for specific hardware (GPU, CPU, mobile). |
+| **Pricing tier** | In commercial APIs, different variants are often exposed as separate pricing tiers (e.g., *gpt‑3.5‑turbo*, *gpt‑4‑turbo*, *gpt‑4‑32k*). |
+
+### Why create variants?
+
+1. **Trade‑off between cost and performance** – Smaller variants let users run inference cheaply and quickly; larger variants give higher accuracy when that matters.
+2. **Specialisation** – Fine‑tuning on a particular domain or task yields a model that outperforms the generic base model for that use‑case.
+3. **Safety &amp; compliance** – Adding alignment or content‑moderation layers helps meet regulatory or product‑safety requirements.
+4. **Technical constraints** – Longer context windows or quantised weights enable use‑cases (e.g., processing whole documents, running on edge devices) that the original model cannot handle efficiently.
+
+### Common real‑world examples
+
+| Platform | Base model | Notable variants |
+|----------|------------|-------------------|
+| OpenAI   | GPT‑4      | **gpt‑4‑turbo** (faster, cheaper, same quality), **gpt‑4‑32k** (longer context), **gpt‑4‑code‑interpreter** (adds execution capability) |
+| OpenAI   | GPT‑3.5    | **gpt‑3.5‑turbo** (optimised for chat), **gpt‑3.5‑code‑davinci** (code‑focused) |
+| Anthropic| Claude     | **Claude‑2**, **Claude‑2‑Instant** (faster, lower‑cost) |
+| Meta     | LLaMA      | **LLaMA‑7B**, **LLaMA‑13B**, **LLaMA‑30B**, **LLaMA‑70B** (size variants), plus instruction‑tuned “LLaMA‑Chat” variants |
+| Cohere   | Command    | **Command‑R** (retrieval‑augmented), **Command‑Light** (smaller, cheaper) |
+
+### How to think about them
+
+- **All variants stem from the same underlying architecture.** If you think of the base model as a “template,” a variant is a concrete instance of that template with a specific configuration.
+- **Choosing a variant is a matter of matching requirements.** If your application needs sub‑second responses on cheap hardware, you’d pick a small, fast variant. If you need the highest possible reasoning ability on long documents, you’d choose a larger, longer‑context variant, possibly with safety filters turned on or off depending on your risk tolerance.
+- **Variants can be stacked.** A model can first be quantised (hardware optimisation) *and* instruction‑tuned (task specialization), yielding a variant that is both fast and better at following instructions.
+
+In short, **model variants are purpose‑built versions of a core model, each tuned—by size, data, training objective, safety controls, or hardware optimisation—to serve a particular trade‑off or use‑case.**</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-4-3" class="tab-pane" aria-labelledby="tabset-4-3-tab">
 <p>The final piece is to connect this retrieval capability to a chat interface. We use <code>LangChain</code> to create a RAG chain. We create a <code>retriever</code> from our vector store and combine it with a <code>ChatOpenAI</code> model (using OpenRouter) and a prompt template. This gives the LLM the ability to query our vector store whenever it needs information to answer a user’s question.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_openai <span class="im" style="color: #00769E;
@@ -12230,9 +12537,12 @@ background-color: null;
 font-style: inherit;">import</span> load_dotenv</span>
 <span id="cb49-11"></span>
 <span id="cb49-12">load_dotenv()</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Custom embeddings class for OpenRouter API</span></span>
@@ -12461,9 +12771,12 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">..."</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Loading existing vectorstore from chroma_db_data...</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1">vectorstore <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Chroma(</span>
@@ -12479,9 +12792,12 @@ background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"✓ Loaded vectorstore"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>✓ Loaded vectorstore</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Initialize LLM using OpenRouter</span></span>
@@ -12629,9 +12945,12 @@ background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"✓ RAG chain created successfully!"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>✓ RAG chain created successfully!</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Test the RAG chain</span></span>
@@ -12656,10 +12975,13 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Question: What are model variants?</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get context documents separately for display</span></span>
@@ -12697,13 +13019,14 @@ background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">80</span>))</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Model variants are suffixes you append to a model’s slug to modify its behavior.
 Static variants (e.g., `:free`, `:beta`, `:extended`, `:exacto`, `:thinking`)
-work only with specific models, while dynamic variants
-(e.g., `:online`, `:nitro`, `:floor`) can be used on any model to adjust routing
-or features. They let you control cost, context length, reasoning, web‑search
-integration, speed, or price.</code></pre>
+apply only to specific models, while dynamic variants
+(e.g., `:online`, `:nitro`, `:floor`) work with any model and affect routing or
+usage. These modifiers let you control factors like cost, moderation, context
+length, reasoning support, web‑search integration, speed, or price.</code></pre>
 </div>
 </div>
 </div>
@@ -12795,6 +13118,8 @@ font-style: inherit;">pip</span> install openai python-dotenv</span></code></pre
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
@@ -12900,10 +13225,13 @@ background-color: null;
 font-style: inherit;">print</span>(completion.choices[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].message.content)</span></code></pre></div></div>
+</details>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> chatlas <span class="im" style="color: #00769E;
@@ -12948,8 +13276,11 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"openai/gpt-oss-20b:free"</span>)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">response<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>client.chat(<span class="st" style="color: #20794D;
@@ -12958,10 +13289,13 @@ font-style: inherit;">"What is the capital of France?"</span>)</span>
 <span id="cb4-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#str(response)</span></span></code></pre></div></div>
+</details>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(ellmer)</span>
@@ -13005,8 +13339,11 @@ font-style: inherit;">echo =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"none"</span></span>
 <span id="cb5-11">)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">chat<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
@@ -13014,6 +13351,7 @@ background-color: null;
 font-style: inherit;">chat</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Tell me three jokes about statisticians"</span>)</span></code></pre></div></div>
+</details>
 </div>
 </div>
 </div>
@@ -13049,6 +13387,8 @@ font-style: inherit;">"Tell me three jokes about statisticians"</span>)</span></
 <section id="effective-system-prompt-examples" class="level3">
 <h3 class="anchored" data-anchor-id="effective-system-prompt-examples">Effective System Prompt Examples</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Example with system prompt</span></span>
@@ -13100,9 +13440,12 @@ background-color: null;
 font-style: inherit;">print</span>(completion.choices[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].message.content)</span></code></pre></div></div>
+</details>
 </div>
 <p>Common system prompt patterns:</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Different system prompt examples</span></span>
@@ -13183,6 +13526,7 @@ font-style: inherit;">#response = chat_with_persona("coding_assistant", "How do 
 <span id="cb8-22"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#print(response)</span></span></code></pre></div></div>
+</details>
 </div>
 </section>
 </section>
@@ -13197,6 +13541,8 @@ font-style: inherit;">#print(response)</span></span></code></pre></div></div>
 <section id="implementing-streaming-with-openrouter" class="level3">
 <h3 class="anchored" data-anchor-id="implementing-streaming-with-openrouter">Implementing Streaming with OpenRouter</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Initialize the OpenAI client (if not already done)</span></span>
@@ -13309,11 +13655,14 @@ background-color: null;
 font-style: inherit;">print</span>()  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Add newline after streaming</span></span></code></pre></div></div>
+</details>
 </div>
 </section>
 <section id="text-to-image" class="level3">
 <h3 class="anchored" data-anchor-id="text-to-image">6. text to image</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
@@ -13325,8 +13674,11 @@ font-style: inherit;">import</span> base64</span>
 <span id="cb10-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> datetime</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># | eval: false</span></span>
@@ -13366,8 +13718,11 @@ font-style: inherit;">=</span>os.getenv(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY"</span>),</span>
 <span id="cb11-13">)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Image generation request</span></span>
@@ -13420,8 +13775,11 @@ font-style: inherit;">"text"</span>],</span>
 background-color: null;
 font-style: inherit;">#image_size="1024x1024",</span></span>
 <span id="cb12-16">)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> base64</span>
@@ -13532,8 +13890,11 @@ background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"❌ No image returned in response"</span>)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> IPython.display <span class="im" style="color: #00769E;
@@ -13545,6 +13906,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"text_image_gemini_25_openrouter_1352.png"</span>))</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;IPython.core.display.Image object&gt;</code></pre>
 </div>
@@ -13553,6 +13915,8 @@ font-style: inherit;">"text_image_gemini_25_openrouter_1352.png"</span>))</span>
 <section id="image-to-text" class="level3">
 <h3 class="anchored" data-anchor-id="image-to-text">6 image to text</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> base64</span>
@@ -13665,11 +14029,14 @@ background-color: null;
 font-style: inherit;">print</span>(completion.choices[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].message.content)</span></code></pre></div></div>
+</details>
 </div>
 </section>
 <section id="textimage-to-image" class="level3">
 <h3 class="anchored" data-anchor-id="textimage-to-image">7. text,image to image</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># | eval: false</span></span>
@@ -13778,8 +14145,11 @@ font-style: inherit;">"text"</span>],</span>
 background-color: null;
 font-style: inherit;"># image_size="1024x1024",</span></span>
 <span id="cb17-31">)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> base64</span>
@@ -13890,8 +14260,11 @@ background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"❌ No image returned in response"</span>)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> IPython.display <span class="im" style="color: #00769E;
@@ -13903,11 +14276,14 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"text_image_gemini_25_openrouter_1405.png"</span>))</span></code></pre></div></div>
+</details>
 </div>
 </section>
 <section id="embedding" class="level3">
 <h3 class="anchored" data-anchor-id="embedding">8 Embedding</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
@@ -13989,15 +14365,21 @@ font-style: inherit;">"float"</span></span>
 <span id="cb20-25"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#print(embedding.data[0].embedding) </span></span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">len</span>(embedding.data[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].embedding)</span></code></pre></div></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(embedding.data[<span class="dv" style="color: #AD0000;
@@ -14007,6 +14389,7 @@ background-color: null;
 font-style: inherit;">5</span>])  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Print first 5 dimensions</span></span></code></pre></div></div>
+</details>
 </div>
 </section>
 </section>
@@ -14023,6 +14406,8 @@ font-style: inherit;"># Print first 5 dimensions</span></span></code></pre></div
 <h2 class="anchored" data-anchor-id="real-time-cost-tracking">Real-Time Cost Tracking</h2>
 <p>OpenRouter provides programmatic access to current pricing for all models:</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Initialize the OpenAI client (if not already done)</span></span>
@@ -14046,9 +14431,12 @@ background-color: null;
 font-style: inherit;">as</span> pd</span>
 <span id="cb23-6"></span>
 <span id="cb23-7">load_dotenv()</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1">client <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> OpenAI(</span>
@@ -14348,10 +14736,13 @@ font-style: inherit;"># Get pricing DataFrames (all models and paid models only)
 <span id="cb25-56">all_models_df <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> get_model_pricing()</span></code></pre></div></div>
+</details>
 </div>
 <section id="most-expensive-models" class="level4">
 <h4 class="anchored" data-anchor-id="most-expensive-models">Most Expensive Models</h4>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> panel <span class="im" style="color: #00769E;
@@ -14409,6 +14800,7 @@ font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">False</span>)</span>
 <span id="cb26-17">table</span></code></pre></div></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Tabulator(page_size=10, pagination='local', show_index=False, value=              ...)</code></pre>
 </div>

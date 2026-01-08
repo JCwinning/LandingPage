@@ -6,6 +6,14 @@ categories: [AI, API, tutorial]
 image: "images/0.png"
 execute: 
   cache: true
+  eval: false
+  warning: false
+  
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    code-copy: true
   
 ---
 
@@ -20,13 +28,25 @@ Github: [https://github.com/JCwinning/weight_tracking](https://github.com/JCwinn
 
 
 
+::: {.panel-tabset}
+
+## Weight Tracking trend
+
 ![Application Dashboard - Weight Tracking View](images/0.png){width="100%"}
+
+## AI feedback
 
 ![AI Configuration Panel](images/1.png){width="100%"}
 
+## 体重趋势图
+
 ![Data Table View](images/2.png){width="100%"}
 
+## AI反馈
+
 ![Code Viewer Section](images/3.png){width="100%"}
+
+:::
 
 ## Core Features
 
@@ -122,7 +142,7 @@ flowchart LR
 
 The application uses `reactivePoll()` to monitor the Excel data file for changes:
 
-```r
+```{r}
 # Real-time data monitoring with 1000ms interval
 weight_data <- reactivePoll(
   intervalMillis = 1000,
@@ -168,7 +188,7 @@ The application implements comprehensive BMI calculations with unit conversions:
 
 #### Unit Conversion Examples
 
-```r
+```{r}
 # BMI calculation for metric and imperial units
 calculate_bmi <- function(weight, height, unit) {
   if (unit == "kg") {
@@ -199,7 +219,7 @@ calculate_bmi <- function(weight, height, unit) {
 
 The application supports multiple AI providers with dynamic switching:
 
-```r
+```{r}
 # AI Provider Configuration
 ai_providers <- list(
   modelscope = list(
@@ -228,7 +248,7 @@ observeEvent(input$ai_provider, {
 
 The AI generates personalized health advice based on weight trends:
 
-```r
+```{r}
 # AI suggestion generation
 get_ai_suggestion <- function(weight_data, api_key, model, provider) {
   # Prepare data for AI analysis
@@ -266,7 +286,7 @@ get_ai_suggestion <- function(weight_data, api_key, model, provider) {
 
 ### Multi-Tab Navigation Structure
 
-```r
+```{r}
 # Tab-based interface organization
 mainPanel(
   tabsetPanel(
@@ -297,7 +317,7 @@ mainPanel(
 
 Complete bilingual support with dynamic language switching:
 
-```r
+```{r}
 # Language translation system
 translations <- list(
   en = list(
@@ -330,7 +350,7 @@ observeEvent(input$lang_en, {
 
 The application features dynamic charts with health indicators:
 
-```r
+```{r}
 # BMI chart with health ranges
 output$bmi_plot <- renderPlotly({
   data <- weight_data()
@@ -362,7 +382,7 @@ The application is deployed and accessible at:
 
 ### URL Bookmarking System
 
-```r
+```{r}
 # Enable URL bookmarking in global.R
 shinyServer(
   function(input, output, session) {
@@ -381,7 +401,7 @@ shinyServer(
 
 The application implements efficient reactive programming:
 
-```r
+```{r}
 # Efficient data processing with caching
 processed_data <- reactive({
   data <- weight_data()
@@ -419,7 +439,7 @@ current_stats <- reactive({
 
 ### API Key Management
 
-```r
+```{r}
 # Secure API key handling (session-only storage)
 observeEvent(input$get_ai_suggestion, {
   if (is.null(input$api_key) || input$api_key == "") {
@@ -447,7 +467,7 @@ observeEvent(input$get_ai_suggestion, {
 
 ### Error Handling
 
-```r
+```{r}
 # Comprehensive error handling
 get_ai_suggestion <- function(...) {
   tryCatch({
@@ -515,6 +535,3 @@ Whether you're interested in health monitoring, data visualization, or AI integr
 
 ---
 
-**Live Demo**: [https://jcflyingco.shinyapps.io/weight-tracking/](https://jcflyingco.shinyapps.io/weight-tracking/)
-**Technology Stack**: R, Shiny, Plotly, ellmer, Bootstrap
-**Source Code**: Available in the weight_tracking directory

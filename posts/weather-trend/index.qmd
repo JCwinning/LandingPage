@@ -9,6 +9,7 @@ format:
   html:
     code-fold: true
     code-tools: true
+    code-copy: true
 
 execute:
   eval: false
@@ -113,7 +114,7 @@ echo "modelscope=your_api_key_here" > .env
 
 The map functionality allows users to click anywhere and get weather data for that exact location:
 
-```python
+```{python}
 import folium
 from streamlit_folium import st_folium
 
@@ -156,7 +157,7 @@ if st_data['last_clicked']:
 
 The app supports both English and Chinese city names with intelligent fallback:
 
-```python
+```{python}
 import re
 from geopy.geocoders import Nominatim
 
@@ -203,7 +204,7 @@ def get_coordinates_for_city(city_name):
 
 The application fetches comprehensive weather data from Open-Meteo API:
 
-```python
+```{python}
 import requests
 import pandas as pd
 
@@ -279,7 +280,7 @@ def process_weather_data(data):
 
 Temperature trends with clear visual distinction between historical and forecast data:
 
-```python
+```{python}
 import altair as alt
 
 def create_temperature_chart(weather_df):
@@ -337,7 +338,7 @@ def create_temperature_chart(weather_df):
 
 PM2.5 levels with EPA-compliant color coding:
 
-```python
+```{python}
 def get_air_quality_level(pm25_value):
     """Get air quality level based on US EPA PM2.5 standards"""
 
@@ -411,7 +412,7 @@ The most innovative feature is AI-powered weather analysis using ModelScope's De
 
 ![AI Weather Recommendations](images/1.png){width="100%"}
 
-```python
+```{python}
 from openai import OpenAI
 import os
 
@@ -532,7 +533,7 @@ The AI system uses carefully crafted prompts to generate useful insights:
 
 The app implements a comprehensive bilingual system:
 
-```python
+```{python}
 # language.py - Translation management
 TRANSLATIONS = {
     "en": {
@@ -602,7 +603,7 @@ def main():
 
 The weather table combines data with visual elements for quick understanding:
 
-```python
+```{python}
 def create_weather_table(weather_df, language="en"):
     """Create enhanced weather table with icons and colors"""
 
@@ -736,7 +737,7 @@ def create_map_cached(lat, lon):
 
 ### Error Handling and Resilience
 
-```python
+```{python}
 def robust_api_call(func, *args, max_retries=3, **kwargs):
     """Robust API calling with retry logic"""
     for attempt in range(max_retries):
@@ -806,19 +807,15 @@ def robust_api_call(func, *args, max_retries=3, **kwargs):
 This weather forecast application demonstrates how modern web development technologies can be combined to create a comprehensive, intelligent weather service. The integration of AI-powered recommendations elevates it from a simple data display tool to a practical weather assistant that helps users make informed decisions about their daily activities.
 
 The project showcases:
+
 - **Modern Web Development**: Streamlit for rapid prototyping
+
 - **Data Visualization**: Professional charts and interactive maps
+
 - **AI Integration**: Practical use of language models for data analysis
+
 - **Internationalization**: Complete bilingual support
+
 - **Production Readiness**: Error handling, caching, and optimization
 
 Whether you're building weather applications, data dashboards, or AI-powered tools, this project provides an excellent foundation for creating sophisticated, user-friendly applications.
-
-**Live Demo**: [https://weather-trend.streamlit.app/](https://weather-trend.streamlit.app/)
-**Technology Stack**: Streamlit, Altair, Folium, ModelScope AI, Open-Meteo API
-**Source Code**: Available in the weather_trend directory
-
----
-
-*Ready to build your own weather app? Check out the [complete source code](https://github.com/your-repo/weather_trend) and start experimenting with these advanced features today!*
-

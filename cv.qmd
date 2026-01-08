@@ -8,7 +8,7 @@ toc: false
 
 # English
 
-<a href="段晋潮 Tony Duan Resume.docx" download class="btn btn-primary" style="margin-bottom: 1rem;">📥 Download Resume</a>
+<a href="Tony Duan Resume.pdf" download class="btn btn-primary" style="margin-bottom: 1rem;">📥 Download Resume</a>
 
 ## Tony Jinchao Duan
 
@@ -65,7 +65,7 @@ The Ernst & Young ExCEED Award is for extra effort, exceeding expectations and r
 
 # 中文
 
-<a href="段晋潮 Tony Duan简历.docx" download class="btn btn-primary" style="margin-bottom: 1rem;">📥 下载简历</a>
+<a href="段晋潮 Tony Duan简历.pdf" download class="btn btn-primary" style="margin-bottom: 1rem;">📥 下载简历</a>
 
 ## 段晋潮 Tony Duan
 

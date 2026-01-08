@@ -9,6 +9,7 @@ format:
   html:
     code-fold: true
     code-tools: true
+    code-copy: true
     
 execute:
   eval: false
@@ -17,9 +18,26 @@ execute:
 
 A robust and elegant personal shop management system. Whether you're tracking your favorite coffee shops, scenic spots, or planning future visits, this application provides a powerful platform for visualization and data management.
 
-## Live Demo
 
-[![Live App](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://china-map.streamlit.app/)
+Live Demo: [https://china-map.streamlit.app](https://china-map.streamlit.app)
+
+
+
+::: {.panel-tabset}
+ 
+## Map view
+![](images/Picture1.png){width="100%"}
+
+
+## Table view
+![](images/Picture2.png){width="100%"}
+
+## shop photo
+![](images/Picture3.png){width="100%"}
+
+:::
+
+
 
 ## Key Architectural Shift: Dual-Mode Storage
 
