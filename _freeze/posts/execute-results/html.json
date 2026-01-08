@@ -2,8 +2,10 @@
   "hash": "e234e9bbdc431e809586f9b440ee08e4",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Posts\"\nlisting:\n  contents: posts\n  type: table\n  sort: \"date desc\"\n  page-size: 100\n  categories: false\n  fields: [image, date, title, categories]\n  filter-ui: [date, title, categories]\n  \n---\n\n\n\n::: {.cell}\n\n:::\n\n\nAs  2026-01-07. Total number of posts: 8 ",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Posts\"\nlisting:\n  contents: posts\n  type: table\n  sort: \"date desc\"\n  page-size: 100\n  categories: false\n  fields: [image, date, title, categories]\n  filter-ui: [date, title, categories]\n  \n---\n\n\n\n::: {.cell}\n\n:::\n\n\nAs  2026-01-08. Total number of posts: 10 ",
+    "supporting": [
+      "posts_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

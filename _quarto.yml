@@ -10,6 +10,7 @@ website:
   site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
   title: "AI Blog"
   favicon: favicon.png
+  google-analytics: "G-9NBJ66WLRT"
   navbar:
     right:
       - text: "Home"
