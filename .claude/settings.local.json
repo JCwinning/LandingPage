@@ -1,13 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch",
-      "WebFetch(domain:source.unsplash.com)",
-      "Bash(python get_image.py)",
-      "Bash(python3 get_image.py)",
-    
-    ],
-    "deny": [],
-    "ask": []
+      "Bash(wc:*)",
+      "Bash(du:*)"
+    ]
   }
 }
