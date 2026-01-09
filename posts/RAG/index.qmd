@@ -262,7 +262,7 @@ Settings.chunk_overlap = 200
 documents = SimpleDirectoryReader("markdown_docs").load_data()
 
 # Initialize DuckDB Vector Store
-vector_store = DuckDBVectorStore("open.duckdb", persist_dir="./persist/")
+vector_store = DuckDBVectorStore("openrouter.duckdb", persist_dir="./persist/")
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 
 # Create the index
@@ -459,6 +459,9 @@ print(f"✓ Database saved to: {persist_directory}")
 
 Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like "What are model variants?", and query the store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.
 
+### Question:What are model variants?
+
+RAG result:
 
 ```{r}
 
@@ -486,6 +489,10 @@ for (i in seq_len(nrow(relevant_chunks))) {
 ## Python DuckDB
 
 In Python, we can use `LlamaIndex` to interact with our DuckDB vector store. In this step, we'll configure the embedding model and retrieve the top relevant chunks for our query, saving them to a file for inspection. We won't use an LLM for generation yet, focusing solely on verifying the retrieval quality.
+
+### Question:What are model variants?
+
+RAG result:
 
 ```{python}
 
@@ -559,20 +566,57 @@ Settings.embed_model = embed_model
 
 # 3. Load and Retrieve
 # Load the existing DuckDB vector store
-vector_store = DuckDBVectorStore(database_name="openrouter.duckdb", persist_dir="./persist/")
+print("Loading vector store from openrouter.duckdb...")
+vector_store = DuckDBVectorStore(database_name="openrouter.duckdb",persist_dir="./persist/")
+
 index = VectorStoreIndex.from_vector_store(vector_store=vector_store)
+
+# Define query
+query = "What are model variants?"
+print(f"\n{'='*60}")
+print(f"Query: '{query}'")
+print(f"{'='*60}\n")
 
 # Retrieve top 3 chunks
 retriever = index.as_retriever(similarity_top_k=3)
-nodes = retriever.retrieve("What are model variants?")
+nodes = retriever.retrieve(query)
+
+# Print detailed retrieval info
+print(f"Retrieved {len(nodes)} chunks from DuckDB:\n")
+for i, node in enumerate(nodes, 1):
+    print(f"{'─'*60}")
+    print(f"Chunk {i}")
+    print(f"{'─'*60}")
+
+    # Print similarity score
+    if hasattr(node, 'score'):
+        print(f"Similarity Score: {node.score:.4f}")
+
+    # Print metadata
+    if hasattr(node, 'metadata') and node.metadata:
+        print(f"Metadata:")
+        for key, value in node.metadata.items():
+            print(f"  - {key}: {value}")
+
+    # Print text content (truncated for display)
+    text_preview = node.text[:500] + "..." if len(node.text) > 500 else node.text
+    print(f"\nContent:\n{text_preview}\n")
 
 # Save retrieved chunks to a markdown file for easy inspection
-with open("retriever.md", "w", encoding="utf-8") as f:
-    f.write(f"# Retrieved {len(nodes)} chunks\n\n")
-    for i, node in enumerate(nodes, 1):
-        content = f"## Chunk {i}\n\n{node.text}\n\n"
-        print(content)
-        f.write(content)
+# with open("retriever.md", "w", encoding="utf-8") as f:
+#     f.write(f"# Query: {query}\n\n")
+#     f.write(f"# Retrieved {len(nodes)} chunks from openrouter.duckdb\n\n")
+#     for i, node in enumerate(nodes, 1):
+#         f.write(f"{'─'*60}\n")
+#         f.write(f"## Chunk {i}\n\n")
+#         if hasattr(node, 'score'):
+#             f.write(f"**Similarity Score:** {node.score:.4f}\n\n")
+#         if hasattr(node, 'metadata') and node.metadata:
+#             f.write(f"**Metadata:**\n")
+#             for key, value in node.metadata.items():
+#                 f.write(f"- {key}: {value}\n")
+#             f.write(f"\n")
+#         f.write(f"{node.text}\n\n")
 ```
 
 
@@ -581,6 +625,10 @@ with open("retriever.md", "w", encoding="utf-8") as f:
 ## Python Chroma
 
 Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like "What are model variants?", and query the `Chroma` store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.
+
+### Question:What are model variants?
+
+RAG result:
 
 ```{python}
 from openai import OpenAI
@@ -704,6 +752,7 @@ chat <- chat_openrouter(
 
 ```
 
+### Question:What are model variants?
 
 ```{r}
 #| results: asis
@@ -714,6 +763,8 @@ chat$chat("What are model variants?")
 ## Python chatlas
 
 We can also use the `chatlas` library to create a chat interface. Here, we define a custom tool `retrieve_trusted_content` that queries our DuckDB index. We then register this tool with the chat model, allowing it to pull in relevant information when answering user questions.
+
+### Question:What are model variants?
 
 
 ```{python}
@@ -787,6 +838,10 @@ print(response)
 ## Python LangChain
 
 The final piece is to connect this retrieval capability to a chat interface. We use `LangChain` to create a RAG chain. We create a `retriever` from our vector store and combine it with a `ChatOpenAI` model (using OpenRouter) and a prompt template. This gives the LLM the ability to query our vector store whenever it needs information to answer a user's question.
+
+
+### Question:What are model variants?
+
 
 ```{python}
 from langchain_openai import ChatOpenAI

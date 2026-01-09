@@ -66,19 +66,53 @@ Settings.embed_model = embed_model
 
 # 3. Load and Retrieve
 # Load the existing DuckDB vector store
-print("Connecting to DuckDB...")
-vector_store = DuckDBVectorStore(database_name="open.duckdb", persist_dir="./persist/")
+print("Loading vector store from openrouter.duckdb...")
+vector_store = DuckDBVectorStore(database_name="openrouter.duckdb", persist_dir="./persist/")
 index = VectorStoreIndex.from_vector_store(vector_store=vector_store)
 
-print("Retrieving...")
+# Define query
+query = "What are model variants?"
+print(f"\n{'='*60}")
+print(f"Query: '{query}'")
+print(f"{'='*60}\n")
+
 # Retrieve top 3 chunks
 retriever = index.as_retriever(similarity_top_k=3)
-nodes = retriever.retrieve("What are model variants?")
+nodes = retriever.retrieve(query)
+
+# Print detailed retrieval info
+print(f"Retrieved {len(nodes)} chunks from DuckDB:\n")
+for i, node in enumerate(nodes, 1):
+    print(f"{'─'*60}")
+    print(f"Chunk {i}")
+    print(f"{'─'*60}")
+
+    # Print similarity score
+    if hasattr(node, 'score'):
+        print(f"Similarity Score: {node.score:.4f}")
+
+    # Print metadata
+    if hasattr(node, 'metadata') and node.metadata:
+        print(f"Metadata:")
+        for key, value in node.metadata.items():
+            print(f"  - {key}: {value}")
+
+    # Print text content (truncated for display)
+    text_preview = node.text[:500] + "..." if len(node.text) > 500 else node.text
+    print(f"\nContent:\n{text_preview}\n")
 
 # Save retrieved chunks to a markdown file for easy inspection
 with open("retriever.md", "w", encoding="utf-8") as f:
-    f.write(f"# Retrieved {len(nodes)} chunks\n\n")
+    f.write(f"# Query: {query}\n\n")
+    f.write(f"# Retrieved {len(nodes)} chunks from openrouter.duckdb\n\n")
     for i, node in enumerate(nodes, 1):
-        content = f"## Chunk {i}\n\n{node.text}\n\n"
-        print(content)
-        f.write(content)
+        f.write(f"{'─'*60}\n")
+        f.write(f"## Chunk {i}\n\n")
+        if hasattr(node, 'score'):
+            f.write(f"**Similarity Score:** {node.score:.4f}\n\n")
+        if hasattr(node, 'metadata') and node.metadata:
+            f.write(f"**Metadata:**\n")
+            for key, value in node.metadata.items():
+                f.write(f"- {key}: {value}\n")
+            f.write(f"\n")
+        f.write(f"{node.text}\n\n")

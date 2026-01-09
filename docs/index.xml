@@ -9880,7 +9880,7 @@ background-color: null;
 font-style: inherit;">print</span>(links_full)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>['https://openrouter.ai/docs/guides/routing/provider-selection', 'https://openrouter.ai/docs/quickstart', 'https://openrouter.ai/docs/guides/overview/models', 'https://openrouter.ai/docs/guides/features/zero-completion-insurance', 'https://openrouter.ai/docs/api/reference/streaming', 'https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview', 'https://openrouter.ai/docs/guides/features/presets', 'https://openrouter.ai/docs/faq#how-are-rate-limits-calculated', 'https://openrouter.ai/docs/app-attribution', 'https://openrouter.ai/docs/api/reference/overview', 'https://openrouter.ai/docs/api-reference/overview', 'https://openrouter.ai/docs/guides/overview/principles', 'https://openrouter.ai/docs/faq', 'https://openrouter.ai/docs/guides/features/structured-outputs', 'https://openrouter.ai/docs/guides/features/zdr', 'https://openrouter.ai/docs/guides/routing/model-fallbacks', 'https://openrouter.ai/docs/guides/overview/report-feedback', 'https://openrouter.ai/docs/guides/features/tool-calling', 'https://openrouter.ai/docs/sdks/call-model/overview', 'https://openrouter.ai/docs/guides/features/message-transforms']</code></pre>
+<pre><code>['https://openrouter.ai/docs/guides/features/message-transforms', 'https://openrouter.ai/docs/api-reference/overview', 'https://openrouter.ai/docs/app-attribution', 'https://openrouter.ai/docs/guides/features/zdr', 'https://openrouter.ai/docs/guides/overview/principles', 'https://openrouter.ai/docs/guides/features/zero-completion-insurance', 'https://openrouter.ai/docs/guides/overview/models', 'https://openrouter.ai/docs/guides/overview/report-feedback', 'https://openrouter.ai/docs/api/reference/streaming', 'https://openrouter.ai/docs/guides/routing/model-fallbacks', 'https://openrouter.ai/docs/faq#how-are-rate-limits-calculated', 'https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview', 'https://openrouter.ai/docs/guides/features/presets', 'https://openrouter.ai/docs/sdks/call-model/overview', 'https://openrouter.ai/docs/api/reference/overview', 'https://openrouter.ai/docs/quickstart', 'https://openrouter.ai/docs/guides/routing/provider-selection', 'https://openrouter.ai/docs/guides/features/structured-outputs', 'https://openrouter.ai/docs/guides/features/tool-calling', 'https://openrouter.ai/docs/faq']</code></pre>
 </div>
 </div>
 </div>
@@ -10123,7 +10123,7 @@ font-style: inherit;"># Initialize DuckDB Vector Store</span></span>
 background-color: null;
 font-style: inherit;">=</span> DuckDBVectorStore(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"open.duckdb"</span>, persist_dir<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"openrouter.duckdb"</span>, persist_dir<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -10768,6 +10768,9 @@ font-style: inherit;">"</span>)</span></code></pre></div></div>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" aria-labelledby="tabset-3-1-tab">
 <p>Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like “What are model variants?”, and query the store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.</p>
+<section id="questionwhat-are-model-variants" class="level3">
+<h3 class="anchored" data-anchor-id="questionwhat-are-model-variants">Question:What are model variants?</h3>
+<p>RAG result:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -11211,9 +11214,13 @@ background-color: null;
 font-style: inherit;">#ragnar_chunks_view(chunks)</span></span></code></pre></div></div>
 </details>
 </div>
+</section>
 </div>
 <div id="tabset-3-2" class="tab-pane" aria-labelledby="tabset-3-2-tab">
 <p>In Python, we can use <code>LlamaIndex</code> to interact with our DuckDB vector store. In this step, we’ll configure the embedding model and retrieve the top relevant chunks for our query, saving them to a file for inspection. We won’t use an LLM for generation yet, focusing solely on verifying the retrieval quality.</p>
+<section id="questionwhat-are-model-variants-1" class="level3">
+<h3 class="anchored" data-anchor-id="questionwhat-are-model-variants-1">Question:What are model variants?</h3>
+<p>RAG result:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -11530,61 +11537,133 @@ font-style: inherit;"># 3. Load and Retrieve</span></span>
 <span id="cb31-56"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load the existing DuckDB vector store</span></span>
-<span id="cb31-57">vector_store <span class="op" style="color: #5E5E5E;
+<span id="cb31-57"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Loading vector store from openrouter.duckdb..."</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Loading vector store from openrouter.duckdb...</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1">vector_store <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> DuckDBVectorStore(database_name<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"openrouter.duckdb"</span>, persist_dir<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"openrouter.duckdb"</span>,persist_dir<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"./persist/"</span>)</span>
-<span id="cb31-58">index <span class="op" style="color: #5E5E5E;
+<span id="cb33-2"></span>
+<span id="cb33-3">index <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> VectorStoreIndex.from_vector_store(vector_store<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>vector_store)</span>
-<span id="cb31-59"></span>
-<span id="cb31-60"><span class="co" style="color: #5E5E5E;
+<span id="cb33-4"></span>
+<span id="cb33-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define query</span></span>
+<span id="cb33-6">query <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"What are model variants?"</span></span>
+<span id="cb33-7"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'='</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+============================================================</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Query: '</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>query<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Query: 'What are model variants?'</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'='</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>============================================================</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Retrieve top 3 chunks</span></span>
-<span id="cb31-61">retriever <span class="op" style="color: #5E5E5E;
+<span id="cb39-2">retriever <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> index.as_retriever(similarity_top_k<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span>
-<span id="cb31-62">nodes <span class="op" style="color: #5E5E5E;
+<span id="cb39-3">nodes <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> retriever.retrieve(<span class="st" style="color: #20794D;
+font-style: inherit;">=</span> retriever.retrieve(query)</span>
+<span id="cb39-4"></span>
+<span id="cb39-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">"What are model variants?"</span>)</span>
-<span id="cb31-63"></span>
-<span id="cb31-64"><span class="co" style="color: #5E5E5E;
+font-style: inherit;"># Print detailed retrieval info</span></span>
+<span id="cb39-6"><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;"># Save retrieved chunks to a markdown file for easy inspection</span></span>
-<span id="cb31-65"><span class="cf" style="color: #003B4F;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
-font-weight: bold;
-font-style: inherit;">with</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">open</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"retriever.md"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"w"</span>, encoding<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"utf-8"</span>) <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> f:</span>
-<span id="cb31-66">    f.write(<span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f"# Retrieved </span><span class="sc" style="color: #5E5E5E;
+font-style: inherit;">f"Retrieved </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{</span><span class="bu" style="color: null;
 background-color: null;
@@ -11592,12 +11671,18 @@ font-style: inherit;">len</span>(nodes)<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;"> chunks</span><span class="ch" style="color: #20794D;
+font-style: inherit;"> chunks from DuckDB:</span><span class="ch" style="color: #20794D;
 background-color: null;
-font-style: inherit;">\n\n</span><span class="ss" style="color: #20794D;
+font-style: inherit;">\n</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span>)</span>
-<span id="cb31-67">    <span class="cf" style="color: #003B4F;
+font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Retrieved 3 chunks from DuckDB:</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> i, node <span class="kw" style="color: #003B4F;
@@ -11608,90 +11693,372 @@ background-color: null;
 font-style: inherit;">enumerate</span>(nodes, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>):</span>
-<span id="cb31-68">        content <span class="op" style="color: #5E5E5E;
+<span id="cb41-2">    <span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">f"## Chunk </span><span class="sc" style="color: #5E5E5E;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'─'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb41-3">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Chunk </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{</span>i<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">}</span><span class="ch" style="color: #20794D;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">\n\n</span><span class="sc" style="color: #5E5E5E;
+font-style: inherit;">"</span>)</span>
+<span id="cb41-4">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'─'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb41-5"></span>
+<span id="cb41-6">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print similarity score</span></span>
+<span id="cb41-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">hasattr</span>(node, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'score'</span>):</span>
+<span id="cb41-8">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Similarity Score: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{</span>node<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">.</span>text<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">.</span>score<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:.4f}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb41-9"></span>
+<span id="cb41-10">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print metadata</span></span>
+<span id="cb41-11">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">hasattr</span>(node, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'metadata'</span>) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">and</span> node.metadata:</span>
+<span id="cb41-12">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Metadata:"</span>)</span>
+<span id="cb41-13">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> key, value <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> node.metadata.items():</span>
+<span id="cb41-14">            <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"  - </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>key<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>value<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb41-15"></span>
+<span id="cb41-16">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print text content (truncated for display)</span></span>
+<span id="cb41-17">    text_preview <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> node.text[:<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"..."</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(node.text) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> node.text</span>
+<span id="cb41-18">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Content:</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>text_preview<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">}</span><span class="ch" style="color: #20794D;
 background-color: null;
-font-style: inherit;">\n\n</span><span class="ss" style="color: #20794D;
+font-style: inherit;">\n</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb31-69">        <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(content)</span>
-<span id="cb31-70">        f.write(content)</span></code></pre></div></div>
+font-style: inherit;">"</span>)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>22</code></pre>
+<pre><code>────────────────────────────────────────────────────────────
+Chunk 1
+────────────────────────────────────────────────────────────
+Similarity Score: 0.6170
+Metadata:
+  - file_path: /Users/jinchaoduan/Documents/post_project/AI_Blog/posts/RAG/markdown_docs/docs_features_exacto-variant.md
+  - file_name: docs_features_exacto-variant.md
+  - file_type: text/markdown
+  - file_size: 7972
+  - creation_date: 2025-11-21
+  - last_modified_date: 2025-11-21
+
+Content:
+Search
+
+`/`
+
+Ask AI
+
+[API](/docs/api-reference/overview)[Models](https://openrouter.ai/models)[Chat](https://openrouter.ai/chat)[Ranking](https://openrouter.ai/rankings)
+
+* Overview
+
+  + [Quickstart](/docs/quickstart)
+  + [FAQ](/docs/faq)
+  + [Principles](/docs/overview/principles)
+  + [Models](/docs/overview/models)
+  + [Enterprise](https://openrouter.ai/enterprise)
+* Features
+
+  + [Privacy and Logging](/docs/features/privacy-and-logging)
+  + [Zero Data Retention (ZDR)](/docs/features/zdr)
+  + ...
+
+────────────────────────────────────────────────────────────
+Chunk 2
+────────────────────────────────────────────────────────────
+Similarity Score: 0.6101
+Metadata:
+  - file_path: /Users/jinchaoduan/Documents/post_project/AI_Blog/posts/RAG/markdown_docs/docs_overview_models.md
+  - file_name: docs_overview_models.md
+  - file_type: text/markdown
+  - file_size: 9021
+  - creation_date: 2025-11-21
+  - last_modified_date: 2025-11-21
+
+Content:
+Search
+
+`/`
+
+Ask AI
+
+[API](/docs/api-reference/overview)[Models](https://openrouter.ai/models)[Chat](https://openrouter.ai/chat)[Ranking](https://openrouter.ai/rankings)
+
+* Overview
+
+  + [Quickstart](/docs/quickstart)
+  + [FAQ](/docs/faq)
+  + [Principles](/docs/overview/principles)
+  + [Models](/docs/overview/models)
+  + [Enterprise](https://openrouter.ai/enterprise)
+* Features
+
+  + [Privacy and Logging](/docs/features/privacy-and-logging)
+  + [Zero Data Retention (ZDR)](/docs/features/zdr)
+  + ...
+
+────────────────────────────────────────────────────────────
+Chunk 3
+────────────────────────────────────────────────────────────
+Similarity Score: 0.5821
+Metadata:
+  - file_path: /Users/jinchaoduan/Documents/post_project/AI_Blog/posts/RAG/markdown_docs/docs_guides_overview_models.md
+  - file_name: docs_guides_overview_models.md
+  - file_type: text/markdown
+  - file_size: 7557
+  - creation_date: 2026-01-06
+  - last_modified_date: 2026-01-06
+
+Content:
+Search
+
+`/`
+
+Ask AI
+
+[Models](https://openrouter.ai/models)[Chat](https://openrouter.ai/chat)[Ranking](https://openrouter.ai/rankings)[Docs](/docs/api-reference/overview)
+
+[Docs](/docs/quickstart)[API Reference](/docs/api/reference/overview)[SDK Reference](/docs/sdks/call-model/overview)
+
+[Docs](/docs/quickstart)[API Reference](/docs/api/reference/overview)[SDK Reference](/docs/sdks/call-model/overview)
+
+* Overview
+
+  + [Quickstart](/docs/quickstart)
+  + [Principles](/docs/guides/overview/princi...</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"></span>
+<span id="cb43-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Save retrieved chunks to a markdown file for easy inspection</span></span>
+<span id="cb43-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># with open("retriever.md", "w", encoding="utf-8") as f:</span></span>
+<span id="cb43-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     f.write(f"# Query: {query}\n\n")</span></span>
+<span id="cb43-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     f.write(f"# Retrieved {len(nodes)} chunks from openrouter.duckdb\n\n")</span></span>
+<span id="cb43-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     for i, node in enumerate(nodes, 1):</span></span>
+<span id="cb43-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#         f.write(f"{'─'*60}\n")</span></span>
+<span id="cb43-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#         f.write(f"## Chunk {i}\n\n")</span></span>
+<span id="cb43-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#         if hasattr(node, 'score'):</span></span>
+<span id="cb43-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#             f.write(f"**Similarity Score:** {node.score:.4f}\n\n")</span></span>
+<span id="cb43-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#         if hasattr(node, 'metadata') and node.metadata:</span></span>
+<span id="cb43-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#             f.write(f"**Metadata:**\n")</span></span>
+<span id="cb43-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#             for key, value in node.metadata.items():</span></span>
+<span id="cb43-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#                 f.write(f"- {key}: {value}\n")</span></span>
+<span id="cb43-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#             f.write(f"\n")</span></span>
+<span id="cb43-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#         f.write(f"{node.text}\n\n")</span></span></code></pre></div></div>
+</details>
 </div>
+</section>
 </div>
 <div id="tabset-3-3" class="tab-pane" aria-labelledby="tabset-3-3-tab">
 <p>Now that our knowledge base is populated, we can test the retrieval system. We can ask a specific question, like “What are model variants?”, and query the <code>Chroma</code> store to see which text chunks are most relevant. This confirms that our embeddings and search are working correctly.</p>
+<section id="questionwhat-are-model-variants-2" class="level3">
+<h3 class="anchored" data-anchor-id="questionwhat-are-model-variants-2">Question:What are model variants?</h3>
+<p>RAG result:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> OpenAI</span>
-<span id="cb33-2"><span class="im" style="color: #00769E;
+<span id="cb44-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.embeddings <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> Embeddings</span>
-<span id="cb33-3"><span class="im" style="color: #00769E;
+<span id="cb44-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_chroma <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> Chroma</span>
-<span id="cb33-4"><span class="im" style="color: #00769E;
+<span id="cb44-4"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> List</span>
-<span id="cb33-5"><span class="im" style="color: #00769E;
+<span id="cb44-5"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
-<span id="cb33-6"><span class="im" style="color: #00769E;
+<span id="cb44-6"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> dotenv <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> load_dotenv</span>
-<span id="cb33-7"></span>
-<span id="cb33-8">load_dotenv()</span></code></pre></div></div>
+<span id="cb44-7"></span>
+<span id="cb44-8">load_dotenv()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Custom embeddings class for OpenRouter API</span></span>
-<span id="cb35-2"><span class="kw" style="color: #003B4F;
+<span id="cb46-2"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> OpenRouterEmbeddings(Embeddings):</span>
-<span id="cb35-3">    <span class="co" style="color: #5E5E5E;
+<span id="cb46-3">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Custom embeddings class for OpenRouter API."""</span></span>
-<span id="cb35-4">    </span>
-<span id="cb35-5">    <span class="kw" style="color: #003B4F;
+<span id="cb46-4">    </span>
+<span id="cb46-5">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
@@ -11707,27 +12074,27 @@ background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"qwen/qwen3-embedding-8b"</span>):</span>
-<span id="cb35-6">        <span class="va" style="color: #111111;
+<span id="cb46-6">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> OpenAI(</span>
-<span id="cb35-7">            base_url<span class="op" style="color: #5E5E5E;
+<span id="cb46-7">            base_url<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span>,</span>
-<span id="cb35-8">            api_key<span class="op" style="color: #5E5E5E;
+<span id="cb46-8">            api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>api_key,</span>
-<span id="cb35-9">        )</span>
-<span id="cb35-10">        <span class="va" style="color: #111111;
+<span id="cb46-9">        )</span>
+<span id="cb46-10">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> model</span>
-<span id="cb35-11">    </span>
-<span id="cb35-12">    <span class="kw" style="color: #003B4F;
+<span id="cb46-11">    </span>
+<span id="cb46-12">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> embed_documents(<span class="va" style="color: #111111;
@@ -11739,45 +12106,45 @@ background-color: null;
 font-style: inherit;">-&gt;</span> List[List[<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">float</span>]]:</span>
-<span id="cb35-13">        <span class="co" style="color: #5E5E5E;
+<span id="cb46-13">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Embed a list of documents."""</span></span>
-<span id="cb35-14">        response <span class="op" style="color: #5E5E5E;
+<span id="cb46-14">        response <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client.embeddings.create(</span>
-<span id="cb35-15">            extra_headers<span class="op" style="color: #5E5E5E;
+<span id="cb46-15">            extra_headers<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>{</span>
-<span id="cb35-16">                <span class="st" style="color: #20794D;
+<span id="cb46-16">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"HTTP-Referer"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://ai-blog.com"</span>,</span>
-<span id="cb35-17">                <span class="st" style="color: #20794D;
+<span id="cb46-17">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"X-Title"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"AI Blog RAG"</span>,</span>
-<span id="cb35-18">            },</span>
-<span id="cb35-19">            model<span class="op" style="color: #5E5E5E;
+<span id="cb46-18">            },</span>
+<span id="cb46-19">            model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model,</span>
-<span id="cb35-20">            <span class="bu" style="color: null;
+<span id="cb46-20">            <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">input</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>texts,</span>
-<span id="cb35-21">            encoding_format<span class="op" style="color: #5E5E5E;
+<span id="cb46-21">            encoding_format<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"float"</span></span>
-<span id="cb35-22">        )</span>
-<span id="cb35-23">        <span class="cf" style="color: #003B4F;
+<span id="cb46-22">        )</span>
+<span id="cb46-23">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> [item.embedding <span class="cf" style="color: #003B4F;
@@ -11787,8 +12154,8 @@ font-style: inherit;">for</span> item <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> response.data]</span>
-<span id="cb35-24">    </span>
-<span id="cb35-25">    <span class="kw" style="color: #003B4F;
+<span id="cb46-24">    </span>
+<span id="cb46-25">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> embed_query(<span class="va" style="color: #111111;
@@ -11800,67 +12167,67 @@ background-color: null;
 font-style: inherit;">-&gt;</span> List[<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">float</span>]:</span>
-<span id="cb35-26">        <span class="co" style="color: #5E5E5E;
+<span id="cb46-26">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Embed a single query."""</span></span>
-<span id="cb35-27">        response <span class="op" style="color: #5E5E5E;
+<span id="cb46-27">        response <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client.embeddings.create(</span>
-<span id="cb35-28">            extra_headers<span class="op" style="color: #5E5E5E;
+<span id="cb46-28">            extra_headers<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>{</span>
-<span id="cb35-29">                <span class="st" style="color: #20794D;
+<span id="cb46-29">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"HTTP-Referer"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://ai-blog.com"</span>,</span>
-<span id="cb35-30">                <span class="st" style="color: #20794D;
+<span id="cb46-30">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"X-Title"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"AI Blog RAG"</span>,</span>
-<span id="cb35-31">            },</span>
-<span id="cb35-32">            model<span class="op" style="color: #5E5E5E;
+<span id="cb46-31">            },</span>
+<span id="cb46-32">            model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model,</span>
-<span id="cb35-33">            <span class="bu" style="color: null;
+<span id="cb46-33">            <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">input</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>text,</span>
-<span id="cb35-34">            encoding_format<span class="op" style="color: #5E5E5E;
+<span id="cb46-34">            encoding_format<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"float"</span></span>
-<span id="cb35-35">        )</span>
-<span id="cb35-36">        <span class="cf" style="color: #003B4F;
+<span id="cb46-35">        )</span>
+<span id="cb46-36">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> response.data[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].embedding</span>
-<span id="cb35-37"></span>
-<span id="cb35-38"><span class="co" style="color: #5E5E5E;
+<span id="cb46-37"></span>
+<span id="cb46-38"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get OpenRouter API key</span></span>
-<span id="cb35-39">openrouter_api_key <span class="op" style="color: #5E5E5E;
+<span id="cb46-39">openrouter_api_key <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.getenv(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY"</span>)</span>
-<span id="cb35-40"><span class="cf" style="color: #003B4F;
+<span id="cb46-40"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">not</span> openrouter_api_key:</span>
-<span id="cb35-41">    <span class="cf" style="color: #003B4F;
+<span id="cb46-41">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
@@ -11868,67 +12235,67 @@ background-color: null;
 font-style: inherit;">ValueError</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY not found in environment variables"</span>)</span>
-<span id="cb35-42"></span>
-<span id="cb35-43"><span class="co" style="color: #5E5E5E;
+<span id="cb46-42"></span>
+<span id="cb46-43"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create embeddings instance using OpenRouter</span></span>
-<span id="cb35-44">embeddings <span class="op" style="color: #5E5E5E;
+<span id="cb46-44">embeddings <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> OpenRouterEmbeddings(</span>
-<span id="cb35-45">    api_key<span class="op" style="color: #5E5E5E;
+<span id="cb46-45">    api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>openrouter_api_key,</span>
-<span id="cb35-46">    model<span class="op" style="color: #5E5E5E;
+<span id="cb46-46">    model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"qwen/qwen3-embedding-8b"</span></span>
-<span id="cb35-47">)</span>
-<span id="cb35-48"></span>
-<span id="cb35-49"><span class="co" style="color: #5E5E5E;
+<span id="cb46-47">)</span>
+<span id="cb46-48"></span>
+<span id="cb46-49"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Define vector store location</span></span>
-<span id="cb35-50">persist_directory <span class="op" style="color: #5E5E5E;
+<span id="cb46-50">persist_directory <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"chroma_db_data"</span></span>
-<span id="cb35-51"></span>
-<span id="cb35-52"><span class="co" style="color: #5E5E5E;
+<span id="cb46-51"></span>
+<span id="cb46-52"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load existing vector store</span></span>
-<span id="cb35-53">vectorstore <span class="op" style="color: #5E5E5E;
+<span id="cb46-53">vectorstore <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Chroma(</span>
-<span id="cb35-54">    persist_directory<span class="op" style="color: #5E5E5E;
+<span id="cb46-54">    persist_directory<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>persist_directory,</span>
-<span id="cb35-55">    embedding_function<span class="op" style="color: #5E5E5E;
+<span id="cb46-55">    embedding_function<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>embeddings</span>
-<span id="cb35-56">)</span>
-<span id="cb35-57"></span>
-<span id="cb35-58"><span class="co" style="color: #5E5E5E;
+<span id="cb46-56">)</span>
+<span id="cb46-57"></span>
+<span id="cb46-58"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Test query</span></span>
-<span id="cb35-59">query <span class="op" style="color: #5E5E5E;
+<span id="cb46-59">query <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"What are model variants?"</span></span>
-<span id="cb35-60"></span>
-<span id="cb35-61"><span class="co" style="color: #5E5E5E;
+<span id="cb46-60"></span>
+<span id="cb46-61"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Perform similarity search</span></span>
-<span id="cb35-62">results <span class="op" style="color: #5E5E5E;
+<span id="cb46-62">results <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> vectorstore.similarity_search(query, k<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>)</span>
-<span id="cb35-63"></span>
-<span id="cb35-64"><span class="bu" style="color: null;
+<span id="cb46-63"></span>
+<span id="cb46-64"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -11950,7 +12317,7 @@ Query: 'What are model variants?'</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -11973,7 +12340,7 @@ font-style: inherit;">"</span>)</span></code></pre></div></div>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><span class="cf" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> i, doc <span class="kw" style="color: #003B4F;
@@ -11984,7 +12351,7 @@ background-color: null;
 font-style: inherit;">enumerate</span>(results, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>):</span>
-<span id="cb39-2">    <span class="bu" style="color: null;
+<span id="cb50-2">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -11995,7 +12362,7 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">:"</span>)</span>
-<span id="cb39-3">    <span class="bu" style="color: null;
+<span id="cb50-3">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -12014,7 +12381,7 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb39-4">    <span class="bu" style="color: null;
+<span id="cb50-4">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -12084,6 +12451,7 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 [API](/docs/api-reference/overview)[Models](https://openrouter.ai/models)[Chat](https://openrouter.ai/chat)[Ranking](https://openrouter.ai/rankings)...</code></pre>
 </div>
 </div>
+</section>
 </div>
 </div>
 </div>
@@ -12099,38 +12467,38 @@ Next](/docs/features/exacto-variant)[Built with](https://buildwithfern.com/?utm_
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(ellmer)</span>
-<span id="cb41-2"><span class="fu" style="color: #4758AB;
+<span id="cb52-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(dotenv)</span>
-<span id="cb41-3"><span class="fu" style="color: #4758AB;
+<span id="cb52-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">load_dot_env</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">".env"</span>)</span>
-<span id="cb41-4"></span>
-<span id="cb41-5">chat <span class="ot" style="color: #003B4F;
+<span id="cb52-4"></span>
+<span id="cb52-5">chat <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">chat_openrouter</span>(</span>
-<span id="cb41-6">    <span class="at" style="color: #657422;
+<span id="cb52-6">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">api_key =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Sys.getenv</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY"</span>),</span>
-<span id="cb41-7">    <span class="at" style="color: #657422;
+<span id="cb52-7">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">model =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"openai/gpt-oss-120b"</span>,</span>
-<span id="cb41-8">    <span class="at" style="color: #657422;
+<span id="cb52-8">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">system_prompt =</span> glue<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -12139,32 +12507,32 @@ background-color: null;
 font-style: inherit;">trim</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb41-9"><span class="st" style="color: #20794D;
+<span id="cb52-9"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">  You are an assistant for question-answering tasks. You are concise.</span></span>
-<span id="cb41-10"></span>
-<span id="cb41-11"><span class="st" style="color: #20794D;
+<span id="cb52-10"></span>
+<span id="cb52-11"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">  Before responding, retrieve relevant material from the knowledge store. Quote or</span></span>
-<span id="cb41-12"><span class="st" style="color: #20794D;
+<span id="cb52-12"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">  paraphrase passages, clearly marking your own words versus the source. Provide a</span></span>
-<span id="cb41-13"><span class="st" style="color: #20794D;
+<span id="cb52-13"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">  working link for every source cited, as well as any additional relevant links.</span></span>
-<span id="cb41-14"><span class="st" style="color: #20794D;
+<span id="cb52-14"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">  Do not answer unless you have retrieved and cited a source.If you do not find</span></span>
-<span id="cb41-15"><span class="st" style="color: #20794D;
+<span id="cb52-15"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">  relevant information, say 'I could not find anything relevant in the knowledge base</span></span>
-<span id="cb41-16"><span class="st" style="color: #20794D;
+<span id="cb52-16"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">    "</span>)</span>
-<span id="cb41-17">) <span class="sc" style="color: #5E5E5E;
+<span id="cb52-17">) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span></span>
-<span id="cb41-18">    <span class="fu" style="color: #4758AB;
+<span id="cb52-18">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ragnar_register_tool_retrieve</span>(store, <span class="at" style="color: #657422;
 background-color: null;
@@ -12173,9 +12541,11 @@ background-color: null;
 font-style: inherit;">3</span>)</span></code></pre></div></div>
 </details>
 </div>
+<section id="questionwhat-are-model-variants-3" class="level3">
+<h3 class="anchored" data-anchor-id="questionwhat-are-model-variants-3">Question:What are model variants?</h3>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1">chat<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1">chat<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -12183,112 +12553,158 @@ font-style: inherit;">chat</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"What are model variants?"</span>)</span></code></pre></div></div>
 </details>
-<p><strong>Model variants</strong> are suffixes you can attach to a model’s slug to modify how that model behaves when you call it through OpenRouter.</p>
-<p>There are two kinds:</p>
+<p><strong>Model variants</strong> are suffixes you can add to a model’s slug in OpenRouter to modify how the model behaves or how the request is routed.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 40%">
-<col style="width: 37%">
+<col style="width: 39%">
+<col style="width: 26%">
+<col style="width: 34%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Variant</th>
-<th>How it works</th>
-<th>Example use</th>
+<th>Type</th>
+<th>Effect</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Static variants</strong> – only work with certain models (they are listed in</td>
+<td><code>:free</code></td>
+<td>static</td>
+<td>Model is always offered for free (lower rate limits).</td>
+</tr>
+<tr class="even">
+<td><code>:beta</code></td>
+<td>static</td>
+<td>Model is not moderated by OpenRouter.</td>
+</tr>
+<tr class="odd">
+<td><code>:extended</code></td>
+<td>static</td>
+<td>Model receives a longer‑than‑usual context window.</td>
+</tr>
+<tr class="even">
+<td><code>:exacto</code></td>
+<td>static</td>
+<td>Only high‑quality, OpenRouter‑curated endpoints are</td>
+</tr>
+<tr class="odd">
+<td>used.</td>
 <td></td>
 <td></td>
 </tr>
+<tr class="even">
+<td><code>:thinking</code></td>
+<td>static</td>
+<td>Model enables reasoning by default.</td>
+</tr>
+<tr class="odd">
+<td><code>:online</code></td>
+<td>dynamic</td>
+<td>A web‑search query runs and its results are appended to</td>
+</tr>
+<tr class="even">
+<td>the prompt.</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>:nitro</code></td>
+<td>dynamic</td>
+<td>Providers are sorted by throughput (fastest response).</td>
+</tr>
+<tr class="even">
+<td><code>:floor</code></td>
+<td>dynamic</td>
+<td>Providers are sorted by price (cheapest option).</td>
+</tr>
 </tbody>
 </table>
-<p>the <a href="https://openrouter.ai/api/v1/models">models API</a>). They change the model’s intrinsic properties. <br>• <code>:free</code> – always provided at no cost, but with low rate limits. <br>• <code>:beta</code> – bypasses OpenRouter‑side moderation. <br>• <code>:extended</code> – gives the model a longer context window than usual. <br>• <code>:exacto</code> – forces use of OpenRouter‑curated high‑quality endpoints only. <br>• <code>:thinking</code> – enables built‑in reasoning support. | | <strong>Dynamic variants</strong> – can be used with any model. They affect how the request is routed or processed. <br>• <code>:online</code> – runs a web‑search query and appends the results to the prompt. <br>• <code>:nitro</code> – sorts providers by throughput, favoring the fastest response. <br>• <code>:floor</code> – sorts providers by price, favoring the cheapest option. |</p>
-<p>Thus, by appending one of these suffixes (e.g., <code>gpt-4o:free</code> or <code>claude-3.5-sonnet:online</code>), you tell OpenRouter to apply the corresponding behavior to that request.</p>
-<p><em>Source: OpenRouter FAQ – “What are model variants?”</em>【https://openrouter.ai/docs/faq】</p>
+<p><em>Static variants</em> apply only to specific models (listed in the <strong>Models API</strong>) while <em>dynamic variants</em> can be used with any model and change routing or request handling.</p>
+<p>Source: OpenRouter FAQ – “What are model variants?”【 3†source】</p>
+</section>
 </div>
 <div id="tabset-4-2" class="tab-pane" aria-labelledby="tabset-4-2-tab">
 <p>We can also use the <code>chatlas</code> library to create a chat interface. Here, we define a custom tool <code>retrieve_trusted_content</code> that queries our DuckDB index. We then register this tool with the chat model, allowing it to pull in relevant information when answering user questions.</p>
+<section id="questionwhat-are-model-variants-4" class="level3">
+<h3 class="anchored" data-anchor-id="questionwhat-are-model-variants-4">Question:What are model variants?</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
-<span id="cb43-2"><span class="im" style="color: #00769E;
+<span id="cb54-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> chatlas <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> ctl</span>
-<span id="cb43-3"><span class="im" style="color: #00769E;
+<span id="cb54-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> llama_index.core <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> VectorStoreIndex, Settings</span>
-<span id="cb43-4"><span class="im" style="color: #00769E;
+<span id="cb54-4"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> llama_index.vector_stores.duckdb <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> DuckDBVectorStore</span>
-<span id="cb43-5"><span class="im" style="color: #00769E;
+<span id="cb54-5"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> llama_index.embeddings.openai <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> OpenAIEmbedding</span>
-<span id="cb43-6"><span class="im" style="color: #00769E;
+<span id="cb54-6"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> dotenv <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> load_dotenv</span>
-<span id="cb43-7">load_dotenv()</span></code></pre></div></div>
+<span id="cb54-7">load_dotenv()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ensure API key</span></span>
-<span id="cb45-2">openrouter_api_key <span class="op" style="color: #5E5E5E;
+<span id="cb56-2">openrouter_api_key <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.getenv(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY"</span>)</span>
-<span id="cb45-3"></span>
-<span id="cb45-4"><span class="co" style="color: #5E5E5E;
+<span id="cb56-3"></span>
+<span id="cb56-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 1. Configure Embedding Model (LlamaIndex)</span></span>
-<span id="cb45-5">embed_model <span class="op" style="color: #5E5E5E;
+<span id="cb56-5">embed_model <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> OpenAIEmbedding(</span>
-<span id="cb45-6">    api_key<span class="op" style="color: #5E5E5E;
+<span id="cb56-6">    api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>openrouter_api_key,</span>
-<span id="cb45-7">    base_url<span class="op" style="color: #5E5E5E;
+<span id="cb56-7">    base_url<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span>,</span>
-<span id="cb45-8">    model<span class="op" style="color: #5E5E5E;
+<span id="cb56-8">    model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"text-embedding-3-small"</span>  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Use standard OpenAI model name; OpenRouter requires this</span></span>
-<span id="cb45-9">)</span>
-<span id="cb45-10">Settings.embed_model <span class="op" style="color: #5E5E5E;
+<span id="cb56-9">)</span>
+<span id="cb56-10">Settings.embed_model <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> embed_model</span>
-<span id="cb45-11"></span>
-<span id="cb45-12"><span class="co" style="color: #5E5E5E;
+<span id="cb56-11"></span>
+<span id="cb56-12"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 2. Load Vector Store</span></span>
-<span id="cb45-13">vector_store <span class="op" style="color: #5E5E5E;
+<span id="cb56-13">vector_store <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> DuckDBVectorStore(database_name<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -12299,16 +12715,16 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"./persist/"</span>)</span>
-<span id="cb45-14">index <span class="op" style="color: #5E5E5E;
+<span id="cb56-14">index <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> VectorStoreIndex.from_vector_store(vector_store<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>vector_store)</span>
-<span id="cb45-15"></span>
-<span id="cb45-16"><span class="co" style="color: #5E5E5E;
+<span id="cb56-15"></span>
+<span id="cb56-16"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 3. Define Retrieval Tool</span></span>
-<span id="cb45-17"><span class="kw" style="color: #003B4F;
+<span id="cb56-17"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> retrieve_trusted_content(query: <span class="bu" style="color: null;
@@ -12320,46 +12736,46 @@ background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>):</span>
-<span id="cb45-18">    <span class="co" style="color: #5E5E5E;
+<span id="cb56-18">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""</span></span>
-<span id="cb45-19"><span class="co" style="color: #5E5E5E;
+<span id="cb56-19"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    Retrieve relevant content from the knowledge store.</span></span>
-<span id="cb45-20"></span>
-<span id="cb45-21"><span class="co" style="color: #5E5E5E;
+<span id="cb56-20"></span>
+<span id="cb56-21"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    Parameters</span></span>
-<span id="cb45-22"><span class="co" style="color: #5E5E5E;
+<span id="cb56-22"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    ----------</span></span>
-<span id="cb45-23"><span class="co" style="color: #5E5E5E;
+<span id="cb56-23"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    query</span></span>
-<span id="cb45-24"><span class="co" style="color: #5E5E5E;
+<span id="cb56-24"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">        The query used to semantically search the knowledge store.</span></span>
-<span id="cb45-25"><span class="co" style="color: #5E5E5E;
+<span id="cb56-25"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    top_k</span></span>
-<span id="cb45-26"><span class="co" style="color: #5E5E5E;
+<span id="cb56-26"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">        The number of results to retrieve from the knowledge store.</span></span>
-<span id="cb45-27"><span class="co" style="color: #5E5E5E;
+<span id="cb56-27"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    """</span></span>
-<span id="cb45-28">    <span class="co" style="color: #5E5E5E;
+<span id="cb56-28">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#print(f"Retrieving content for query: '{query}'")</span></span>
-<span id="cb45-29">    retriever <span class="op" style="color: #5E5E5E;
+<span id="cb56-29">    retriever <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> index.as_retriever(similarity_top_k<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>top_k)</span>
-<span id="cb45-30">    nodes <span class="op" style="color: #5E5E5E;
+<span id="cb56-30">    nodes <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> retriever.retrieve(query)</span>
-<span id="cb45-31">    <span class="cf" style="color: #003B4F;
+<span id="cb56-31">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> [<span class="ss" style="color: #20794D;
@@ -12379,51 +12795,51 @@ font-style: inherit;">for</span> x <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> nodes]</span>
-<span id="cb45-32"></span>
-<span id="cb45-33"><span class="co" style="color: #5E5E5E;
+<span id="cb56-32"></span>
+<span id="cb56-33"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 4. Initialize Chat with System Prompt</span></span>
-<span id="cb45-34">chat <span class="op" style="color: #5E5E5E;
+<span id="cb56-34">chat <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> ctl.ChatOpenAI(</span>
-<span id="cb45-35">    model<span class="op" style="color: #5E5E5E;
+<span id="cb56-35">    model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"openai/gpt-oss-120b"</span>,</span>
-<span id="cb45-36">    api_key<span class="op" style="color: #5E5E5E;
+<span id="cb56-36">    api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>openrouter_api_key,</span>
-<span id="cb45-37">    base_url<span class="op" style="color: #5E5E5E;
+<span id="cb56-37">    base_url<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span>,</span>
-<span id="cb45-38">    system_prompt<span class="op" style="color: #5E5E5E;
+<span id="cb56-38">    system_prompt<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>(</span>
-<span id="cb45-39">        <span class="st" style="color: #20794D;
+<span id="cb56-39">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"You are an assistant for question-answering tasks. "</span></span>
-<span id="cb45-40">        <span class="st" style="color: #20794D;
+<span id="cb56-40">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Use the retrieve_trusted_content tool to find relevant information from the knowledge store. "</span></span>
-<span id="cb45-41">        <span class="st" style="color: #20794D;
+<span id="cb56-41">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Answer questions based on the retrieved content. "</span></span>
-<span id="cb45-42">        <span class="st" style="color: #20794D;
+<span id="cb56-42">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"If you cannot find relevant information, say so clearly."</span></span>
-<span id="cb45-43">    )</span>
-<span id="cb45-44">)</span>
-<span id="cb45-45"></span>
-<span id="cb45-46">chat.register_tool(retrieve_trusted_content)</span></code></pre></div></div>
+<span id="cb56-43">    )</span>
+<span id="cb56-44">)</span>
+<span id="cb56-45"></span>
+<span id="cb56-46">chat.register_tool(retrieve_trusted_content)</span></code></pre></div></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1">response<span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1">response<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>chat.chat(<span class="st" style="color: #20794D;
 background-color: null;
@@ -12437,124 +12853,88 @@ font-style: inherit;">"none"</span>)</span></code></pre></div></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(response)</span></code></pre></div></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>**Model variants** are alternative versions of a base machine‑learning model that share the same overall architecture but differ in one or more of the following attributes:
-
-| Attribute that can differ | What it means for the variant |
-|---------------------------|--------------------------------|
-| **Number of parameters / layers** | Smaller variants (e.g., “base”, “small”, “medium”) have fewer weights, run faster, and cost less to use, while larger variants (e.g., “large”, “XL”) tend to be more accurate but are slower and more expensive. |
-| **Training data** | Some variants are trained on a broader or more recent corpus, while others might be trained on domain‑specific data (e.g., legal texts, code, biomedical literature). |
-| **Fine‑tuning / instruction‑tuning** | A base model can be further fine‑tuned for a particular task (e.g., chat, summarisation, code generation) or to follow user instructions more reliably. The resulting model is a *fine‑tuned variant*. |
-| **Safety/Alignment filters** | Certain variants incorporate additional alignment or content‑filtering steps to reduce harmful or biased outputs. |
-| **Context‑window size** | Some variants are engineered to accept longer input sequences (e.g., 32 k tokens vs. the standard 8 k). |
-| **Output format** | Variants may be specialised for embeddings, token‑level classification, function‑calling APIs, or other downstream formats. |
-| **Hardware optimisation** | A variant might be quantised (e.g., 8‑bit) or otherwise optimised for specific hardware (GPU, CPU, mobile). |
-| **Pricing tier** | In commercial APIs, different variants are often exposed as separate pricing tiers (e.g., *gpt‑3.5‑turbo*, *gpt‑4‑turbo*, *gpt‑4‑32k*). |
-
-### Why create variants?
-
-1. **Trade‑off between cost and performance** – Smaller variants let users run inference cheaply and quickly; larger variants give higher accuracy when that matters.
-2. **Specialisation** – Fine‑tuning on a particular domain or task yields a model that outperforms the generic base model for that use‑case.
-3. **Safety &amp; compliance** – Adding alignment or content‑moderation layers helps meet regulatory or product‑safety requirements.
-4. **Technical constraints** – Longer context windows or quantised weights enable use‑cases (e.g., processing whole documents, running on edge devices) that the original model cannot handle efficiently.
-
-### Common real‑world examples
-
-| Platform | Base model | Notable variants |
-|----------|------------|-------------------|
-| OpenAI   | GPT‑4      | **gpt‑4‑turbo** (faster, cheaper, same quality), **gpt‑4‑32k** (longer context), **gpt‑4‑code‑interpreter** (adds execution capability) |
-| OpenAI   | GPT‑3.5    | **gpt‑3.5‑turbo** (optimised for chat), **gpt‑3.5‑code‑davinci** (code‑focused) |
-| Anthropic| Claude     | **Claude‑2**, **Claude‑2‑Instant** (faster, lower‑cost) |
-| Meta     | LLaMA      | **LLaMA‑7B**, **LLaMA‑13B**, **LLaMA‑30B**, **LLaMA‑70B** (size variants), plus instruction‑tuned “LLaMA‑Chat” variants |
-| Cohere   | Command    | **Command‑R** (retrieval‑augmented), **Command‑Light** (smaller, cheaper) |
-
-### How to think about them
-
-- **All variants stem from the same underlying architecture.** If you think of the base model as a “template,” a variant is a concrete instance of that template with a specific configuration.
-- **Choosing a variant is a matter of matching requirements.** If your application needs sub‑second responses on cheap hardware, you’d pick a small, fast variant. If you need the highest possible reasoning ability on long documents, you’d choose a larger, longer‑context variant, possibly with safety filters turned on or off depending on your risk tolerance.
-- **Variants can be stacked.** A model can first be quantised (hardware optimisation) *and* instruction‑tuned (task specialization), yielding a variant that is both fast and better at following instructions.
-
-In short, **model variants are purpose‑built versions of a core model, each tuned—by size, data, training objective, safety controls, or hardware optimisation—to serve a particular trade‑off or use‑case.**</code></pre>
 </div>
-</div>
+</section>
 </div>
 <div id="tabset-4-3" class="tab-pane" aria-labelledby="tabset-4-3-tab">
 <p>The final piece is to connect this retrieval capability to a chat interface. We use <code>LangChain</code> to create a RAG chain. We create a <code>retriever</code> from our vector store and combine it with a <code>ChatOpenAI</code> model (using OpenRouter) and a prompt template. This gives the LLM the ability to query our vector store whenever it needs information to answer a user’s question.</p>
+<section id="questionwhat-are-model-variants-5" class="level3">
+<h3 class="anchored" data-anchor-id="questionwhat-are-model-variants-5">Question:What are model variants?</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_openai <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> ChatOpenAI</span>
-<span id="cb49-2"><span class="im" style="color: #00769E;
+<span id="cb59-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.prompts <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> ChatPromptTemplate</span>
-<span id="cb49-3"><span class="im" style="color: #00769E;
+<span id="cb59-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.runnables <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> RunnablePassthrough</span>
-<span id="cb49-4"><span class="im" style="color: #00769E;
+<span id="cb59-4"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.output_parsers <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> StrOutputParser</span>
-<span id="cb49-5"><span class="im" style="color: #00769E;
+<span id="cb59-5"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> OpenAI</span>
-<span id="cb49-6"><span class="im" style="color: #00769E;
+<span id="cb59-6"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.embeddings <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> Embeddings</span>
-<span id="cb49-7"><span class="im" style="color: #00769E;
+<span id="cb59-7"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_chroma <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> Chroma</span>
-<span id="cb49-8"><span class="im" style="color: #00769E;
+<span id="cb59-8"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> List</span>
-<span id="cb49-9"><span class="im" style="color: #00769E;
+<span id="cb59-9"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
-<span id="cb49-10"><span class="im" style="color: #00769E;
+<span id="cb59-10"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> dotenv <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> load_dotenv</span>
-<span id="cb49-11"></span>
-<span id="cb49-12">load_dotenv()</span></code></pre></div></div>
+<span id="cb59-11"></span>
+<span id="cb59-12">load_dotenv()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Custom embeddings class for OpenRouter API</span></span>
-<span id="cb51-2"><span class="kw" style="color: #003B4F;
+<span id="cb61-2"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> OpenRouterEmbeddings(Embeddings):</span>
-<span id="cb51-3">    <span class="co" style="color: #5E5E5E;
+<span id="cb61-3">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Custom embeddings class for OpenRouter API."""</span></span>
-<span id="cb51-4">    </span>
-<span id="cb51-5">    <span class="kw" style="color: #003B4F;
+<span id="cb61-4">    </span>
+<span id="cb61-5">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
@@ -12570,27 +12950,27 @@ background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"qwen/qwen3-embedding-8b"</span>):</span>
-<span id="cb51-6">        <span class="va" style="color: #111111;
+<span id="cb61-6">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> OpenAI(</span>
-<span id="cb51-7">            base_url<span class="op" style="color: #5E5E5E;
+<span id="cb61-7">            base_url<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span>,</span>
-<span id="cb51-8">            api_key<span class="op" style="color: #5E5E5E;
+<span id="cb61-8">            api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>api_key,</span>
-<span id="cb51-9">        )</span>
-<span id="cb51-10">        <span class="va" style="color: #111111;
+<span id="cb61-9">        )</span>
+<span id="cb61-10">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> model</span>
-<span id="cb51-11">    </span>
-<span id="cb51-12">    <span class="kw" style="color: #003B4F;
+<span id="cb61-11">    </span>
+<span id="cb61-12">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> embed_documents(<span class="va" style="color: #111111;
@@ -12602,45 +12982,45 @@ background-color: null;
 font-style: inherit;">-&gt;</span> List[List[<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">float</span>]]:</span>
-<span id="cb51-13">        <span class="co" style="color: #5E5E5E;
+<span id="cb61-13">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Embed a list of documents."""</span></span>
-<span id="cb51-14">        response <span class="op" style="color: #5E5E5E;
+<span id="cb61-14">        response <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client.embeddings.create(</span>
-<span id="cb51-15">            extra_headers<span class="op" style="color: #5E5E5E;
+<span id="cb61-15">            extra_headers<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>{</span>
-<span id="cb51-16">                <span class="st" style="color: #20794D;
+<span id="cb61-16">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"HTTP-Referer"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://ai-blog.com"</span>,</span>
-<span id="cb51-17">                <span class="st" style="color: #20794D;
+<span id="cb61-17">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"X-Title"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"AI Blog RAG"</span>,</span>
-<span id="cb51-18">            },</span>
-<span id="cb51-19">            model<span class="op" style="color: #5E5E5E;
+<span id="cb61-18">            },</span>
+<span id="cb61-19">            model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model,</span>
-<span id="cb51-20">            <span class="bu" style="color: null;
+<span id="cb61-20">            <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">input</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>texts,</span>
-<span id="cb51-21">            encoding_format<span class="op" style="color: #5E5E5E;
+<span id="cb61-21">            encoding_format<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"float"</span></span>
-<span id="cb51-22">        )</span>
-<span id="cb51-23">        <span class="cf" style="color: #003B4F;
+<span id="cb61-22">        )</span>
+<span id="cb61-23">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> [item.embedding <span class="cf" style="color: #003B4F;
@@ -12650,8 +13030,8 @@ font-style: inherit;">for</span> item <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> response.data]</span>
-<span id="cb51-24">    </span>
-<span id="cb51-25">    <span class="kw" style="color: #003B4F;
+<span id="cb61-24">    </span>
+<span id="cb61-25">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> embed_query(<span class="va" style="color: #111111;
@@ -12663,67 +13043,67 @@ background-color: null;
 font-style: inherit;">-&gt;</span> List[<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">float</span>]:</span>
-<span id="cb51-26">        <span class="co" style="color: #5E5E5E;
+<span id="cb61-26">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Embed a single query."""</span></span>
-<span id="cb51-27">        response <span class="op" style="color: #5E5E5E;
+<span id="cb61-27">        response <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client.embeddings.create(</span>
-<span id="cb51-28">            extra_headers<span class="op" style="color: #5E5E5E;
+<span id="cb61-28">            extra_headers<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>{</span>
-<span id="cb51-29">                <span class="st" style="color: #20794D;
+<span id="cb61-29">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"HTTP-Referer"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://ai-blog.com"</span>,</span>
-<span id="cb51-30">                <span class="st" style="color: #20794D;
+<span id="cb61-30">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"X-Title"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"AI Blog RAG"</span>,</span>
-<span id="cb51-31">            },</span>
-<span id="cb51-32">            model<span class="op" style="color: #5E5E5E;
+<span id="cb61-31">            },</span>
+<span id="cb61-32">            model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model,</span>
-<span id="cb51-33">            <span class="bu" style="color: null;
+<span id="cb61-33">            <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">input</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>text,</span>
-<span id="cb51-34">            encoding_format<span class="op" style="color: #5E5E5E;
+<span id="cb61-34">            encoding_format<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"float"</span></span>
-<span id="cb51-35">        )</span>
-<span id="cb51-36">        <span class="cf" style="color: #003B4F;
+<span id="cb61-35">        )</span>
+<span id="cb61-36">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> response.data[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].embedding</span>
-<span id="cb51-37"></span>
-<span id="cb51-38"><span class="co" style="color: #5E5E5E;
+<span id="cb61-37"></span>
+<span id="cb61-38"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get OpenRouter API key</span></span>
-<span id="cb51-39">openrouter_api_key <span class="op" style="color: #5E5E5E;
+<span id="cb61-39">openrouter_api_key <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.getenv(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY"</span>)</span>
-<span id="cb51-40"><span class="cf" style="color: #003B4F;
+<span id="cb61-40"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">not</span> openrouter_api_key:</span>
-<span id="cb51-41">    <span class="cf" style="color: #003B4F;
+<span id="cb61-41">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
@@ -12731,36 +13111,36 @@ background-color: null;
 font-style: inherit;">ValueError</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY not found in environment variables"</span>)</span>
-<span id="cb51-42"></span>
-<span id="cb51-43"><span class="co" style="color: #5E5E5E;
+<span id="cb61-42"></span>
+<span id="cb61-43"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create embeddings instance using OpenRouter</span></span>
-<span id="cb51-44">embeddings <span class="op" style="color: #5E5E5E;
+<span id="cb61-44">embeddings <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> OpenRouterEmbeddings(</span>
-<span id="cb51-45">    api_key<span class="op" style="color: #5E5E5E;
+<span id="cb61-45">    api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>openrouter_api_key,</span>
-<span id="cb51-46">    model<span class="op" style="color: #5E5E5E;
+<span id="cb61-46">    model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"qwen/qwen3-embedding-8b"</span></span>
-<span id="cb51-47">)</span>
-<span id="cb51-48"></span>
-<span id="cb51-49"><span class="co" style="color: #5E5E5E;
+<span id="cb61-47">)</span>
+<span id="cb61-48"></span>
+<span id="cb61-49"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Define vector store location</span></span>
-<span id="cb51-50">persist_directory <span class="op" style="color: #5E5E5E;
+<span id="cb61-50">persist_directory <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"chroma_db_data"</span></span>
-<span id="cb51-51"></span>
-<span id="cb51-52"><span class="co" style="color: #5E5E5E;
+<span id="cb61-51"></span>
+<span id="cb61-52"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load existing vector store</span></span>
-<span id="cb51-53"><span class="bu" style="color: null;
+<span id="cb61-53"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -12777,17 +13157,17 @@ font-style: inherit;">..."</span>)</span></code></pre></div></div>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1">vectorstore <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1">vectorstore <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Chroma(</span>
-<span id="cb53-2">    persist_directory<span class="op" style="color: #5E5E5E;
+<span id="cb63-2">    persist_directory<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>persist_directory,</span>
-<span id="cb53-3">    embedding_function<span class="op" style="color: #5E5E5E;
+<span id="cb63-3">    embedding_function<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>embeddings</span>
-<span id="cb53-4">)</span>
-<span id="cb53-5"><span class="bu" style="color: null;
+<span id="cb63-4">)</span>
+<span id="cb63-5"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -12798,88 +13178,88 @@ font-style: inherit;">f"✓ Loaded vectorstore"</span>)</span></code></pre></div
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Initialize LLM using OpenRouter</span></span>
-<span id="cb55-2">llm <span class="op" style="color: #5E5E5E;
+<span id="cb65-2">llm <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> ChatOpenAI(</span>
-<span id="cb55-3">    model<span class="op" style="color: #5E5E5E;
+<span id="cb65-3">    model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"openai/gpt-oss-120b"</span>,</span>
-<span id="cb55-4">    openai_api_key<span class="op" style="color: #5E5E5E;
+<span id="cb65-4">    openai_api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>os.getenv(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY"</span>),</span>
-<span id="cb55-5">    openai_api_base<span class="op" style="color: #5E5E5E;
+<span id="cb65-5">    openai_api_base<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span></span>
-<span id="cb55-6">)</span>
-<span id="cb55-7"></span>
-<span id="cb55-8"><span class="co" style="color: #5E5E5E;
+<span id="cb65-6">)</span>
+<span id="cb65-7"></span>
+<span id="cb65-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create prompt template</span></span>
-<span id="cb55-9">system_prompt <span class="op" style="color: #5E5E5E;
+<span id="cb65-9">system_prompt <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (</span>
-<span id="cb55-10">    <span class="st" style="color: #20794D;
+<span id="cb65-10">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"You are an assistant for question-answering tasks. "</span></span>
-<span id="cb55-11">    <span class="st" style="color: #20794D;
+<span id="cb65-11">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Use the following pieces of retrieved context to answer "</span></span>
-<span id="cb55-12">    <span class="st" style="color: #20794D;
+<span id="cb65-12">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"the question. If you don't know the answer, say that you "</span></span>
-<span id="cb55-13">    <span class="st" style="color: #20794D;
+<span id="cb65-13">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"don't know. Use three sentences maximum and keep the "</span></span>
-<span id="cb55-14">    <span class="st" style="color: #20794D;
+<span id="cb65-14">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"answer concise."</span></span>
-<span id="cb55-15">    <span class="st" style="color: #20794D;
+<span id="cb65-15">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">\n\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb55-16">    <span class="st" style="color: #20794D;
+<span id="cb65-16">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Context: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{context}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb55-17">    <span class="st" style="color: #20794D;
+<span id="cb65-17">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">\n\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb55-18">    <span class="st" style="color: #20794D;
+<span id="cb65-18">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Question: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{question}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb55-19">)</span>
-<span id="cb55-20"></span>
-<span id="cb55-21">prompt <span class="op" style="color: #5E5E5E;
+<span id="cb65-19">)</span>
+<span id="cb65-20"></span>
+<span id="cb65-21">prompt <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> ChatPromptTemplate.from_template(system_prompt)</span>
-<span id="cb55-22"></span>
-<span id="cb55-23"><span class="co" style="color: #5E5E5E;
+<span id="cb65-22"></span>
+<span id="cb65-23"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create retriever</span></span>
-<span id="cb55-24">retriever <span class="op" style="color: #5E5E5E;
+<span id="cb65-24">retriever <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> vectorstore.as_retriever(search_kwargs<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -12888,15 +13268,15 @@ background-color: null;
 font-style: inherit;">"k"</span>: <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>})</span>
-<span id="cb55-25"></span>
-<span id="cb55-26"><span class="co" style="color: #5E5E5E;
+<span id="cb65-25"></span>
+<span id="cb65-26"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Helper function to format documents</span></span>
-<span id="cb55-27"><span class="kw" style="color: #003B4F;
+<span id="cb65-27"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> format_docs(docs):</span>
-<span id="cb55-28">    <span class="cf" style="color: #003B4F;
+<span id="cb65-28">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="st" style="color: #20794D;
@@ -12912,35 +13292,35 @@ font-style: inherit;">for</span> doc <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> docs)</span>
-<span id="cb55-29"></span>
-<span id="cb55-30"><span class="co" style="color: #5E5E5E;
+<span id="cb65-29"></span>
+<span id="cb65-30"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create RAG chain using LCEL</span></span>
-<span id="cb55-31">rag_chain <span class="op" style="color: #5E5E5E;
+<span id="cb65-31">rag_chain <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (</span>
-<span id="cb55-32">    {</span>
-<span id="cb55-33">        <span class="st" style="color: #20794D;
+<span id="cb65-32">    {</span>
+<span id="cb65-33">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"context"</span>: retriever <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> format_docs,</span>
-<span id="cb55-34">        <span class="st" style="color: #20794D;
+<span id="cb65-34">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"question"</span>: RunnablePassthrough()</span>
-<span id="cb55-35">    }</span>
-<span id="cb55-36">    <span class="op" style="color: #5E5E5E;
+<span id="cb65-35">    }</span>
+<span id="cb65-36">    <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> prompt</span>
-<span id="cb55-37">    <span class="op" style="color: #5E5E5E;
+<span id="cb65-37">    <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> llm</span>
-<span id="cb55-38">    <span class="op" style="color: #5E5E5E;
+<span id="cb65-38">    <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> StrOutputParser()</span>
-<span id="cb55-39">)</span>
-<span id="cb55-40"></span>
-<span id="cb55-41"><span class="bu" style="color: null;
+<span id="cb65-39">)</span>
+<span id="cb65-40"></span>
+<span id="cb65-41"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
@@ -12951,16 +13331,16 @@ font-style: inherit;">"✓ RAG chain created successfully!"</span>)</span></code
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Test the RAG chain</span></span>
-<span id="cb57-2">question <span class="op" style="color: #5E5E5E;
+<span id="cb67-2">question <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"What are model variants?"</span></span>
-<span id="cb57-3"></span>
-<span id="cb57-4"><span class="bu" style="color: null;
+<span id="cb67-3"></span>
+<span id="cb67-4"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -12982,24 +13362,24 @@ Question: What are model variants?</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get context documents separately for display</span></span>
-<span id="cb59-2">context_docs <span class="op" style="color: #5E5E5E;
+<span id="cb69-2">context_docs <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> retriever.invoke(question)</span>
-<span id="cb59-3"></span>
-<span id="cb59-4"><span class="co" style="color: #5E5E5E;
+<span id="cb69-3"></span>
+<span id="cb69-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Invoke the RAG chain</span></span>
-<span id="cb59-5">answer <span class="op" style="color: #5E5E5E;
+<span id="cb69-5">answer <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> rag_chain.invoke(question)</span>
-<span id="cb59-6"><span class="im" style="color: #00769E;
+<span id="cb69-6"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> textwrap</span>
-<span id="cb59-7"></span>
-<span id="cb59-8"><span class="cf" style="color: #003B4F;
+<span id="cb69-7"></span>
+<span id="cb69-8"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> line <span class="kw" style="color: #003B4F;
@@ -13012,7 +13392,7 @@ background-color: null;
 font-style: inherit;">\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'</span>):</span>
-<span id="cb59-9">    <span class="bu" style="color: null;
+<span id="cb69-9">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(textwrap.fill(line, width<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -13023,12 +13403,13 @@ font-style: inherit;">80</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Model variants are suffixes you append to a model’s slug to modify its behavior.
 Static variants (e.g., `:free`, `:beta`, `:extended`, `:exacto`, `:thinking`)
-apply only to specific models, while dynamic variants
+are limited to certain models, while dynamic variants
 (e.g., `:online`, `:nitro`, `:floor`) work with any model and affect routing or
-usage. These modifiers let you control factors like cost, moderation, context
-length, reasoning support, web‑search integration, speed, or price.</code></pre>
+features such as web search, speed, or cost. Use them to customize access,
+context length, moderation, reasoning, or provider selection.</code></pre>
 </div>
 </div>
+</section>
 </div>
 </div>
 </div>

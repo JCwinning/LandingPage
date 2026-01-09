@@ -28,7 +28,7 @@ website:
           - text: "AI handbook"
             href: https://jcfly3000.github.io/into_AI/
       - text: "Blog"
-        href: https://jcwinning.github.io/posts.html
+        href: https://jcwinning.github.io/LandingPage/posts.html
       - cv.qmd
       - icon: github
         href: https://github.com/JCfly3000

@@ -1,9 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pkill -f \"python.*raging.py\")"
-    ],
-    "deny": [],
-    "ask": []
+      "Bash(python3:*)",
+      "Bash(ls:*)"
+    ]
   }
 }
