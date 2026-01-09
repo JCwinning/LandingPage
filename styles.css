@@ -240,8 +240,10 @@ table {
 .listing-grid .listing-item img,
 .thumbnail-image.card-img {
   width: 100%;
-  height: 200px !important; /* Set a consistent height */
-  object-fit: cover; /* Ensure image fills the space without distortion */
+  height: 200px !important;
+  /* Set a consistent height */
+  object-fit: cover;
+  /* Ensure image fills the space without distortion */
   border-radius: 4px;
   margin-bottom: 1rem;
   display: block;
@@ -258,4 +260,10 @@ table {
 
 .listing-grid .listing-item .card {
   height: auto !important;
+}
+
+/* Adjust home page head banner height to 2/3 of current height */
+.quarto-title-banner {
+  padding-top: 1.0rem !important;
+  padding-bottom: 1.0rem !important;
 }

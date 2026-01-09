@@ -260,3 +260,9 @@ table {
 .listing-grid .listing-item .card {
   height: auto !important;
 }
+
+/* Adjust home page head banner height to 2/3 of current height */
+.quarto-title-banner {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
