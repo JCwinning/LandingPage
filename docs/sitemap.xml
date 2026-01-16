@@ -52,4 +52,16 @@
     <loc>https://your-website-url.example.com/posts/llm-summary/index.html</loc>
     <lastmod>2026-01-08T07:54:47.474Z</lastmod>
   </url>
+  <url>
+    <loc>https://jcwinning.github.io/LandingPage/index.html</loc>
+    <lastmod>2026-01-09T08:40:52.498Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jcwinning.github.io/LandingPage/posts.html</loc>
+    <lastmod>2026-01-08T11:25:15.623Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jcwinning.github.io/LandingPage/posts/RAG/index.html</loc>
+    <lastmod>2026-01-13T17:30:11.328Z</lastmod>
+  </url>
 </urlset>

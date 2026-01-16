@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>AI Blog</title>
-<link>https://your-website-url.example.com/</link>
-<atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
-<description>A blog built with Quarto</description>
+<link>https://jcwinning.github.io/LandingPage/</link>
+<atom:link href="https://jcwinning.github.io/LandingPage/index.xml" rel="self" type="application/rss+xml"/>
+<description>A AI blog built with Quarto</description>
 <generator>quarto-1.8.25</generator>
 <lastBuildDate>Wed, 07 Jan 2026 16:00:00 GMT</lastBuildDate>
 <item>
   <title>LLM Summary System: A Multi-Platform AI Summarization Tool</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/llm-summary/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/llm-summary/</link>
   <description><![CDATA[ 
 
 
@@ -25,7 +25,7 @@
 <h1>Introduction</h1>
 <p>In the era of information explosion, keeping up with content across multiple platforms like YouTube, Bilibili, Spotify, and Xiaohongshu can be overwhelming. The <strong>LLM Summary System</strong> is a powerful, unified tool designed to solve this by automating the process of downloading, transcribing, and summarizing content using state-of-the-art Large Language Models (LLMs).</p>
 <p>This project provides a seamless experience for converting long-form audio/video content into concise, actionable summaries.</p>
-<p><img src="https://your-website-url.example.com/posts/llm-summary/image/1.png" class="img-fluid"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/llm-summary/image/1.png" class="img-fluid"></p>
 </section>
 <section id="key-features" class="level1">
 <h1>Key Features</h1>
@@ -113,14 +113,14 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
   <category>Python</category>
   <category>LLM</category>
   <category>Open Source</category>
-  <guid>https://your-website-url.example.com/posts/llm-summary/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/llm-summary/</guid>
   <pubDate>Wed, 07 Jan 2026 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/llm-summary/image/cover.png" medium="image" type="image/png" height="98" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/llm-summary/image/cover.png" medium="image" type="image/png" height="98" width="144"/>
 </item>
 <item>
   <title>AI Chat: A Multilingual Multi-Model application</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/AI-Chat/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/AI-Chat/</link>
   <description><![CDATA[ 
 
 
@@ -135,17 +135,17 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Text answer</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Create image</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">summary upload document</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" aria-controls="tabset-1-4" aria-selected="false" href="">pre define prompt</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p><img src="https://your-website-url.example.com/posts/AI-Chat/images/1.png" class="img-fluid"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/AI-Chat/images/1.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<p><img src="https://your-website-url.example.com/posts/AI-Chat/images/2.png" class="img-fluid"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/AI-Chat/images/2.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
-<p><img src="https://your-website-url.example.com/posts/AI-Chat/images/4.png" class="img-fluid"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/AI-Chat/images/4.png" class="img-fluid"></p>
 <p>AI summary paper:DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (https://arxiv.org/pdf/2501.12948)</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
-<p><img src="https://your-website-url.example.com/posts/AI-Chat/images/3.png" class="img-fluid"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/AI-Chat/images/3.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
@@ -239,13 +239,13 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
   <category>Streamlit</category>
   <category>Python</category>
   <category>LLM</category>
-  <guid>https://your-website-url.example.com/posts/AI-Chat/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/AI-Chat/</guid>
   <pubDate>Tue, 06 Jan 2026 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/AI-Chat/images/featured.png" medium="image" type="image/png" height="126" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/AI-Chat/images/featured.png" medium="image" type="image/png" height="126" width="144"/>
 </item>
 <item>
   <title>Interactive GDP Trend Dashboard with AI SQL</title>
-  <link>https://your-website-url.example.com/posts/gdp-trend/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/gdp-trend/</link>
   <description><![CDATA[ 
 
 
@@ -258,7 +258,7 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
 <p>Github: <a href="https://github.com/JCwinning/GDP_trend">https://github.com/JCwinning/GDP_trend</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/gdp-trend/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/gdp-trend/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>GDP Dashboard - Main Interface</figcaption>
 </figure>
 </div>
@@ -1277,7 +1277,7 @@ font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/gdp-trend/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/gdp-trend/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>AI Query Interface - Natural Language Processing</figcaption>
 </figure>
 </div>
@@ -2090,7 +2090,7 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/gdp-trend/images/2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/gdp-trend/images/2.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>AI Summary Generation</figcaption>
 </figure>
 </div>
@@ -2150,14 +2150,14 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
   <category>Streamlit</category>
   <category>Economic Analysis</category>
   <category>AI</category>
-  <guid>https://your-website-url.example.com/posts/gdp-trend/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/gdp-trend/</guid>
   <pubDate>Mon, 17 Nov 2025 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/gdp-trend/images/0.png" medium="image" type="image/png" height="83" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/gdp-trend/images/0.png" medium="image" type="image/png" height="83" width="144"/>
 </item>
 <item>
   <title>Shop Map Manager (店铺地图管理系统)</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/shop-map-manager/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/shop-map-manager/</link>
   <description><![CDATA[ 
 
 
@@ -2170,13 +2170,13 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Map view</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Table view</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">shop photo</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p><img src="https://your-website-url.example.com/posts/shop-map-manager/images/Picture1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/shop-map-manager/images/Picture1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<p><img src="https://your-website-url.example.com/posts/shop-map-manager/images/Picture2.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/shop-map-manager/images/Picture2.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
-<p><img src="https://your-website-url.example.com/posts/shop-map-manager/images/Picture3.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/shop-map-manager/images/Picture3.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -2316,14 +2316,14 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
   <category>AI</category>
   <category>API</category>
   <category>map</category>
-  <guid>https://your-website-url.example.com/posts/shop-map-manager/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/shop-map-manager/</guid>
   <pubDate>Fri, 07 Nov 2025 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/shop-map-manager/images/0.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/shop-map-manager/images/0.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 <item>
   <title>Weather Forecast App with Streamlit and AI Integration</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/weather-trend/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/weather-trend/</link>
   <description><![CDATA[ 
 
 
@@ -2337,7 +2337,7 @@ font-style: inherit;">streamlit</span> run app.py</span></code></pre></div></div
 <p>Github: <a href="https://github.com/JCwinning/weather_trend">https://github.com/JCwinning/weather_trend</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/weather-trend/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/weather-trend/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Weather Forecast App Main Interface</figcaption>
 </figure>
 </div>
@@ -3527,7 +3527,7 @@ font-style: inherit;">True</span>)</span></code></pre></div></div>
 <p>The most innovative feature is AI-powered weather analysis using ModelScope’s DeepSeek-V3.2 model:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/weather-trend/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/weather-trend/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>AI Weather Recommendations</figcaption>
 </figure>
 </div>
@@ -4992,14 +4992,14 @@ font-style: inherit;">None</span></span></code></pre></div></div>
   <category>Streamlit</category>
   <category>AI</category>
   <category>tutorial</category>
-  <guid>https://your-website-url.example.com/posts/weather-trend/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/weather-trend/</guid>
   <pubDate>Wed, 05 Nov 2025 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/weather-trend/images/0.png" medium="image" type="image/png" height="83" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/weather-trend/images/0.png" medium="image" type="image/png" height="83" width="144"/>
 </item>
 <item>
   <title>Weight Tracking Dashboard with Shiny,streamlit and AI Integration</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/weight-tracking/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/weight-tracking/</link>
   <description><![CDATA[ 
 
 
@@ -5017,7 +5017,7 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/weight-tracking/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/weight-tracking/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Application Dashboard - Weight Tracking View</figcaption>
 </figure>
 </div>
@@ -5025,7 +5025,7 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/weight-tracking/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/weight-tracking/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>AI Configuration Panel</figcaption>
 </figure>
 </div>
@@ -5033,7 +5033,7 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/weight-tracking/images/2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/weight-tracking/images/2.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Data Table View</figcaption>
 </figure>
 </div>
@@ -5041,7 +5041,7 @@ font-style: inherit;">None</span></span></code></pre></div></div>
 <div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/weight-tracking/images/3.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/weight-tracking/images/3.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Code Viewer Section</figcaption>
 </figure>
 </div>
@@ -6574,14 +6574,14 @@ font-style: inherit;">"ai_error_check_config"</span>))</span>
   <category>AI</category>
   <category>API</category>
   <category>tutorial</category>
-  <guid>https://your-website-url.example.com/posts/weight-tracking/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/weight-tracking/</guid>
   <pubDate>Tue, 04 Nov 2025 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/weight-tracking/images/0.png" medium="image" type="image/png" height="84" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/weight-tracking/images/0.png" medium="image" type="image/png" height="84" width="144"/>
 </item>
 <item>
   <title>Whisky Tasting note with RAG</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/whisky-tasting/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/whisky-tasting/</link>
   <description><![CDATA[ 
 
 
@@ -6598,16 +6598,16 @@ font-style: inherit;">"ai_error_check_config"</span>))</span>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">AI tasting note</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">AI recommendation</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">AI品鉴词</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" aria-controls="tabset-1-4" aria-selected="false" href="">AI推荐</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/2.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/whisky-tasting/images/2.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/3.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/whisky-tasting/images/3.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
-<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/0.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/whisky-tasting/images/0.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
-<p><img src="https://your-website-url.example.com/posts/whisky-tasting/images/1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/whisky-tasting/images/1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -8279,14 +8279,14 @@ font-style: inherit;">=</span> App(app_ui, server)</span></code></pre></div></di
   <category>AI</category>
   <category>API</category>
   <category>tutorial</category>
-  <guid>https://your-website-url.example.com/posts/whisky-tasting/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/whisky-tasting/</guid>
   <pubDate>Tue, 04 Nov 2025 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/whisky-tasting/images/0.png" medium="image" type="image/png" height="66" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/whisky-tasting/images/0.png" medium="image" type="image/png" height="66" width="144"/>
 </item>
 <item>
   <title>YOLO Object Detection App with Streamlit</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/yolo-app/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/yolo-app/</link>
   <description><![CDATA[ 
 
 
@@ -8304,7 +8304,7 @@ font-style: inherit;">=</span> App(app_ui, server)</span></code></pre></div></di
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/yolo-app/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/yolo-app/images/0.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Application Screenshot - Main Interface</figcaption>
 </figure>
 </div>
@@ -8312,7 +8312,7 @@ font-style: inherit;">=</span> App(app_ui, server)</span></code></pre></div></di
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/yolo-app/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/yolo-app/images/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Application Screenshot - Detection Results</figcaption>
 </figure>
 </div>
@@ -9390,14 +9390,14 @@ font-style: inherit;">=</span>your_openrouter_key</span></code></pre></div></div
   <category>AI</category>
   <category>API</category>
   <category>tutorial</category>
-  <guid>https://your-website-url.example.com/posts/yolo-app/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/yolo-app/</guid>
   <pubDate>Tue, 04 Nov 2025 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/yolo-app/images/0.png" medium="image" type="image/png" height="83" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/yolo-app/images/0.png" medium="image" type="image/png" height="83" width="144"/>
 </item>
 <item>
   <title>Retrieval-Augmented Generation(RAG) in R &amp; Python</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/RAG/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/RAG/</link>
   <description><![CDATA[ 
 
 
@@ -9880,7 +9880,7 @@ background-color: null;
 font-style: inherit;">print</span>(links_full)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>['https://openrouter.ai/docs/guides/features/message-transforms', 'https://openrouter.ai/docs/api-reference/overview', 'https://openrouter.ai/docs/app-attribution', 'https://openrouter.ai/docs/guides/features/zdr', 'https://openrouter.ai/docs/guides/overview/principles', 'https://openrouter.ai/docs/guides/features/zero-completion-insurance', 'https://openrouter.ai/docs/guides/overview/models', 'https://openrouter.ai/docs/guides/overview/report-feedback', 'https://openrouter.ai/docs/api/reference/streaming', 'https://openrouter.ai/docs/guides/routing/model-fallbacks', 'https://openrouter.ai/docs/faq#how-are-rate-limits-calculated', 'https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview', 'https://openrouter.ai/docs/guides/features/presets', 'https://openrouter.ai/docs/sdks/call-model/overview', 'https://openrouter.ai/docs/api/reference/overview', 'https://openrouter.ai/docs/quickstart', 'https://openrouter.ai/docs/guides/routing/provider-selection', 'https://openrouter.ai/docs/guides/features/structured-outputs', 'https://openrouter.ai/docs/guides/features/tool-calling', 'https://openrouter.ai/docs/faq']</code></pre>
+<pre><code>['https://openrouter.ai/docs/guides/overview/report-feedback', 'https://openrouter.ai/docs/guides/features/message-transforms', 'https://openrouter.ai/docs/api-reference/overview', 'https://openrouter.ai/docs/guides/features/structured-outputs', 'https://openrouter.ai/docs/guides/routing/provider-selection', 'https://openrouter.ai/docs/api/reference/overview', 'https://openrouter.ai/docs/guides/features/tool-calling', 'https://openrouter.ai/docs/guides/overview/principles', 'https://openrouter.ai/docs/quickstart', 'https://openrouter.ai/docs/sdks/call-model/overview', 'https://openrouter.ai/docs/faq#how-are-rate-limits-calculated', 'https://openrouter.ai/docs/guides/community/frameworks-and-integrations-overview', 'https://openrouter.ai/docs/faq', 'https://openrouter.ai/docs/guides/routing/model-fallbacks', 'https://openrouter.ai/docs/guides/overview/models', 'https://openrouter.ai/docs/guides/features/zero-completion-insurance', 'https://openrouter.ai/docs/guides/features/presets', 'https://openrouter.ai/docs/api/reference/streaming', 'https://openrouter.ai/docs/guides/features/zdr', 'https://openrouter.ai/docs/app-attribution']</code></pre>
 </div>
 </div>
 </div>
@@ -11651,7 +11651,7 @@ font-style: inherit;">=</span> index.as_retriever(similarity_top_k<span class="o
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">3</span>)</span>
+font-style: inherit;">5</span>)</span>
 <span id="cb39-3">nodes <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> retriever.retrieve(query)</span>
@@ -11678,7 +11678,7 @@ background-color: null;
 font-style: inherit;">"</span>)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Retrieved 3 chunks from DuckDB:</code></pre>
+<pre><code>Retrieved 5 chunks from DuckDB:</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -11856,7 +11856,7 @@ font-style: inherit;">"</span>)</span></code></pre></div></div>
 <pre><code>────────────────────────────────────────────────────────────
 Chunk 1
 ────────────────────────────────────────────────────────────
-Similarity Score: 0.6170
+Similarity Score: 0.6169
 Metadata:
   - file_path: /Users/jinchaoduan/Documents/post_project/AI_Blog/posts/RAG/markdown_docs/docs_features_exacto-variant.md
   - file_name: docs_features_exacto-variant.md
@@ -11890,7 +11890,7 @@ Ask AI
 ────────────────────────────────────────────────────────────
 Chunk 2
 ────────────────────────────────────────────────────────────
-Similarity Score: 0.6101
+Similarity Score: 0.6099
 Metadata:
   - file_path: /Users/jinchaoduan/Documents/post_project/AI_Blog/posts/RAG/markdown_docs/docs_overview_models.md
   - file_name: docs_overview_models.md
@@ -11924,7 +11924,7 @@ Ask AI
 ────────────────────────────────────────────────────────────
 Chunk 3
 ────────────────────────────────────────────────────────────
-Similarity Score: 0.5821
+Similarity Score: 0.5820
 Metadata:
   - file_path: /Users/jinchaoduan/Documents/post_project/AI_Blog/posts/RAG/markdown_docs/docs_guides_overview_models.md
   - file_name: docs_guides_overview_models.md
@@ -11949,7 +11949,71 @@ Ask AI
 * Overview
 
   + [Quickstart](/docs/quickstart)
-  + [Principles](/docs/guides/overview/princi...</code></pre>
+  + [Principles](/docs/guides/overview/princi...
+
+────────────────────────────────────────────────────────────
+Chunk 4
+────────────────────────────────────────────────────────────
+Similarity Score: 0.5763
+Metadata:
+  - file_path: /Users/jinchaoduan/Documents/post_project/AI_Blog/posts/RAG/markdown_docs/docs_faq_how-are-rate-limits-calculated.md
+  - file_name: docs_faq_how-are-rate-limits-calculated.md
+  - file_type: text/markdown
+  - file_size: 17710
+  - creation_date: 2026-01-06
+  - last_modified_date: 2026-01-06
+
+Content:
+Search
+
+`/`
+
+Ask AI
+
+[Models](https://openrouter.ai/models)[Chat](https://openrouter.ai/chat)[Ranking](https://openrouter.ai/rankings)[Docs](/docs/api-reference/overview)
+
+[Docs](/docs/quickstart)[API Reference](/docs/api/reference/overview)[SDK Reference](/docs/sdks/call-model/overview)
+
+[Docs](/docs/quickstart)[API Reference](/docs/api/reference/overview)[SDK Reference](/docs/sdks/call-model/overview)
+
+* Overview
+
+  + [Quickstart](/docs/quickstart)
+  + [Principles](/docs/guides/overview/princi...
+
+────────────────────────────────────────────────────────────
+Chunk 5
+────────────────────────────────────────────────────────────
+Similarity Score: 0.5701
+Metadata:
+  - file_path: /Users/jinchaoduan/Documents/post_project/AI_Blog/posts/RAG/markdown_docs/docs_features_model-routing.md
+  - file_name: docs_features_model-routing.md
+  - file_type: text/markdown
+  - file_size: 7024
+  - creation_date: 2025-11-21
+  - last_modified_date: 2025-11-21
+
+Content:
+Search
+
+`/`
+
+Ask AI
+
+[API](/docs/api-reference/overview)[Models](https://openrouter.ai/models)[Chat](https://openrouter.ai/chat)[Ranking](https://openrouter.ai/rankings)
+
+* Overview
+
+  + [Quickstart](/docs/quickstart)
+  + [FAQ](/docs/faq)
+  + [Principles](/docs/overview/principles)
+  + [Models](/docs/overview/models)
+  + [Enterprise](https://openrouter.ai/enterprise)
+* Features
+
+  + [Privacy and Logging](/docs/features/privacy-and-logging)
+  + [Zero Data Retention (ZDR)](/docs/features/zdr)
+  + ...</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -12553,75 +12617,30 @@ font-style: inherit;">chat</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"What are model variants?"</span>)</span></code></pre></div></div>
 </details>
-<p><strong>Model variants</strong> are suffixes you can add to a model’s slug in OpenRouter to modify how the model behaves or how the request is routed.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 39%">
-<col style="width: 26%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variant</th>
-<th>Type</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>:free</code></td>
-<td>static</td>
-<td>Model is always offered for free (lower rate limits).</td>
-</tr>
-<tr class="even">
-<td><code>:beta</code></td>
-<td>static</td>
-<td>Model is not moderated by OpenRouter.</td>
-</tr>
-<tr class="odd">
-<td><code>:extended</code></td>
-<td>static</td>
-<td>Model receives a longer‑than‑usual context window.</td>
-</tr>
-<tr class="even">
-<td><code>:exacto</code></td>
-<td>static</td>
-<td>Only high‑quality, OpenRouter‑curated endpoints are</td>
-</tr>
-<tr class="odd">
-<td>used.</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>:thinking</code></td>
-<td>static</td>
-<td>Model enables reasoning by default.</td>
-</tr>
-<tr class="odd">
-<td><code>:online</code></td>
-<td>dynamic</td>
-<td>A web‑search query runs and its results are appended to</td>
-</tr>
-<tr class="even">
-<td>the prompt.</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>:nitro</code></td>
-<td>dynamic</td>
-<td>Providers are sorted by throughput (fastest response).</td>
-</tr>
-<tr class="even">
-<td><code>:floor</code></td>
-<td>dynamic</td>
-<td>Providers are sorted by price (cheapest option).</td>
-</tr>
-</tbody>
-</table>
-<p><em>Static variants</em> apply only to specific models (listed in the <strong>Models API</strong>) while <em>dynamic variants</em> can be used with any model and change routing or request handling.</p>
-<p>Source: OpenRouter FAQ – “What are model variants?”【 3†source】</p>
+<p><strong>Model variants are suffixes that you attach to a model’s slug in order to modify how the model is provided or how the request is processed.</strong></p>
+<ul>
+<li><p><strong>Static variants</strong> work only with certain models (the allowed combinations are listed in the /models API). They change the model’s characteristics, for example:</p>
+<ol type="1">
+<li><p><code>:free</code> – the model is always offered at no cost and has low rate‑limits.</p></li>
+<li><p><code>:beta</code> – the model is served without OpenRouter’s moderation.<br>
+</p></li>
+<li><p><code>:extended</code> – the model gets a longer‑than‑usual context window.<br>
+</p></li>
+<li><p><code>:exacto</code> – only high‑quality, OpenRouter‑curated endpoints are used.<br>
+</p></li>
+<li><p><code>:thinking</code> – the model has reasoning (chain‑of‑thought) enabled by default.</p></li>
+</ol></li>
+<li><p><strong>Dynamic variants</strong> can be applied to <strong>any</strong> model and affect routing or extra processing:</p>
+<ol type="1">
+<li><code>:online</code> – each request performs a web‑search query and appends the results to the prompt.<br>
+</li>
+<li><code>:nitro</code> – providers are sorted by throughput, favoring the fastest responses.<br>
+</li>
+<li><code>:floor</code> – providers are sorted by price, favoring the cheapest options.</li>
+</ol></li>
+</ul>
+<p>In short, a variant is a suffix like <code>:free</code>, <code>:online</code>, etc., that you add to a model identifier (e.g., <code>anthropic/claude-3.5-sonnet:free</code>) to obtain a particular pricing, moderation, context‑length, reasoning, or routing behavior.</p>
+<p><em>Source: OpenRouter FAQ – “What are model variants?” which lists the static and dynamic variants and explains that they are suffixes that change a model’s behavior.</em></p>
 </section>
 </div>
 <div id="tabset-4-2" class="tab-pane" aria-labelledby="tabset-4-2-tab">
@@ -12636,30 +12655,40 @@ background-color: null;
 font-style: inherit;">import</span> os</span>
 <span id="cb54-2"><span class="im" style="color: #00769E;
 background-color: null;
+font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Any, List</span>
+<span id="cb54-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> OpenAI</span>
+<span id="cb54-4"><span class="im" style="color: #00769E;
+background-color: null;
 font-style: inherit;">import</span> chatlas <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> ctl</span>
-<span id="cb54-3"><span class="im" style="color: #00769E;
+<span id="cb54-5"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> llama_index.core <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> VectorStoreIndex, Settings</span>
-<span id="cb54-4"><span class="im" style="color: #00769E;
+<span id="cb54-6"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> llama_index.core.embeddings <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> BaseEmbedding</span>
+<span id="cb54-7"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> llama_index.vector_stores.duckdb <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> DuckDBVectorStore</span>
-<span id="cb54-5"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> llama_index.embeddings.openai <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> OpenAIEmbedding</span>
-<span id="cb54-6"><span class="im" style="color: #00769E;
+<span id="cb54-8"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> dotenv <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> load_dotenv</span>
-<span id="cb54-7">load_dotenv()</span></code></pre></div></div>
+<span id="cb54-9">load_dotenv()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
@@ -12677,54 +12706,238 @@ font-style: inherit;">"OPENROUTER_API_KEY"</span>)</span>
 <span id="cb56-3"></span>
 <span id="cb56-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 1. Configure Embedding Model (LlamaIndex)</span></span>
-<span id="cb56-5">embed_model <span class="op" style="color: #5E5E5E;
+font-style: inherit;"># Custom OpenRouter Embedding class for LlamaIndex</span></span>
+<span id="cb56-5"><span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">=</span> OpenAIEmbedding(</span>
-<span id="cb56-6">    api_key<span class="op" style="color: #5E5E5E;
+font-weight: bold;
+font-style: inherit;">class</span> OpenRouterEmbedding(BaseEmbedding):</span>
+<span id="cb56-6">    <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>openrouter_api_key,</span>
-<span id="cb56-7">    base_url<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"""Custom embedding class for OpenRouter API compatible with LlamaIndex."""</span></span>
+<span id="cb56-7"></span>
+<span id="cb56-8">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__init__</span>(</span>
+<span id="cb56-9">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>,</span>
+<span id="cb56-10">        api_key: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>,</span>
+<span id="cb56-11">        model: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"qwen/qwen3-embedding-8b"</span>,</span>
+<span id="cb56-12">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span>kwargs: Any</span>
+<span id="cb56-13">    ):</span>
+<span id="cb56-14">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">super</span>().<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__init__</span>(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span>kwargs)</span>
+<span id="cb56-15">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._client <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> OpenAI(</span>
+<span id="cb56-16">            base_url<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span>,</span>
-<span id="cb56-8">    model<span class="op" style="color: #5E5E5E;
+<span id="cb56-17">            api_key<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>api_key,</span>
+<span id="cb56-18">        )</span>
+<span id="cb56-19">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> model</span>
+<span id="cb56-20"></span>
+<span id="cb56-21">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _get_query_embedding(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, query: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> List[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>]:</span>
+<span id="cb56-22">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Get embedding for a query string."""</span></span>
+<span id="cb56-23">        response <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._client.embeddings.create(</span>
+<span id="cb56-24">            extra_headers<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{</span>
+<span id="cb56-25">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"HTTP-Referer"</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://ai-blog.com"</span>,</span>
+<span id="cb56-26">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"X-Title"</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"AI Blog RAG"</span>,</span>
+<span id="cb56-27">            },</span>
+<span id="cb56-28">            model<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._model,</span>
+<span id="cb56-29">            <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">input</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>query,</span>
+<span id="cb56-30">            encoding_format<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"text-embedding-3-small"</span>  <span class="co" style="color: #5E5E5E;
+font-style: inherit;">"float"</span></span>
+<span id="cb56-31">        )</span>
+<span id="cb56-32">        <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;"># Use standard OpenAI model name; OpenRouter requires this</span></span>
-<span id="cb56-9">)</span>
-<span id="cb56-10">Settings.embed_model <span class="op" style="color: #5E5E5E;
+font-weight: bold;
+font-style: inherit;">return</span> response.data[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].embedding</span>
+<span id="cb56-33"></span>
+<span id="cb56-34">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _get_text_embedding(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, text: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> List[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>]:</span>
+<span id="cb56-35">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Get embedding for a text string."""</span></span>
+<span id="cb56-36">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._get_query_embedding(text)</span>
+<span id="cb56-37"></span>
+<span id="cb56-38">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">async</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _aget_query_embedding(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, query: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> List[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>]:</span>
+<span id="cb56-39">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Async version of get_query_embedding."""</span></span>
+<span id="cb56-40">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._get_query_embedding(query)</span>
+<span id="cb56-41"></span>
+<span id="cb56-42">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">async</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _aget_text_embedding(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, text: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> List[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>]:</span>
+<span id="cb56-43">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Async version of get_text_embedding."""</span></span>
+<span id="cb56-44">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._get_text_embedding(text)</span>
+<span id="cb56-45"></span>
+<span id="cb56-46"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 1. Configure Embedding Model using custom OpenRouter class</span></span>
+<span id="cb56-47"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (Note: must use the same embedding model that was used to create the database)</span></span>
+<span id="cb56-48">embed_model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> OpenRouterEmbedding(</span>
+<span id="cb56-49">    api_key<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>openrouter_api_key,</span>
+<span id="cb56-50">    model<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"qwen/qwen3-embedding-8b"</span></span>
+<span id="cb56-51">)</span>
+<span id="cb56-52">Settings.embed_model <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> embed_model</span>
-<span id="cb56-11"></span>
-<span id="cb56-12"><span class="co" style="color: #5E5E5E;
+<span id="cb56-53"></span>
+<span id="cb56-54"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 2. Load Vector Store</span></span>
-<span id="cb56-13">vector_store <span class="op" style="color: #5E5E5E;
+<span id="cb56-55">vector_store <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> DuckDBVectorStore(database_name<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"open.duckdb"</span>, persist_dir<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"openrouter.duckdb"</span>,persist_dir<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"./persist/"</span>)</span>
-<span id="cb56-14">index <span class="op" style="color: #5E5E5E;
+<span id="cb56-56">index <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> VectorStoreIndex.from_vector_store(vector_store<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>vector_store)</span>
-<span id="cb56-15"></span>
-<span id="cb56-16"><span class="co" style="color: #5E5E5E;
+font-style: inherit;">=</span> VectorStoreIndex.from_vector_store(vector_store)</span>
+<span id="cb56-57"></span>
+<span id="cb56-58"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 3. Define Retrieval Tool</span></span>
-<span id="cb56-17"><span class="kw" style="color: #003B4F;
+<span id="cb56-59"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> retrieve_trusted_content(query: <span class="bu" style="color: null;
@@ -12735,47 +12948,47 @@ font-style: inherit;">int</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">5</span>):</span>
-<span id="cb56-18">    <span class="co" style="color: #5E5E5E;
+font-style: inherit;">8</span>):</span>
+<span id="cb56-60">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""</span></span>
-<span id="cb56-19"><span class="co" style="color: #5E5E5E;
+<span id="cb56-61"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    Retrieve relevant content from the knowledge store.</span></span>
-<span id="cb56-20"></span>
-<span id="cb56-21"><span class="co" style="color: #5E5E5E;
+<span id="cb56-62"></span>
+<span id="cb56-63"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    Parameters</span></span>
-<span id="cb56-22"><span class="co" style="color: #5E5E5E;
+<span id="cb56-64"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    ----------</span></span>
-<span id="cb56-23"><span class="co" style="color: #5E5E5E;
+<span id="cb56-65"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    query</span></span>
-<span id="cb56-24"><span class="co" style="color: #5E5E5E;
+<span id="cb56-66"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">        The query used to semantically search the knowledge store.</span></span>
-<span id="cb56-25"><span class="co" style="color: #5E5E5E;
+<span id="cb56-67"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    top_k</span></span>
-<span id="cb56-26"><span class="co" style="color: #5E5E5E;
+<span id="cb56-68"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">        The number of results to retrieve from the knowledge store.</span></span>
-<span id="cb56-27"><span class="co" style="color: #5E5E5E;
+<span id="cb56-69"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    """</span></span>
-<span id="cb56-28">    <span class="co" style="color: #5E5E5E;
+<span id="cb56-70">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#print(f"Retrieving content for query: '{query}'")</span></span>
-<span id="cb56-29">    retriever <span class="op" style="color: #5E5E5E;
+<span id="cb56-71">    retriever <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> index.as_retriever(similarity_top_k<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>top_k)</span>
-<span id="cb56-30">    nodes <span class="op" style="color: #5E5E5E;
+<span id="cb56-72">    nodes <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> retriever.retrieve(query)</span>
-<span id="cb56-31">    <span class="cf" style="color: #003B4F;
+<span id="cb56-73">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> [<span class="ss" style="color: #20794D;
@@ -12795,51 +13008,59 @@ font-style: inherit;">for</span> x <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> nodes]</span>
-<span id="cb56-32"></span>
-<span id="cb56-33"><span class="co" style="color: #5E5E5E;
+<span id="cb56-74"></span>
+<span id="cb56-75"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 4. Initialize Chat with System Prompt</span></span>
-<span id="cb56-34">chat <span class="op" style="color: #5E5E5E;
+<span id="cb56-76">chat <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> ctl.ChatOpenAI(</span>
-<span id="cb56-35">    model<span class="op" style="color: #5E5E5E;
+font-style: inherit;">=</span> ctl.ChatOpenRouter(</span>
+<span id="cb56-77">    model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"openai/gpt-oss-120b"</span>,</span>
-<span id="cb56-36">    api_key<span class="op" style="color: #5E5E5E;
+<span id="cb56-78">    api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>openrouter_api_key,</span>
-<span id="cb56-37">    base_url<span class="op" style="color: #5E5E5E;
+<span id="cb56-79">    base_url<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span>,</span>
-<span id="cb56-38">    system_prompt<span class="op" style="color: #5E5E5E;
+<span id="cb56-80">    system_prompt<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>(</span>
-<span id="cb56-39">        <span class="st" style="color: #20794D;
+<span id="cb56-81">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"You are an assistant for question-answering tasks. "</span></span>
-<span id="cb56-40">        <span class="st" style="color: #20794D;
+<span id="cb56-82">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Use the retrieve_trusted_content tool to find relevant information from the knowledge store. "</span></span>
-<span id="cb56-41">        <span class="st" style="color: #20794D;
+<span id="cb56-83">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Answer questions based on the retrieved content. "</span></span>
-<span id="cb56-42">        <span class="st" style="color: #20794D;
+<span id="cb56-84">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"If you cannot find relevant information, say so clearly."</span></span>
-<span id="cb56-43">    )</span>
-<span id="cb56-44">)</span>
-<span id="cb56-45"></span>
-<span id="cb56-46">chat.register_tool(retrieve_trusted_content)</span></code></pre></div></div>
+<span id="cb56-85">    )</span>
+<span id="cb56-86">)</span>
+<span id="cb56-87"></span>
+<span id="cb56-88">chat.register_tool(retrieve_trusted_content)</span></code></pre></div></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1">response<span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#retrieve_trusted_content("What are model variants?",top_k=3)</span></span></code></pre></div></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1">response<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>chat.chat(<span class="st" style="color: #20794D;
 background-color: null;
@@ -12853,10 +13074,82 @@ font-style: inherit;">"none"</span>)</span></code></pre></div></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(response)</span></code></pre></div></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>**Model variants are special suffixes you can tack onto a model’s slug to change how the model is served or how the request is routed.**  
+Instead of treating a model name like a single, immutable identifier, OpenRouter lets you add a “variant” after a colon (`:`) – e.g. `anthropic/claude-3.5-sonnet:free` – that tells the platform to apply a particular preset of behavior.
+
+---
+
+### Two families of variants
+
+| Variant type | How it works | Examples |
+|--------------|--------------|----------|
+| **Static variants** | Hard‑coded to specific models. Only the models that support the variant will accept it. | `:free` – always free (low‑rate‑limit) &lt;br&gt; `:extended` – longer context window than the default &lt;br&gt; `:exacto` – routes only to OpenRouter‑curated high‑quality providers &lt;br&gt; `:thinking` – enables built‑in reasoning mode |
+| **Dynamic variants** | Apply to *any* model and affect the routing or request processing rather than the model itself. | `:online` – fetches web results and appends them to the prompt &lt;br&gt; `:nitro` – sorts providers by throughput (fastest first) &lt;br&gt; `:floor` – sorts providers by price (cheapest first) |
+
+*Source: OpenRouter FAQ “What are model variants?”*【5†L31-L45】.
+
+---
+
+### What each static variant does
+
+| Variant | Effect |
+|---------|--------|
+| **`:free`** | The model is offered at no cost and comes with a low rate‑limit. Good for quick experiments when price is the primary concern. |
+| **`:extended`** | Gives the model a longer context length than the standard version, useful for very long prompts or multi‑turn conversations. |
+| **`:exacto`** | Forces the request to go only through a vetted subset of providers that have shown higher tool‑calling accuracy and reliability (the “Exacto” routing). |
+| **`:thinking`** | Turns on the model’s built‑in reasoning capability, so it automatically performs chain‑of‑thought style reasoning without extra flags. |
+
+*Source: OpenRouter FAQ “Static variants …”*【5†L31-L38】.
+
+---
+
+### What each dynamic variant does
+
+| Variant | Effect |
+|---------|--------|
+| **`:online`** | Executes a web‑search, attaches the retrieved results to the prompt, and then runs the model – ideal for up‑to‑date knowledge retrieval. |
+| **`:nitro`** | Provider selection is sorted by throughput (speed) rather than the default sort, giving you the fastest possible response. |
+| **`:floor`** | Provider selection is sorted by price, so the cheapest eligible endpoint is chosen first. |
+
+*Source: OpenRouter FAQ “Dynamic variants …”*【5†L39-L45】.
+
+---
+
+### How to use a variant
+
+Just add the suffix to the model identifier in any API request (chat, completions, etc.):
+
+```json
+{
+  "model": "anthropic/claude-3.5-sonnet:extended",
+  "messages": [{ "role": "user", "content": "Explain quantum computing in 500 words." }]
+}
+```
+
+If you use a dynamic variant, the same slug works with any model:
+
+```json
+{
+  "model": "openai/gpt-4:nitro",
+  "messages": [{ "role": "user", "content": "Generate a fast response to this query." }]
+}
+```
+
+---
+
+### Why variants matter
+
+- **Fine‑grained control** – Choose free usage, longer context, or higher reliability without changing code.  
+- **Routing optimization** – Direct traffic to the fastest or cheapest providers (`:nitro`, `:floor`).  
+- **Feature toggles** – Enable tool‑calling accuracy (`:exacto`) or web‑search (`:online`) on the fly.
+
+In short, model variants are a convenient, URL‑style way to modify a model’s pricing, capabilities, or routing behavior by appending a suffix to the model slug.</code></pre>
+</div>
 </div>
 </section>
 </div>
@@ -12867,74 +13160,74 @@ font-style: inherit;">print</span>(response)</span></code></pre></div></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_openai <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> ChatOpenAI</span>
-<span id="cb59-2"><span class="im" style="color: #00769E;
+<span id="cb61-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.prompts <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> ChatPromptTemplate</span>
-<span id="cb59-3"><span class="im" style="color: #00769E;
+<span id="cb61-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.runnables <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> RunnablePassthrough</span>
-<span id="cb59-4"><span class="im" style="color: #00769E;
+<span id="cb61-4"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.output_parsers <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> StrOutputParser</span>
-<span id="cb59-5"><span class="im" style="color: #00769E;
+<span id="cb61-5"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> openai <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> OpenAI</span>
-<span id="cb59-6"><span class="im" style="color: #00769E;
+<span id="cb61-6"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.embeddings <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> Embeddings</span>
-<span id="cb59-7"><span class="im" style="color: #00769E;
+<span id="cb61-7"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_chroma <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> Chroma</span>
-<span id="cb59-8"><span class="im" style="color: #00769E;
+<span id="cb61-8"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> List</span>
-<span id="cb59-9"><span class="im" style="color: #00769E;
+<span id="cb61-9"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
-<span id="cb59-10"><span class="im" style="color: #00769E;
+<span id="cb61-10"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> dotenv <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> load_dotenv</span>
-<span id="cb59-11"></span>
-<span id="cb59-12">load_dotenv()</span></code></pre></div></div>
+<span id="cb61-11"></span>
+<span id="cb61-12">load_dotenv()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Custom embeddings class for OpenRouter API</span></span>
-<span id="cb61-2"><span class="kw" style="color: #003B4F;
+<span id="cb63-2"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> OpenRouterEmbeddings(Embeddings):</span>
-<span id="cb61-3">    <span class="co" style="color: #5E5E5E;
+<span id="cb63-3">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Custom embeddings class for OpenRouter API."""</span></span>
-<span id="cb61-4">    </span>
-<span id="cb61-5">    <span class="kw" style="color: #003B4F;
+<span id="cb63-4">    </span>
+<span id="cb63-5">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
@@ -12950,27 +13243,27 @@ background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"qwen/qwen3-embedding-8b"</span>):</span>
-<span id="cb61-6">        <span class="va" style="color: #111111;
+<span id="cb63-6">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> OpenAI(</span>
-<span id="cb61-7">            base_url<span class="op" style="color: #5E5E5E;
+<span id="cb63-7">            base_url<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span>,</span>
-<span id="cb61-8">            api_key<span class="op" style="color: #5E5E5E;
+<span id="cb63-8">            api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>api_key,</span>
-<span id="cb61-9">        )</span>
-<span id="cb61-10">        <span class="va" style="color: #111111;
+<span id="cb63-9">        )</span>
+<span id="cb63-10">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> model</span>
-<span id="cb61-11">    </span>
-<span id="cb61-12">    <span class="kw" style="color: #003B4F;
+<span id="cb63-11">    </span>
+<span id="cb63-12">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> embed_documents(<span class="va" style="color: #111111;
@@ -12982,45 +13275,45 @@ background-color: null;
 font-style: inherit;">-&gt;</span> List[List[<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">float</span>]]:</span>
-<span id="cb61-13">        <span class="co" style="color: #5E5E5E;
+<span id="cb63-13">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Embed a list of documents."""</span></span>
-<span id="cb61-14">        response <span class="op" style="color: #5E5E5E;
+<span id="cb63-14">        response <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client.embeddings.create(</span>
-<span id="cb61-15">            extra_headers<span class="op" style="color: #5E5E5E;
+<span id="cb63-15">            extra_headers<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>{</span>
-<span id="cb61-16">                <span class="st" style="color: #20794D;
+<span id="cb63-16">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"HTTP-Referer"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://ai-blog.com"</span>,</span>
-<span id="cb61-17">                <span class="st" style="color: #20794D;
+<span id="cb63-17">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"X-Title"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"AI Blog RAG"</span>,</span>
-<span id="cb61-18">            },</span>
-<span id="cb61-19">            model<span class="op" style="color: #5E5E5E;
+<span id="cb63-18">            },</span>
+<span id="cb63-19">            model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model,</span>
-<span id="cb61-20">            <span class="bu" style="color: null;
+<span id="cb63-20">            <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">input</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>texts,</span>
-<span id="cb61-21">            encoding_format<span class="op" style="color: #5E5E5E;
+<span id="cb63-21">            encoding_format<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"float"</span></span>
-<span id="cb61-22">        )</span>
-<span id="cb61-23">        <span class="cf" style="color: #003B4F;
+<span id="cb63-22">        )</span>
+<span id="cb63-23">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> [item.embedding <span class="cf" style="color: #003B4F;
@@ -13030,8 +13323,8 @@ font-style: inherit;">for</span> item <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> response.data]</span>
-<span id="cb61-24">    </span>
-<span id="cb61-25">    <span class="kw" style="color: #003B4F;
+<span id="cb63-24">    </span>
+<span id="cb63-25">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> embed_query(<span class="va" style="color: #111111;
@@ -13043,67 +13336,67 @@ background-color: null;
 font-style: inherit;">-&gt;</span> List[<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">float</span>]:</span>
-<span id="cb61-26">        <span class="co" style="color: #5E5E5E;
+<span id="cb63-26">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Embed a single query."""</span></span>
-<span id="cb61-27">        response <span class="op" style="color: #5E5E5E;
+<span id="cb63-27">        response <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.client.embeddings.create(</span>
-<span id="cb61-28">            extra_headers<span class="op" style="color: #5E5E5E;
+<span id="cb63-28">            extra_headers<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>{</span>
-<span id="cb61-29">                <span class="st" style="color: #20794D;
+<span id="cb63-29">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"HTTP-Referer"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://ai-blog.com"</span>,</span>
-<span id="cb61-30">                <span class="st" style="color: #20794D;
+<span id="cb63-30">                <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"X-Title"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"AI Blog RAG"</span>,</span>
-<span id="cb61-31">            },</span>
-<span id="cb61-32">            model<span class="op" style="color: #5E5E5E;
+<span id="cb63-31">            },</span>
+<span id="cb63-32">            model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.model,</span>
-<span id="cb61-33">            <span class="bu" style="color: null;
+<span id="cb63-33">            <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">input</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>text,</span>
-<span id="cb61-34">            encoding_format<span class="op" style="color: #5E5E5E;
+<span id="cb63-34">            encoding_format<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"float"</span></span>
-<span id="cb61-35">        )</span>
-<span id="cb61-36">        <span class="cf" style="color: #003B4F;
+<span id="cb63-35">        )</span>
+<span id="cb63-36">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> response.data[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].embedding</span>
-<span id="cb61-37"></span>
-<span id="cb61-38"><span class="co" style="color: #5E5E5E;
+<span id="cb63-37"></span>
+<span id="cb63-38"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get OpenRouter API key</span></span>
-<span id="cb61-39">openrouter_api_key <span class="op" style="color: #5E5E5E;
+<span id="cb63-39">openrouter_api_key <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.getenv(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY"</span>)</span>
-<span id="cb61-40"><span class="cf" style="color: #003B4F;
+<span id="cb63-40"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">not</span> openrouter_api_key:</span>
-<span id="cb61-41">    <span class="cf" style="color: #003B4F;
+<span id="cb63-41">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
@@ -13111,36 +13404,36 @@ background-color: null;
 font-style: inherit;">ValueError</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY not found in environment variables"</span>)</span>
-<span id="cb61-42"></span>
-<span id="cb61-43"><span class="co" style="color: #5E5E5E;
+<span id="cb63-42"></span>
+<span id="cb63-43"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create embeddings instance using OpenRouter</span></span>
-<span id="cb61-44">embeddings <span class="op" style="color: #5E5E5E;
+<span id="cb63-44">embeddings <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> OpenRouterEmbeddings(</span>
-<span id="cb61-45">    api_key<span class="op" style="color: #5E5E5E;
+<span id="cb63-45">    api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>openrouter_api_key,</span>
-<span id="cb61-46">    model<span class="op" style="color: #5E5E5E;
+<span id="cb63-46">    model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"qwen/qwen3-embedding-8b"</span></span>
-<span id="cb61-47">)</span>
-<span id="cb61-48"></span>
-<span id="cb61-49"><span class="co" style="color: #5E5E5E;
+<span id="cb63-47">)</span>
+<span id="cb63-48"></span>
+<span id="cb63-49"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Define vector store location</span></span>
-<span id="cb61-50">persist_directory <span class="op" style="color: #5E5E5E;
+<span id="cb63-50">persist_directory <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"chroma_db_data"</span></span>
-<span id="cb61-51"></span>
-<span id="cb61-52"><span class="co" style="color: #5E5E5E;
+<span id="cb63-51"></span>
+<span id="cb63-52"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load existing vector store</span></span>
-<span id="cb61-53"><span class="bu" style="color: null;
+<span id="cb63-53"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -13157,17 +13450,17 @@ font-style: inherit;">..."</span>)</span></code></pre></div></div>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1">vectorstore <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1">vectorstore <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Chroma(</span>
-<span id="cb63-2">    persist_directory<span class="op" style="color: #5E5E5E;
+<span id="cb65-2">    persist_directory<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>persist_directory,</span>
-<span id="cb63-3">    embedding_function<span class="op" style="color: #5E5E5E;
+<span id="cb65-3">    embedding_function<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>embeddings</span>
-<span id="cb63-4">)</span>
-<span id="cb63-5"><span class="bu" style="color: null;
+<span id="cb65-4">)</span>
+<span id="cb65-5"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -13178,88 +13471,88 @@ font-style: inherit;">f"✓ Loaded vectorstore"</span>)</span></code></pre></div
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Initialize LLM using OpenRouter</span></span>
-<span id="cb65-2">llm <span class="op" style="color: #5E5E5E;
+<span id="cb67-2">llm <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> ChatOpenAI(</span>
-<span id="cb65-3">    model<span class="op" style="color: #5E5E5E;
+<span id="cb67-3">    model<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"openai/gpt-oss-120b"</span>,</span>
-<span id="cb65-4">    openai_api_key<span class="op" style="color: #5E5E5E;
+<span id="cb67-4">    openai_api_key<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>os.getenv(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"OPENROUTER_API_KEY"</span>),</span>
-<span id="cb65-5">    openai_api_base<span class="op" style="color: #5E5E5E;
+<span id="cb67-5">    openai_api_base<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://openrouter.ai/api/v1"</span></span>
-<span id="cb65-6">)</span>
-<span id="cb65-7"></span>
-<span id="cb65-8"><span class="co" style="color: #5E5E5E;
+<span id="cb67-6">)</span>
+<span id="cb67-7"></span>
+<span id="cb67-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create prompt template</span></span>
-<span id="cb65-9">system_prompt <span class="op" style="color: #5E5E5E;
+<span id="cb67-9">system_prompt <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (</span>
-<span id="cb65-10">    <span class="st" style="color: #20794D;
+<span id="cb67-10">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"You are an assistant for question-answering tasks. "</span></span>
-<span id="cb65-11">    <span class="st" style="color: #20794D;
+<span id="cb67-11">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Use the following pieces of retrieved context to answer "</span></span>
-<span id="cb65-12">    <span class="st" style="color: #20794D;
+<span id="cb67-12">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"the question. If you don't know the answer, say that you "</span></span>
-<span id="cb65-13">    <span class="st" style="color: #20794D;
+<span id="cb67-13">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"don't know. Use three sentences maximum and keep the "</span></span>
-<span id="cb65-14">    <span class="st" style="color: #20794D;
+<span id="cb67-14">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"answer concise."</span></span>
-<span id="cb65-15">    <span class="st" style="color: #20794D;
+<span id="cb67-15">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">\n\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb65-16">    <span class="st" style="color: #20794D;
+<span id="cb67-16">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Context: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{context}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb65-17">    <span class="st" style="color: #20794D;
+<span id="cb67-17">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">\n\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb65-18">    <span class="st" style="color: #20794D;
+<span id="cb67-18">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Question: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{question}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb65-19">)</span>
-<span id="cb65-20"></span>
-<span id="cb65-21">prompt <span class="op" style="color: #5E5E5E;
+<span id="cb67-19">)</span>
+<span id="cb67-20"></span>
+<span id="cb67-21">prompt <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> ChatPromptTemplate.from_template(system_prompt)</span>
-<span id="cb65-22"></span>
-<span id="cb65-23"><span class="co" style="color: #5E5E5E;
+<span id="cb67-22"></span>
+<span id="cb67-23"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create retriever</span></span>
-<span id="cb65-24">retriever <span class="op" style="color: #5E5E5E;
+<span id="cb67-24">retriever <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> vectorstore.as_retriever(search_kwargs<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -13268,15 +13561,15 @@ background-color: null;
 font-style: inherit;">"k"</span>: <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>})</span>
-<span id="cb65-25"></span>
-<span id="cb65-26"><span class="co" style="color: #5E5E5E;
+<span id="cb67-25"></span>
+<span id="cb67-26"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Helper function to format documents</span></span>
-<span id="cb65-27"><span class="kw" style="color: #003B4F;
+<span id="cb67-27"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> format_docs(docs):</span>
-<span id="cb65-28">    <span class="cf" style="color: #003B4F;
+<span id="cb67-28">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="st" style="color: #20794D;
@@ -13292,35 +13585,35 @@ font-style: inherit;">for</span> doc <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> docs)</span>
-<span id="cb65-29"></span>
-<span id="cb65-30"><span class="co" style="color: #5E5E5E;
+<span id="cb67-29"></span>
+<span id="cb67-30"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create RAG chain using LCEL</span></span>
-<span id="cb65-31">rag_chain <span class="op" style="color: #5E5E5E;
+<span id="cb67-31">rag_chain <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (</span>
-<span id="cb65-32">    {</span>
-<span id="cb65-33">        <span class="st" style="color: #20794D;
+<span id="cb67-32">    {</span>
+<span id="cb67-33">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"context"</span>: retriever <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> format_docs,</span>
-<span id="cb65-34">        <span class="st" style="color: #20794D;
+<span id="cb67-34">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"question"</span>: RunnablePassthrough()</span>
-<span id="cb65-35">    }</span>
-<span id="cb65-36">    <span class="op" style="color: #5E5E5E;
+<span id="cb67-35">    }</span>
+<span id="cb67-36">    <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> prompt</span>
-<span id="cb65-37">    <span class="op" style="color: #5E5E5E;
+<span id="cb67-37">    <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> llm</span>
-<span id="cb65-38">    <span class="op" style="color: #5E5E5E;
+<span id="cb67-38">    <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> StrOutputParser()</span>
-<span id="cb65-39">)</span>
-<span id="cb65-40"></span>
-<span id="cb65-41"><span class="bu" style="color: null;
+<span id="cb67-39">)</span>
+<span id="cb67-40"></span>
+<span id="cb67-41"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
@@ -13331,16 +13624,16 @@ font-style: inherit;">"✓ RAG chain created successfully!"</span>)</span></code
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Test the RAG chain</span></span>
-<span id="cb67-2">question <span class="op" style="color: #5E5E5E;
+<span id="cb69-2">question <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"What are model variants?"</span></span>
-<span id="cb67-3"></span>
-<span id="cb67-4"><span class="bu" style="color: null;
+<span id="cb69-3"></span>
+<span id="cb69-4"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -13362,24 +13655,24 @@ Question: What are model variants?</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get context documents separately for display</span></span>
-<span id="cb69-2">context_docs <span class="op" style="color: #5E5E5E;
+<span id="cb71-2">context_docs <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> retriever.invoke(question)</span>
-<span id="cb69-3"></span>
-<span id="cb69-4"><span class="co" style="color: #5E5E5E;
+<span id="cb71-3"></span>
+<span id="cb71-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Invoke the RAG chain</span></span>
-<span id="cb69-5">answer <span class="op" style="color: #5E5E5E;
+<span id="cb71-5">answer <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> rag_chain.invoke(question)</span>
-<span id="cb69-6"><span class="im" style="color: #00769E;
+<span id="cb71-6"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> textwrap</span>
-<span id="cb69-7"></span>
-<span id="cb69-8"><span class="cf" style="color: #003B4F;
+<span id="cb71-7"></span>
+<span id="cb71-8"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> line <span class="kw" style="color: #003B4F;
@@ -13392,7 +13685,7 @@ background-color: null;
 font-style: inherit;">\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'</span>):</span>
-<span id="cb69-9">    <span class="bu" style="color: null;
+<span id="cb71-9">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(textwrap.fill(line, width<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -13401,12 +13694,12 @@ background-color: null;
 font-style: inherit;">80</span>))</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Model variants are suffixes you append to a model’s slug to modify its behavior.
-Static variants (e.g., `:free`, `:beta`, `:extended`, `:exacto`, `:thinking`)
-are limited to certain models, while dynamic variants
-(e.g., `:online`, `:nitro`, `:floor`) work with any model and affect routing or
-features such as web search, speed, or cost. Use them to customize access,
-context length, moderation, reasoning, or provider selection.</code></pre>
+<pre><code>Model variants are suffixes you append to a model’s slug to modify its
+behavior. Static variants
+(e.g., `:free`, `:beta`, `:extended`, `:exacto`, `:thinking`) apply only to
+certain models, while dynamic variants (e.g., `:online`, `:nitro`, `:floor`)
+work with any model to affect routing or features. These variants let you adjust
+cost, speed, context length, moderation, reasoning, or web‑search capabilities.</code></pre>
 </div>
 </div>
 </section>
@@ -13423,14 +13716,14 @@ context length, moderation, reasoning, or provider selection.</code></pre>
   <category>AI</category>
   <category>API</category>
   <category>tutorial</category>
-  <guid>https://your-website-url.example.com/posts/RAG/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/RAG/</guid>
   <pubDate>Sat, 01 Nov 2025 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/RAG/images.png" medium="image" type="image/png" height="79" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/RAG/images.png" medium="image" type="image/png" height="79" width="144"/>
 </item>
 <item>
   <title>OpenRouter: A Unified API for Multiple AI Models</title>
   <dc:creator>Tony D</dc:creator>
-  <link>https://your-website-url.example.com/posts/openrouter/</link>
+  <link>https://jcwinning.github.io/LandingPage/posts/openrouter/</link>
   <description><![CDATA[ 
 
 
@@ -15282,9 +15575,9 @@ font-style: inherit;">False</span>)</span>
   <category>AI</category>
   <category>API</category>
   <category>tutorial</category>
-  <guid>https://your-website-url.example.com/posts/openrouter/</guid>
+  <guid>https://jcwinning.github.io/LandingPage/posts/openrouter/</guid>
   <pubDate>Fri, 31 Oct 2025 16:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/openrouter/images.png" medium="image" type="image/png" height="48" width="144"/>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/openrouter/images.png" medium="image" type="image/png" height="48" width="144"/>
 </item>
 </channel>
 </rss>

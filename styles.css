@@ -262,8 +262,8 @@ table {
   height: auto !important;
 }
 
-/* Adjust home page head banner height to 2/3 of current height */
+/* Adjust home page head banner height */
 .quarto-title-banner {
-  padding-top: 1.0rem !important;
-  padding-bottom: 1.0rem !important;
+  padding-top: 0.1rem !important;
+  padding-bottom: 0.1rem !important;
 }
