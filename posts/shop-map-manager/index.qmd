@@ -19,7 +19,7 @@ execute:
 A robust and elegant personal shop management system. Whether you're tracking your favorite coffee shops, scenic spots, or planning future visits, this application provides a powerful platform for visualization and data management.
 
 
-Live Demo: [https://china-map.streamlit.app](https://china-map.streamlit.app)
+Live Demo(streamlit): [https://china-map.streamlit.app](https://china-map.streamlit.app) (vercel): [https://china-mapping.vercel.app/](https://china-mapping.vercel.app/)
 
 
 
