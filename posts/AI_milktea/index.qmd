@@ -1,0 +1,54 @@
+---
+title: "🤖AI World War,Humans Score Free Milk Tea🧋"
+author: "Tony D"
+date: "2026-02-06"
+categories: [AI, MCP]
+image: "images/0.png"
+
+format:
+  html:
+    code-fold: false
+    code-tools: true
+    code-copy: true
+    
+execute:
+  warning: false
+
+---
+
+
+"Papa Ma" (Jack Ma) is dropping a massive 3 billion RMB this time to accelerate AI integration. They actually crashed the QWEN servers today! The war has only just begun.
+
+
+![](images/0.png){width="80%"}
+
+
+# QWEN New Year Treat: Milk Tea or Coffee
+
+Dates: February 6, 2026 – February 12, 2026
+
+Method: Open the QWEN App and enter "Help me order milk tea" (帮我点奶茶) or "I want Nowwa Coffee" (我要喝挪瓦咖啡). It will automatically link to Taobao to place the order.
+
+![](images/1.png){width="40%"}   ![](images/2.png){width="40%"}
+
+
+
+
+![](images/3.png){width="80%"}
+
+
+# GLM Listing Celebration: Free Wang Wang milk 🥛 
+
+Dates: January 8, 2026 – January 16, 2026
+
+Method: Configure the MCP. Input "Zhipu Wang Wang" (智谱旺旺) to receive the ordering URL, then fill in your shipping address.
+
+
+![](images/4.png){width="80%"}
+
+
+# GLM Coding Plan: Free Auntea Jenny Mike 🍵 
+
+Dates: December 26, 2025 – January 9, 2026
+
+Method: Configure the MCP. Input "Auntie, help me!" (阿姨助我) to get a promo code for use in the Auntea Jenny app.
