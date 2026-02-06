@@ -1,0 +1,74 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!*.md"
+
+website:
+  description: "A AI blog built with Quarto"
+  site-url: https://jcwinning.github.io/LandingPage # you must change this appropriately for RSS feeds to work properly
+  title: "Powered by AI"
+  favicon: favicon.png
+  google-analytics: "G-9NBJ66WLRT"
+  navbar:
+    right:
+      - text: "Home"
+        href: https://jcwinning.github.io/LandingPage/
+      - text: "Handbook"  # This becomes the clickable/hoverable label
+        menu:
+          - text: "SQL hangbook"
+            href: https://jcwinning.github.io/Into_sql/
+          - text: "R handbook"
+            href: https://jcfly3000.github.io/Into-R/
+          - text: "Python handbook"
+            href: https://jcfly3000.github.io/Into-Python/
+          - text: "Machine learning handbook"
+            href: https://jcwinning.github.io/into_ml/
+          - text: "tensorflowing handbook"
+            href: https://tonyfly3000.github.io/tensorflowing/ 
+          - text: "AI handbook"
+            href: https://jcfly3000.github.io/into_AI/
+      - text: "Blog"
+        href: https://jcwinning.github.io/LandingPage/posts.html
+      - cv.qmd
+      - text: "EN/中文" 
+        menu:
+          - text: "English"
+            href: https://jcwinning.github.io/LandingPage
+   
+          - text: "中文"
+            href: https://jcwinning.github.io/LandingPage_CN
+      - icon: twitter-x
+        href: https://x.com/verykoala
+      - icon: reddit
+        href: https://www.reddit.com/user/AI_LightHouse/
+      - icon: github
+        href: https://github.com/JCwinning
+      - icon: rss
+        href: index.xml
+  page-footer:
+    right: "This blog is built with ❤️ and [Quarto](https://quarto.org/)."
+
+
+format:
+  html:
+    grid:
+      body-width: 1000px
+      sidebar-width: 300px
+      margin-width: 300px
+      gutter-width: 1.5rem
+
+    fontsize: 1.2em
+    page-layout: full
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+
+execute:
+  freeze: auto  # Options: true, false, auto
+

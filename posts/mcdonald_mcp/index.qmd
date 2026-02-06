@@ -1,0 +1,177 @@
+---
+title: "McDonald's MCP"
+author: "Tony D"
+date: "2026-02-06"
+categories: [AI, MCP]
+image: "images/0.png"
+
+format:
+  html:
+    code-fold: false
+    code-tools: true
+    code-copy: true
+    
+execute:
+  warning: false
+
+---
+
+# McDonald's MCP Documentation
+
+The McDonald's MCP (Model Context Protocol) service allows AI assistants to directly access McDonald's China's campaign calendar, coupons, and nutritional information.
+
+[McDonald Github](https://github.com/M-China/mcd-mcp-server)
+
+## 1. Obtaining a Token
+
+1. Visit the [McDonald's MCP Open Platform](https://open.mcd.cn/mcp).
+2. Log in and apply for your personal MCP Token.
+3. Once you have obtained the Token, replace `Your-Token` in the configuration below.
+
+
+## 2. Configuring MCP Service
+
+You can integrate McDonald's MCP into various tools that support the MCP protocol.
+
+::: {.panel-tabset}
+
+
+
+
+### Integration with ellmer Chat (R)
+
+The `mcptools` package enables seamless integration between MCP servers and ellmer chat in R. Here's how to set up and use McDonald's MCP with ellmer.
+
+#### Step 1: Install Required Packages
+
+```{r}
+#| eval: false
+# Install packages if not already installed
+install.packages(c("ellmer", "mcptools", "dotenv"))
+```
+
+#### Step 2: Create MCP Configuration File
+
+Create a file named `mcp_config.json` in your project directory with the following content:
+
+```{json}
+#| eval: false
+#| code-fold: false
+{
+  "mcpServers": {
+    "mcd-mcp": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.mcd.cn/mcp-servers/mcd-mcp",
+        "--header",
+        "Authorization: Bearer Your-Token"
+      ]
+    }
+  }
+}
+```
+
+
+
+
+Replace `Your-Token` with your actual MCP token obtained from [McDonald's MCP Open Platform](https://open.mcd.cn/mcp).
+
+
+#### Step 3: Load Libraries and Configuration
+
+```{r}
+
+library(ellmer)
+library(mcptools)
+library(dotenv)
+
+# Load environment variables
+load_dot_env(file = ".env")
+```
+
+#### Step 4: Initialize Chat with MCP Tools
+
+```{r}
+
+# Create an ellmer chat object (using OpenRouter as example)
+chat <- chat_openrouter(
+  system_prompt = "You are a helpful assistant that can interact with McDonald's services.Please reply in English and be concise",
+  api_key = Sys.getenv("OPENROUTER_API_KEY"),
+  model = "x-ai/grok-4.1-fast",
+  echo = "output"
+)
+
+# Load MCP tools from configuration file
+mcd_tools <- mcp_tools(config = "mcp_config.json")
+
+# Register the MCP tools with the chat
+chat$set_tools(mcd_tools)
+```
+
+#### Step 5: Chat with MCP Integration
+
+Now you can ask questions and the AI will use the McDonald's MCP tools:
+
+```{r}
+
+# Query available coupons
+chat$chat("What coupons are available right now?")
+```
+
+```{r}
+# Auto-claim all coupons
+chat$chat("Help me claim all available coupons.")
+```
+
+```{r}
+# Check your coupons
+chat$chat("Show me all my current coupons.")
+```
+
+```{r}
+# Query campaign calendar
+chat$chat("What exciting activities are happening in the next 15 days?")
+```
+
+```{r}
+# Get nutrition information
+chat$chat("Help me design a 1000-calorie meal that includes a sugared cola and costs no more than 30 yuan.")
+```
+
+
+### For Gemini-cli
+Edit `.gemini/settings.json` in the project root or the global configuration file `~/.gemini/settings.json`:
+
+
+```json
+{
+  "mcpServers": {
+    "mcd-mcp": {
+      "url": "https://mcp.mcd.cn/mcp-servers/mcd-mcp",
+      "headers": {
+        "Authorization": "Bearer Your-Token"
+      }
+    }
+  }
+}
+```
+
+### For Claude Code
+Create or edit `.mcp.json` in the project root:
+
+```json
+{
+  "mcpServers": {
+    "mcd-mcp": {
+      "type": "http",
+      "url": "https://mcp.mcd.cn/mcp-servers/mcd-mcp",
+      "headers": {
+        "Authorization": "Bearer Your-Token"
+      }
+    }
+  }
+}
+```
+
+:::
