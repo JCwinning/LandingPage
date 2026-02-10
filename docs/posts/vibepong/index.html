@@ -456,7 +456,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 
 <section id="introduction-to-the-game" class="level1">
 <h1>Introduction to the game</h1>
-<p>The VibePong game is a simple yet engaging pong-style game where players can compete against each other or against a CPU opponent. The game features various metrics such as ball speed, game duration, and player performance, which are recorded in CSV files for analysis.</p>
+<p>The VibePong game is a simple yet engaging pong-style game where players can compete against each other up to 4 players or against a CPU opponent. The game features various metrics such as ball speed, game duration, and player performance, which are recorded in CSV files for analysis.</p>
 <p>Play now :<a href="https://jcwinning.github.io/vibepong">https://jcwinning.github.io/vibepong</a></p>
 <p><img src="images/my screenshots 3.png" height="500"> <img src="images/my screenshots 1.png" height="500"></p>
 </section>
@@ -467,7 +467,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <section id="step-1-read-data" class="level1">
 <h1>Step 1: Read Data</h1>
 <p>First, we search for all summary and action CSV files in the <code>game_data</code> directory and load them into pandas DataFrames.</p>
-<div id="b9f47b49" class="cell" data-execution_count="1">
+<div id="7dd2190a" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -495,13 +495,13 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 </div>
 <section id="play-by-play-data" class="level2">
 <h2 class="anchored" data-anchor-id="play-by-play-data">Play by Play data</h2>
-<div id="72800cae" class="cell" data-execution_count="2">
+<div id="84f9eb27" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows of summary data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_actions.head()</span></code></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -560,13 +560,13 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 </section>
 <section id="game-by-game-data" class="level2">
 <h2 class="anchored" data-anchor-id="game-by-game-data">Game by Game data</h2>
-<div id="cc5f99f8" class="cell" data-execution_count="3">
+<div id="1e821e93" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows of summary data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_summary.head()</span></code></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -663,7 +663,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <section id="step-2-data-cleaning" class="level1">
 <h1>Step 2: Data Cleaning</h1>
 <p>We will clean the data by converting timestamps to datetime objects, handling numeric types, and ensuring consistency.</p>
-<div id="e563a10c" class="cell" data-execution_count="4">
+<div id="125fdf19" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Convert Date in summary to datetime</span></span>
@@ -703,7 +703,7 @@ Lives           0
 Hits            0
 dtype: int64</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -802,7 +802,7 @@ dtype: int64</code></pre>
 <section id="win-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="win-distribution">Win Distribution</h2>
 <p>Who is winning the most games?</p>
-<div id="887208dd" class="cell" data-execution_count="5">
+<div id="74a7e4be" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -834,7 +834,7 @@ dtype: int64</code></pre>
 <section id="game-duration-vs.-ball-speed" class="level2">
 <h2 class="anchored" data-anchor-id="game-duration-vs.-ball-speed">Game Duration vs.&nbsp;Ball Speed</h2>
 <p>Does a higher ball speed lead to shorter games?</p>
-<div id="d1c0263f" class="cell" data-execution_count="6">
+<div id="87d619e0" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -854,7 +854,7 @@ dtype: int64</code></pre>
 <section id="total-hits-per-player" class="level2">
 <h2 class="anchored" data-anchor-id="total-hits-per-player">Total Hits per Player</h2>
 <p>Tracking the skill (hits) across different game sessions.</p>
-<div id="ba748117" class="cell" data-execution_count="7">
+<div id="f4ef42c5" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
@@ -874,7 +874,7 @@ dtype: int64</code></pre>
 <section id="sequence-of-actions" class="level2">
 <h2 class="anchored" data-anchor-id="sequence-of-actions">Sequence of Actions</h2>
 <p>Analyzing the frequency of actions across all games.</p>
-<div id="bf7063a7" class="cell" data-execution_count="8">
+<div id="eba6910e" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>action_counts <span class="op">=</span> df_actions[<span class="st">'Action'</span>].value_counts().head(<span class="dv">10</span>)</span>
@@ -1325,7 +1325,7 @@ dtype: int64</code></pre>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction to the game</span></span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>The VibePong game is a simple yet engaging pong-style game where players can compete against each other or against a CPU opponent. The game features various metrics such as ball speed, game duration, and player performance, which are recorded in CSV files for analysis.</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>The VibePong game is a simple yet engaging pong-style game where players can compete against each other up to 4 players or against a CPU opponent. The game features various metrics such as ball speed, game duration, and player performance, which are recorded in CSV files for analysis.</span>
 <span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>Play now :<span class="co">[</span><span class="ot">https://jcwinning.github.io/vibepong</span><span class="co">](https://jcwinning.github.io/vibepong)</span></span>
 <span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>

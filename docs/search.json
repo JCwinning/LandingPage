@@ -991,7 +991,7 @@
     "href": "posts/vibepong/index.html",
     "title": "Vibe game:4 players Pong with game data analysis",
     "section": "",
-    "text": "The VibePong game is a simple yet engaging pong-style game where players can compete against each other or against a CPU opponent. The game features various metrics such as ball speed, game duration, and player performance, which are recorded in CSV files for analysis.\nPlay now :https://jcwinning.github.io/vibepong"
+    "text": "The VibePong game is a simple yet engaging pong-style game where players can compete against each other up to 4 players or against a CPU opponent. The game features various metrics such as ball speed, game duration, and player performance, which are recorded in CSV files for analysis.\nPlay now :https://jcwinning.github.io/vibepong"
   },
   {
     "objectID": "posts/vibepong/index.html#play-by-play-data",

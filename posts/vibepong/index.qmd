@@ -20,7 +20,7 @@ execute:
 
 # Introduction to the game
 
-The VibePong game is a simple yet engaging pong-style game where players can compete against each other or against a CPU opponent. The game features various metrics such as ball speed, game duration, and player performance, which are recorded in CSV files for analysis.
+The VibePong game is a simple yet engaging pong-style game where players can compete against each other up to 4 players or against a CPU opponent. The game features various metrics such as ball speed, game duration, and player performance, which are recorded in CSV files for analysis.
 
 Play now :[https://jcwinning.github.io/vibepong](https://jcwinning.github.io/vibepong)
 
