@@ -1,0 +1,12 @@
+{
+  "hash": "3f7b726fd54247b6de2544752acd0161",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Test\"\n---\n\n::: {#4043fe49 .cell execution_count=1}\n``` {.python .cell-code}\nx = 10\n```\n:::\n\n\n::: {#ec7d537e .cell execution_count=2}\n``` {.python .cell-code}\nprint(x)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n10\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "test_sharing_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
