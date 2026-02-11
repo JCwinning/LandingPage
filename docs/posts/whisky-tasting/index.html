@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tony D">
 <meta name="dcterms.date" content="2025-11-05">
 
-<title>Whisky Tasting note with RAG – Powered by AI</title>
+<title>Whisky Tasting Agent:Base on critic RAG – Powered by AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-d7ae91b437850ec40fb8359b7ecc6ae0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -344,7 +344,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../cv.html"> 
-<span class="menu-text">CV / 简历</span></a>
+<span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-en中文" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -361,6 +361,11 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
   </li>  
     </ul>
   </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/verykoala"> <i class="bi bi-twitter-x" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/JCwinning"> <i class="bi bi-github" role="img">
 </i> 
@@ -450,7 +455,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Whisky Tasting note with RAG</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Whisky Tasting Agent:Base on critic RAG</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">AI</div>
     <div class="quarto-category">API</div>
@@ -552,7 +557,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 </section>
 <section id="data-collection-pipeline" class="level3">
 <h3 class="anchored" data-anchor-id="data-collection-pipeline">Data Collection Pipeline</h3>
-<div id="ae8c3ec1" class="cell" data-execution_count="1">
+<div id="0645c53d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Web scraping example from get_data_dt.py</span></span>
@@ -608,7 +613,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <section id="embedding-process" class="level4">
 <h4 class="anchored" data-anchor-id="embedding-process">Embedding Process</h4>
 <p>The application uses BGE-Large-ZH-v1.5 model for generating embeddings:</p>
-<div id="ccfa839c" class="cell" data-execution_count="2">
+<div id="a4787b84" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_embedding(text: <span class="bu">str</span>, api_key: <span class="bu">str</span>):</span>
@@ -656,7 +661,7 @@ flowchart TD
 </section>
 <section id="similarity-search-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="similarity-search-implementation">Similarity Search Implementation</h3>
-<div id="83ad2425" class="cell" data-execution_count="3">
+<div id="7daa79d2" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_similar_chunks(</span>
@@ -697,7 +702,7 @@ flowchart TD
 <h2 class="anchored" data-anchor-id="specialized-agent-implementation">Specialized Agent Implementation</h2>
 <section id="drunktony-chinese-agent" class="level3">
 <h3 class="anchored" data-anchor-id="drunktony-chinese-agent">DrunkTony (Chinese Agent)</h3>
-<div id="017a1395" class="cell" data-execution_count="4">
+<div id="103f71ae" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_conversation(query, api_key, model):</span>
@@ -745,7 +750,7 @@ flowchart TD
 </section>
 <section id="whiskyfunny-english-agent" class="level3">
 <h3 class="anchored" data-anchor-id="whiskyfunny-english-agent">WhiskyFunny (English Agent)</h3>
-<div id="e78fbc42" class="cell" data-execution_count="5">
+<div id="eb4e5fca" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_conversation(query, api_key, model):</span>
@@ -796,7 +801,7 @@ flowchart TD
 <section id="dual-llm-recommendation-system" class="level3">
 <h3 class="anchored" data-anchor-id="dual-llm-recommendation-system">Dual-LLM Recommendation System</h3>
 <p>The application uses a separate LLM for generating whisky recommendations:</p>
-<div id="2a536a8e" class="cell" data-execution_count="6">
+<div id="4d0200a8" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> recommend_whiskies_by_profile(tasting_notes, api_key, model):</span>
@@ -837,7 +842,7 @@ flowchart TD
 <h2 class="anchored" data-anchor-id="user-interface-design">User Interface Design</h2>
 <section id="streamlit-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="streamlit-implementation">Streamlit Implementation</h3>
-<div id="292d7325" class="cell" data-execution_count="7">
+<div id="621399b4" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main application interface</span></span>
@@ -903,7 +908,7 @@ flowchart TD
 <h2 class="anchored" data-anchor-id="rate-limiting-and-cost-management">Rate Limiting and Cost Management</h2>
 <section id="api-usage-control" class="level3">
 <h3 class="anchored" data-anchor-id="api-usage-control">API Usage Control</h3>
-<div id="fc798347" class="cell" data-execution_count="8">
+<div id="f433f45d" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rate limiting implementation</span></span>
@@ -943,7 +948,7 @@ flowchart TD
 <h2 class="anchored" data-anchor-id="performance-optimization">Performance Optimization</h2>
 <section id="vector-database-performance" class="level3">
 <h3 class="anchored" data-anchor-id="vector-database-performance">Vector Database Performance</h3>
-<div id="5bd7e31c" class="cell" data-execution_count="9">
+<div id="f5f545d4" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optimized similarity search with batching</span></span>
@@ -993,7 +998,7 @@ flowchart TD
 </section>
 <section id="shiny-for-python-alternative" class="level3">
 <h3 class="anchored" data-anchor-id="shiny-for-python-alternative">Shiny for Python Alternative</h3>
-<div id="35a28800" class="cell" data-execution_count="10">
+<div id="6b6aca78" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternative UI implementation using Shiny</span></span>
@@ -1577,7 +1582,7 @@ flowchart TD
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Whisky Tasting note with RAG"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Whisky Tasting Agent:Base on critic RAG"</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Tony D"</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-11-05"</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [AI, API, tutorial]</span></span>

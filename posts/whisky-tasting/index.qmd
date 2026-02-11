@@ -1,5 +1,5 @@
 ---
-title: "Whisky Tasting note with RAG"
+title: "Whisky Tasting Agent:Base on critic RAG"
 author: "Tony D"
 date: "2025-11-05"
 categories: [AI, API, tutorial]

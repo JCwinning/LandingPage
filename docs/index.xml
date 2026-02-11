@@ -33,8 +33,8 @@
 </section>
 <section id="step-1-read-data" class="level1">
 <h1>Step 1: Read Data</h1>
-<p>First, we search for all summary and action CSV files in the <code>game_data</code> directory and load them into pandas DataFrames.</p>
-<div id="7dd2190a" class="cell" data-execution_count="1">
+<p>First, we search for all summary and action,telemetry CSV files in the <code>game_data</code> directory and load them into pandas DataFrames.</p>
+<div id="af62216b" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -51,98 +51,218 @@ font-style: inherit;">import</span> os</span>
 <span id="cb1-4"></span>
 <span id="cb1-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Define the data path</span></span>
+font-style: inherit;"># Load all CSV files from game_data</span></span>
 <span id="cb1-6">data_dir <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'./game_data'</span></span>
-<span id="cb1-7"></span>
-<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+<span id="cb1-7"><span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;"># Get lists of files</span></span>
-<span id="cb1-9">summary_files <span class="op" style="color: #5E5E5E;
+font-weight: bold;
+font-style: inherit;">def</span> load_combined(pattern):</span>
+<span id="cb1-8">    files <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> glob.glob(os.path.join(data_dir, <span class="st" style="color: #20794D;
+font-style: inherit;">=</span> glob.glob(os.path.join(data_dir, <span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'vibepong_summary_*.csv'</span>))</span>
-<span id="cb1-10">action_files <span class="op" style="color: #5E5E5E;
+font-style: inherit;">f'vibepong_</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> glob.glob(os.path.join(data_dir, <span class="st" style="color: #20794D;
+font-style: inherit;">{</span>pattern<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">'vibepong_actions_*.csv'</span>))</span>
-<span id="cb1-11"></span>
-<span id="cb1-12"><span class="bu" style="color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">_*.csv'</span>))</span>
+<span id="cb1-9">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> pd.concat([pd.read_csv(f) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> f <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> files], ignore_index<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> files <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> pd.DataFrame()</span>
+<span id="cb1-10"></span>
+<span id="cb1-11">df_summary <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> load_combined(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'summary'</span>)</span>
+<span id="cb1-12">df_actions <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> load_combined(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'actions'</span>)</span>
+<span id="cb1-13">df_telemetry <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> load_combined(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'telemetry'</span>)</span>
+<span id="cb1-14"></span>
+<span id="cb1-15"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">f"Found </span><span class="sc" style="color: #5E5E5E;
+font-style: inherit;">f"Loaded </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{</span><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">len</span>(summary_files)<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">len</span>(df_summary)<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;"> summary files and </span><span class="sc" style="color: #5E5E5E;
+font-style: inherit;"> summary rows, </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{</span><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">len</span>(action_files)<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">len</span>(df_actions)<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;"> action files."</span>)</span>
-<span id="cb1-13"></span>
-<span id="cb1-14"><span class="co" style="color: #5E5E5E;
+font-style: inherit;"> actions, and </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Load and combine summary data</span></span>
-<span id="cb1-15">df_summary <span class="op" style="color: #5E5E5E;
+font-style: inherit;">{</span><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">=</span> pd.concat([pd.read_csv(f) <span class="cf" style="color: #003B4F;
+font-style: inherit;">len</span>(df_telemetry)<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> f <span class="kw" style="color: #003B4F;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span> summary_files], ignore_index<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>)</span>
-<span id="cb1-16"></span>
-<span id="cb1-17"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Load and combine action data</span></span>
-<span id="cb1-18">df_actions <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.concat([pd.read_csv(f) <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> f <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span> action_files], ignore_index<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>)</span></code></pre></div>
+font-style: inherit;"> telemetry records."</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Found 8 summary files and 8 action files.</code></pre>
+<pre><code>Loaded 75 summary rows, 366 actions, and 658 telemetry records.</code></pre>
 </div>
 </div>
-<section id="play-by-play-data" class="level2">
-<h2 class="anchored" data-anchor-id="play-by-play-data">Play by Play data</h2>
-<div id="84f9eb27" class="cell" data-execution_count="2">
+<section id="game-by-game-data" class="level2">
+<h2 class="anchored" data-anchor-id="game-by-game-data">game by game data</h2>
+<div id="781d87cc" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Display the first few rows of summary data</span></span>
-<span id="cb3-2">df_actions.head()</span></code></pre></div>
+<span id="cb3-2">df_summary.head()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Game ID</th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Duration (s)</th>
+<th data-quarto-table-cell-role="th">Winner</th>
+<th data-quarto-table-cell-role="th">Ball Speed</th>
+<th data-quarto-table-cell-role="th">Theme</th>
+<th data-quarto-table-cell-role="th">Language</th>
+<th data-quarto-table-cell-role="th">Player</th>
+<th data-quarto-table-cell-role="th">Lives</th>
+<th data-quarto-table-cell-role="th">Hits</th>
+<th data-quarto-table-cell-role="th">CPU Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>G1770713902861-393</td>
+<td>2026-02-10T08:58:27.879Z</td>
+<td>5.02</td>
+<td>CPU</td>
+<td>6.56</td>
+<td>light</td>
+<td>en</td>
+<td>Player 1</td>
+<td>0</td>
+<td>0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>G1770713902861-393</td>
+<td>2026-02-10T08:58:27.879Z</td>
+<td>5.02</td>
+<td>CPU</td>
+<td>6.56</td>
+<td>light</td>
+<td>en</td>
+<td>CPU</td>
+<td>1</td>
+<td>0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>G1770783544585-550</td>
+<td>2026-02-11T04:20:01.889Z</td>
+<td>57.30</td>
+<td>Player 1</td>
+<td>20.38</td>
+<td>dark</td>
+<td>en</td>
+<td>Player 1</td>
+<td>1</td>
+<td>14</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>G1770783544585-550</td>
+<td>2026-02-11T04:20:01.889Z</td>
+<td>57.30</td>
+<td>Player 1</td>
+<td>20.38</td>
+<td>dark</td>
+<td>en</td>
+<td>CPU</td>
+<td>0</td>
+<td>14</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>G1770713913739-52</td>
+<td>2026-02-10T08:58:46.511Z</td>
+<td>12.77</td>
+<td>Player 3</td>
+<td>7.08</td>
+<td>light</td>
+<td>en</td>
+<td>Player 1</td>
+<td>0</td>
+<td>0</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="play-by-play-data" class="level2">
+<h2 class="anchored" data-anchor-id="play-by-play-data">Play by Play data</h2>
+<div id="ed0e3c4c" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Show Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the first few rows of summary data</span></span>
+<span id="cb4-2">df_actions.head()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -154,43 +274,49 @@ font-style: inherit;"># Display the first few rows of summary data</span></span>
 <th data-quarto-table-cell-role="th">Timestamp (ms)</th>
 <th data-quarto-table-cell-role="th">Player</th>
 <th data-quarto-table-cell-role="th">Action</th>
+<th data-quarto-table-cell-role="th">Details</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>G1770703980208-940</td>
-<td>4001</td>
+<td>G1770783544585-550</td>
+<td>4000</td>
 <td>System</td>
 <td>Ball served towards CPU</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
-<td>G1770703980208-940</td>
-<td>4814</td>
+<td>G1770783544585-550</td>
+<td>4919</td>
 <td>CPU</td>
 <td>Hit Ball</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
-<td>G1770703980208-940</td>
-<td>6431</td>
+<td>G1770783544585-550</td>
+<td>6787</td>
 <td>Player 1</td>
 <td>Hit Ball</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>G1770703980208-940</td>
-<td>8048</td>
+<td>G1770783544585-550</td>
+<td>8653</td>
 <td>CPU</td>
 <td>Hit Ball</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>G1770703980208-940</td>
-<td>9732</td>
+<td>G1770783544585-550</td>
+<td>10519</td>
 <td>Player 1</td>
-<td>Lost Life. Remaining: 0</td>
+<td>Hit Ball</td>
+<td>NaN</td>
 </tr>
 </tbody>
 </table>
@@ -199,17 +325,17 @@ font-style: inherit;"># Display the first few rows of summary data</span></span>
 </div>
 </div>
 </section>
-<section id="game-by-game-data" class="level2">
-<h2 class="anchored" data-anchor-id="game-by-game-data">Game by Game data</h2>
-<div id="1e821e93" class="cell" data-execution_count="3">
+<section id="time-by-time-data" class="level2">
+<h2 class="anchored" data-anchor-id="time-by-time-data">time by time data</h2>
+<div id="f8e75ba4" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Display the first few rows of summary data</span></span>
-<span id="cb4-2">df_summary.head()</span></code></pre></div>
+<span id="cb5-2">df_telemetry.head()</span></code></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -218,86 +344,153 @@ font-style: inherit;"># Display the first few rows of summary data</span></span>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">Game ID</th>
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th">Duration (s)</th>
-<th data-quarto-table-cell-role="th">Winner</th>
+<th data-quarto-table-cell-role="th">Timestamp (ms)</th>
+<th data-quarto-table-cell-role="th">Ball X</th>
+<th data-quarto-table-cell-role="th">Ball Y</th>
+<th data-quarto-table-cell-role="th">Ball VX</th>
+<th data-quarto-table-cell-role="th">Ball VY</th>
 <th data-quarto-table-cell-role="th">Ball Speed</th>
-<th data-quarto-table-cell-role="th">Theme</th>
-<th data-quarto-table-cell-role="th">Language</th>
-<th data-quarto-table-cell-role="th">Player</th>
-<th data-quarto-table-cell-role="th">Lives</th>
-<th data-quarto-table-cell-role="th">Hits</th>
+<th data-quarto-table-cell-role="th">p1 X</th>
+<th data-quarto-table-cell-role="th">p1 Y</th>
+<th data-quarto-table-cell-role="th">p1 Center</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">p3 Center</th>
+<th data-quarto-table-cell-role="th">p3 Active</th>
+<th data-quarto-table-cell-role="th">p3 Lives</th>
+<th data-quarto-table-cell-role="th">p3 Distance</th>
+<th data-quarto-table-cell-role="th">p4 X</th>
+<th data-quarto-table-cell-role="th">p4 Y</th>
+<th data-quarto-table-cell-role="th">p4 Center</th>
+<th data-quarto-table-cell-role="th">p4 Active</th>
+<th data-quarto-table-cell-role="th">p4 Lives</th>
+<th data-quarto-table-cell-role="th">p4 Distance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>G1770703980208-940</td>
-<td>2026-02-10T06:13:19.507Z</td>
-<td>19.30</td>
-<td>CPU</td>
-<td>7.02</td>
-<td>light</td>
-<td>zh</td>
-<td>Player 1</td>
-<td>0</td>
-<td>1</td>
+<td>G1770793570881-726</td>
+<td>4011</td>
+<td>343.50</td>
+<td>349.77</td>
+<td>-6.496</td>
+<td>-0.2292</td>
+<td>6.5010</td>
+<td>20.0</td>
+<td>300.0</td>
+<td>350.0</td>
+<td>...</td>
+<td>350.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
-<td>G1770703980208-940</td>
-<td>2026-02-10T06:13:19.507Z</td>
-<td>19.30</td>
-<td>CPU</td>
-<td>7.02</td>
-<td>light</td>
-<td>zh</td>
-<td>CPU</td>
-<td>1</td>
-<td>4</td>
+<td>G1770793570881-726</td>
+<td>4112</td>
+<td>304.53</td>
+<td>348.40</td>
+<td>-6.496</td>
+<td>-0.2292</td>
+<td>6.5073</td>
+<td>20.0</td>
+<td>300.0</td>
+<td>350.0</td>
+<td>...</td>
+<td>350.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
-<td>G1770703980208-940</td>
-<td>2026-02-10T06:13:19.507Z</td>
-<td>19.30</td>
-<td>CPU</td>
-<td>7.02</td>
-<td>light</td>
-<td>zh</td>
-<td>Player 3</td>
-<td>0</td>
-<td>0</td>
+<td>G1770793570881-726</td>
+<td>4227</td>
+<td>259.06</td>
+<td>346.79</td>
+<td>-6.496</td>
+<td>-0.2292</td>
+<td>6.5146</td>
+<td>20.0</td>
+<td>300.0</td>
+<td>350.0</td>
+<td>...</td>
+<td>350.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>G1770703980208-940</td>
-<td>2026-02-10T06:13:19.507Z</td>
-<td>19.30</td>
-<td>CPU</td>
-<td>7.02</td>
-<td>light</td>
-<td>zh</td>
-<td>Player 4</td>
-<td>0</td>
-<td>0</td>
+<td>G1770793570881-726</td>
+<td>4328</td>
+<td>220.08</td>
+<td>345.42</td>
+<td>-6.496</td>
+<td>-0.2292</td>
+<td>6.5208</td>
+<td>20.0</td>
+<td>300.0</td>
+<td>350.0</td>
+<td>...</td>
+<td>350.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>G1770703089772-903</td>
-<td>2026-02-10T05:58:49.043Z</td>
-<td>39.27</td>
-<td>Tony</td>
-<td>13.30</td>
-<td>dark</td>
-<td>en</td>
-<td>Tony</td>
-<td>1</td>
-<td>11</td>
+<td>G1770793570881-726</td>
+<td>4428</td>
+<td>181.11</td>
+<td>344.04</td>
+<td>-6.496</td>
+<td>-0.2292</td>
+<td>6.5271</td>
+<td>20.0</td>
+<td>300.0</td>
+<td>350.0</td>
+<td>...</td>
+<td>350.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
 </tr>
 </tbody>
 </table>
 
+<p>5 rows × 31 columns</p>
 </div>
 </div>
 </div>
@@ -306,24 +499,20 @@ font-style: inherit;"># Display the first few rows of summary data</span></span>
 <section id="step-2-data-cleaning" class="level1">
 <h1>Step 2: Data Cleaning</h1>
 <p>We will clean the data by converting timestamps to datetime objects, handling numeric types, and ensuring consistency.</p>
-<div id="125fdf19" class="cell" data-execution_count="4">
+<div id="c5027659" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 1. Convert Date in summary to datetime</span></span>
-<span id="cb5-2">df_summary[<span class="st" style="color: #20794D;
+font-style: inherit;"># Clean Summary data</span></span>
+<span id="cb6-2">df_summary[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Date'</span>] <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> pd.to_datetime(df_summary[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Date'</span>])</span>
-<span id="cb5-3"></span>
-<span id="cb5-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 2. Ensure numeric types for metrics</span></span>
-<span id="cb5-5">numeric_cols <span class="op" style="color: #5E5E5E;
+<span id="cb6-3">numeric_summary <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
 background-color: null;
@@ -334,28 +523,27 @@ background-color: null;
 font-style: inherit;">'Lives'</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Hits'</span>]</span>
-<span id="cb5-6"><span class="cf" style="color: #003B4F;
+<span id="cb6-4">df_summary[numeric_summary] <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> col <span class="kw" style="color: #003B4F;
+font-style: inherit;">=</span> df_summary[numeric_summary].<span class="bu" style="color: null;
 background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span> numeric_cols:</span>
-<span id="cb5-7">    df_summary[col] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.to_numeric(df_summary[col], errors<span class="op" style="color: #5E5E5E;
+font-style: inherit;">apply</span>(pd.to_numeric, errors<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'coerce'</span>)</span>
-<span id="cb5-8"></span>
-<span id="cb5-9"><span class="co" style="color: #5E5E5E;
+<span id="cb6-5">df_summary <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 3. Handle Action data timestamps</span></span>
-<span id="cb5-10"><span class="co" style="color: #5E5E5E;
+font-style: inherit;">=</span> df_summary.dropna(subset<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Action timestamps are in ms (offset from game start)</span></span>
-<span id="cb5-11">df_actions[<span class="st" style="color: #20794D;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Player'</span>])</span>
+<span id="cb6-6"></span>
+<span id="cb6-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Clean Action data</span></span>
+<span id="cb6-8">df_actions[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Timestamp (ms)'</span>] <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -366,55 +554,10 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'coerce'</span>)</span>
-<span id="cb5-12"></span>
-<span id="cb5-13"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 4. Check for missing values</span></span>
-<span id="cb5-14">missing_counts <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df_summary.isnull().<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">sum</span>()</span>
-<span id="cb5-15"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Missing values in Summary data:"</span>)</span>
-<span id="cb5-16"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(missing_counts)</span>
-<span id="cb5-17"></span>
-<span id="cb5-18"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Drop redundant rows if any (e.g. empty players if they didn't join)</span></span>
-<span id="cb5-19">df_summary <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df_summary.dropna(subset<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Player'</span>])</span>
-<span id="cb5-20"></span>
-<span id="cb5-21"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Final head view after cleaning</span></span>
-<span id="cb5-22">df_summary.head()</span></code></pre></div>
+<span id="cb6-9"></span>
+<span id="cb6-10">df_summary.head()</span></code></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Missing values in Summary data:
-Game ID         0
-Date            0
-Duration (s)    0
-Winner          0
-Ball Speed      0
-Theme           0
-Language        0
-Player          0
-Lives           0
-Hits            0
-dtype: int64</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -432,73 +575,79 @@ dtype: int64</code></pre>
 <th data-quarto-table-cell-role="th">Player</th>
 <th data-quarto-table-cell-role="th">Lives</th>
 <th data-quarto-table-cell-role="th">Hits</th>
+<th data-quarto-table-cell-role="th">CPU Difficulty</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>G1770703980208-940</td>
-<td>2026-02-10 06:13:19.507000+00:00</td>
-<td>19.30</td>
+<td>G1770713902861-393</td>
+<td>2026-02-10 08:58:27.879000+00:00</td>
+<td>5.02</td>
 <td>CPU</td>
-<td>7.02</td>
+<td>6.56</td>
 <td>light</td>
-<td>zh</td>
+<td>en</td>
 <td>Player 1</td>
 <td>0</td>
-<td>1</td>
+<td>0</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
-<td>G1770703980208-940</td>
-<td>2026-02-10 06:13:19.507000+00:00</td>
-<td>19.30</td>
+<td>G1770713902861-393</td>
+<td>2026-02-10 08:58:27.879000+00:00</td>
+<td>5.02</td>
 <td>CPU</td>
-<td>7.02</td>
+<td>6.56</td>
 <td>light</td>
-<td>zh</td>
+<td>en</td>
 <td>CPU</td>
 <td>1</td>
-<td>4</td>
+<td>0</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
-<td>G1770703980208-940</td>
-<td>2026-02-10 06:13:19.507000+00:00</td>
-<td>19.30</td>
-<td>CPU</td>
-<td>7.02</td>
-<td>light</td>
-<td>zh</td>
-<td>Player 3</td>
-<td>0</td>
-<td>0</td>
+<td>G1770783544585-550</td>
+<td>2026-02-11 04:20:01.889000+00:00</td>
+<td>57.30</td>
+<td>Player 1</td>
+<td>20.38</td>
+<td>dark</td>
+<td>en</td>
+<td>Player 1</td>
+<td>1</td>
+<td>14</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>G1770703980208-940</td>
-<td>2026-02-10 06:13:19.507000+00:00</td>
-<td>19.30</td>
+<td>G1770783544585-550</td>
+<td>2026-02-11 04:20:01.889000+00:00</td>
+<td>57.30</td>
+<td>Player 1</td>
+<td>20.38</td>
+<td>dark</td>
+<td>en</td>
 <td>CPU</td>
-<td>7.02</td>
-<td>light</td>
-<td>zh</td>
-<td>Player 4</td>
 <td>0</td>
-<td>0</td>
+<td>14</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>G1770703089772-903</td>
-<td>2026-02-10 05:58:49.043000+00:00</td>
-<td>39.27</td>
-<td>Tony</td>
-<td>13.30</td>
-<td>dark</td>
+<td>G1770713913739-52</td>
+<td>2026-02-10 08:58:46.511000+00:00</td>
+<td>12.77</td>
+<td>Player 3</td>
+<td>7.08</td>
+<td>light</td>
 <td>en</td>
-<td>Tony</td>
-<td>1</td>
-<td>11</td>
+<td>Player 1</td>
+<td>0</td>
+<td>0</td>
+<td>NaN</td>
 </tr>
 </tbody>
 </table>
@@ -512,8 +661,7 @@ dtype: int64</code></pre>
 <p>Now we’ll look at some key performance indicators and visualize the game results.</p>
 <section id="win-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="win-distribution">Win Distribution</h2>
-<p>Who is winning the most games?</p>
-<div id="74a7e4be" class="cell" data-execution_count="5">
+<div id="3a827b42" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
@@ -534,36 +682,51 @@ font-style: inherit;"># Set aesthetic style</span></span>
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"whitegrid"</span>,font<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"whitegrid"</span>)</span>
+<span id="cb7-6">plt.rcParams[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
+font-style: inherit;">'font.sans-serif'</span>] <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">"Arial Unicode MS"</span>)</span>
-<span id="cb7-6"></span>
-<span id="cb7-7"><span class="co" style="color: #5E5E5E;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Arial Unicode MS'</span>]</span>
+<span id="cb7-7">plt.rcParams[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'axes.unicode_minus'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span></code></pre></div>
+</details>
+</div>
+<p>Who is winning the most games?</p>
+<div id="6576ddb7" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Show Code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Count unique games per winner</span></span>
-<span id="cb7-8">unique_games <span class="op" style="color: #5E5E5E;
+<span id="cb8-2">unique_games <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> df_summary.drop_duplicates(subset<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Game ID'</span>])</span>
-<span id="cb7-9">winner_counts <span class="op" style="color: #5E5E5E;
+<span id="cb8-3">winner_counts <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> unique_games[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Winner'</span>].value_counts()</span>
-<span id="cb7-10"></span>
-<span id="cb7-11">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+<span id="cb8-4"></span>
+<span id="cb8-5">plt.figure(figsize<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">6</span>))</span>
-<span id="cb7-12">sns.barplot(x<span class="op" style="color: #5E5E5E;
+font-style: inherit;">5</span>))</span>
+<span id="cb8-6">sns.barplot(x<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>winner_counts.index, y<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -572,25 +735,19 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"viridis"</span>)</span>
-<span id="cb7-13">plt.title(<span class="st" style="color: #20794D;
+<span id="cb8-7">plt.title(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'Number of Wins by Player/CPU'</span>, fontsize<span class="op" style="color: #5E5E5E;
+font-style: inherit;">'Wins by Player/CPU'</span>, fontsize<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">15</span>)</span>
-<span id="cb7-14">plt.ylabel(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Games Won'</span>)</span>
-<span id="cb7-15">plt.xlabel(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Winner'</span>)</span>
-<span id="cb7-16">plt.show()</span></code></pre></div>
+font-style: inherit;">14</span>)</span>
+<span id="cb8-8">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-6-output-1.png" width="816" height="531" class="figure-img"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-8-output-1.png" width="784" height="456" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -599,17 +756,17 @@ font-style: inherit;">'Winner'</span>)</span>
 <section id="game-duration-vs.-ball-speed" class="level2">
 <h2 class="anchored" data-anchor-id="game-duration-vs.-ball-speed">Game Duration vs.&nbsp;Ball Speed</h2>
 <p>Does a higher ball speed lead to shorter games?</p>
-<div id="87d619e0" class="cell" data-execution_count="6">
+<div id="71d78b1f" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1">plt.figure(figsize<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">6</span>))</span>
-<span id="cb8-2">sns.scatterplot(data<span class="op" style="color: #5E5E5E;
+<span id="cb9-2">sns.scatterplot(data<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>unique_games, x<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -628,19 +785,19 @@ background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">100</span>)</span>
-<span id="cb8-3">plt.title(<span class="st" style="color: #20794D;
+<span id="cb9-3">plt.title(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Game Duration vs Ball Speed'</span>, fontsize<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">15</span>)</span>
-<span id="cb8-4">plt.show()</span></code></pre></div>
+<span id="cb9-4">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-7-output-1.png" width="812" height="530" class="figure-img"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-9-output-1.png" width="812" height="530" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -649,17 +806,17 @@ font-style: inherit;">15</span>)</span>
 <section id="total-hits-per-player" class="level2">
 <h2 class="anchored" data-anchor-id="total-hits-per-player">Total Hits per Player</h2>
 <p>Tracking the skill (hits) across different game sessions.</p>
-<div id="f4ef42c5" class="cell" data-execution_count="7">
+<div id="82d60bfe" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1">plt.figure(figsize<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">6</span>))</span>
-<span id="cb9-2">sns.boxplot(data<span class="op" style="color: #5E5E5E;
+<span id="cb10-2">sns.boxplot(data<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>df_summary, x<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -674,19 +831,19 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"magma"</span>)</span>
-<span id="cb9-3">plt.title(<span class="st" style="color: #20794D;
+<span id="cb10-3">plt.title(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Distribution of Hits per Player'</span>, fontsize<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">15</span>)</span>
-<span id="cb9-4">plt.show()</span></code></pre></div>
+<span id="cb10-4">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-8-output-1.png" width="961" height="531" class="figure-img"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-10-output-1.png" width="812" height="531" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -695,25 +852,25 @@ font-style: inherit;">15</span>)</span>
 <section id="sequence-of-actions" class="level2">
 <h2 class="anchored" data-anchor-id="sequence-of-actions">Sequence of Actions</h2>
 <p>Analyzing the frequency of actions across all games.</p>
-<div id="eba6910e" class="cell" data-execution_count="8">
+<div id="2cee8364" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1">action_counts <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1">action_counts <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> df_actions[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Action'</span>].value_counts().head(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>)</span>
-<span id="cb10-2"></span>
-<span id="cb10-3">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+<span id="cb11-2"></span>
+<span id="cb11-3">plt.figure(figsize<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">8</span>))</span>
-<span id="cb10-4">action_counts.plot(kind<span class="op" style="color: #5E5E5E;
+font-style: inherit;">7</span>))</span>
+<span id="cb11-4">action_counts.plot(kind<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -722,20 +879,291 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'skyblue'</span>)</span>
-<span id="cb10-5">plt.title(<span class="st" style="color: #20794D;
+<span id="cb11-5">plt.title(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Most Frequent Actions/Events'</span>, fontsize<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">15</span>)</span>
-<span id="cb10-6">plt.gca().invert_yaxis()</span>
-<span id="cb10-7">plt.show()</span></code></pre></div>
+<span id="cb11-6">plt.gca().invert_yaxis()</span>
+<span id="cb11-7">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-9-output-1.png" width="1111" height="658" class="figure-img"></p>
+<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-11-output-1.png" width="833" height="584" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="step-4-telemetry-data-analysis" class="level1">
+<h1>Step 4: Telemetry Data Analysis</h1>
+<p>Now let’s analyze the high-frequency telemetry data that captures ball and paddle positions every 100ms.</p>
+<section id="ball-speed-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="ball-speed-over-time">Ball Speed Over Time</h2>
+<p>How does ball speed evolve across all games?</p>
+<div id="dd813e7d" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Show Code</summary>
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> df_telemetry.empty:</span>
+<span id="cb12-2">    plt.figure(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>))</span>
+<span id="cb12-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> gid <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> df_telemetry[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Game ID'</span>].unique()[:<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>]:</span>
+<span id="cb12-4">        df_g <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_telemetry[df_telemetry[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Game ID'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> gid]</span>
+<span id="cb12-5">        plt.plot(df_g[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Timestamp (ms)'</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>, df_g[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Ball Speed'</span>], alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.6</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f'Game </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>gid[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>:]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span>)</span>
+<span id="cb12-6">    </span>
+<span id="cb12-7">    plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Ball Speed Evolution (First 10 Games)'</span>)</span>
+<span id="cb12-8">    plt.xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Time (s)'</span>)</span>
+<span id="cb12-9">    plt.ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Speed'</span>)</span>
+<span id="cb12-10">    plt.legend(bbox_to_anchor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.05</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), loc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'upper left'</span>, fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>)</span>
+<span id="cb12-11">    plt.tight_layout()</span>
+<span id="cb12-12">    plt.show()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-12-output-1.png" width="945" height="463" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ball-trajectory-heatmap" class="level2">
+<h2 class="anchored" data-anchor-id="ball-trajectory-heatmap">Ball Trajectory Heatmap</h2>
+<p>Where does the ball spend most of its time on the court?</p>
+<div id="58c693a8" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Show Code</summary>
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> df_telemetry.empty:</span>
+<span id="cb13-2">    plt.figure(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>))</span>
+<span id="cb13-3">    plt.hist2d(df_telemetry[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Ball X'</span>], df_telemetry[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Ball Y'</span>], bins<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>, cmap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'hot'</span>)</span>
+<span id="cb13-4">    plt.colorbar(label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Samples'</span>)</span>
+<span id="cb13-5">    plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Ball Position Heatmap'</span>)</span>
+<span id="cb13-6">    plt.show()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-13-output-1.png" width="764" height="508" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="paddle-movement-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="paddle-movement-analysis">Paddle Movement Analysis</h2>
+<p>Which players move their paddles the most?</p>
+<div id="4105e9a1" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Show Code</summary>
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> df_telemetry.empty:</span>
+<span id="cb14-2">    dist_cols <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [c <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> c <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> df_telemetry.columns <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Distance'</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> c <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">and</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Ball'</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> c]</span>
+<span id="cb14-3">    movement <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb14-4">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> gid <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> df_telemetry[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Game ID'</span>].unique():</span>
+<span id="cb14-5">        df_g <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_telemetry[df_telemetry[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Game ID'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> gid]</span>
+<span id="cb14-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> col <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> dist_cols:</span>
+<span id="cb14-7">            movement.append({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Player'</span>: col.split()[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>], <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Distance'</span>: df_g[col].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>()})</span>
+<span id="cb14-8">    </span>
+<span id="cb14-9">    plt.figure(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>))</span>
+<span id="cb14-10">    sns.boxplot(data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>pd.DataFrame(movement), x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Player'</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Distance'</span>, palette<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'coolwarm'</span>)</span>
+<span id="cb14-11">    plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Paddle Movement per Player'</span>)</span>
+<span id="cb14-12">    plt.show()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://jcwinning.github.io/LandingPage/posts/vibepong/index_files/figure-html/cell-14-output-1.png" width="829" height="454" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -11915,7 +12343,7 @@ font-style: inherit;">"ai_error_check_config"</span>))</span>
   <media:content url="https://jcwinning.github.io/LandingPage/posts/weight-tracking/images/0.png" medium="image" type="image/png" height="84" width="144"/>
 </item>
 <item>
-  <title>Whisky Tasting note with RAG</title>
+  <title>Whisky Tasting Agent:Base on critic RAG</title>
   <dc:creator>Tony D</dc:creator>
   <link>https://jcwinning.github.io/LandingPage/posts/whisky-tasting/</link>
   <description><![CDATA[ 
@@ -12035,7 +12463,7 @@ font-style: inherit;">1024</span>]</span>
 </section>
 <section id="data-collection-pipeline" class="level3">
 <h3 class="anchored" data-anchor-id="data-collection-pipeline">Data Collection Pipeline</h3>
-<div id="ae8c3ec1" class="cell" data-execution_count="1">
+<div id="0645c53d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
@@ -12161,7 +12589,7 @@ font-style: inherit;">return</span> all_reviews</span></code></pre></div></div>
 <section id="embedding-process" class="level4">
 <h4 class="anchored" data-anchor-id="embedding-process">Embedding Process</h4>
 <p>The application uses BGE-Large-ZH-v1.5 model for generating embeddings:</p>
-<div id="ccfa839c" class="cell" data-execution_count="2">
+<div id="a4787b84" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
@@ -12274,7 +12702,7 @@ flowchart TD
 </section>
 <section id="similarity-search-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="similarity-search-implementation">Similarity Search Implementation</h3>
-<div id="83ad2425" class="cell" data-execution_count="3">
+<div id="7daa79d2" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
@@ -12414,7 +12842,7 @@ font-style: inherit;">return</span> []</span></code></pre></div></div>
 <h2 class="anchored" data-anchor-id="specialized-agent-implementation">Specialized Agent Implementation</h2>
 <section id="drunktony-chinese-agent" class="level3">
 <h3 class="anchored" data-anchor-id="drunktony-chinese-agent">DrunkTony (Chinese Agent)</h3>
-<div id="017a1395" class="cell" data-execution_count="4">
+<div id="103f71ae" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
@@ -12578,7 +13006,7 @@ font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
 </section>
 <section id="whiskyfunny-english-agent" class="level3">
 <h3 class="anchored" data-anchor-id="whiskyfunny-english-agent">WhiskyFunny (English Agent)</h3>
-<div id="e78fbc42" class="cell" data-execution_count="5">
+<div id="eb4e5fca" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="kw" style="color: #003B4F;
@@ -12741,7 +13169,7 @@ font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
 <section id="dual-llm-recommendation-system" class="level3">
 <h3 class="anchored" data-anchor-id="dual-llm-recommendation-system">Dual-LLM Recommendation System</h3>
 <p>The application uses a separate LLM for generating whisky recommendations:</p>
-<div id="2a536a8e" class="cell" data-execution_count="6">
+<div id="4d0200a8" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="kw" style="color: #003B4F;
@@ -12852,7 +13280,7 @@ font-style: inherit;">0</span>].message.content</span></code></pre></div></div>
 <h2 class="anchored" data-anchor-id="user-interface-design">User Interface Design</h2>
 <section id="streamlit-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="streamlit-implementation">Streamlit Implementation</h3>
-<div id="292d7325" class="cell" data-execution_count="7">
+<div id="621399b4" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
@@ -13055,7 +13483,7 @@ font-style: inherit;">"### 🎯 Personalized Recommendations"</span>)</span>
 <h2 class="anchored" data-anchor-id="rate-limiting-and-cost-management">Rate Limiting and Cost Management</h2>
 <section id="api-usage-control" class="level3">
 <h3 class="anchored" data-anchor-id="api-usage-control">API Usage Control</h3>
-<div id="fc798347" class="cell" data-execution_count="8">
+<div id="f433f45d" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
@@ -13244,7 +13672,7 @@ font-style: inherit;">True</span>}</span></code></pre></div></div>
 <h2 class="anchored" data-anchor-id="performance-optimization">Performance Optimization</h2>
 <section id="vector-database-performance" class="level3">
 <h3 class="anchored" data-anchor-id="vector-database-performance">Vector Database Performance</h3>
-<div id="5bd7e31c" class="cell" data-execution_count="9">
+<div id="f5f545d4" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
@@ -13434,7 +13862,7 @@ font-style: inherit;">"</span></span></code></pre></div></div>
 </section>
 <section id="shiny-for-python-alternative" class="level3">
 <h3 class="anchored" data-anchor-id="shiny-for-python-alternative">Shiny for Python Alternative</h3>
-<div id="35a28800" class="cell" data-execution_count="10">
+<div id="6b6aca78" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
