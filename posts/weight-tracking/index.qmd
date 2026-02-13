@@ -38,14 +38,6 @@ Github: [https://github.com/JCwinning/weight_tracking](https://github.com/JCwinn
 
 ![AI Configuration Panel](images/1.png){width="100%"}
 
-## 体重趋势图
-
-![Data Table View](images/2.png){width="100%"}
-
-## AI反馈
-
-![Code Viewer Section](images/3.png){width="100%"}
-
 :::
 
 ## Core Features
