@@ -1,0 +1,357 @@
+---
+title: "Bar Chart using R and Python"
+
+author: "Tony D"
+date: "2026-02-14"
+categories: [R,Python,chart]
+image: "bar_plot_r.png"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    code-copy: true
+execute:
+  warning: false
+  
+  
+draft: true
+---
+
+
+# Bar Chart using R with ggplot2
+
+## download data 
+
+data source:https://www.olympics.com/en/milano-cortina-2026/medals
+
+```{r}
+
+library(httr2)
+library(rvest)
+library(jsonlite)
+library(dplyr)
+library(tidyr)
+library(openxlsx)
+```
+
+```{r}
+#| eval: false
+# Function to fetch medals page (with retry for bot protection)
+fetch_page <- function(url) {
+  request(url) |>
+    req_headers(
+      "User-Agent" = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15",
+      "Accept" = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language" = "en-US,en;q=0.5"
+    ) |>
+    req_retry(max_tries = 3, backoff = ~ 2) |>
+    req_error(is_error = function(resp) FALSE) |>
+    req_perform()
+}
+
+# Function to extract medal data from the embedded ng-state JSON
+extract_medals <- function(html_text) {
+  page <- read_html(html_text)
+  ng_state_text <- page |> html_node("script#ng-state") |> html_text()
+  state <- fromJSON(ng_state_text, simplifyDataFrame = FALSE)
+  
+  medal_table <- state$result_medals_data$initialMedals$medalStandings$medalsTable
+  
+  do.call(rbind, lapply(medal_table, function(entry) {
+    total_row <- Filter(function(m) m$type == "Total", entry$medalsNumber)[[1]]
+    data.frame(
+      code = entry$organisation,
+      country_en = entry$description,
+      gold = total_row$gold,
+      silver = total_row$silver,
+      bronze = total_row$bronze,
+      total = total_row$total,
+      stringsAsFactors = FALSE
+    )
+  }))
+}
+
+# Fetch English page for medal data and English country names
+resp_en <- fetch_page("https://www.olympics.com/en/milano-cortina-2026/medals")
+medals <- extract_medals(resp_body_string(resp_en))
+
+# Fetch Chinese page for Chinese country names
+resp_cn <- fetch_page("https://www.olympics.com/zh/milano-cortina-2026/medals")
+medals_cn <- extract_medals(resp_body_string(resp_cn))
+
+# Add Chinese country names
+medals$country_cn <- medals_cn$country_en[match(medals$code, medals_cn$code)]
+
+
+write.xlsx(medals, "medals_r.xlsx")
+```
+
+
+## clean data
+
+```{r}
+library(readxl)
+medals=read_excel("medals_r.xlsx")
+```
+
+```{r}
+head(medals)
+```
+
+
+
+```{r}
+# Sort by total medals, then gold, silver, bronze ascending 
+# (this puts the highest values at the end, so they appear at the top of the chart)
+medals <- medals %>% arrange(total, gold, silver, bronze)
+
+# Create ordered factor for country names (so ggplot respects the order)
+medals$country_cn <- factor(medals$country_cn, levels = medals$country_cn)
+
+# Reshape to long format for ggplot
+medals_long <- medals %>%
+  select(country_cn, country_en,gold, silver, bronze, total) %>%
+  pivot_longer(cols = c(gold, silver, bronze), 
+               names_to = "medal_type", 
+               values_to = "count")
+
+# Set medal type order so bronze plots on the left, then silver, then gold
+medals_long$medal_type_en <- medals_long$medal_type
+
+medals_long$medal_type <- factor(medals_long$medal_type, 
+                                  levels = c("gold", "silver", "bronze"),
+                                  labels = c("金牌", "银牌", "铜牌"))
+
+head(medals_long)
+```
+
+
+## making bar chart
+
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+
+library(ggplot2)
+
+bar_plot=ggplot(medals_long, aes(x = count, y = country_cn, fill = medal_type)) +
+  geom_bar(stat = "identity", width = 0.9) +
+  # Add total label at the end of each bar
+  geom_text(data = medals, 
+            aes(x = total, y = country_cn, label = total, fill = NULL),
+            hjust = -0.3, size = 3.5, color = "gray30") +
+  scale_fill_manual(
+    values = c("金牌" = "#FFD700", "银牌" = "#C0C0C0", "铜牌" = "#CD853F"),
+    name = "奖牌类型"
+  ) +
+  labs(
+    title = "2026米兰冬奥会奖牌榜",
+    x = "奖牌数量",
+    y = "国家/地区"
+  ) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
+  theme_minimal(base_family = "PingFang SC") +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 18, face = "bold"),
+    axis.title = element_text(size = 12),
+    axis.text = element_text(size = 10),
+    legend.position = "bottom",
+    legend.title = element_text(size = 11),
+    legend.text = element_text(size = 10),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+bar_plot
+```
+
+```{r}
+ggsave("bar_plot_r.png")
+```
+
+
+# Bar Chart using Python with matplotlib
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib
+import httpx
+import json
+import time
+import os
+from bs4 import BeautifulSoup
+```
+
+
+## download data 
+
+```{python}
+#| eval: false
+def parse_medals(html_text):
+    """Extract medal data from the embedded ng-state JSON in the HTML."""
+    soup = BeautifulSoup(html_text, 'html.parser')
+    script = soup.find('script', id='ng-state')
+    if script is None:
+        return None
+
+    state = json.loads(script.string)
+    medal_table = state['result_medals_data']['initialMedals']['medalStandings']['medalsTable']
+
+    rows = []
+    for entry in medal_table:
+        total = next(m for m in entry['medalsNumber'] if m['type'] == 'Total')
+        rows.append({
+            'code': entry['organisation'],
+            'country': entry['description'],
+            'gold': total['gold'],
+            'silver': total['silver'],
+            'bronze': total['bronze'],
+            'total': total['total']
+        })
+    return pd.DataFrame(rows)
+
+
+# Use a single persistent session so cookies are shared across requests
+# (mirrors how R's httr2 works with libcurl)
+client = httpx.Client(
+    follow_redirects=True,
+    timeout=30.0,
+    headers={
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Referer': 'https://www.olympics.com/',
+    }
+)
+
+max_retries = 3
+
+# Fetch English page
+df_en = None
+for attempt in range(max_retries):
+    try:
+        resp = client.get("https://www.olympics.com/en/milano-cortina-2026/medals")
+        if resp.status_code == 200:
+            df_en = parse_medals(resp.text)
+            if df_en is not None:
+                break
+        print(f"EN attempt {attempt+1}: HTTP {resp.status_code}, retrying...")
+    except Exception as e:
+        print(f"EN attempt {attempt+1}: {e}, retrying...")
+    time.sleep(3 * (attempt + 1))
+
+# Small delay between the two fetches
+time.sleep(2)
+
+# Fetch Chinese page
+df_cn = None
+for attempt in range(max_retries):
+    try:
+        resp = client.get("https://www.olympics.com/zh/milano-cortina-2026/medals")
+        if resp.status_code == 200:
+            df_cn = parse_medals(resp.text)
+            if df_cn is not None:
+                break
+        print(f"CN attempt {attempt+1}: HTTP {resp.status_code}, retrying...")
+    except Exception as e:
+        print(f"CN attempt {attempt+1}: {e}, retrying...")
+    time.sleep(3 * (attempt + 1))
+
+client.close()
+
+# Merge Chinese country names
+cn_map = dict(zip(df_cn['code'], df_cn['country']))
+df = df_en.copy()
+df['country_cn'] = df['code'].map(cn_map)
+
+df.head()
+
+df.to_excel('medals_py.xlsx', index=False)
+```
+
+
+
+## clean data
+
+
+```{python}
+df = pd.read_excel('medals_py.xlsx')
+```
+
+
+```{python}
+# Sort by total medals ascending (so highest total appears at top of horizontal bar chart)
+df = df.sort_values('total', ascending=True).reset_index(drop=True)
+
+# Reshape to long format for plotting, same as R
+df_long = df.melt(id_vars=['code', 'country', 'total', 'country_cn'], 
+                  value_vars=['bronze', 'silver', 'gold'], 
+                  var_name='medal_type', 
+                  value_name='count')
+
+# Set medal type order: bronze first (leftmost), then silver, then gold
+df_long['medal_type'] = pd.Categorical(df_long['medal_type'], 
+                                       categories=['bronze', 'silver', 'gold'], 
+                                       ordered=True)
+
+df_long.head()
+```
+
+## making bar chart
+
+```{python}
+#| fig-width: 10
+#| fig-height: 10
+
+# Set Chinese font
+matplotlib.rcParams['font.sans-serif'] = ['PingFang SC', 'Heiti TC', 'SimHei', 'Arial Unicode MS']
+matplotlib.rcParams['axes.unicode_minus'] = False
+
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Plot stacked horizontal bars from long data (height=0.9 for smaller gaps between bars)
+left = pd.Series(0.0, index=df.index)
+colors = {'bronze': '#CD853F', 'silver': '#C0C0C0', 'gold': '#FFD700'}
+labels = {'bronze': '铜牌', 'silver': '银牌', 'gold': '金牌'}
+
+for medal in ['bronze', 'silver', 'gold']:
+    subset = df_long[df_long['medal_type'] == medal].reset_index(drop=True)
+    ax.barh(df['country_cn'], subset['count'], height=0.9, 
+            left=left, color=colors[medal], label=labels[medal])
+    left += subset['count']
+
+# Add total labels at the end of each bar
+for i, (total, country) in enumerate(zip(df['total'], df['country_cn'])):
+    ax.text(total + 0.5, i, str(total), va='center', ha='left', 
+            fontsize=10, color='gray')
+
+# Styling
+ax.set_title('2026米兰冬奥会奖牌榜', fontsize=18, fontweight='bold', pad=15)
+ax.set_xlabel('奖牌数量', fontsize=12)
+ax.set_ylabel('国家/地区', fontsize=12)
+ax.set_xlim(0, max(df['total']) + 5)
+
+# Remove unnecessary grid lines
+ax.grid(axis='y', visible=False)
+ax.grid(axis='x', linestyle='--', alpha=0.3)
+ax.set_axisbelow(True)
+
+# Remove top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+# Legend at the bottom
+ax.legend(title='奖牌类型', loc='lower right', frameon=False, fontsize=10, 
+          title_fontsize=11, ncol=3)
+
+plt.tight_layout()
+plt.show()
+```
+
+
+```{python}
+plt.savefig('bar_plot_py.png')
+```
+
+

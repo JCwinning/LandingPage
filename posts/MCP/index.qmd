@@ -403,17 +403,36 @@ your_project/.trae/mcp.json
 ![](images/clipboard-1218453575.png)
 
 
-## Cody Buddy IDE
+## Codebuddy IDE
 
-Coming soon.
+Replace "xxx" with your token and add the following setting to the user-level or project-level config file.
 
-## Qoder IDE
+### JSON File
 
-Coming soon.
+```{json}
+#| eval: false
+{
+  "mcpServers": {
+    "mcd-mcp": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.mcd.cn/mcp-servers/mcd-mcp",
+        "--header",
+        "Authorization: Bearer xxx"
+      ]
+    }
+  }
+}
+```
 
-## Cline VS Code
+*User-Level Config*:
 
-Coming soon.
+\~/.codebuddy/.mcp.json
+
+*Project-Level Config*:
+
+your_project/.mcp.json
 
 
 :::

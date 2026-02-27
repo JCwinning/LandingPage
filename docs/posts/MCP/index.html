@@ -535,22 +535,15 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What coupons are available right now?"</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>### 当前可领取/可用麦麦省优惠券：
-（所有券状态均为**已领取**，可用于点餐）
+<pre><code>以下是当前可领取/已领取的麦麦省优惠券：
 
-- **北非蛋风味麦满分特惠组合**  
-  ![优惠券图片](https://img.mcd.cn/cms/images/976d345a0a6cdee4.png)
+- **北非蛋风味麦满分特惠组合** (已领取)
+- **9.9元大薯条** (已领取)
+- **9.9元新派组合** (已领取)
+- **北非蛋风味麦满分** (已领取)
+- **十块香骨鸡欢享盒** (已领取)
 
-- **9.9元大薯条**  
-  ![优惠券图片](https://img.mcd.cn/cms/images/22dd47c35c7491a8.png)
-
-- **9.9元新派组合**  
-  ![优惠券图片](https://img.mcd.cn/cms/images/3613b3a9ea0ae5a0.png)
-
-- **北非蛋风味麦满分**  
-  ![优惠券图片](https://img.mcd.cn/cms/images/832efe5d5830ee72.png)
-
-想查看我的优惠券列表？说“我的优惠券”。</code></pre>
+想自动领取所有可用券？说“帮我领券”。或选地址查看门店可用券。</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -560,8 +553,9 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Help me claim all available coupons."</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>❌ **暂无可领取的优惠券**。  
-之前查询的券已全部领取，可在“我的优惠券”查看使用。</code></pre>
+<pre><code>所有可用优惠券已领取完毕，无新券可领。
+
+查看门店可用券？请先提供配送地址（或说“查询地址”）。或直接点餐！</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -571,17 +565,16 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Help me design a 1000-calorie meal that includes a sugared cola and costs no more than 30 yuan."</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>### 推荐1000kcal餐点（预算内最接近：928kcal，总价≈¥28.8）
+<pre><code>**Suggested 1000-cal meal (971 kcal total, ~29 yuan with your coupons):**
 
-使用你的2张可用券（9.9大薯条 + 9.9新派组合，周一-五10:45后可用；早餐券现过期）+标准含糖可乐。
+- **9.9元大薯条** (379 kcal, using your coupon)
+- **麦辣鸡腿汉堡** (485 kcal, ~20 yuan typical)
+- **可乐小杯** (107 kcal, sugared, ~9 yuan)
 
-- **9.9元大薯条** (379kcal, 蛋白6g, 脂16g, 碳水50g)
-- **9.9元新派组合** (≈442kcal, 估香芋/菠萝派232kcal + 小薯210kcal; 蛋白5g, 脂21g, 碳水55g)
-- **可乐小杯** (107kcal, 碳水26g; ≈¥9.9)
+Under 30 yuan budget. Calories close to target.
 
-**总计**：928kcal | **≈¥28.8** | 蛋白≈17g, 脂≈42g, 碳水≈131g, 钠≈500mg
-
-价格依门店/APP实时（典型价），热量精确匹配营养库。点餐时选“含糖可乐”。健康提示：碳水高，适量就好！</code></pre>
+To confirm exact price/nutrition/product codes for your store + apply coupons: 
+Say "查询地址" or provide city/address. Then we can calculate &amp; order!</code></pre>
 </div>
 </div>
 </section>
@@ -701,7 +694,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <section id="agent-with-mcp" class="level1">
 <h1>Agent with MCP</h1>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Claude Code CLI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Gemini CLI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">In Opencode CLI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Antigravity IDE</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false" href="">Trae IDE</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false" href="">Cody Buddy IDE</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-7" role="tab" aria-controls="tabset-2-7" aria-selected="false" href="">Qoder IDE</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-8" role="tab" aria-controls="tabset-2-8" aria-selected="false" href="">Cline VS Code</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Claude Code CLI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Gemini CLI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">In Opencode CLI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Antigravity IDE</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false" href="">Trae IDE</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false" href="">Codebuddy IDE</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Replace “xxx” with your token and add the following setting to the user-level or project-level config file</p>
@@ -859,13 +852,32 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 </section>
 </div>
 <div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
-<p>Coming soon.</p>
+<p>Replace “xxx” with your token and add the following setting to the user-level or project-level config file.</p>
+<section id="json-file-5" class="level3">
+<h3 class="anchored" data-anchor-id="json-file-5">JSON File</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"mcpServers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"mcd-mcp"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"npx"</span><span class="fu">,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"args"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mcp-remote"</span><span class="ot">,</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span><span class="ot">,</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--header"</span><span class="ot">,</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization: Bearer xxx"</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+</details>
 </div>
-<div id="tabset-2-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-7-tab">
-<p>Coming soon.</p>
-</div>
-<div id="tabset-2-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-8-tab">
-<p>Coming soon.</p>
+<p><em>User-Level Config</em>:</p>
+<p>~/.codebuddy/.mcp.json</p>
+<p><em>Project-Level Config</em>:</p>
+<p>your_project/.mcp.json</p>
+</section>
 </div>
 </div>
 </div>
@@ -1278,425 +1290,444 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb21" data-shortcodes="false"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "MCP Tutorial: Integrating McDonald's Services with AI Agents"</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Tony D"</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-11-02"</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [AI, API, tutorial]</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "images/0.png"</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: false</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> </span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">  markdown: </span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co">    wrap: 72</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># What is Model Context Protocol (MCP)?</span></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>The **Model Context Protocol (MCP)** is an open standard that enables AI</span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>models to seamlessly connect with external data sources and tools.</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>Developed by Anthropic, it acts as a universal interface—similar to a</span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>USB port—allowing developers to provide LLMs with secure, standardized</span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>access to local files, databases, and third-party APIs without needing</span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>to write custom integrations for every specific service.</span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>By using MCP, AI agents can "reach out" to the real world, performing</span>
-<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>tasks like checking inventory, querying nutritional data, or even</span>
-<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>claiming coupons—as we'll demonstrate in this tutorial using McDonald's</span>
-<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>services.</span>
-<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a><span class="fu"># Set Up MCP</span></span>
-<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Get Keys</span></span>
-<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>LLM model key from https://openrouter.ai</span>
-<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>MCD_TOKEN for mcd-mcp access: https://open.mcd.cn/mcp</span>
-<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>Save them to <span class="in">`.env`</span>:</span>
-<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>OPENROUTER_API_KEY<span class="ot">=</span>xxxxxx</span>
-<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>MCD_TOKEN<span class="ot">=</span>XXXX</span>
-<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a><span class="fu"># Coding with MCP</span></span>
-<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## In R Code</span></span>
-<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Initialize Chat with MCP Tools</span></span>
-<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
-<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mcptools)</span>
-<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dotenv)</span>
-<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Load environment variables</span></span>
-<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a><span class="fu">load_dot_env</span>(<span class="at">file =</span> <span class="st">".env"</span>)</span>
-<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Define model </span></span>
-<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a>model_name <span class="ot">&lt;-</span> <span class="st">"x-ai/grok-4.1-fast"</span></span>
-<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an ellmer chat object (using OpenRouter as example)</span></span>
-<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
-<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"You are a helpful assistant that can interact with McDonald's services. Please be concise"</span>,</span>
-<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"OPENROUTER_API_KEY"</span>),</span>
-<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> model_name,</span>
-<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="st">"output"</span></span>
-<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dynamic configuration with token from environment</span></span>
-<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a>config_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a>  <span class="at">mcpServers =</span> <span class="fu">list</span>(</span>
-<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span> <span class="ot">=</span> <span class="fu">list</span>(</span>
-<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a>      <span class="at">command =</span> <span class="st">"npx"</span>,</span>
-<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a>      <span class="at">args =</span> <span class="fu">c</span>(</span>
-<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mcp-remote"</span>,</span>
-<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
-<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--header"</span>,</span>
-<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste0</span>(<span class="st">"Authorization: Bearer "</span>, <span class="fu">Sys.getenv</span>(<span class="st">"MCD_TOKEN"</span>))</span>
-<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-98"><a href="#cb21-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-99"><a href="#cb21-99" aria-hidden="true" tabindex="-1"></a>config_file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".json"</span>)</span>
-<span id="cb21-100"><a href="#cb21-100" aria-hidden="true" tabindex="-1"></a>jsonlite<span class="sc">::</span><span class="fu">write_json</span>(config_data, config_file, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb21-101"><a href="#cb21-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-102"><a href="#cb21-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MCP tools via the temporary configuration file</span></span>
-<span id="cb21-103"><a href="#cb21-103" aria-hidden="true" tabindex="-1"></a>mcd_tools <span class="ot">&lt;-</span> <span class="fu">mcp_tools</span>(<span class="at">config =</span> config_file)</span>
-<span id="cb21-104"><a href="#cb21-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-105"><a href="#cb21-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Register the MCP tools with the chat</span></span>
-<span id="cb21-106"><a href="#cb21-106" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">set_tools</span>(mcd_tools)</span>
-<span id="cb21-107"><a href="#cb21-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-108"><a href="#cb21-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-109"><a href="#cb21-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Chat with MCP Integration</span></span>
-<span id="cb21-110"><a href="#cb21-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-111"><a href="#cb21-111" aria-hidden="true" tabindex="-1"></a>Now you can ask questions and the AI will use the McDonald's MCP tools:</span>
-<span id="cb21-112"><a href="#cb21-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-115"><a href="#cb21-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-116"><a href="#cb21-116" aria-hidden="true" tabindex="-1"></a><span class="co"># Query available coupons</span></span>
-<span id="cb21-117"><a href="#cb21-117" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What coupons are available right now?"</span>)</span>
-<span id="cb21-118"><a href="#cb21-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-119"><a href="#cb21-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-122"><a href="#cb21-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-123"><a href="#cb21-123" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-claim all coupons</span></span>
-<span id="cb21-124"><a href="#cb21-124" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Help me claim all available coupons."</span>)</span>
-<span id="cb21-125"><a href="#cb21-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-126"><a href="#cb21-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-127"><a href="#cb21-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-130"><a href="#cb21-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-131"><a href="#cb21-131" aria-hidden="true" tabindex="-1"></a><span class="co"># Get nutrition information</span></span>
-<span id="cb21-132"><a href="#cb21-132" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Help me design a 1000-calorie meal that includes a sugared cola and costs no more than 30 yuan."</span>)</span>
-<span id="cb21-133"><a href="#cb21-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-134"><a href="#cb21-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-135"><a href="#cb21-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## in Python Code</span></span>
-<span id="cb21-136"><a href="#cb21-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-137"><a href="#cb21-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### Initialize Chat with MCP Tools</span></span>
-<span id="cb21-138"><a href="#cb21-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-141"><a href="#cb21-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-142"><a href="#cb21-142" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-143"><a href="#cb21-143" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb21-144"><a href="#cb21-144" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
-<span id="cb21-145"><a href="#cb21-145" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
-<span id="cb21-146"><a href="#cb21-146" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_mcp_adapters.client <span class="im">import</span> MultiServerMCPClient</span>
-<span id="cb21-147"><a href="#cb21-147" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai <span class="im">import</span> ChatOpenAI</span>
-<span id="cb21-148"><a href="#cb21-148" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langgraph.prebuilt <span class="im">import</span> create_react_agent</span>
-<span id="cb21-149"><a href="#cb21-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-150"><a href="#cb21-150" aria-hidden="true" tabindex="-1"></a><span class="co"># Load environment variables</span></span>
-<span id="cb21-151"><a href="#cb21-151" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
-<span id="cb21-152"><a href="#cb21-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-153"><a href="#cb21-153" aria-hidden="true" tabindex="-1"></a><span class="co"># Define model (using OpenRouter)</span></span>
-<span id="cb21-154"><a href="#cb21-154" aria-hidden="true" tabindex="-1"></a>model_name <span class="op">=</span> <span class="st">"x-ai/grok-4.1-fast"</span></span>
-<span id="cb21-155"><a href="#cb21-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-156"><a href="#cb21-156" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the LLM with OpenRouter</span></span>
-<span id="cb21-157"><a href="#cb21-157" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI(</span>
-<span id="cb21-158"><a href="#cb21-158" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>model_name,</span>
-<span id="cb21-159"><a href="#cb21-159" aria-hidden="true" tabindex="-1"></a>    openai_api_key<span class="op">=</span>os.getenv(<span class="st">"OPENROUTER_API_KEY"</span>),</span>
-<span id="cb21-160"><a href="#cb21-160" aria-hidden="true" tabindex="-1"></a>    openai_api_base<span class="op">=</span><span class="st">"https://openrouter.ai/api/v1"</span>,</span>
-<span id="cb21-161"><a href="#cb21-161" aria-hidden="true" tabindex="-1"></a>    temperature<span class="op">=</span><span class="dv">0</span></span>
-<span id="cb21-162"><a href="#cb21-162" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-163"><a href="#cb21-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-164"><a href="#cb21-164" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the mcp-remote command with authorization header</span></span>
-<span id="cb21-165"><a href="#cb21-165" aria-hidden="true" tabindex="-1"></a>mcd_token <span class="op">=</span> os.getenv(<span class="st">"MCD_TOKEN"</span>)</span>
-<span id="cb21-166"><a href="#cb21-166" aria-hidden="true" tabindex="-1"></a>mcp_command_args <span class="op">=</span> [</span>
-<span id="cb21-167"><a href="#cb21-167" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcp-remote"</span>,</span>
-<span id="cb21-168"><a href="#cb21-168" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
-<span id="cb21-169"><a href="#cb21-169" aria-hidden="true" tabindex="-1"></a>    <span class="st">"--header"</span>,</span>
-<span id="cb21-170"><a href="#cb21-170" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Authorization: Bearer </span><span class="sc">{</span>mcd_token<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb21-171"><a href="#cb21-171" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb21-172"><a href="#cb21-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-173"><a href="#cb21-173" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure the MCP client</span></span>
-<span id="cb21-174"><a href="#cb21-174" aria-hidden="true" tabindex="-1"></a>mcp_config <span class="op">=</span> {</span>
-<span id="cb21-175"><a href="#cb21-175" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
-<span id="cb21-176"><a href="#cb21-176" aria-hidden="true" tabindex="-1"></a>        <span class="st">"command"</span>: <span class="st">"npx"</span>,</span>
-<span id="cb21-177"><a href="#cb21-177" aria-hidden="true" tabindex="-1"></a>        <span class="st">"args"</span>: mcp_command_args,</span>
-<span id="cb21-178"><a href="#cb21-178" aria-hidden="true" tabindex="-1"></a>        <span class="st">"transport"</span>: <span class="st">"stdio"</span></span>
-<span id="cb21-179"><a href="#cb21-179" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb21-180"><a href="#cb21-180" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-181"><a href="#cb21-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-182"><a href="#cb21-182" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> run_mcp_agent(query: <span class="bu">str</span>):</span>
-<span id="cb21-183"><a href="#cb21-183" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run an MCP-enabled agent with the given query."""</span></span>
-<span id="cb21-184"><a href="#cb21-184" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create client (no context manager in v0.1.0+)</span></span>
-<span id="cb21-185"><a href="#cb21-185" aria-hidden="true" tabindex="-1"></a>    client <span class="op">=</span> MultiServerMCPClient(mcp_config)</span>
-<span id="cb21-186"><a href="#cb21-186" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-187"><a href="#cb21-187" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get tools from MCP server (await required)</span></span>
-<span id="cb21-188"><a href="#cb21-188" aria-hidden="true" tabindex="-1"></a>    tools <span class="op">=</span> <span class="cf">await</span> client.get_tools()</span>
-<span id="cb21-189"><a href="#cb21-189" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-190"><a href="#cb21-190" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a ReAct agent with the tools</span></span>
-<span id="cb21-191"><a href="#cb21-191" aria-hidden="true" tabindex="-1"></a>    agent <span class="op">=</span> create_react_agent(llm, tools)</span>
-<span id="cb21-192"><a href="#cb21-192" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-193"><a href="#cb21-193" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run the agent</span></span>
-<span id="cb21-194"><a href="#cb21-194" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="cf">await</span> agent.ainvoke({</span>
-<span id="cb21-195"><a href="#cb21-195" aria-hidden="true" tabindex="-1"></a>        <span class="st">"messages"</span>: [</span>
-<span id="cb21-196"><a href="#cb21-196" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"role"</span>: <span class="st">"system"</span>, <span class="st">"content"</span>: <span class="st">"You are a helpful assistant that can interact with McDonald's services. Please be concise."</span>},</span>
-<span id="cb21-197"><a href="#cb21-197" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: query}</span>
-<span id="cb21-198"><a href="#cb21-198" aria-hidden="true" tabindex="-1"></a>        ]</span>
-<span id="cb21-199"><a href="#cb21-199" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb21-200"><a href="#cb21-200" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-201"><a href="#cb21-201" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the final response</span></span>
-<span id="cb21-202"><a href="#cb21-202" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result[<span class="st">"messages"</span>][<span class="op">-</span><span class="dv">1</span>].content</span>
-<span id="cb21-203"><a href="#cb21-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-204"><a href="#cb21-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-205"><a href="#cb21-205" aria-hidden="true" tabindex="-1"></a><span class="fu">### Chat with MCP Integration</span></span>
-<span id="cb21-206"><a href="#cb21-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-207"><a href="#cb21-207" aria-hidden="true" tabindex="-1"></a>Now you can ask questions and the AI will use the McDonald's MCP tools:</span>
-<span id="cb21-208"><a href="#cb21-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-212"><a href="#cb21-212" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-213"><a href="#cb21-213" aria-hidden="true" tabindex="-1"></a><span class="co"># Query available coupons</span></span>
-<span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"What coupons are available right now?"</span>))</span>
-<span id="cb21-215"><a href="#cb21-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-216"><a href="#cb21-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-219"><a href="#cb21-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-220"><a href="#cb21-220" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-221"><a href="#cb21-221" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-claim all coupons</span></span>
-<span id="cb21-222"><a href="#cb21-222" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"Help me claim all available coupons."</span>))</span>
-<span id="cb21-223"><a href="#cb21-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-224"><a href="#cb21-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-227"><a href="#cb21-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-228"><a href="#cb21-228" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-229"><a href="#cb21-229" aria-hidden="true" tabindex="-1"></a><span class="co"># Check your coupons</span></span>
-<span id="cb21-230"><a href="#cb21-230" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"Show me all my current coupons."</span>))</span>
-<span id="cb21-231"><a href="#cb21-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-232"><a href="#cb21-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-235"><a href="#cb21-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-236"><a href="#cb21-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-237"><a href="#cb21-237" aria-hidden="true" tabindex="-1"></a><span class="co"># Query campaign calendar</span></span>
-<span id="cb21-238"><a href="#cb21-238" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"What exciting activities are happening in the next 15 days?"</span>))</span>
-<span id="cb21-239"><a href="#cb21-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-240"><a href="#cb21-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-243"><a href="#cb21-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-244"><a href="#cb21-244" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-245"><a href="#cb21-245" aria-hidden="true" tabindex="-1"></a><span class="co"># Get nutrition information</span></span>
-<span id="cb21-246"><a href="#cb21-246" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"Help me design a 1000-calorie meal that includes a sugared cola and costs no more than 30 yuan."</span>))</span>
-<span id="cb21-247"><a href="#cb21-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-248"><a href="#cb21-248" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb21-249"><a href="#cb21-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-250"><a href="#cb21-250" aria-hidden="true" tabindex="-1"></a><span class="fu"># Agent with MCP</span></span>
-<span id="cb21-251"><a href="#cb21-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-252"><a href="#cb21-252" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb21-253"><a href="#cb21-253" aria-hidden="true" tabindex="-1"></a><span class="fu">## Claude Code CLI</span></span>
-<span id="cb21-254"><a href="#cb21-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-255"><a href="#cb21-255" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
-<span id="cb21-256"><a href="#cb21-256" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
-<span id="cb21-257"><a href="#cb21-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-258"><a href="#cb21-258" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
-<span id="cb21-259"><a href="#cb21-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-262"><a href="#cb21-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-263"><a href="#cb21-263" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-264"><a href="#cb21-264" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb21-265"><a href="#cb21-265" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcpServers"</span><span class="sc">:</span> {</span>
-<span id="cb21-266"><a href="#cb21-266" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span><span class="sc">:</span> {</span>
-<span id="cb21-267"><a href="#cb21-267" aria-hidden="true" tabindex="-1"></a>      <span class="st">"type"</span><span class="sc">:</span> <span class="st">"http"</span>,</span>
-<span id="cb21-268"><a href="#cb21-268" aria-hidden="true" tabindex="-1"></a>      <span class="st">"url"</span><span class="sc">:</span> <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
-<span id="cb21-269"><a href="#cb21-269" aria-hidden="true" tabindex="-1"></a>      <span class="st">"headers"</span><span class="sc">:</span> {</span>
-<span id="cb21-270"><a href="#cb21-270" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span><span class="sc">:</span> <span class="st">"Bearer xxx"</span></span>
-<span id="cb21-271"><a href="#cb21-271" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb21-272"><a href="#cb21-272" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb21-273"><a href="#cb21-273" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb21-274"><a href="#cb21-274" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-275"><a href="#cb21-275" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-276"><a href="#cb21-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-277"><a href="#cb21-277" aria-hidden="true" tabindex="-1"></a>*User-Level Config File*:</span>
-<span id="cb21-278"><a href="#cb21-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-279"><a href="#cb21-279" aria-hidden="true" tabindex="-1"></a>\~/.claude.json</span>
-<span id="cb21-280"><a href="#cb21-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-281"><a href="#cb21-281" aria-hidden="true" tabindex="-1"></a>*Project-Level Config File*:</span>
-<span id="cb21-282"><a href="#cb21-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-283"><a href="#cb21-283" aria-hidden="true" tabindex="-1"></a>your_project/.mcp.json</span>
-<span id="cb21-284"><a href="#cb21-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-285"><a href="#cb21-285" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ask: "What coupons are available right now?"</span></span>
-<span id="cb21-286"><a href="#cb21-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-287"><a href="#cb21-287" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-3343486679.png)</span>{width="700"}</span>
-<span id="cb21-288"><a href="#cb21-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-289"><a href="#cb21-289" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gemini CLI</span></span>
-<span id="cb21-290"><a href="#cb21-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-291"><a href="#cb21-291" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
-<span id="cb21-292"><a href="#cb21-292" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
-<span id="cb21-293"><a href="#cb21-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-294"><a href="#cb21-294" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
-<span id="cb21-295"><a href="#cb21-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-298"><a href="#cb21-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-299"><a href="#cb21-299" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-300"><a href="#cb21-300" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb21-301"><a href="#cb21-301" aria-hidden="true" tabindex="-1"></a><span class="st">"mcpServers"</span>: {</span>
-<span id="cb21-302"><a href="#cb21-302" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
-<span id="cb21-303"><a href="#cb21-303" aria-hidden="true" tabindex="-1"></a>      <span class="st">"url"</span>: <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
-<span id="cb21-304"><a href="#cb21-304" aria-hidden="true" tabindex="-1"></a>      <span class="st">"headers"</span>: {</span>
-<span id="cb21-305"><a href="#cb21-305" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: <span class="st">"Bearer xxx"</span></span>
-<span id="cb21-306"><a href="#cb21-306" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb21-307"><a href="#cb21-307" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb21-308"><a href="#cb21-308" aria-hidden="true" tabindex="-1"></a>  } </span>
-<span id="cb21-309"><a href="#cb21-309" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb21-310"><a href="#cb21-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-311"><a href="#cb21-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-312"><a href="#cb21-312" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
-<span id="cb21-313"><a href="#cb21-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-314"><a href="#cb21-314" aria-hidden="true" tabindex="-1"></a>\~/.gemini/settings.json</span>
-<span id="cb21-315"><a href="#cb21-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-316"><a href="#cb21-316" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
-<span id="cb21-317"><a href="#cb21-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-318"><a href="#cb21-318" aria-hidden="true" tabindex="-1"></a>your_project/.gemini/settings.json</span>
-<span id="cb21-319"><a href="#cb21-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-320"><a href="#cb21-320" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ask: "What coupons are available right now?"</span></span>
-<span id="cb21-321"><a href="#cb21-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-322"><a href="#cb21-322" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-1202098417.png)</span>{width="700"}</span>
-<span id="cb21-323"><a href="#cb21-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-324"><a href="#cb21-324" aria-hidden="true" tabindex="-1"></a><span class="fu">## In Opencode CLI</span></span>
-<span id="cb21-325"><a href="#cb21-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-326"><a href="#cb21-326" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
-<span id="cb21-327"><a href="#cb21-327" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
-<span id="cb21-328"><a href="#cb21-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-329"><a href="#cb21-329" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
-<span id="cb21-330"><a href="#cb21-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-333"><a href="#cb21-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-334"><a href="#cb21-334" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-335"><a href="#cb21-335" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb21-336"><a href="#cb21-336" aria-hidden="true" tabindex="-1"></a>  <span class="st">"$schema"</span>: <span class="st">"https://opencode.ai/config.json"</span>,</span>
-<span id="cb21-337"><a href="#cb21-337" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcp"</span>: {</span>
-<span id="cb21-338"><a href="#cb21-338" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
-<span id="cb21-339"><a href="#cb21-339" aria-hidden="true" tabindex="-1"></a>      <span class="st">"type"</span>: <span class="st">"remote"</span>,</span>
-<span id="cb21-340"><a href="#cb21-340" aria-hidden="true" tabindex="-1"></a>      <span class="st">"url"</span>: <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
-<span id="cb21-341"><a href="#cb21-341" aria-hidden="true" tabindex="-1"></a>      <span class="st">"enabled"</span>: true,</span>
-<span id="cb21-342"><a href="#cb21-342" aria-hidden="true" tabindex="-1"></a>      <span class="st">"headers"</span>: {</span>
-<span id="cb21-343"><a href="#cb21-343" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: <span class="st">"Bearer xxx"</span></span>
-<span id="cb21-344"><a href="#cb21-344" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb21-345"><a href="#cb21-345" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb21-346"><a href="#cb21-346" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb21-347"><a href="#cb21-347" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-348"><a href="#cb21-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-349"><a href="#cb21-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-350"><a href="#cb21-350" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
-<span id="cb21-351"><a href="#cb21-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-352"><a href="#cb21-352" aria-hidden="true" tabindex="-1"></a>\~/.opencode.json</span>
-<span id="cb21-353"><a href="#cb21-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-354"><a href="#cb21-354" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
-<span id="cb21-355"><a href="#cb21-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-356"><a href="#cb21-356" aria-hidden="true" tabindex="-1"></a>.config/opencode/opencode.json</span>
-<span id="cb21-357"><a href="#cb21-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-358"><a href="#cb21-358" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ask: "What coupons are available right now?"</span></span>
-<span id="cb21-359"><a href="#cb21-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-360"><a href="#cb21-360" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-4015309059.png)</span></span>
-<span id="cb21-361"><a href="#cb21-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-362"><a href="#cb21-362" aria-hidden="true" tabindex="-1"></a><span class="fu">## Antigravity IDE</span></span>
-<span id="cb21-363"><a href="#cb21-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-364"><a href="#cb21-364" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
-<span id="cb21-365"><a href="#cb21-365" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
-<span id="cb21-366"><a href="#cb21-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-367"><a href="#cb21-367" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
-<span id="cb21-368"><a href="#cb21-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-371"><a href="#cb21-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-372"><a href="#cb21-372" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-373"><a href="#cb21-373" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb21-374"><a href="#cb21-374" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcpServers"</span>: {</span>
-<span id="cb21-375"><a href="#cb21-375" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
-<span id="cb21-376"><a href="#cb21-376" aria-hidden="true" tabindex="-1"></a>      <span class="st">"serverUrl"</span>: <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
-<span id="cb21-377"><a href="#cb21-377" aria-hidden="true" tabindex="-1"></a>      <span class="st">"headers"</span>: {</span>
-<span id="cb21-378"><a href="#cb21-378" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: <span class="st">"Bearer xxx"</span></span>
-<span id="cb21-379"><a href="#cb21-379" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb21-380"><a href="#cb21-380" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb21-381"><a href="#cb21-381" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb21-382"><a href="#cb21-382" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-383"><a href="#cb21-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-384"><a href="#cb21-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-385"><a href="#cb21-385" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
-<span id="cb21-386"><a href="#cb21-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-387"><a href="#cb21-387" aria-hidden="true" tabindex="-1"></a>\~/.gemini/antigravity/mcp_config.json</span>
-<span id="cb21-388"><a href="#cb21-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-389"><a href="#cb21-389" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
-<span id="cb21-390"><a href="#cb21-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-391"><a href="#cb21-391" aria-hidden="true" tabindex="-1"></a>not available yet</span>
-<span id="cb21-392"><a href="#cb21-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-393"><a href="#cb21-393" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ask: "What coupons are available right now?"</span></span>
-<span id="cb21-394"><a href="#cb21-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-395"><a href="#cb21-395" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-4292207523.png)</span></span>
-<span id="cb21-396"><a href="#cb21-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-397"><a href="#cb21-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## Trae IDE</span></span>
-<span id="cb21-398"><a href="#cb21-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-399"><a href="#cb21-399" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
-<span id="cb21-400"><a href="#cb21-400" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
-<span id="cb21-401"><a href="#cb21-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-402"><a href="#cb21-402" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
-<span id="cb21-403"><a href="#cb21-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-406"><a href="#cb21-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-407"><a href="#cb21-407" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-408"><a href="#cb21-408" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb21-409"><a href="#cb21-409" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcpServers"</span>: {</span>
-<span id="cb21-410"><a href="#cb21-410" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
-<span id="cb21-411"><a href="#cb21-411" aria-hidden="true" tabindex="-1"></a>      <span class="st">"command"</span>: <span class="st">"npx"</span>,</span>
-<span id="cb21-412"><a href="#cb21-412" aria-hidden="true" tabindex="-1"></a>      <span class="st">"args"</span>: [</span>
-<span id="cb21-413"><a href="#cb21-413" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mcp-remote"</span>,</span>
-<span id="cb21-414"><a href="#cb21-414" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
-<span id="cb21-415"><a href="#cb21-415" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--header"</span>,</span>
-<span id="cb21-416"><a href="#cb21-416" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization: Bearer xxx"</span></span>
-<span id="cb21-417"><a href="#cb21-417" aria-hidden="true" tabindex="-1"></a>      ]</span>
-<span id="cb21-418"><a href="#cb21-418" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb21-419"><a href="#cb21-419" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb21-420"><a href="#cb21-420" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-421"><a href="#cb21-421" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-422"><a href="#cb21-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-423"><a href="#cb21-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-424"><a href="#cb21-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-425"><a href="#cb21-425" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
-<span id="cb21-426"><a href="#cb21-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-427"><a href="#cb21-427" aria-hidden="true" tabindex="-1"></a>\~/user/Library/Application Support/Trae/User/mcp.json</span>
-<span id="cb21-428"><a href="#cb21-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-429"><a href="#cb21-429" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
-<span id="cb21-430"><a href="#cb21-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-431"><a href="#cb21-431" aria-hidden="true" tabindex="-1"></a>your_project/.trae/mcp.json</span>
-<span id="cb21-432"><a href="#cb21-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-433"><a href="#cb21-433" aria-hidden="true" tabindex="-1"></a><span class="fu">### enable Trae project level setting:Setting-&gt;Beta-&gt;Enable project MCP</span></span>
-<span id="cb21-434"><a href="#cb21-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-435"><a href="#cb21-435" aria-hidden="true" tabindex="-1"></a><span class="fu">### change mode to @Builder with MCP and Ask: "What coupons are available right now?"</span></span>
-<span id="cb21-436"><a href="#cb21-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-437"><a href="#cb21-437" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-1218453575.png)</span></span>
-<span id="cb21-438"><a href="#cb21-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-439"><a href="#cb21-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-440"><a href="#cb21-440" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cody Buddy IDE</span></span>
-<span id="cb21-441"><a href="#cb21-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-442"><a href="#cb21-442" aria-hidden="true" tabindex="-1"></a>Coming soon.</span>
-<span id="cb21-443"><a href="#cb21-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-444"><a href="#cb21-444" aria-hidden="true" tabindex="-1"></a><span class="fu">## Qoder IDE</span></span>
-<span id="cb21-445"><a href="#cb21-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-446"><a href="#cb21-446" aria-hidden="true" tabindex="-1"></a>Coming soon.</span>
-<span id="cb21-447"><a href="#cb21-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-448"><a href="#cb21-448" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cline VS Code</span></span>
-<span id="cb21-449"><a href="#cb21-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-450"><a href="#cb21-450" aria-hidden="true" tabindex="-1"></a>Coming soon.</span>
-<span id="cb21-451"><a href="#cb21-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-452"><a href="#cb21-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-453"><a href="#cb21-453" aria-hidden="true" tabindex="-1"></a>:::</span>
+<div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "MCP Tutorial: Integrating McDonald's Services with AI Agents"</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Tony D"</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-11-02"</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [AI, API, tutorial]</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "images/0.png"</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: false</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> </span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co">  markdown: </span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co">    wrap: 72</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># What is Model Context Protocol (MCP)?</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>The **Model Context Protocol (MCP)** is an open standard that enables AI</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>models to seamlessly connect with external data sources and tools.</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>Developed by Anthropic, it acts as a universal interface—similar to a</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>USB port—allowing developers to provide LLMs with secure, standardized</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>access to local files, databases, and third-party APIs without needing</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>to write custom integrations for every specific service.</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>By using MCP, AI agents can "reach out" to the real world, performing</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>tasks like checking inventory, querying nutritional data, or even</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>claiming coupons—as we'll demonstrate in this tutorial using McDonald's</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>services.</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="fu"># Set Up MCP</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Get Keys</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>LLM model key from https://openrouter.ai</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>MCD_TOKEN for mcd-mcp access: https://open.mcd.cn/mcp</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>Save them to <span class="in">`.env`</span>:</span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>OPENROUTER_API_KEY<span class="ot">=</span>xxxxxx</span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>MCD_TOKEN<span class="ot">=</span>XXXX</span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a><span class="fu"># Coding with MCP</span></span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## In R Code</span></span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Initialize Chat with MCP Tools</span></span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mcptools)</span>
+<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dotenv)</span>
+<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Load environment variables</span></span>
+<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a><span class="fu">load_dot_env</span>(<span class="at">file =</span> <span class="st">".env"</span>)</span>
+<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Define model </span></span>
+<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>model_name <span class="ot">&lt;-</span> <span class="st">"x-ai/grok-4.1-fast"</span></span>
+<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an ellmer chat object (using OpenRouter as example)</span></span>
+<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
+<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"You are a helpful assistant that can interact with McDonald's services. Please be concise"</span>,</span>
+<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"OPENROUTER_API_KEY"</span>),</span>
+<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> model_name,</span>
+<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="st">"output"</span></span>
+<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dynamic configuration with token from environment</span></span>
+<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a>config_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a>  <span class="at">mcpServers =</span> <span class="fu">list</span>(</span>
+<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span> <span class="ot">=</span> <span class="fu">list</span>(</span>
+<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a>      <span class="at">command =</span> <span class="st">"npx"</span>,</span>
+<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a>      <span class="at">args =</span> <span class="fu">c</span>(</span>
+<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mcp-remote"</span>,</span>
+<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
+<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--header"</span>,</span>
+<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste0</span>(<span class="st">"Authorization: Bearer "</span>, <span class="fu">Sys.getenv</span>(<span class="st">"MCD_TOKEN"</span>))</span>
+<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a>config_file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".json"</span>)</span>
+<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a>jsonlite<span class="sc">::</span><span class="fu">write_json</span>(config_data, config_file, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MCP tools via the temporary configuration file</span></span>
+<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>mcd_tools <span class="ot">&lt;-</span> <span class="fu">mcp_tools</span>(<span class="at">config =</span> config_file)</span>
+<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Register the MCP tools with the chat</span></span>
+<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">set_tools</span>(mcd_tools)</span>
+<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Chat with MCP Integration</span></span>
+<span id="cb22-110"><a href="#cb22-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-111"><a href="#cb22-111" aria-hidden="true" tabindex="-1"></a>Now you can ask questions and the AI will use the McDonald's MCP tools:</span>
+<span id="cb22-112"><a href="#cb22-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-115"><a href="#cb22-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-116"><a href="#cb22-116" aria-hidden="true" tabindex="-1"></a><span class="co"># Query available coupons</span></span>
+<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What coupons are available right now?"</span>)</span>
+<span id="cb22-118"><a href="#cb22-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-122"><a href="#cb22-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-123"><a href="#cb22-123" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-claim all coupons</span></span>
+<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Help me claim all available coupons."</span>)</span>
+<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-126"><a href="#cb22-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-130"><a href="#cb22-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-131"><a href="#cb22-131" aria-hidden="true" tabindex="-1"></a><span class="co"># Get nutrition information</span></span>
+<span id="cb22-132"><a href="#cb22-132" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Help me design a 1000-calorie meal that includes a sugared cola and costs no more than 30 yuan."</span>)</span>
+<span id="cb22-133"><a href="#cb22-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-134"><a href="#cb22-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-135"><a href="#cb22-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## in Python Code</span></span>
+<span id="cb22-136"><a href="#cb22-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-137"><a href="#cb22-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### Initialize Chat with MCP Tools</span></span>
+<span id="cb22-138"><a href="#cb22-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-141"><a href="#cb22-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-142"><a href="#cb22-142" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-143"><a href="#cb22-143" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb22-144"><a href="#cb22-144" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb22-145"><a href="#cb22-145" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb22-146"><a href="#cb22-146" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_mcp_adapters.client <span class="im">import</span> MultiServerMCPClient</span>
+<span id="cb22-147"><a href="#cb22-147" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai <span class="im">import</span> ChatOpenAI</span>
+<span id="cb22-148"><a href="#cb22-148" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langgraph.prebuilt <span class="im">import</span> create_react_agent</span>
+<span id="cb22-149"><a href="#cb22-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-150"><a href="#cb22-150" aria-hidden="true" tabindex="-1"></a><span class="co"># Load environment variables</span></span>
+<span id="cb22-151"><a href="#cb22-151" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb22-152"><a href="#cb22-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-153"><a href="#cb22-153" aria-hidden="true" tabindex="-1"></a><span class="co"># Define model (using OpenRouter)</span></span>
+<span id="cb22-154"><a href="#cb22-154" aria-hidden="true" tabindex="-1"></a>model_name <span class="op">=</span> <span class="st">"x-ai/grok-4.1-fast"</span></span>
+<span id="cb22-155"><a href="#cb22-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-156"><a href="#cb22-156" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the LLM with OpenRouter</span></span>
+<span id="cb22-157"><a href="#cb22-157" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI(</span>
+<span id="cb22-158"><a href="#cb22-158" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>model_name,</span>
+<span id="cb22-159"><a href="#cb22-159" aria-hidden="true" tabindex="-1"></a>    openai_api_key<span class="op">=</span>os.getenv(<span class="st">"OPENROUTER_API_KEY"</span>),</span>
+<span id="cb22-160"><a href="#cb22-160" aria-hidden="true" tabindex="-1"></a>    openai_api_base<span class="op">=</span><span class="st">"https://openrouter.ai/api/v1"</span>,</span>
+<span id="cb22-161"><a href="#cb22-161" aria-hidden="true" tabindex="-1"></a>    temperature<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb22-162"><a href="#cb22-162" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-163"><a href="#cb22-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-164"><a href="#cb22-164" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the mcp-remote command with authorization header</span></span>
+<span id="cb22-165"><a href="#cb22-165" aria-hidden="true" tabindex="-1"></a>mcd_token <span class="op">=</span> os.getenv(<span class="st">"MCD_TOKEN"</span>)</span>
+<span id="cb22-166"><a href="#cb22-166" aria-hidden="true" tabindex="-1"></a>mcp_command_args <span class="op">=</span> [</span>
+<span id="cb22-167"><a href="#cb22-167" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcp-remote"</span>,</span>
+<span id="cb22-168"><a href="#cb22-168" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
+<span id="cb22-169"><a href="#cb22-169" aria-hidden="true" tabindex="-1"></a>    <span class="st">"--header"</span>,</span>
+<span id="cb22-170"><a href="#cb22-170" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Authorization: Bearer </span><span class="sc">{</span>mcd_token<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb22-171"><a href="#cb22-171" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb22-172"><a href="#cb22-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-173"><a href="#cb22-173" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure the MCP client</span></span>
+<span id="cb22-174"><a href="#cb22-174" aria-hidden="true" tabindex="-1"></a>mcp_config <span class="op">=</span> {</span>
+<span id="cb22-175"><a href="#cb22-175" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
+<span id="cb22-176"><a href="#cb22-176" aria-hidden="true" tabindex="-1"></a>        <span class="st">"command"</span>: <span class="st">"npx"</span>,</span>
+<span id="cb22-177"><a href="#cb22-177" aria-hidden="true" tabindex="-1"></a>        <span class="st">"args"</span>: mcp_command_args,</span>
+<span id="cb22-178"><a href="#cb22-178" aria-hidden="true" tabindex="-1"></a>        <span class="st">"transport"</span>: <span class="st">"stdio"</span></span>
+<span id="cb22-179"><a href="#cb22-179" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-180"><a href="#cb22-180" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-181"><a href="#cb22-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-182"><a href="#cb22-182" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> run_mcp_agent(query: <span class="bu">str</span>):</span>
+<span id="cb22-183"><a href="#cb22-183" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run an MCP-enabled agent with the given query."""</span></span>
+<span id="cb22-184"><a href="#cb22-184" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create client (no context manager in v0.1.0+)</span></span>
+<span id="cb22-185"><a href="#cb22-185" aria-hidden="true" tabindex="-1"></a>    client <span class="op">=</span> MultiServerMCPClient(mcp_config)</span>
+<span id="cb22-186"><a href="#cb22-186" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-187"><a href="#cb22-187" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get tools from MCP server (await required)</span></span>
+<span id="cb22-188"><a href="#cb22-188" aria-hidden="true" tabindex="-1"></a>    tools <span class="op">=</span> <span class="cf">await</span> client.get_tools()</span>
+<span id="cb22-189"><a href="#cb22-189" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-190"><a href="#cb22-190" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a ReAct agent with the tools</span></span>
+<span id="cb22-191"><a href="#cb22-191" aria-hidden="true" tabindex="-1"></a>    agent <span class="op">=</span> create_react_agent(llm, tools)</span>
+<span id="cb22-192"><a href="#cb22-192" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-193"><a href="#cb22-193" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run the agent</span></span>
+<span id="cb22-194"><a href="#cb22-194" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="cf">await</span> agent.ainvoke({</span>
+<span id="cb22-195"><a href="#cb22-195" aria-hidden="true" tabindex="-1"></a>        <span class="st">"messages"</span>: [</span>
+<span id="cb22-196"><a href="#cb22-196" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"role"</span>: <span class="st">"system"</span>, <span class="st">"content"</span>: <span class="st">"You are a helpful assistant that can interact with McDonald's services. Please be concise."</span>},</span>
+<span id="cb22-197"><a href="#cb22-197" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: query}</span>
+<span id="cb22-198"><a href="#cb22-198" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb22-199"><a href="#cb22-199" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb22-200"><a href="#cb22-200" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-201"><a href="#cb22-201" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the final response</span></span>
+<span id="cb22-202"><a href="#cb22-202" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result[<span class="st">"messages"</span>][<span class="op">-</span><span class="dv">1</span>].content</span>
+<span id="cb22-203"><a href="#cb22-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-204"><a href="#cb22-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-205"><a href="#cb22-205" aria-hidden="true" tabindex="-1"></a><span class="fu">### Chat with MCP Integration</span></span>
+<span id="cb22-206"><a href="#cb22-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-207"><a href="#cb22-207" aria-hidden="true" tabindex="-1"></a>Now you can ask questions and the AI will use the McDonald's MCP tools:</span>
+<span id="cb22-208"><a href="#cb22-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-211"><a href="#cb22-211" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-212"><a href="#cb22-212" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-213"><a href="#cb22-213" aria-hidden="true" tabindex="-1"></a><span class="co"># Query available coupons</span></span>
+<span id="cb22-214"><a href="#cb22-214" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"What coupons are available right now?"</span>))</span>
+<span id="cb22-215"><a href="#cb22-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-216"><a href="#cb22-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-219"><a href="#cb22-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-220"><a href="#cb22-220" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-221"><a href="#cb22-221" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-claim all coupons</span></span>
+<span id="cb22-222"><a href="#cb22-222" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"Help me claim all available coupons."</span>))</span>
+<span id="cb22-223"><a href="#cb22-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-224"><a href="#cb22-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-227"><a href="#cb22-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-228"><a href="#cb22-228" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-229"><a href="#cb22-229" aria-hidden="true" tabindex="-1"></a><span class="co"># Check your coupons</span></span>
+<span id="cb22-230"><a href="#cb22-230" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"Show me all my current coupons."</span>))</span>
+<span id="cb22-231"><a href="#cb22-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-232"><a href="#cb22-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-235"><a href="#cb22-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-236"><a href="#cb22-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-237"><a href="#cb22-237" aria-hidden="true" tabindex="-1"></a><span class="co"># Query campaign calendar</span></span>
+<span id="cb22-238"><a href="#cb22-238" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"What exciting activities are happening in the next 15 days?"</span>))</span>
+<span id="cb22-239"><a href="#cb22-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-240"><a href="#cb22-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-243"><a href="#cb22-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-244"><a href="#cb22-244" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-245"><a href="#cb22-245" aria-hidden="true" tabindex="-1"></a><span class="co"># Get nutrition information</span></span>
+<span id="cb22-246"><a href="#cb22-246" aria-hidden="true" tabindex="-1"></a>asyncio.run(run_mcp_agent(<span class="st">"Help me design a 1000-calorie meal that includes a sugared cola and costs no more than 30 yuan."</span>))</span>
+<span id="cb22-247"><a href="#cb22-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-248"><a href="#cb22-248" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb22-249"><a href="#cb22-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-250"><a href="#cb22-250" aria-hidden="true" tabindex="-1"></a><span class="fu"># Agent with MCP</span></span>
+<span id="cb22-251"><a href="#cb22-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-252"><a href="#cb22-252" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb22-253"><a href="#cb22-253" aria-hidden="true" tabindex="-1"></a><span class="fu">## Claude Code CLI</span></span>
+<span id="cb22-254"><a href="#cb22-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-255"><a href="#cb22-255" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
+<span id="cb22-256"><a href="#cb22-256" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
+<span id="cb22-257"><a href="#cb22-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-258"><a href="#cb22-258" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
+<span id="cb22-259"><a href="#cb22-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-262"><a href="#cb22-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-263"><a href="#cb22-263" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-264"><a href="#cb22-264" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb22-265"><a href="#cb22-265" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcpServers"</span><span class="sc">:</span> {</span>
+<span id="cb22-266"><a href="#cb22-266" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span><span class="sc">:</span> {</span>
+<span id="cb22-267"><a href="#cb22-267" aria-hidden="true" tabindex="-1"></a>      <span class="st">"type"</span><span class="sc">:</span> <span class="st">"http"</span>,</span>
+<span id="cb22-268"><a href="#cb22-268" aria-hidden="true" tabindex="-1"></a>      <span class="st">"url"</span><span class="sc">:</span> <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
+<span id="cb22-269"><a href="#cb22-269" aria-hidden="true" tabindex="-1"></a>      <span class="st">"headers"</span><span class="sc">:</span> {</span>
+<span id="cb22-270"><a href="#cb22-270" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span><span class="sc">:</span> <span class="st">"Bearer xxx"</span></span>
+<span id="cb22-271"><a href="#cb22-271" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-272"><a href="#cb22-272" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-273"><a href="#cb22-273" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-274"><a href="#cb22-274" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-275"><a href="#cb22-275" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-276"><a href="#cb22-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-277"><a href="#cb22-277" aria-hidden="true" tabindex="-1"></a>*User-Level Config File*:</span>
+<span id="cb22-278"><a href="#cb22-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-279"><a href="#cb22-279" aria-hidden="true" tabindex="-1"></a>\~/.claude.json</span>
+<span id="cb22-280"><a href="#cb22-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-281"><a href="#cb22-281" aria-hidden="true" tabindex="-1"></a>*Project-Level Config File*:</span>
+<span id="cb22-282"><a href="#cb22-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-283"><a href="#cb22-283" aria-hidden="true" tabindex="-1"></a>your_project/.mcp.json</span>
+<span id="cb22-284"><a href="#cb22-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-285"><a href="#cb22-285" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ask: "What coupons are available right now?"</span></span>
+<span id="cb22-286"><a href="#cb22-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-287"><a href="#cb22-287" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-3343486679.png)</span>{width="700"}</span>
+<span id="cb22-288"><a href="#cb22-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-289"><a href="#cb22-289" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gemini CLI</span></span>
+<span id="cb22-290"><a href="#cb22-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-291"><a href="#cb22-291" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
+<span id="cb22-292"><a href="#cb22-292" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
+<span id="cb22-293"><a href="#cb22-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-294"><a href="#cb22-294" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
+<span id="cb22-295"><a href="#cb22-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-298"><a href="#cb22-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-299"><a href="#cb22-299" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-300"><a href="#cb22-300" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb22-301"><a href="#cb22-301" aria-hidden="true" tabindex="-1"></a><span class="st">"mcpServers"</span>: {</span>
+<span id="cb22-302"><a href="#cb22-302" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
+<span id="cb22-303"><a href="#cb22-303" aria-hidden="true" tabindex="-1"></a>      <span class="st">"url"</span>: <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
+<span id="cb22-304"><a href="#cb22-304" aria-hidden="true" tabindex="-1"></a>      <span class="st">"headers"</span>: {</span>
+<span id="cb22-305"><a href="#cb22-305" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: <span class="st">"Bearer xxx"</span></span>
+<span id="cb22-306"><a href="#cb22-306" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-307"><a href="#cb22-307" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-308"><a href="#cb22-308" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb22-309"><a href="#cb22-309" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb22-310"><a href="#cb22-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-311"><a href="#cb22-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-312"><a href="#cb22-312" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
+<span id="cb22-313"><a href="#cb22-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-314"><a href="#cb22-314" aria-hidden="true" tabindex="-1"></a>\~/.gemini/settings.json</span>
+<span id="cb22-315"><a href="#cb22-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-316"><a href="#cb22-316" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
+<span id="cb22-317"><a href="#cb22-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-318"><a href="#cb22-318" aria-hidden="true" tabindex="-1"></a>your_project/.gemini/settings.json</span>
+<span id="cb22-319"><a href="#cb22-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-320"><a href="#cb22-320" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ask: "What coupons are available right now?"</span></span>
+<span id="cb22-321"><a href="#cb22-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-322"><a href="#cb22-322" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-1202098417.png)</span>{width="700"}</span>
+<span id="cb22-323"><a href="#cb22-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-324"><a href="#cb22-324" aria-hidden="true" tabindex="-1"></a><span class="fu">## In Opencode CLI</span></span>
+<span id="cb22-325"><a href="#cb22-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-326"><a href="#cb22-326" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
+<span id="cb22-327"><a href="#cb22-327" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
+<span id="cb22-328"><a href="#cb22-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-329"><a href="#cb22-329" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
+<span id="cb22-330"><a href="#cb22-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-333"><a href="#cb22-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-334"><a href="#cb22-334" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-335"><a href="#cb22-335" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb22-336"><a href="#cb22-336" aria-hidden="true" tabindex="-1"></a>  <span class="st">"$schema"</span>: <span class="st">"https://opencode.ai/config.json"</span>,</span>
+<span id="cb22-337"><a href="#cb22-337" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcp"</span>: {</span>
+<span id="cb22-338"><a href="#cb22-338" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
+<span id="cb22-339"><a href="#cb22-339" aria-hidden="true" tabindex="-1"></a>      <span class="st">"type"</span>: <span class="st">"remote"</span>,</span>
+<span id="cb22-340"><a href="#cb22-340" aria-hidden="true" tabindex="-1"></a>      <span class="st">"url"</span>: <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
+<span id="cb22-341"><a href="#cb22-341" aria-hidden="true" tabindex="-1"></a>      <span class="st">"enabled"</span>: true,</span>
+<span id="cb22-342"><a href="#cb22-342" aria-hidden="true" tabindex="-1"></a>      <span class="st">"headers"</span>: {</span>
+<span id="cb22-343"><a href="#cb22-343" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: <span class="st">"Bearer xxx"</span></span>
+<span id="cb22-344"><a href="#cb22-344" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-345"><a href="#cb22-345" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-346"><a href="#cb22-346" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-347"><a href="#cb22-347" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-348"><a href="#cb22-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-349"><a href="#cb22-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-350"><a href="#cb22-350" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
+<span id="cb22-351"><a href="#cb22-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-352"><a href="#cb22-352" aria-hidden="true" tabindex="-1"></a>\~/.opencode.json</span>
+<span id="cb22-353"><a href="#cb22-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-354"><a href="#cb22-354" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
+<span id="cb22-355"><a href="#cb22-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-356"><a href="#cb22-356" aria-hidden="true" tabindex="-1"></a>.config/opencode/opencode.json</span>
+<span id="cb22-357"><a href="#cb22-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-358"><a href="#cb22-358" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ask: "What coupons are available right now?"</span></span>
+<span id="cb22-359"><a href="#cb22-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-360"><a href="#cb22-360" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-4015309059.png)</span></span>
+<span id="cb22-361"><a href="#cb22-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-362"><a href="#cb22-362" aria-hidden="true" tabindex="-1"></a><span class="fu">## Antigravity IDE</span></span>
+<span id="cb22-363"><a href="#cb22-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-364"><a href="#cb22-364" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
+<span id="cb22-365"><a href="#cb22-365" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
+<span id="cb22-366"><a href="#cb22-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-367"><a href="#cb22-367" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
+<span id="cb22-368"><a href="#cb22-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-371"><a href="#cb22-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-372"><a href="#cb22-372" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-373"><a href="#cb22-373" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb22-374"><a href="#cb22-374" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcpServers"</span>: {</span>
+<span id="cb22-375"><a href="#cb22-375" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
+<span id="cb22-376"><a href="#cb22-376" aria-hidden="true" tabindex="-1"></a>      <span class="st">"serverUrl"</span>: <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
+<span id="cb22-377"><a href="#cb22-377" aria-hidden="true" tabindex="-1"></a>      <span class="st">"headers"</span>: {</span>
+<span id="cb22-378"><a href="#cb22-378" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: <span class="st">"Bearer xxx"</span></span>
+<span id="cb22-379"><a href="#cb22-379" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-380"><a href="#cb22-380" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-381"><a href="#cb22-381" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-382"><a href="#cb22-382" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-383"><a href="#cb22-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-384"><a href="#cb22-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-385"><a href="#cb22-385" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
+<span id="cb22-386"><a href="#cb22-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-387"><a href="#cb22-387" aria-hidden="true" tabindex="-1"></a>\~/.gemini/antigravity/mcp_config.json</span>
+<span id="cb22-388"><a href="#cb22-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-389"><a href="#cb22-389" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
+<span id="cb22-390"><a href="#cb22-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-391"><a href="#cb22-391" aria-hidden="true" tabindex="-1"></a>not available yet</span>
+<span id="cb22-392"><a href="#cb22-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-393"><a href="#cb22-393" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ask: "What coupons are available right now?"</span></span>
+<span id="cb22-394"><a href="#cb22-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-395"><a href="#cb22-395" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-4292207523.png)</span></span>
+<span id="cb22-396"><a href="#cb22-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-397"><a href="#cb22-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## Trae IDE</span></span>
+<span id="cb22-398"><a href="#cb22-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-399"><a href="#cb22-399" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the</span>
+<span id="cb22-400"><a href="#cb22-400" aria-hidden="true" tabindex="-1"></a>user-level or project-level config file</span>
+<span id="cb22-401"><a href="#cb22-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-402"><a href="#cb22-402" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
+<span id="cb22-403"><a href="#cb22-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-406"><a href="#cb22-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-407"><a href="#cb22-407" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-408"><a href="#cb22-408" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb22-409"><a href="#cb22-409" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcpServers"</span>: {</span>
+<span id="cb22-410"><a href="#cb22-410" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span>: {</span>
+<span id="cb22-411"><a href="#cb22-411" aria-hidden="true" tabindex="-1"></a>      <span class="st">"command"</span>: <span class="st">"npx"</span>,</span>
+<span id="cb22-412"><a href="#cb22-412" aria-hidden="true" tabindex="-1"></a>      <span class="st">"args"</span>: [</span>
+<span id="cb22-413"><a href="#cb22-413" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mcp-remote"</span>,</span>
+<span id="cb22-414"><a href="#cb22-414" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span>,</span>
+<span id="cb22-415"><a href="#cb22-415" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--header"</span>,</span>
+<span id="cb22-416"><a href="#cb22-416" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization: Bearer xxx"</span></span>
+<span id="cb22-417"><a href="#cb22-417" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb22-418"><a href="#cb22-418" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-419"><a href="#cb22-419" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-420"><a href="#cb22-420" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-421"><a href="#cb22-421" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-422"><a href="#cb22-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-423"><a href="#cb22-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-424"><a href="#cb22-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-425"><a href="#cb22-425" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
+<span id="cb22-426"><a href="#cb22-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-427"><a href="#cb22-427" aria-hidden="true" tabindex="-1"></a>\~/user/Library/Application Support/Trae/User/mcp.json</span>
+<span id="cb22-428"><a href="#cb22-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-429"><a href="#cb22-429" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
+<span id="cb22-430"><a href="#cb22-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-431"><a href="#cb22-431" aria-hidden="true" tabindex="-1"></a>your_project/.trae/mcp.json</span>
+<span id="cb22-432"><a href="#cb22-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-433"><a href="#cb22-433" aria-hidden="true" tabindex="-1"></a><span class="fu">### enable Trae project level setting:Setting-&gt;Beta-&gt;Enable project MCP</span></span>
+<span id="cb22-434"><a href="#cb22-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-435"><a href="#cb22-435" aria-hidden="true" tabindex="-1"></a><span class="fu">### change mode to @Builder with MCP and Ask: "What coupons are available right now?"</span></span>
+<span id="cb22-436"><a href="#cb22-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-437"><a href="#cb22-437" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/clipboard-1218453575.png)</span></span>
+<span id="cb22-438"><a href="#cb22-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-439"><a href="#cb22-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-440"><a href="#cb22-440" aria-hidden="true" tabindex="-1"></a><span class="fu">## Codebuddy IDE</span></span>
+<span id="cb22-441"><a href="#cb22-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-442"><a href="#cb22-442" aria-hidden="true" tabindex="-1"></a>Replace "xxx" with your token and add the following setting to the user-level or project-level config file.</span>
+<span id="cb22-443"><a href="#cb22-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-444"><a href="#cb22-444" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON File</span></span>
+<span id="cb22-445"><a href="#cb22-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-448"><a href="#cb22-448" aria-hidden="true" tabindex="-1"></a><span class="in">```{json}</span></span>
+<span id="cb22-449"><a href="#cb22-449" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> eval<span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb22-450"><a href="#cb22-450" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb22-451"><a href="#cb22-451" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mcpServers"</span><span class="op">:</span> {</span>
+<span id="cb22-452"><a href="#cb22-452" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mcd-mcp"</span><span class="op">:</span> {</span>
+<span id="cb22-453"><a href="#cb22-453" aria-hidden="true" tabindex="-1"></a>      <span class="st">"command"</span><span class="op">:</span> <span class="st">"npx"</span><span class="op">,</span></span>
+<span id="cb22-454"><a href="#cb22-454" aria-hidden="true" tabindex="-1"></a>      <span class="st">"args"</span><span class="op">:</span> [</span>
+<span id="cb22-455"><a href="#cb22-455" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mcp-remote"</span><span class="op">,</span></span>
+<span id="cb22-456"><a href="#cb22-456" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span><span class="op">,</span></span>
+<span id="cb22-457"><a href="#cb22-457" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--header"</span><span class="op">,</span></span>
+<span id="cb22-458"><a href="#cb22-458" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization: Bearer xxx"</span></span>
+<span id="cb22-459"><a href="#cb22-459" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb22-460"><a href="#cb22-460" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-461"><a href="#cb22-461" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-462"><a href="#cb22-462" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-463"><a href="#cb22-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-464"><a href="#cb22-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-465"><a href="#cb22-465" aria-hidden="true" tabindex="-1"></a>*User-Level Config*:</span>
+<span id="cb22-466"><a href="#cb22-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-467"><a href="#cb22-467" aria-hidden="true" tabindex="-1"></a>\~/.codebuddy/.mcp.json</span>
+<span id="cb22-468"><a href="#cb22-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-469"><a href="#cb22-469" aria-hidden="true" tabindex="-1"></a>*Project-Level Config*:</span>
+<span id="cb22-470"><a href="#cb22-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-471"><a href="#cb22-471" aria-hidden="true" tabindex="-1"></a>your_project/.mcp.json</span>
+<span id="cb22-472"><a href="#cb22-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-473"><a href="#cb22-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-474"><a href="#cb22-474" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

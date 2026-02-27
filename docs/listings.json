@@ -2,6 +2,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/Agent_Skills/index.html",
       "/posts/love_agent/index.html",
       "/posts/vibepong/index.html",
       "/posts/AI_milktea/index.html",
@@ -24,6 +25,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Agent_Skills/index.html",
       "/posts/love_agent/index.html",
       "/posts/vibepong/index.html",
       "/posts/AI_milktea/index.html",

@@ -42,7 +42,7 @@ Switch between latest AI models including GLM-5,Kimi K2.5,Minimax-m2.5.
 
 # Tech stack
 
-Python/langgraph/OpenAI SDK/Streamlit
+Python/langgraph/OpenAI SDK/Streamlit/Supabase
 
 
 # AI agent flow
@@ -50,55 +50,58 @@ Python/langgraph/OpenAI SDK/Streamlit
 
 ```{mermaid}
 graph TD
-    %% Entry Point
-    Start((User Access)) --> Login{Login Page}
-    Login -- Wrong Key --> Login
-    Login -- Correct Key --> Session[Init Session State]
+    %% Frontend / UI Layer
+    subgraph UI ["Streamlit Frontend (app.py)"]
+        UserInput[User enters Message]
+        Auth{Auth Check}
+        UIPages[Page Navigation: Chat / Memory / Settings]
+        DisplayResponse[Display Text + Images + Download Buttons]
+    end
 
-    %% Navigation
-    Session --> Tabs{Tab Selection}
-    
-    %% Chat Flow
-    Tabs -- "💬 问答 (Chat)" --> Chat[Chat Interface]
-    Chat --> UserInput[User enters Query]
-    UserInput --> RunAgent[run_agent Logic]
-    
-    subgraph "Agent Workflow"
-        RunAgent --> LoadData[Load Context]
-        LoadData --> Story[Read story.md]
-        LoadData --> Excel[Read data.xlsx Metadata]
-        LoadData --> MemDB[Fetch Supabase Memory]
+    %% Agent Logic Layer
+    subgraph Agent ["LangGraph Workflow (agent.py)"]
+        direction TB
+        NodeStart((Start)) --> Retrieve[Retrieve Context]
+        Retrieve --> DecideSearch{Decide Search}
         
-        Story & Excel & MemDB --> Prompt[Construct System Prompt]
-        Prompt --> LLM[Call LLM - OpenAI/OpenRouter]
-        LLM --> Response[Generate Response with Image Paths]
-    end
-    
-    Response --> UIProcess[UI Processing]
-    UIProcess --> Regex[Extract image/xxx.jpeg paths]
-    Regex --> Strip[Remove paths from display text]
-    Strip --> Render[Render Markdown + Image Gallery]
-    
-    %% Memory Flow
-    Tabs -- "📝 记忆 (Memory)" --> MemPage[Edit Plans/Stories]
-    MemPage --> SaveMem[Save to Supabase]
-    SaveMem --> Session
-
-    %% Settings Flow
-    Tabs -- "⚙️ 设置 (Settings)" --> Config[Model Configuration]
-    Config --> ModelSelect[Update Provider/Model]
-    ModelSelect --> Session
-
-    %% Data Sources
-    subgraph "External Sources"
-        Supa[(Supabase Cloud)]
-        Local[(story.md / data.xlsx)]
-        Images[/image folder/]
+        DecideSearch -- "Search Needed" --> WebSearch[Perform Web Search]
+        DecideSearch -- "No Search" --> Generate
+        WebSearch --> Generate[Generate Response]
+        Generate --> NodeEnd((End))
     end
 
-    MemDB -.-> Supa
-    SaveMem -.-> Supa
-    Story & Excel -.-> Local
-    Render -.-> Images
+    %% Data / Knowledge Layer
+    subgraph Storage ["Knowledge & Configuration"]
+        StoryMD[story.md: Background Story]
+        DataXLSX[data.xlsx: Image Metadata]
+        ImageDir[image/: Local Photos]
+        Supabase[(Supabase: Persistent Memory/Plans)]
+        Config[config.py: LLM Providers & API Keys]
+    end
+
+    %% External Services
+    subgraph External ["External Services"]
+        LLM[LLM APIs: Gemini/Minimax/OpenRouter]
+        SearchEngines[Tavily / DuckDuckGo]
+    end
+
+    %% Direct Connections
+    UserInput --> Auth
+    Auth -- "Pass" --> UIPages
+    UIPages -- "Chat Interaction" --> Agent
+    
+    %% Agent Interactions
+    Retrieve -.-> StoryMD
+    Retrieve -.-> DataXLSX
+    Retrieve -.-> Supabase
+    DecideSearch -.-> LLM
+    WebSearch -.-> SearchEngines
+    Generate -.-> LLM
+    Generate -.-> Config
+    
+    %% Output
+    NodeEnd --> DisplayResponse
+    DisplayResponse -.-> ImageDir
+
 ```
 

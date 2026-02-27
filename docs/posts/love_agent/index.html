@@ -467,7 +467,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 </section>
 <section id="tech-stack" class="level1">
 <h1>Tech stack</h1>
-<p>Python/langgraph/OpenAI SDK/Streamlit</p>
+<p>Python/langgraph/OpenAI SDK/Streamlit/Supabase</p>
 </section>
 <section id="ai-agent-flow" class="level1">
 <h1>AI agent flow</h1>
@@ -477,56 +477,59 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">graph TD
-    %% Entry Point
-    Start((User Access)) --&gt; Login{Login Page}
-    Login -- Wrong Key --&gt; Login
-    Login -- Correct Key --&gt; Session[Init Session State]
+    %% Frontend / UI Layer
+    subgraph UI ["Streamlit Frontend (app.py)"]
+        UserInput[User enters Message]
+        Auth{Auth Check}
+        UIPages[Page Navigation: Chat / Memory / Settings]
+        DisplayResponse[Display Text + Images + Download Buttons]
+    end
 
-    %% Navigation
-    Session --&gt; Tabs{Tab Selection}
-    
-    %% Chat Flow
-    Tabs -- "💬 问答 (Chat)" --&gt; Chat[Chat Interface]
-    Chat --&gt; UserInput[User enters Query]
-    UserInput --&gt; RunAgent[run_agent Logic]
-    
-    subgraph "Agent Workflow"
-        RunAgent --&gt; LoadData[Load Context]
-        LoadData --&gt; Story[Read story.md]
-        LoadData --&gt; Excel[Read data.xlsx Metadata]
-        LoadData --&gt; MemDB[Fetch Supabase Memory]
+    %% Agent Logic Layer
+    subgraph Agent ["LangGraph Workflow (agent.py)"]
+        direction TB
+        NodeStart((Start)) --&gt; Retrieve[Retrieve Context]
+        Retrieve --&gt; DecideSearch{Decide Search}
         
-        Story &amp; Excel &amp; MemDB --&gt; Prompt[Construct System Prompt]
-        Prompt --&gt; LLM[Call LLM - OpenAI/OpenRouter]
-        LLM --&gt; Response[Generate Response with Image Paths]
-    end
-    
-    Response --&gt; UIProcess[UI Processing]
-    UIProcess --&gt; Regex[Extract image/xxx.jpeg paths]
-    Regex --&gt; Strip[Remove paths from display text]
-    Strip --&gt; Render[Render Markdown + Image Gallery]
-    
-    %% Memory Flow
-    Tabs -- "📝 记忆 (Memory)" --&gt; MemPage[Edit Plans/Stories]
-    MemPage --&gt; SaveMem[Save to Supabase]
-    SaveMem --&gt; Session
-
-    %% Settings Flow
-    Tabs -- "⚙️ 设置 (Settings)" --&gt; Config[Model Configuration]
-    Config --&gt; ModelSelect[Update Provider/Model]
-    ModelSelect --&gt; Session
-
-    %% Data Sources
-    subgraph "External Sources"
-        Supa[(Supabase Cloud)]
-        Local[(story.md / data.xlsx)]
-        Images[/image folder/]
+        DecideSearch -- "Search Needed" --&gt; WebSearch[Perform Web Search]
+        DecideSearch -- "No Search" --&gt; Generate
+        WebSearch --&gt; Generate[Generate Response]
+        Generate --&gt; NodeEnd((End))
     end
 
-    MemDB -.-&gt; Supa
-    SaveMem -.-&gt; Supa
-    Story &amp; Excel -.-&gt; Local
-    Render -.-&gt; Images
+    %% Data / Knowledge Layer
+    subgraph Storage ["Knowledge &amp; Configuration"]
+        StoryMD[story.md: Background Story]
+        DataXLSX[data.xlsx: Image Metadata]
+        ImageDir[image/: Local Photos]
+        Supabase[(Supabase: Persistent Memory/Plans)]
+        Config[config.py: LLM Providers &amp; API Keys]
+    end
+
+    %% External Services
+    subgraph External ["External Services"]
+        LLM[LLM APIs: Gemini/Minimax/OpenRouter]
+        SearchEngines[Tavily / DuckDuckGo]
+    end
+
+    %% Direct Connections
+    UserInput --&gt; Auth
+    Auth -- "Pass" --&gt; UIPages
+    UIPages -- "Chat Interaction" --&gt; Agent
+    
+    %% Agent Interactions
+    Retrieve -.-&gt; StoryMD
+    Retrieve -.-&gt; DataXLSX
+    Retrieve -.-&gt; Supabase
+    DecideSearch -.-&gt; LLM
+    WebSearch -.-&gt; SearchEngines
+    Generate -.-&gt; LLM
+    Generate -.-&gt; Config
+    
+    %% Output
+    NodeEnd --&gt; DisplayResponse
+    DisplayResponse -.-&gt; ImageDir
+
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -1048,7 +1051,7 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tech stack</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Python/langgraph/OpenAI SDK/Streamlit</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Python/langgraph/OpenAI SDK/Streamlit/Supabase</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu"># AI agent flow</span></span>
@@ -1056,57 +1059,60 @@ gtag('config', 'G-9NBJ66WLRT', { 'anonymize_ip': true});
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>graph TD</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    %% Entry Point</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    Start((User Access)) --&gt; Login{Login Page}</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    Login -- Wrong Key --&gt; Login</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    Login -- Correct Key --&gt; Session[Init Session State]</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    %% Navigation</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    Session --&gt; Tabs{Tab Selection}</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    %% Chat Flow</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    Tabs -- <span class="ot">"</span><span class="st">💬 问答 (Chat)</span><span class="ot">"</span> --&gt; Chat[Chat Interface]</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    Chat --&gt; UserInput[User enters Query]</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    UserInput --&gt; RunAgent[run_agent Logic]</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    subgraph <span class="ot">"</span><span class="st">Agent Workflow</span><span class="ot">"</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        RunAgent --&gt; LoadData[Load Context]</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        LoadData --&gt; Story[Read story.md]</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        LoadData --&gt; Excel[Read data.xlsx Metadata]</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>        LoadData --&gt; MemDB[Fetch Supabase Memory]</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>        Story &amp; Excel &amp; MemDB --&gt; Prompt[Construct System Prompt]</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>        Prompt --&gt; LLM[Call LLM - OpenAI/OpenRouter]</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>        LLM --&gt; Response[Generate Response with Image Paths]</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    Response --&gt; UIProcess[UI Processing]</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    UIProcess --&gt; Regex[Extract image/xxx.jpeg paths]</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    Regex --&gt; Strip[Remove paths from display text]</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    Strip --&gt; Render[Render Markdown + Image Gallery]</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    %% Memory Flow</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    Tabs -- <span class="ot">"</span><span class="st">📝 记忆 (Memory)</span><span class="ot">"</span> --&gt; MemPage[Edit Plans/Stories]</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    MemPage --&gt; SaveMem[Save to Supabase]</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    SaveMem --&gt; Session</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    %% Settings Flow</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    Tabs -- <span class="ot">"</span><span class="st">⚙️ 设置 (Settings)</span><span class="ot">"</span> --&gt; Config[Model Configuration]</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    Config --&gt; ModelSelect[Update Provider/Model]</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    ModelSelect --&gt; Session</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    %% Data Sources</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    subgraph <span class="ot">"</span><span class="st">External Sources</span><span class="ot">"</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>        Supa[(Supabase Cloud)]</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>        Local[(story.md / data.xlsx)]</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>        Images[<span class="ot">/image folder/</span>]</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    MemDB -.-&gt; Supa</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>    SaveMem -.-&gt; Supa</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    Story &amp; Excel -.-&gt; Local</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    Render -.-&gt; Images</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    %% Frontend / UI Layer</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    subgraph UI [<span class="ot">"</span><span class="st">Streamlit Frontend (app.py)</span><span class="ot">"</span>]</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        UserInput[User enters Message]</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        Auth{Auth Check}</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        UIPages[Page Navigation: Chat / Memory / Settings]</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        DisplayResponse[Display Text + Images + Download Buttons]</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    %% Agent Logic Layer</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    subgraph Agent [<span class="ot">"</span><span class="st">LangGraph Workflow (agent.py)</span><span class="ot">"</span>]</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        direction TB</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>        NodeStart((Start)) --&gt; Retrieve[Retrieve Context]</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        Retrieve --&gt; DecideSearch{Decide Search}</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        DecideSearch -- <span class="ot">"</span><span class="st">Search Needed</span><span class="ot">"</span> --&gt; WebSearch[Perform Web Search]</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        DecideSearch -- <span class="ot">"</span><span class="st">No Search</span><span class="ot">"</span> --&gt; Generate</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        WebSearch --&gt; Generate[Generate Response]</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>        Generate --&gt; NodeEnd((End))</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    %% Data / Knowledge Layer</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    subgraph Storage [<span class="ot">"</span><span class="st">Knowledge &amp; Configuration</span><span class="ot">"</span>]</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>        StoryMD[story.md: Background Story]</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>        DataXLSX[data.xlsx: Image Metadata]</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        ImageDir[image/: Local Photos]</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>        Supabase[(Supabase: Persistent Memory/Plans)]</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>        Config[config.py: LLM Providers &amp; API Keys]</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    %% External Services</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    subgraph External [<span class="ot">"</span><span class="st">External Services</span><span class="ot">"</span>]</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>        LLM[LLM APIs: Gemini/Minimax/OpenRouter]</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>        SearchEngines[Tavily / DuckDuckGo]</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    %% Direct Connections</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    UserInput --&gt; Auth</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    Auth -- <span class="ot">"</span><span class="st">Pass</span><span class="ot">"</span> --&gt; UIPages</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    UIPages -- <span class="ot">"</span><span class="st">Chat Interaction</span><span class="ot">"</span> --&gt; Agent</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    %% Agent Interactions</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    Retrieve -.-&gt; StoryMD</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    Retrieve -.-&gt; DataXLSX</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    Retrieve -.-&gt; Supabase</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    DecideSearch -.-&gt; LLM</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>    WebSearch -.-&gt; SearchEngines</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    Generate -.-&gt; LLM</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>    Generate -.-&gt; Config</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    %% Output</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    NodeEnd --&gt; DisplayResponse</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    DisplayResponse -.-&gt; ImageDir</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

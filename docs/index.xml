@@ -10,7 +10,319 @@
 <atom:link href="https://jcwinning.github.io/LandingPage/index.xml" rel="self" type="application/rss+xml"/>
 <description>A AI blog built with Quarto</description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Fri, 13 Feb 2026 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 22 Feb 2026 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Agent Skills</title>
+  <dc:creator>Tony D</dc:creator>
+  <link>https://jcwinning.github.io/LandingPage/posts/Agent_Skills/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="what-is-skills" class="level1">
+<h1>What is Skills</h1>
+<p>Agent Skills are a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows.</p>
+<p>At its core, a skill is a folder containing a SKILL.md file. This file includes metadata (name and description, at minimum) and instructions that tell an agent how to perform a specific task. Skills can also bundle scripts, templates, and reference materials.</p>
+<p>my-skill/</p>
+<p>├── SKILL.md # Required: instructions + metadata</p>
+<p>├── scripts/ # Optional: executable code</p>
+<p>├── references/ # Optional: documentation</p>
+<p>└── assets/ # Optional: templates, resources</p>
+</section>
+<section id="why-agent-skills" class="level1">
+<h1>Why Agent Skills?</h1>
+<p>Traditional AI agent extensions often require complex API integrations or custom code. Agent Skills simplify this by:</p>
+<ul>
+<li><strong>Standardization</strong>: Use a common format across different agents and IDEs.</li>
+<li><strong>Portability</strong>: Take your skills with you from Claude CLI to Trae or Antigravity.</li>
+<li><strong>Explainability</strong>: Since a skill is just a Markdown file, you can easily read and audit exactly what instructions the agent is following.</li>
+<li><strong>Versioning</strong>: Skills are just files in your repository, so they can be versioned with Git.</li>
+</ul>
+</section>
+<section id="skill.md-example" class="level1">
+<h1>Skill.md example</h1>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb1-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">name:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> code-review</span></span>
+<span id="cb1-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">description:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> Code review and quality inspection expert</span></span>
+<span id="cb1-4"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">allowed-tools:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> Read, Grep, Bash, Edit</span></span>
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"># Code Review Expert</span></span>
+<span id="cb1-8"></span>
+<span id="cb1-9">You are an experienced code reviewer who follows industry best practices.</span>
+<span id="cb1-10"></span>
+<span id="cb1-11"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## Review Focus</span></span>
+<span id="cb1-12"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">1. </span>**Code Quality**</span>
+<span id="cb1-13"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>Naming conventions</span>
+<span id="cb1-14"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>Code complexity</span>
+<span id="cb1-15"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>Code duplication</span>
+<span id="cb1-16"></span>
+<span id="cb1-17"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">2. </span>**Security**</span>
+<span id="cb1-18"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>SQL injection risks</span>
+<span id="cb1-19"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>XSS vulnerabilities</span>
+<span id="cb1-20"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>Authentication and authorization issues</span>
+<span id="cb1-21"></span>
+<span id="cb1-22"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">3. </span>**Performance**</span>
+<span id="cb1-23"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>Algorithm efficiency</span>
+<span id="cb1-24"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>Resource usage</span>
+<span id="cb1-25"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">   - </span>Caching strategies</span></code></pre></div>
+</section>
+<section id="adding-skills" class="level1">
+<h1>adding skills</h1>
+<section id="install" class="level2">
+<h2 class="anchored" data-anchor-id="install">install</h2>
+<div id="1dd05f54" class="cell" data-execution_count="1">
+<div class="code-with-filename">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1">npx skills add vercel<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>labs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>agent<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>skills</span></code></pre></div>
+</details>
+</div>
+</div>
+<div id="2aff6ba4" class="cell" data-execution_count="2">
+<div class="code-with-filename">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># List skills in a repository</span></span>
+<span id="cb3-2">npx skills add vercel<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>labs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>agent<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>skills <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span></span></code></pre></div>
+</details>
+</div>
+</div>
+<div id="d9a2e6c3" class="cell" data-execution_count="3">
+<div class="code-with-filename">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Full GitHub URL</span></span>
+<span id="cb4-2">npx skills add https:<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//</span>github.com<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>vercel<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>labs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>skills<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>tree<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>main<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>skills<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>find<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>skills</span></code></pre></div>
+</details>
+</div>
+</div>
+</section>
+<section id="search-for-skills" class="level2">
+<h2 class="anchored" data-anchor-id="search-for-skills">Search for skills</h2>
+<div id="68dc4560" class="cell" data-execution_count="4">
+<div class="code-with-filename">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1">npx skills find xxxx</span></code></pre></div>
+</details>
+</div>
+</div>
+</section>
+<section id="check-for-skill-updates" class="level2">
+<h2 class="anchored" data-anchor-id="check-for-skill-updates">Check for skill updates</h2>
+<div id="847f5efc" class="cell" data-execution_count="5">
+<div class="code-with-filename">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1">npx skills check</span></code></pre></div>
+</details>
+</div>
+</div>
+</section>
+<section id="update-all-installed-skills" class="level2">
+<h2 class="anchored" data-anchor-id="update-all-installed-skills">Update all installed skills</h2>
+<div id="aa08679f" class="cell" data-execution_count="6">
+<div class="code-with-filename">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1">npx skills update</span></code></pre></div>
+</details>
+</div>
+</div>
+</section>
+</section>
+<section id="how-agents-use-skills" class="level1">
+<h1>How Agents Use Skills</h1>
+<p>Agents don’t load all skills into memory at once. Instead, they follow a “Just-In-Time” activation pattern:</p>
+<ol type="1">
+<li><strong>Detection</strong>: The agent scans the <code>description</code> of all available skills.</li>
+<li><strong>Matching</strong>: When a user’s request matches a skill’s description, the agent reads the full <code>SKILL.md</code> content.</li>
+<li><strong>Execution</strong>: The agent follows the instructions in the <code>SKILL.md</code>, potentially calling scripts or using references bundled in the skill folder.</li>
+</ol>
+</section>
+<section id="set-up-for-different-agents" class="level1">
+<h1>set up for different Agents</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Claude Code CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Gemini CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">Opencode CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" aria-controls="tabset-1-4" aria-selected="false" href="">Antigravity IDE</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" aria-controls="tabset-1-5" aria-selected="false" href="">Trae IDE</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" aria-controls="tabset-1-6" aria-selected="false" href="">CodeBuddy IDE</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<section id="user-level" class="level3">
+<h3 class="anchored" data-anchor-id="user-level">user level</h3>
+<p><code>~/.claude/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+<section id="project-level" class="level3">
+<h3 class="anchored" data-anchor-id="project-level">project level</h3>
+<p><code>your_project/.claude/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<section id="user-level-1" class="level3">
+<h3 class="anchored" data-anchor-id="user-level-1">user level</h3>
+<p><code>~/.agents/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+<section id="project-level-1" class="level3">
+<h3 class="anchored" data-anchor-id="project-level-1">project level</h3>
+<p><code>your_project/.agent/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
+<section id="user-level-2" class="level3">
+<h3 class="anchored" data-anchor-id="user-level-2">user level</h3>
+<p><code>~/.opencode/skill/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+<section id="project-level-2" class="level3">
+<h3 class="anchored" data-anchor-id="project-level-2">project level</h3>
+<p><code>your_project/.agent/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+</div>
+<div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
+<section id="user-level-3" class="level3">
+<h3 class="anchored" data-anchor-id="user-level-3">user level</h3>
+<p><code>~/.gemini/antigravity/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+<section id="project-level-3" class="level3">
+<h3 class="anchored" data-anchor-id="project-level-3">project level</h3>
+<p><code>your_project/.agent/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+</div>
+<div id="tabset-1-5" class="tab-pane" aria-labelledby="tabset-1-5-tab">
+<section id="user-level-4" class="level3">
+<h3 class="anchored" data-anchor-id="user-level-4">user level</h3>
+<p><code>~/.trae/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+<section id="project-level-4" class="level3">
+<h3 class="anchored" data-anchor-id="project-level-4">project level</h3>
+<p><code>your_project/.trae/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+</div>
+<div id="tabset-1-6" class="tab-pane" aria-labelledby="tabset-1-6-tab">
+<section id="user-level-5" class="level3">
+<h3 class="anchored" data-anchor-id="user-level-5">user level</h3>
+<p><code>~/.codebuddy/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+<section id="project-level-5" class="level3">
+<h3 class="anchored" data-anchor-id="project-level-5">project level</h3>
+<p><code>your_project/.codebuddy/skills/&lt;skill-name&gt;/SKILL.md</code></p>
+</section>
+</div>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+ ]]></description>
+  <category>AI</category>
+  <category>Skills</category>
+  <guid>https://jcwinning.github.io/LandingPage/posts/Agent_Skills/</guid>
+  <pubDate>Sun, 22 Feb 2026 16:00:00 GMT</pubDate>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/Agent_Skills/images/my screenshots.png" medium="image" type="image/png" height="80" width="144"/>
+</item>
 <item>
   <title>A Love Agent</title>
   <dc:creator>Tony D</dc:creator>
@@ -43,7 +355,7 @@
 </section>
 <section id="tech-stack" class="level1">
 <h1>Tech stack</h1>
-<p>Python/langgraph/OpenAI SDK/Streamlit</p>
+<p>Python/langgraph/OpenAI SDK/Streamlit/Supabase</p>
 </section>
 <section id="ai-agent-flow" class="level1">
 <h1>AI agent flow</h1>
@@ -53,56 +365,59 @@
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">graph TD
-    %% Entry Point
-    Start((User Access)) --&gt; Login{Login Page}
-    Login -- Wrong Key --&gt; Login
-    Login -- Correct Key --&gt; Session[Init Session State]
+    %% Frontend / UI Layer
+    subgraph UI ["Streamlit Frontend (app.py)"]
+        UserInput[User enters Message]
+        Auth{Auth Check}
+        UIPages[Page Navigation: Chat / Memory / Settings]
+        DisplayResponse[Display Text + Images + Download Buttons]
+    end
 
-    %% Navigation
-    Session --&gt; Tabs{Tab Selection}
-    
-    %% Chat Flow
-    Tabs -- "💬 问答 (Chat)" --&gt; Chat[Chat Interface]
-    Chat --&gt; UserInput[User enters Query]
-    UserInput --&gt; RunAgent[run_agent Logic]
-    
-    subgraph "Agent Workflow"
-        RunAgent --&gt; LoadData[Load Context]
-        LoadData --&gt; Story[Read story.md]
-        LoadData --&gt; Excel[Read data.xlsx Metadata]
-        LoadData --&gt; MemDB[Fetch Supabase Memory]
+    %% Agent Logic Layer
+    subgraph Agent ["LangGraph Workflow (agent.py)"]
+        direction TB
+        NodeStart((Start)) --&gt; Retrieve[Retrieve Context]
+        Retrieve --&gt; DecideSearch{Decide Search}
         
-        Story &amp; Excel &amp; MemDB --&gt; Prompt[Construct System Prompt]
-        Prompt --&gt; LLM[Call LLM - OpenAI/OpenRouter]
-        LLM --&gt; Response[Generate Response with Image Paths]
-    end
-    
-    Response --&gt; UIProcess[UI Processing]
-    UIProcess --&gt; Regex[Extract image/xxx.jpeg paths]
-    Regex --&gt; Strip[Remove paths from display text]
-    Strip --&gt; Render[Render Markdown + Image Gallery]
-    
-    %% Memory Flow
-    Tabs -- "📝 记忆 (Memory)" --&gt; MemPage[Edit Plans/Stories]
-    MemPage --&gt; SaveMem[Save to Supabase]
-    SaveMem --&gt; Session
-
-    %% Settings Flow
-    Tabs -- "⚙️ 设置 (Settings)" --&gt; Config[Model Configuration]
-    Config --&gt; ModelSelect[Update Provider/Model]
-    ModelSelect --&gt; Session
-
-    %% Data Sources
-    subgraph "External Sources"
-        Supa[(Supabase Cloud)]
-        Local[(story.md / data.xlsx)]
-        Images[/image folder/]
+        DecideSearch -- "Search Needed" --&gt; WebSearch[Perform Web Search]
+        DecideSearch -- "No Search" --&gt; Generate
+        WebSearch --&gt; Generate[Generate Response]
+        Generate --&gt; NodeEnd((End))
     end
 
-    MemDB -.-&gt; Supa
-    SaveMem -.-&gt; Supa
-    Story &amp; Excel -.-&gt; Local
-    Render -.-&gt; Images
+    %% Data / Knowledge Layer
+    subgraph Storage ["Knowledge &amp; Configuration"]
+        StoryMD[story.md: Background Story]
+        DataXLSX[data.xlsx: Image Metadata]
+        ImageDir[image/: Local Photos]
+        Supabase[(Supabase: Persistent Memory/Plans)]
+        Config[config.py: LLM Providers &amp; API Keys]
+    end
+
+    %% External Services
+    subgraph External ["External Services"]
+        LLM[LLM APIs: Gemini/Minimax/OpenRouter]
+        SearchEngines[Tavily / DuckDuckGo]
+    end
+
+    %% Direct Connections
+    UserInput --&gt; Auth
+    Auth -- "Pass" --&gt; UIPages
+    UIPages -- "Chat Interaction" --&gt; Agent
+    
+    %% Agent Interactions
+    Retrieve -.-&gt; StoryMD
+    Retrieve -.-&gt; DataXLSX
+    Retrieve -.-&gt; Supabase
+    DecideSearch -.-&gt; LLM
+    WebSearch -.-&gt; SearchEngines
+    Generate -.-&gt; LLM
+    Generate -.-&gt; Config
+    
+    %% Output
+    NodeEnd --&gt; DisplayResponse
+    DisplayResponse -.-&gt; ImageDir
+
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -15477,22 +15792,15 @@ background-color: null;
 font-style: inherit;">"What coupons are available right now?"</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>### 当前可领取/可用麦麦省优惠券：
-（所有券状态均为**已领取**，可用于点餐）
+<pre><code>以下是当前可领取/已领取的麦麦省优惠券：
 
-- **北非蛋风味麦满分特惠组合**  
-  ![优惠券图片](https://img.mcd.cn/cms/images/976d345a0a6cdee4.png)
+- **北非蛋风味麦满分特惠组合** (已领取)
+- **9.9元大薯条** (已领取)
+- **9.9元新派组合** (已领取)
+- **北非蛋风味麦满分** (已领取)
+- **十块香骨鸡欢享盒** (已领取)
 
-- **9.9元大薯条**  
-  ![优惠券图片](https://img.mcd.cn/cms/images/22dd47c35c7491a8.png)
-
-- **9.9元新派组合**  
-  ![优惠券图片](https://img.mcd.cn/cms/images/3613b3a9ea0ae5a0.png)
-
-- **北非蛋风味麦满分**  
-  ![优惠券图片](https://img.mcd.cn/cms/images/832efe5d5830ee72.png)
-
-想查看我的优惠券列表？说“我的优惠券”。</code></pre>
+想自动领取所有可用券？说“帮我领券”。或选地址查看门店可用券。</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -15510,8 +15818,9 @@ background-color: null;
 font-style: inherit;">"Help me claim all available coupons."</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>❌ **暂无可领取的优惠券**。  
-之前查询的券已全部领取，可在“我的优惠券”查看使用。</code></pre>
+<pre><code>所有可用优惠券已领取完毕，无新券可领。
+
+查看门店可用券？请先提供配送地址（或说“查询地址”）。或直接点餐！</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -15529,17 +15838,16 @@ background-color: null;
 font-style: inherit;">"Help me design a 1000-calorie meal that includes a sugared cola and costs no more than 30 yuan."</span>)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>### 推荐1000kcal餐点（预算内最接近：928kcal，总价≈¥28.8）
+<pre><code>**Suggested 1000-cal meal (971 kcal total, ~29 yuan with your coupons):**
 
-使用你的2张可用券（9.9大薯条 + 9.9新派组合，周一-五10:45后可用；早餐券现过期）+标准含糖可乐。
+- **9.9元大薯条** (379 kcal, using your coupon)
+- **麦辣鸡腿汉堡** (485 kcal, ~20 yuan typical)
+- **可乐小杯** (107 kcal, sugared, ~9 yuan)
 
-- **9.9元大薯条** (379kcal, 蛋白6g, 脂16g, 碳水50g)
-- **9.9元新派组合** (≈442kcal, 估香芋/菠萝派232kcal + 小薯210kcal; 蛋白5g, 脂21g, 碳水55g)
-- **可乐小杯** (107kcal, 碳水26g; ≈¥9.9)
+Under 30 yuan budget. Calories close to target.
 
-**总计**：928kcal | **≈¥28.8** | 蛋白≈17g, 脂≈42g, 碳水≈131g, 钠≈500mg
-
-价格依门店/APP实时（典型价），热量精确匹配营养库。点餐时选“含糖可乐”。健康提示：碳水高，适量就好！</code></pre>
+To confirm exact price/nutrition/product codes for your store + apply coupons: 
+Say "查询地址" or provide city/address. Then we can calculate &amp; order!</code></pre>
 </div>
 </div>
 </section>
@@ -15822,7 +16130,7 @@ font-style: inherit;">"Help me design a 1000-calorie meal that includes a sugare
 <section id="agent-with-mcp" class="level1">
 <h1>Agent with MCP</h1>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true" href="">Claude Code CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false" href="">Gemini CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" aria-controls="tabset-2-3" aria-selected="false" href="">In Opencode CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" aria-controls="tabset-2-4" aria-selected="false" href="">Antigravity IDE</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" aria-controls="tabset-2-5" aria-selected="false" href="">Trae IDE</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" aria-controls="tabset-2-6" aria-selected="false" href="">Cody Buddy IDE</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-7" aria-controls="tabset-2-7" aria-selected="false" href="">Qoder IDE</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-8" aria-controls="tabset-2-8" aria-selected="false" href="">Cline VS Code</a></li></ul>
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true" href="">Claude Code CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false" href="">Gemini CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" aria-controls="tabset-2-3" aria-selected="false" href="">In Opencode CLI</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" aria-controls="tabset-2-4" aria-selected="false" href="">Antigravity IDE</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" aria-controls="tabset-2-5" aria-selected="false" href="">Trae IDE</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" aria-controls="tabset-2-6" aria-selected="false" href="">Codebuddy IDE</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
 <p>Replace “xxx” with your token and add the following setting to the user-level or project-level config file</p>
@@ -16080,13 +16388,82 @@ font-style: inherit;">"Authorization: Bearer xxx"</span></span>
 </section>
 </div>
 <div id="tabset-2-6" class="tab-pane" aria-labelledby="tabset-2-6-tab">
-<p>Coming soon.</p>
+<p>Replace “xxx” with your token and add the following setting to the user-level or project-level config file.</p>
+<section id="json-file-5" class="level3">
+<h3 class="anchored" data-anchor-id="json-file-5">JSON File</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb21-2">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"mcpServers"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb21-3">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"mcd-mcp"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb21-4">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"command"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"npx"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb21-5">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"args"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb21-6">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mcp-remote"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb21-7">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://mcp.mcd.cn/mcp-servers/mcd-mcp"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb21-8">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--header"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb21-9">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Authorization: Bearer xxx"</span></span>
+<span id="cb21-10">      <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb21-11">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb21-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb21-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</details>
 </div>
-<div id="tabset-2-7" class="tab-pane" aria-labelledby="tabset-2-7-tab">
-<p>Coming soon.</p>
-</div>
-<div id="tabset-2-8" class="tab-pane" aria-labelledby="tabset-2-8-tab">
-<p>Coming soon.</p>
+<p><em>User-Level Config</em>:</p>
+<p>~/.codebuddy/.mcp.json</p>
+<p><em>Project-Level Config</em>:</p>
+<p>your_project/.mcp.json</p>
+</section>
 </div>
 </div>
 </div>

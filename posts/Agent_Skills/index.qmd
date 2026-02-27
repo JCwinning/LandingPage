@@ -1,0 +1,209 @@
+---
+title: "Agent Skills"
+author: "Tony D"
+date: "2026-02-23"
+categories: [AI, Skills]
+image: "images/my screenshots.png"
+format:
+  html:
+    code-fold: show
+    code-tools: true
+    code-copy: false
+execute:
+  warning: false
+
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# What is Skills
+
+Agent Skills are a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows.
+
+At its core, a skill is a folder containing a SKILL.md file. This file includes metadata (name and description, at minimum) and instructions that tell an agent how to perform a specific task. Skills can also bundle scripts, templates, and reference materials.
+
+
+my-skill/
+
+├── SKILL.md          # Required: instructions + metadata
+
+├── scripts/          # Optional: executable code
+
+├── references/       # Optional: documentation
+
+└── assets/           # Optional: templates, resources
+
+# Why Agent Skills?
+
+Traditional AI agent extensions often require complex API integrations or custom code. Agent Skills simplify this by:
+
+- **Standardization**: Use a common format across different agents and IDEs.
+- **Portability**: Take your skills with you from Claude CLI to Trae or Antigravity.
+- **Explainability**: Since a skill is just a Markdown file, you can easily read and audit exactly what instructions the agent is following.
+- **Versioning**: Skills are just files in your repository, so they can be versioned with Git.
+
+# Skill.md example
+
+```markdown
+---
+name: code-review
+description: Code review and quality inspection expert
+allowed-tools: Read, Grep, Bash, Edit
+---
+
+# Code Review Expert
+
+You are an experienced code reviewer who follows industry best practices.
+
+## Review Focus
+1. **Code Quality**
+   - Naming conventions
+   - Code complexity
+   - Code duplication
+
+2. **Security**
+   - SQL injection risks
+   - XSS vulnerabilities
+   - Authentication and authorization issues
+
+3. **Performance**
+   - Algorithm efficiency
+   - Resource usage
+   - Caching strategies
+```
+
+
+# adding skills
+
+## install
+
+```{python}
+#| eval: false
+#| filename: "Terminal"
+npx skills add vercel-labs/agent-skills
+```
+
+
+```{python}
+#| eval: false
+#| filename: "Terminal"
+# List skills in a repository
+npx skills add vercel-labs/agent-skills --list
+```
+
+```{python}
+#| eval: false
+#| filename: "Terminal"
+# Full GitHub URL
+npx skills add https://github.com/vercel-labs/skills/tree/main/skills/find-skills
+```
+
+
+## Search for skills
+
+```{python}
+#| eval: false
+#| filename: "Terminal"
+npx skills find xxxx
+```
+
+## Check for skill updates
+
+```{python}
+#| eval: false
+#| filename: "Terminal"
+npx skills check
+```
+
+
+## Update all installed skills
+
+```{python}
+#| eval: false
+#| filename: "Terminal"
+npx skills update
+```
+
+# How Agents Use Skills
+
+Agents don't load all skills into memory at once. Instead, they follow a "Just-In-Time" activation pattern:
+
+1. **Detection**: The agent scans the `description` of all available skills.
+2. **Matching**: When a user's request matches a skill's description, the agent reads the full `SKILL.md` content.
+3. **Execution**: The agent follows the instructions in the `SKILL.md`, potentially calling scripts or using references bundled in the skill folder.
+
+
+
+# set up for different Agents
+
+
+
+::: panel-tabset
+
+## Claude Code CLI
+
+### user level
+
+`~/.claude/skills/<skill-name>/SKILL.md`
+
+### project level
+
+`your_project/.claude/skills/<skill-name>/SKILL.md`
+
+## Gemini CLI
+
+### user level
+
+`~/.agents/skills/<skill-name>/SKILL.md`
+
+### project level
+
+`your_project/.agent/skills/<skill-name>/SKILL.md`
+
+## Opencode CLI
+
+### user level
+
+`~/.opencode/skill/<skill-name>/SKILL.md`
+
+### project level
+
+`your_project/.agent/skills/<skill-name>/SKILL.md`
+
+
+## Antigravity IDE
+
+### user level
+
+`~/.gemini/antigravity/skills/<skill-name>/SKILL.md`
+
+### project level
+
+`your_project/.agent/skills/<skill-name>/SKILL.md`
+
+## Trae IDE
+
+### user level
+
+`~/.trae/skills/<skill-name>/SKILL.md`
+
+### project level
+
+`your_project/.trae/skills/<skill-name>/SKILL.md`
+
+
+## CodeBuddy IDE
+
+### user level
+
+`~/.codebuddy/skills/<skill-name>/SKILL.md`
+
+### project level
+
+`your_project/.codebuddy/skills/<skill-name>/SKILL.md`
+
+
+
+:::
+
