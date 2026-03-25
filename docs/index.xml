@@ -10,7 +10,1009 @@
 <atom:link href="https://jcwinning.github.io/LandingPage/index.xml" rel="self" type="application/rss+xml"/>
 <description>A AI blog built with Quarto</description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sun, 22 Feb 2026 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 23 Mar 2026 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>mall package - AI NLP</title>
+  <dc:creator>Tony D</dc:creator>
+  <link>https://jcwinning.github.io/LandingPage/posts/LLM_tool/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Use Large Language Models (LLM) to run Natural Language Processing (NLP) operations against your data. It takes advantage of the LLMs general language training in order to get the predictions, thus removing the need to train a new NLP model. mall is available for R and Python.</p>
+<section id="install-package" class="level1">
+<h1>install package</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">pip install mlverse<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>mall</span>
+<span id="cb1-2">pip install chatlas</span></code></pre></div></div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">install.packages(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mall"</span>)</span>
+<span id="cb2-2">install.packages(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ellmer"</span>)</span></code></pre></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-package" class="level1">
+<h1>load package</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> os</span>
+<span id="cb3-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> mall</span>
+<span id="cb3-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> chatlas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> ChatOpenRouter</span>
+<span id="cb3-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> dotenv <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> load_dotenv</span>
+<span id="cb3-5"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pl</span>
+<span id="cb3-6">load_dotenv()</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(mall)</span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ellmer)</span>
+<span id="cb5-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dotenv)</span>
+<span id="cb5-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># This looks for a .env file in the current working directory</span></span>
+<span id="cb5-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">load_dot_env</span>()</span></code></pre></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-data" class="level1">
+<h1>download data</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" aria-controls="tabset-3-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" aria-controls="tabset-3-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-3-1" class="tab-pane active" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">url <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://raw.githubusercontent.com/Ankit152/IMDB-sentiment-analysis/master/IMDB-Dataset.csv"</span></span>
+<span id="cb6-2">file_path <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data.csv"</span></span>
+<span id="cb6-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> os.path.exists(file_path):</span>
+<span id="cb6-4">    <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> urllib.request</span>
+<span id="cb6-5">    urllib.request.urlretrieve(url, file_path)</span>
+<span id="cb6-6"></span>
+<span id="cb6-7">imdb_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pl.read_csv(file_path).rename({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sentiment"</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"old_sentiment"</span>})</span>
+<span id="cb6-8">reviews <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> imdb_data.head(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb6-9">reviews</span></code></pre></div></div>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 2)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">review</th>
+<th data-quarto-table-cell-role="th">old_sentiment</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>str</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"One of the other reviewers has…</td>
+<td>"positive"</td>
+</tr>
+<tr class="even">
+<td>"A wonderful little production.…</td>
+<td>"positive"</td>
+</tr>
+<tr class="odd">
+<td>"I thought this was a wonderful…</td>
+<td>"positive"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://raw.githubusercontent.com/Ankit152/IMDB-sentiment-analysis/master/IMDB-Dataset.csv"</span></span>
+<span id="cb7-2">file_path <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data.csv"</span></span>
+<span id="cb7-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">file.exists</span>(file_path)) {</span>
+<span id="cb7-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">download.file</span>(url, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">destfile =</span> file_path)</span>
+<span id="cb7-5">}</span>
+<span id="cb7-6">imdb_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read.csv</span>(file_path) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rename</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">old_sentiment =</span> sentiment)</span>
+<span id="cb7-7">reviews <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(imdb_data, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb7-8">reviews</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             review
+1 One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.&lt;br /&gt;&lt;br /&gt;The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Trust me, this is not a show for the faint hearted or timid. This show pulls no punches with regards to drugs, sex or violence. Its is hardcore, in the classic use of the word.&lt;br /&gt;&lt;br /&gt;It is called OZ as that is the nickname given to the Oswald Maximum Security State Penitentary. It focuses mainly on Emerald City, an experimental section of the prison where all the cells have glass fronts and face inwards, so privacy is not high on the agenda. Em City is home to many..Aryans, Muslims, gangstas, Latinos, Christians, Italians, Irish and more....so scuffles, death stares, dodgy dealings and shady agreements are never far away.&lt;br /&gt;&lt;br /&gt;I would say the main appeal of the show is due to the fact that it goes where other shows wouldn't dare. Forget pretty pictures painted for mainstream audiences, forget charm, forget romance...OZ doesn't mess around. The first episode I ever saw struck me as so nasty it was surreal, I couldn't say I was ready for it, but as I watched more, I developed a taste for Oz, and got accustomed to the high levels of graphic violence. Not just violence, but injustice (crooked guards who'll be sold out for a nickel, inmates who'll kill on order and get away with it, well mannered, middle class inmates being turned into prison bitches due to their lack of street skills or prison experience) Watching Oz, you may become comfortable with what is uncomfortable viewing....thats if you can get in touch with your darker side.
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            A wonderful little production. &lt;br /&gt;&lt;br /&gt;The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. &lt;br /&gt;&lt;br /&gt;The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master's of comedy and his life. &lt;br /&gt;&lt;br /&gt;The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional 'dream' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell's murals decorating every surface) are terribly well done.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty and the characters are likable (even the well bread suspected serial killer). While some may be disappointed when they realize this is not Match Point 2: Risk Addiction, I thought it was proof that Woody Allen is still fully in control of the style many of us have grown to love.&lt;br /&gt;&lt;br /&gt;This was the most I'd laughed at one of Woody's comedies in years (dare I say a decade?). While I've never been impressed with Scarlet Johanson, in this she managed to tone down her "sexy" image and jumped right into a average, but spirited young woman.&lt;br /&gt;&lt;br /&gt;This may not be the crown jewel of his career, but it was wittier than "Devil Wears Prada" and more interesting than "Superman" a great comedy to go see with friends.
+  old_sentiment
+1      positive
+2      positive
+3      positive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-up-model" class="level1">
+<h1>set up model</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" aria-controls="tabset-4-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" aria-controls="tabset-4-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-4-1" class="tab-pane active" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">chat <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> ChatOpenRouter(base_url<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'https://openrouter.ai/api/v1'</span>,</span>
+<span id="cb9-2">                      api_key<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>os.getenv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"OPENROUTER_API_KEY"</span>),</span>
+<span id="cb9-3">                      model<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"minimax/minimax-m2.7"</span></span>
+<span id="cb9-4">                      )</span></code></pre></div></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">reviews.llm.use(chat)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'backend': 'chatlas', 'chat': &lt;Chat OpenRouter/minimax/minimax-m2.7 turns=0 tokens=0/0&gt;
+, '_cache': '_mall_cache'}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">chat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">chat_openrouter</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">api_key=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Sys.getenv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"OPENROUTER_API_KEY"</span>),</span>
+<span id="cb12-2">                      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">model=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"minimax/minimax-m2.7"</span></span>
+<span id="cb12-3">                      )</span></code></pre></div></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_use</span>(chat)</span></code></pre></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sentiment" class="level1">
+<h1>Sentiment</h1>
+<p>Automatically returns “positive”, “negative”, or “neutral” based on the text.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" aria-controls="tabset-5-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" aria-controls="tabset-5-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-5-1" class="tab-pane active" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">reviews.llm.sentiment(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review"</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 3)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">review</th>
+<th data-quarto-table-cell-role="th">old_sentiment</th>
+<th data-quarto-table-cell-role="th">sentiment</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>str</td>
+<td>str</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"One of the other reviewers has…</td>
+<td>"positive"</td>
+<td>"positive"</td>
+</tr>
+<tr class="even">
+<td>"A wonderful little production.…</td>
+<td>"positive"</td>
+<td>"positive"</td>
+</tr>
+<tr class="odd">
+<td>"I thought this was a wonderful…</td>
+<td>"positive"</td>
+<td>"positive"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">reviews <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb15-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_sentiment</span>(review)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             review
+1 One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.&lt;br /&gt;&lt;br /&gt;The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Trust me, this is not a show for the faint hearted or timid. This show pulls no punches with regards to drugs, sex or violence. Its is hardcore, in the classic use of the word.&lt;br /&gt;&lt;br /&gt;It is called OZ as that is the nickname given to the Oswald Maximum Security State Penitentary. It focuses mainly on Emerald City, an experimental section of the prison where all the cells have glass fronts and face inwards, so privacy is not high on the agenda. Em City is home to many..Aryans, Muslims, gangstas, Latinos, Christians, Italians, Irish and more....so scuffles, death stares, dodgy dealings and shady agreements are never far away.&lt;br /&gt;&lt;br /&gt;I would say the main appeal of the show is due to the fact that it goes where other shows wouldn't dare. Forget pretty pictures painted for mainstream audiences, forget charm, forget romance...OZ doesn't mess around. The first episode I ever saw struck me as so nasty it was surreal, I couldn't say I was ready for it, but as I watched more, I developed a taste for Oz, and got accustomed to the high levels of graphic violence. Not just violence, but injustice (crooked guards who'll be sold out for a nickel, inmates who'll kill on order and get away with it, well mannered, middle class inmates being turned into prison bitches due to their lack of street skills or prison experience) Watching Oz, you may become comfortable with what is uncomfortable viewing....thats if you can get in touch with your darker side.
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            A wonderful little production. &lt;br /&gt;&lt;br /&gt;The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. &lt;br /&gt;&lt;br /&gt;The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master's of comedy and his life. &lt;br /&gt;&lt;br /&gt;The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional 'dream' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell's murals decorating every surface) are terribly well done.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty and the characters are likable (even the well bread suspected serial killer). While some may be disappointed when they realize this is not Match Point 2: Risk Addiction, I thought it was proof that Woody Allen is still fully in control of the style many of us have grown to love.&lt;br /&gt;&lt;br /&gt;This was the most I'd laughed at one of Woody's comedies in years (dare I say a decade?). While I've never been impressed with Scarlet Johanson, in this she managed to tone down her "sexy" image and jumped right into a average, but spirited young woman.&lt;br /&gt;&lt;br /&gt;This may not be the crown jewel of his career, but it was wittier than "Devil Wears Prada" and more interesting than "Superman" a great comedy to go see with friends.
+  old_sentiment .sentiment
+1      positive   positive
+2      positive   positive
+3      positive   positive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summarize" class="level1">
+<h1>Summarize</h1>
+<p>There may be a need to reduce the number of words in a given text. Typically to make it easier to understand its intent. The function has an argument to control the maximum number of words to output (max_words):</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" aria-controls="tabset-6-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" aria-controls="tabset-6-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-6-1" class="tab-pane active" aria-labelledby="tabset-6-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">result<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>reviews.llm.summarize(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review"</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)</span>
+<span id="cb17-2">result</span></code></pre></div></div>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 3)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">review</th>
+<th data-quarto-table-cell-role="th">old_sentiment</th>
+<th data-quarto-table-cell-role="th">summary</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>str</td>
+<td>str</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"One of the other reviewers has…</td>
+<td>"positive"</td>
+<td>"brutal prison show not for fai…</td>
+</tr>
+<tr class="even">
+<td>"A wonderful little production.…</td>
+<td>"positive"</td>
+<td>"michael sheen excels masterful…</td>
+</tr>
+<tr class="odd">
+<td>"I thought this was a wonderful…</td>
+<td>"positive"</td>
+<td>"lighthearted comedy proof wood…</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">result<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span>reviews <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb18-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_summarize</span>(review, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max_words =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)</span>
+<span id="cb18-3">result</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             review
+1 One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.&lt;br /&gt;&lt;br /&gt;The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Trust me, this is not a show for the faint hearted or timid. This show pulls no punches with regards to drugs, sex or violence. Its is hardcore, in the classic use of the word.&lt;br /&gt;&lt;br /&gt;It is called OZ as that is the nickname given to the Oswald Maximum Security State Penitentary. It focuses mainly on Emerald City, an experimental section of the prison where all the cells have glass fronts and face inwards, so privacy is not high on the agenda. Em City is home to many..Aryans, Muslims, gangstas, Latinos, Christians, Italians, Irish and more....so scuffles, death stares, dodgy dealings and shady agreements are never far away.&lt;br /&gt;&lt;br /&gt;I would say the main appeal of the show is due to the fact that it goes where other shows wouldn't dare. Forget pretty pictures painted for mainstream audiences, forget charm, forget romance...OZ doesn't mess around. The first episode I ever saw struck me as so nasty it was surreal, I couldn't say I was ready for it, but as I watched more, I developed a taste for Oz, and got accustomed to the high levels of graphic violence. Not just violence, but injustice (crooked guards who'll be sold out for a nickel, inmates who'll kill on order and get away with it, well mannered, middle class inmates being turned into prison bitches due to their lack of street skills or prison experience) Watching Oz, you may become comfortable with what is uncomfortable viewing....thats if you can get in touch with your darker side.
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            A wonderful little production. &lt;br /&gt;&lt;br /&gt;The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. &lt;br /&gt;&lt;br /&gt;The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master's of comedy and his life. &lt;br /&gt;&lt;br /&gt;The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional 'dream' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell's murals decorating every surface) are terribly well done.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty and the characters are likable (even the well bread suspected serial killer). While some may be disappointed when they realize this is not Match Point 2: Risk Addiction, I thought it was proof that Woody Allen is still fully in control of the style many of us have grown to love.&lt;br /&gt;&lt;br /&gt;This was the most I'd laughed at one of Woody's comedies in years (dare I say a decade?). While I've never been impressed with Scarlet Johanson, in this she managed to tone down her "sexy" image and jumped right into a average, but spirited young woman.&lt;br /&gt;&lt;br /&gt;This may not be the crown jewel of his career, but it was wittier than "Devil Wears Prada" and more interesting than "Superman" a great comedy to go see with friends.
+  old_sentiment
+1      positive
+2      positive
+3      positive
+                                                                 .summary
+1       oz hooks viewers with brutal unflinching hardcore prison violence
+2 masterful production with superb acting realism and attention to detail
+3               enjoyable witty woody allen comedy perfect summer viewing</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">result<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>.summary</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "oz hooks viewers with brutal unflinching hardcore prison violence"      
+[2] "masterful production with superb acting realism and attention to detail"
+[3] "enjoyable witty woody allen comedy perfect summer viewing"              </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="classify" class="level1">
+<h1>Classify</h1>
+<p>Use the LLM to categorize the text into one of the options you provide:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" aria-controls="tabset-7-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" aria-controls="tabset-7-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-7-1" class="tab-pane active" aria-labelledby="tabset-7-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1">reviews.llm.classify(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review"</span>, [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"happy"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"unhappy"</span>])</span></code></pre></div></div>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 3)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">review</th>
+<th data-quarto-table-cell-role="th">old_sentiment</th>
+<th data-quarto-table-cell-role="th">classify</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>str</td>
+<td>str</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"One of the other reviewers has…</td>
+<td>"positive"</td>
+<td>"happy"</td>
+</tr>
+<tr class="even">
+<td>"A wonderful little production.…</td>
+<td>"positive"</td>
+<td>"happy"</td>
+</tr>
+<tr class="odd">
+<td>"I thought this was a wonderful…</td>
+<td>"positive"</td>
+<td>"happy"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-2" class="tab-pane" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">reviews <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb23-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_classify</span>(review, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"happy"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"unhappy"</span>))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             review
+1 One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.&lt;br /&gt;&lt;br /&gt;The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Trust me, this is not a show for the faint hearted or timid. This show pulls no punches with regards to drugs, sex or violence. Its is hardcore, in the classic use of the word.&lt;br /&gt;&lt;br /&gt;It is called OZ as that is the nickname given to the Oswald Maximum Security State Penitentary. It focuses mainly on Emerald City, an experimental section of the prison where all the cells have glass fronts and face inwards, so privacy is not high on the agenda. Em City is home to many..Aryans, Muslims, gangstas, Latinos, Christians, Italians, Irish and more....so scuffles, death stares, dodgy dealings and shady agreements are never far away.&lt;br /&gt;&lt;br /&gt;I would say the main appeal of the show is due to the fact that it goes where other shows wouldn't dare. Forget pretty pictures painted for mainstream audiences, forget charm, forget romance...OZ doesn't mess around. The first episode I ever saw struck me as so nasty it was surreal, I couldn't say I was ready for it, but as I watched more, I developed a taste for Oz, and got accustomed to the high levels of graphic violence. Not just violence, but injustice (crooked guards who'll be sold out for a nickel, inmates who'll kill on order and get away with it, well mannered, middle class inmates being turned into prison bitches due to their lack of street skills or prison experience) Watching Oz, you may become comfortable with what is uncomfortable viewing....thats if you can get in touch with your darker side.
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            A wonderful little production. &lt;br /&gt;&lt;br /&gt;The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. &lt;br /&gt;&lt;br /&gt;The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master's of comedy and his life. &lt;br /&gt;&lt;br /&gt;The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional 'dream' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell's murals decorating every surface) are terribly well done.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty and the characters are likable (even the well bread suspected serial killer). While some may be disappointed when they realize this is not Match Point 2: Risk Addiction, I thought it was proof that Woody Allen is still fully in control of the style many of us have grown to love.&lt;br /&gt;&lt;br /&gt;This was the most I'd laughed at one of Woody's comedies in years (dare I say a decade?). While I've never been impressed with Scarlet Johanson, in this she managed to tone down her "sexy" image and jumped right into a average, but spirited young woman.&lt;br /&gt;&lt;br /&gt;This may not be the crown jewel of his career, but it was wittier than "Devil Wears Prada" and more interesting than "Superman" a great comedy to go see with friends.
+  old_sentiment .classify
+1      positive     happy
+2      positive     happy
+3      positive     happy</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="extract" class="level1">
+<h1>Extract</h1>
+<p>One of the most interesting use cases Using natural language, we can tell the LLM to return a specific part of the text. In the following example, we request that the LLM return the product being referred to. We do this by simply saying “feeling”. The LLM understands what we mean by that word, and looks for that in the text.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" aria-controls="tabset-8-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" aria-controls="tabset-8-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-8-1" class="tab-pane active" aria-labelledby="tabset-8-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1">reviews.llm.extract(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"feeling"</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 3)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">review</th>
+<th data-quarto-table-cell-role="th">old_sentiment</th>
+<th data-quarto-table-cell-role="th">extract</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>str</td>
+<td>str</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"One of the other reviewers has…</td>
+<td>"positive"</td>
+<td>"hooked"</td>
+</tr>
+<tr class="even">
+<td>"A wonderful little production.…</td>
+<td>"positive"</td>
+<td>"admiration"</td>
+</tr>
+<tr class="odd">
+<td>"I thought this was a wonderful…</td>
+<td>"positive"</td>
+<td>"enjoyment"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-2" class="tab-pane" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">reviews <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb26-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_extract</span>(review, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"feeling"</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             review
+1 One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.&lt;br /&gt;&lt;br /&gt;The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Trust me, this is not a show for the faint hearted or timid. This show pulls no punches with regards to drugs, sex or violence. Its is hardcore, in the classic use of the word.&lt;br /&gt;&lt;br /&gt;It is called OZ as that is the nickname given to the Oswald Maximum Security State Penitentary. It focuses mainly on Emerald City, an experimental section of the prison where all the cells have glass fronts and face inwards, so privacy is not high on the agenda. Em City is home to many..Aryans, Muslims, gangstas, Latinos, Christians, Italians, Irish and more....so scuffles, death stares, dodgy dealings and shady agreements are never far away.&lt;br /&gt;&lt;br /&gt;I would say the main appeal of the show is due to the fact that it goes where other shows wouldn't dare. Forget pretty pictures painted for mainstream audiences, forget charm, forget romance...OZ doesn't mess around. The first episode I ever saw struck me as so nasty it was surreal, I couldn't say I was ready for it, but as I watched more, I developed a taste for Oz, and got accustomed to the high levels of graphic violence. Not just violence, but injustice (crooked guards who'll be sold out for a nickel, inmates who'll kill on order and get away with it, well mannered, middle class inmates being turned into prison bitches due to their lack of street skills or prison experience) Watching Oz, you may become comfortable with what is uncomfortable viewing....thats if you can get in touch with your darker side.
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            A wonderful little production. &lt;br /&gt;&lt;br /&gt;The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. &lt;br /&gt;&lt;br /&gt;The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master's of comedy and his life. &lt;br /&gt;&lt;br /&gt;The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional 'dream' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell's murals decorating every surface) are terribly well done.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty and the characters are likable (even the well bread suspected serial killer). While some may be disappointed when they realize this is not Match Point 2: Risk Addiction, I thought it was proof that Woody Allen is still fully in control of the style many of us have grown to love.&lt;br /&gt;&lt;br /&gt;This was the most I'd laughed at one of Woody's comedies in years (dare I say a decade?). While I've never been impressed with Scarlet Johanson, in this she managed to tone down her "sexy" image and jumped right into a average, but spirited young woman.&lt;br /&gt;&lt;br /&gt;This may not be the crown jewel of his career, but it was wittier than "Devil Wears Prada" and more interesting than "Superman" a great comedy to go see with friends.
+  old_sentiment    .extract
+1      positive fascination
+2      positive  admiration
+3      positive   amusement</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="verify" class="level1">
+<h1>Verify</h1>
+<p>This functions allows you to check and see if a statement is true, based on the provided text. By default, it will return a 1 for “yes”, and 0 for “no”. This can be customized.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" aria-controls="tabset-9-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" aria-controls="tabset-9-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-9-1" class="tab-pane active" aria-labelledby="tabset-9-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1">reviews.llm.verify(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"is the customer happy?"</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 3)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">review</th>
+<th data-quarto-table-cell-role="th">old_sentiment</th>
+<th data-quarto-table-cell-role="th">verify</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>str</td>
+<td>i8</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"One of the other reviewers has…</td>
+<td>"positive"</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>"A wonderful little production.…</td>
+<td>"positive"</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>"I thought this was a wonderful…</td>
+<td>"positive"</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-9-2" class="tab-pane" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">reviews <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb29-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_verify</span>(review, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"is the customer happy?"</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             review
+1 One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.&lt;br /&gt;&lt;br /&gt;The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Trust me, this is not a show for the faint hearted or timid. This show pulls no punches with regards to drugs, sex or violence. Its is hardcore, in the classic use of the word.&lt;br /&gt;&lt;br /&gt;It is called OZ as that is the nickname given to the Oswald Maximum Security State Penitentary. It focuses mainly on Emerald City, an experimental section of the prison where all the cells have glass fronts and face inwards, so privacy is not high on the agenda. Em City is home to many..Aryans, Muslims, gangstas, Latinos, Christians, Italians, Irish and more....so scuffles, death stares, dodgy dealings and shady agreements are never far away.&lt;br /&gt;&lt;br /&gt;I would say the main appeal of the show is due to the fact that it goes where other shows wouldn't dare. Forget pretty pictures painted for mainstream audiences, forget charm, forget romance...OZ doesn't mess around. The first episode I ever saw struck me as so nasty it was surreal, I couldn't say I was ready for it, but as I watched more, I developed a taste for Oz, and got accustomed to the high levels of graphic violence. Not just violence, but injustice (crooked guards who'll be sold out for a nickel, inmates who'll kill on order and get away with it, well mannered, middle class inmates being turned into prison bitches due to their lack of street skills or prison experience) Watching Oz, you may become comfortable with what is uncomfortable viewing....thats if you can get in touch with your darker side.
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            A wonderful little production. &lt;br /&gt;&lt;br /&gt;The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. &lt;br /&gt;&lt;br /&gt;The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master's of comedy and his life. &lt;br /&gt;&lt;br /&gt;The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional 'dream' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell's murals decorating every surface) are terribly well done.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty and the characters are likable (even the well bread suspected serial killer). While some may be disappointed when they realize this is not Match Point 2: Risk Addiction, I thought it was proof that Woody Allen is still fully in control of the style many of us have grown to love.&lt;br /&gt;&lt;br /&gt;This was the most I'd laughed at one of Woody's comedies in years (dare I say a decade?). While I've never been impressed with Scarlet Johanson, in this she managed to tone down her "sexy" image and jumped right into a average, but spirited young woman.&lt;br /&gt;&lt;br /&gt;This may not be the crown jewel of his career, but it was wittier than "Devil Wears Prada" and more interesting than "Superman" a great comedy to go see with friends.
+  old_sentiment .verify
+1      positive       1
+2      positive       1
+3      positive       1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="translate" class="level1">
+<h1>Translate</h1>
+<p>As the title implies, this function will translate the text into a specified language. What is really nice, it is that you don’t need to specify the language of the source text. Only the target language needs to be defined. The translation accuracy will depend on the LLM</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" aria-controls="tabset-10-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" aria-controls="tabset-10-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-10-1" class="tab-pane active" aria-labelledby="tabset-10-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1">reviews.llm.translate(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"chinese"</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 3)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">review</th>
+<th data-quarto-table-cell-role="th">old_sentiment</th>
+<th data-quarto-table-cell-role="th">translation</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>str</td>
+<td>str</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"One of the other reviewers has…</td>
+<td>"positive"</td>
+<td>"另一位评论者曾提到，只要看一集《OZ》就会被迷住。他们说得没…</td>
+</tr>
+<tr class="even">
+<td>"A wonderful little production.…</td>
+<td>"positive"</td>
+<td>"一部精彩的小制作。 拍摄技术非常低调——采用非常老式BBC…</td>
+</tr>
+<tr class="odd">
+<td>"I thought this was a wonderful…</td>
+<td>"positive"</td>
+<td>"我觉得这是一个在炎热夏季周末消磨时间的好方式，坐在空调电影院…</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-10-2" class="tab-pane" aria-labelledby="tabset-10-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1">reviews <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb32-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_translate</span>(review, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Chinese"</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             review
+1 One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.&lt;br /&gt;&lt;br /&gt;The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Trust me, this is not a show for the faint hearted or timid. This show pulls no punches with regards to drugs, sex or violence. Its is hardcore, in the classic use of the word.&lt;br /&gt;&lt;br /&gt;It is called OZ as that is the nickname given to the Oswald Maximum Security State Penitentary. It focuses mainly on Emerald City, an experimental section of the prison where all the cells have glass fronts and face inwards, so privacy is not high on the agenda. Em City is home to many..Aryans, Muslims, gangstas, Latinos, Christians, Italians, Irish and more....so scuffles, death stares, dodgy dealings and shady agreements are never far away.&lt;br /&gt;&lt;br /&gt;I would say the main appeal of the show is due to the fact that it goes where other shows wouldn't dare. Forget pretty pictures painted for mainstream audiences, forget charm, forget romance...OZ doesn't mess around. The first episode I ever saw struck me as so nasty it was surreal, I couldn't say I was ready for it, but as I watched more, I developed a taste for Oz, and got accustomed to the high levels of graphic violence. Not just violence, but injustice (crooked guards who'll be sold out for a nickel, inmates who'll kill on order and get away with it, well mannered, middle class inmates being turned into prison bitches due to their lack of street skills or prison experience) Watching Oz, you may become comfortable with what is uncomfortable viewing....thats if you can get in touch with your darker side.
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            A wonderful little production. &lt;br /&gt;&lt;br /&gt;The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. &lt;br /&gt;&lt;br /&gt;The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master's of comedy and his life. &lt;br /&gt;&lt;br /&gt;The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional 'dream' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell's murals decorating every surface) are terribly well done.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty and the characters are likable (even the well bread suspected serial killer). While some may be disappointed when they realize this is not Match Point 2: Risk Addiction, I thought it was proof that Woody Allen is still fully in control of the style many of us have grown to love.&lt;br /&gt;&lt;br /&gt;This was the most I'd laughed at one of Woody's comedies in years (dare I say a decade?). While I've never been impressed with Scarlet Johanson, in this she managed to tone down her "sexy" image and jumped right into a average, but spirited young woman.&lt;br /&gt;&lt;br /&gt;This may not be the crown jewel of his career, but it was wittier than "Devil Wears Prada" and more interesting than "Superman" a great comedy to go see with friends.
+  old_sentiment
+1      positive
+2      positive
+3      positive
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .translation
+1 另一位评论者曾提到，只要看一集《Oz》你就会上瘾。他们说得没错，因为我就是这样的。\n\n《Oz》给我的第一印象是它的残酷和毫不退缩的暴力场面，从一开始就直奔主题。相信我，这不是一部适合心脏脆弱或胆小怕事的人观看的节目。这部剧在毒品、性和暴力方面毫不留情。用最经典的定义来说，它就是硬核。\n\n它之所以叫《Oz》，是因为这是奥兹瓦尔德最高安全级别州立监狱的昵称。该剧主要聚焦于翡翠城，这是监狱的一个实验区，所有牢房都是玻璃正门且向内朝向，所以隐私在这里并不被重视。翡翠城住着很多人……白人至上主义者、穆斯林、黑帮、拉丁裔、基督徒、意大利人、爱尔兰人等等……所以小摩擦、死亡凝视、肮脏交易和暗中勾结无处不在。\n\n我会说这部剧最大的吸引力在于它敢于涉足其他剧集不敢涉足的领域。别指望为主流观众描绘的美化画面、别指望魅力、别指望浪漫……《Oz》不玩虚的。我看过的第一集就让我觉得它残酷到近乎超现实，我不敢说我准备好了，但随着我看得越来越多，我渐渐对《Oz》产生了兴趣，也习惯了高度直白的暴力。不只是暴力，还有不公（腐败的警卫可以用五分钱就被收买，囚犯可以奉命杀人却逍遥法外，体面的中产阶级囚犯因为缺乏街头生存能力或监狱经验而被沦为"监狱婊子"）。看《Oz》时，你可能会对那些令人不适的画面习以为常……如果你能触及自己更黑暗的一面的话。
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   一部精彩的小制作。\n\n拍摄手法非常朴实——带有一种老派BBC的风格，为整部作品带来了既令人慰藉又令人不安的真实感。\n\n演员选得极为出色——迈克尔·辛不仅“掌握了所有俚语”，还把各种口音都模仿得惟妙惟肖！你可以真切地感受到借助威廉姆斯日记引用而实现的流畅剪辑，这部作品不仅值得观看，更是一部写得精彩、演得出色的佳作。这是一部关于这位喜剧大师及其人生的杰作。\n\n真实感通过一些细节真正深入人心：幻想中的守卫，没有采用传统的“梦境”手法，而是保持实体然后消失。它运用了我们的知识和感官，尤其是在涉及奥顿和哈利威尔的场景中，布景（尤其是他们公寓里哈利威尔壁画装饰的每一面墙）都做得极为出色。
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          我以为这是在一个酷热难耐的周末消磨时光的好方式，坐在空调房里看一部轻松喜剧。剧情虽然简单，但对白机智风趣，角色也都很讨人喜欢（甚至连那个养尊处优的嫌疑人连环杀手也很受欢迎）。虽然有些人可能会失望地发现这并不是《赛点2：危险上瘾》，但我认为这证明了伍迪·艾伦仍然完全掌控着我们许多人所钟爱的那种风格。\n\n这是我多年来（敢说十年来？）在伍迪的喜剧中笑得最开心的一次。虽然我从未对斯嘉丽·约翰逊印象深刻，但在这部片中她成功地收敛了自己的“性感”形象，饰演了一个平凡但充满活力的年轻女性。\n\n这可能不是他职业生涯中的巅峰之作，但比《穿普拉达的女王》更有趣，比《超人》更有看点，是一部很适合和朋友一起看的喜剧。</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="custom-prompt" class="level1">
+<h1>Custom prompt</h1>
+<p>It is possible to pass your own prompt to the LLM, and have mall run it against each text entry:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" aria-controls="tabset-11-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" aria-controls="tabset-11-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-11-1" class="tab-pane active" aria-labelledby="tabset-11-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1">my_prompt <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb34-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Answer a question."</span></span>
+<span id="cb34-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Return only the answer, no explanation"</span></span>
+<span id="cb34-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Acceptable answers are 'yes', 'no'"</span></span>
+<span id="cb34-5">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Answer this about the following text, is this a happy customer?:"</span></span>
+<span id="cb34-6">)</span>
+<span id="cb34-7"></span>
+<span id="cb34-8">reviews.llm.custom(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review"</span>, prompt <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> my_prompt)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 3)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">review</th>
+<th data-quarto-table-cell-role="th">old_sentiment</th>
+<th data-quarto-table-cell-role="th">custom</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>str</td>
+<td>str</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"One of the other reviewers has…</td>
+<td>"positive"</td>
+<td>"yes"</td>
+</tr>
+<tr class="even">
+<td>"A wonderful little production.…</td>
+<td>"positive"</td>
+<td>"yes"</td>
+</tr>
+<tr class="odd">
+<td>"I thought this was a wonderful…</td>
+<td>"positive"</td>
+<td>"yes"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-11-2" class="tab-pane" aria-labelledby="tabset-11-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">my_prompt <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(</span>
+<span id="cb35-2">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Answer a question."</span>,</span>
+<span id="cb35-3">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Return only the answer, no explanation"</span>,</span>
+<span id="cb35-4">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Acceptable answers are 'yes', 'no'"</span>,</span>
+<span id="cb35-5">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Answer this about the following text, is this a happy customer?:"</span></span>
+<span id="cb35-6">)</span>
+<span id="cb35-7"></span>
+<span id="cb35-8">reviews <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb35-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_custom</span>(review, my_prompt)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             review
+1 One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.&lt;br /&gt;&lt;br /&gt;The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Trust me, this is not a show for the faint hearted or timid. This show pulls no punches with regards to drugs, sex or violence. Its is hardcore, in the classic use of the word.&lt;br /&gt;&lt;br /&gt;It is called OZ as that is the nickname given to the Oswald Maximum Security State Penitentary. It focuses mainly on Emerald City, an experimental section of the prison where all the cells have glass fronts and face inwards, so privacy is not high on the agenda. Em City is home to many..Aryans, Muslims, gangstas, Latinos, Christians, Italians, Irish and more....so scuffles, death stares, dodgy dealings and shady agreements are never far away.&lt;br /&gt;&lt;br /&gt;I would say the main appeal of the show is due to the fact that it goes where other shows wouldn't dare. Forget pretty pictures painted for mainstream audiences, forget charm, forget romance...OZ doesn't mess around. The first episode I ever saw struck me as so nasty it was surreal, I couldn't say I was ready for it, but as I watched more, I developed a taste for Oz, and got accustomed to the high levels of graphic violence. Not just violence, but injustice (crooked guards who'll be sold out for a nickel, inmates who'll kill on order and get away with it, well mannered, middle class inmates being turned into prison bitches due to their lack of street skills or prison experience) Watching Oz, you may become comfortable with what is uncomfortable viewing....thats if you can get in touch with your darker side.
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            A wonderful little production. &lt;br /&gt;&lt;br /&gt;The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. &lt;br /&gt;&lt;br /&gt;The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master's of comedy and his life. &lt;br /&gt;&lt;br /&gt;The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional 'dream' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell's murals decorating every surface) are terribly well done.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty and the characters are likable (even the well bread suspected serial killer). While some may be disappointed when they realize this is not Match Point 2: Risk Addiction, I thought it was proof that Woody Allen is still fully in control of the style many of us have grown to love.&lt;br /&gt;&lt;br /&gt;This was the most I'd laughed at one of Woody's comedies in years (dare I say a decade?). While I've never been impressed with Scarlet Johanson, in this she managed to tone down her "sexy" image and jumped right into a average, but spirited young woman.&lt;br /&gt;&lt;br /&gt;This may not be the crown jewel of his career, but it was wittier than "Devil Wears Prada" and more interesting than "Superman" a great comedy to go see with friends.
+  old_sentiment .pred
+1      positive   yes
+2      positive   yes
+3      positive   yes</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="call-for-vector" class="level1">
+<h1>call for Vector</h1>
+<p>it can also feed Vector instead of dataframe.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" aria-controls="tabset-12-1" aria-selected="true" href="">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" aria-controls="tabset-12-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-12-1" class="tab-pane active" aria-labelledby="tabset-12-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Pass it to a new LLMVec</span></span>
+<span id="cb37-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> mall <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> LLMVec</span>
+<span id="cb37-3">llm <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> LLMVec(chat)    </span></code></pre></div></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1">llm.sentiment([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"I am happy"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"I am sad"</span>])</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['positive', 'negative']</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-12-2" class="tab-pane" aria-labelledby="tabset-12-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm_vec_sentiment</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"I am happy"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"I am sad"</span>))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "positive" "negative"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="reference" class="level1">
+<h1>Reference</h1>
+<p>https://mlverse.github.io/mall/</p>
+<p>https://posit-dev.github.io/chatlas/</p>
+
+
+<!-- -->
+
+</section>
+
+ ]]></description>
+  <category>AI</category>
+  <guid>https://jcwinning.github.io/LandingPage/posts/LLM_tool/</guid>
+  <pubDate>Mon, 23 Mar 2026 16:00:00 GMT</pubDate>
+  <media:content url="https://jcwinning.github.io/LandingPage/posts/LLM_tool/images/my screenshots.png" medium="image" type="image/png" height="94" width="144"/>
+</item>
 <item>
   <title>Agent Skills</title>
   <dc:creator>Tony D</dc:creator>
@@ -30,16 +1032,6 @@
 <p>├── scripts/ # Optional: executable code</p>
 <p>├── references/ # Optional: documentation</p>
 <p>└── assets/ # Optional: templates, resources</p>
-</section>
-<section id="why-agent-skills" class="level1">
-<h1>Why Agent Skills?</h1>
-<p>Traditional AI agent extensions often require complex API integrations or custom code. Agent Skills simplify this by:</p>
-<ul>
-<li><strong>Standardization</strong>: Use a common format across different agents and IDEs.</li>
-<li><strong>Portability</strong>: Take your skills with you from Claude CLI to Trae or Antigravity.</li>
-<li><strong>Explainability</strong>: Since a skill is just a Markdown file, you can easily read and audit exactly what instructions the agent is following.</li>
-<li><strong>Versioning</strong>: Skills are just files in your repository, so they can be versioned with Git.</li>
-</ul>
 </section>
 <section id="skill.md-example" class="level1">
 <h1>Skill.md example</h1>
@@ -117,7 +1109,7 @@ font-style: inherit;">   - </span>Caching strategies</span></code></pre></div>
 <h1>adding skills</h1>
 <section id="install" class="level2">
 <h2 class="anchored" data-anchor-id="install">install</h2>
-<div id="1dd05f54" class="cell" data-execution_count="1">
+<div id="bccfcf91" class="cell" data-execution_count="1">
 <div class="code-with-filename">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -134,7 +1126,7 @@ font-style: inherit;">-</span>skills</span></code></pre></div>
 </details>
 </div>
 </div>
-<div id="2aff6ba4" class="cell" data-execution_count="2">
+<div id="b84dedbb" class="cell" data-execution_count="2">
 <div class="code-with-filename">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -158,7 +1150,7 @@ font-style: inherit;">list</span></span></code></pre></div>
 </details>
 </div>
 </div>
-<div id="d9a2e6c3" class="cell" data-execution_count="3">
+<div id="adfd65fb" class="cell" data-execution_count="3">
 <div class="code-with-filename">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -193,21 +1185,14 @@ font-style: inherit;">-</span>skills</span></code></pre></div>
 </section>
 <section id="search-for-skills" class="level2">
 <h2 class="anchored" data-anchor-id="search-for-skills">Search for skills</h2>
-<div id="68dc4560" class="cell" data-execution_count="4">
-<div class="code-with-filename">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="code-with-filename-file">
-<pre><strong>Terminal</strong></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1">npx skills find xxxx</span></code></pre></div>
-</details>
-</div>
-</div>
+<p>Search for PPT related skills</p>
+<pre class="{bash}"><code>#| eval: false
+#| filename: "Terminal"
+npx skills find xxxx</code></pre>
 </section>
 <section id="check-for-skill-updates" class="level2">
 <h2 class="anchored" data-anchor-id="check-for-skill-updates">Check for skill updates</h2>
-<div id="847f5efc" class="cell" data-execution_count="5">
+<div id="bf16c963" class="cell" data-execution_count="4">
 <div class="code-with-filename">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -221,7 +1206,7 @@ font-style: inherit;">-</span>skills</span></code></pre></div>
 </section>
 <section id="update-all-installed-skills" class="level2">
 <h2 class="anchored" data-anchor-id="update-all-installed-skills">Update all installed skills</h2>
-<div id="aa08679f" class="cell" data-execution_count="6">
+<div id="d5b64d07" class="cell" data-execution_count="5">
 <div class="code-with-filename">
 <details open="" class="code-fold">
 <summary>Code</summary>

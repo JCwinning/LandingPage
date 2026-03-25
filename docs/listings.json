@@ -2,6 +2,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/LLM_tool/index.html",
       "/posts/Agent_Skills/index.html",
       "/posts/love_agent/index.html",
       "/posts/vibepong/index.html",
@@ -25,6 +26,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/LLM_tool/index.html",
       "/posts/Agent_Skills/index.html",
       "/posts/love_agent/index.html",
       "/posts/vibepong/index.html",

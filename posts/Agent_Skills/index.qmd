@@ -34,15 +34,6 @@ my-skill/
 
 └── assets/           # Optional: templates, resources
 
-# Why Agent Skills?
-
-Traditional AI agent extensions often require complex API integrations or custom code. Agent Skills simplify this by:
-
-- **Standardization**: Use a common format across different agents and IDEs.
-- **Portability**: Take your skills with you from Claude CLI to Trae or Antigravity.
-- **Explainability**: Since a skill is just a Markdown file, you can easily read and audit exactly what instructions the agent is following.
-- **Versioning**: Skills are just files in your repository, so they can be versioned with Git.
-
 # Skill.md example
 
 ```markdown
@@ -102,7 +93,9 @@ npx skills add https://github.com/vercel-labs/skills/tree/main/skills/find-skill
 
 ## Search for skills
 
-```{python}
+Search for PPT related skills
+
+```{bash}
 #| eval: false
 #| filename: "Terminal"
 npx skills find xxxx

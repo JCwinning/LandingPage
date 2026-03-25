@@ -1,0 +1,17 @@
+{
+  "hash": "9d37406f97958cd9c348fd7244decdbb",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Build agent\"\nauthor: \"Tony D\"\ndate: \"2026-03-01\"\ncategories: [AI, API, tutorial]\nimage: \"images.png\"\n\nformat:\n  html:\n    code-fold: true\n    code-tools: true\n    code-copy: true\n\nexecute:\n\n  warning: false\n---\n\n\n\n\n\n\n# Introduction\n\n\n::: {.cell}\n\n```{.r .cell-code}\npip install google-adk\n```\n:::\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nadk create my_agent\n```\n:::\n\n\n\n\n::: {.cell}\n\n```{.python .cell-code}\nimport os\nfrom google.adk.agents.llm_agent import Agent\nfrom google.adk.models.lite_llm import LiteLlm  # Essential for OpenRouter\n```\n:::\n\n\n\n\n::: {.cell}\n\n```{.python .cell-code}\n# Mock tool implementation\ndef get_current_time(city: str) -> dict:\n    \"\"\"Returns the current time in a specified city.\"\"\"\n    return {\"status\": \"success\", \"city\": city, \"time\": \"10:30 AM\"}\n\n# Define the model using LiteLlm for OpenRouter\n# Format: openrouter/<provider>/<model-name>\nopenrouter_model = LiteLlm(\n    model=\"openrouter/google/gemini-2.0-flash-001\", \n    api_key=os.getenv(\"OPENROUTER_API_KEY\"),\n    api_base=\"https://openrouter.ai/api/v1\"\n)\n\nroot_agent = Agent(\n    model=openrouter_model,\n    name='root_agent',\n    description=\"Tells the current time in a specified city.\",\n    instruction=\"\"\"\n    You are a helpful assistant.\n    \n    1. ONLY call the 'get_current_time' tool if the user asks for the time.\n    2. If the user asks anything else, answer normally and DO NOT call any tools.\n    \"\"\",\n    tools=[get_current_time],\n)\n```\n:::\n\n\n\n\n\n\n\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

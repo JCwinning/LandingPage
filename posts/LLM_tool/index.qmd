@@ -1,0 +1,362 @@
+---
+title: "mall package - AI NLP"
+author: "Tony D"
+date: "2026-03-24"
+categories: [AI]
+image: "images/my screenshots.png"
+
+format:
+  html:
+    code-fold: false
+    code-tools: true
+    code-copy: true
+
+execute:
+
+  warning: false
+---
+
+
+
+```{r setup, include=FALSE}
+library(reticulate)
+
+# Use Python 3.13
+use_python("/Library/Frameworks/Python.framework/Versions/3.13/bin/python3", required = TRUE)
+```
+
+Use Large Language Models (LLM) to run Natural Language Processing (NLP) operations against your data. It takes advantage of the LLMs general language training in order to get the predictions, thus removing the need to train a new NLP model. mall is available for R and Python.
+
+
+
+# install package
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+#| eval: false
+pip install mlverse-mall
+pip install chatlas
+```
+
+## R
+```{python}
+#| eval: false
+install.packages("mall")
+install.packages("ellmer")
+```
+
+
+:::
+
+# load package
+
+save Openrouter API OPENROUTER_API_KEY to .env file 
+
+::: {.panel-tabset group="language"}
+
+## Python
+
+
+```{python}
+import os
+import mall
+from chatlas import ChatOpenRouter
+from dotenv import load_dotenv
+import polars as pl
+load_dotenv()
+```
+
+## R 
+```{r}
+library(mall)
+library(ellmer)
+library(dotenv)
+library(tidyverse)
+# This looks for a .env file in the current working directory
+load_dot_env()
+```
+
+
+:::
+
+# download data
+
+::: {.panel-tabset group="language"}
+
+## Python
+
+```{python}
+url = "https://raw.githubusercontent.com/Ankit152/IMDB-sentiment-analysis/master/IMDB-Dataset.csv"
+file_path = "data.csv"
+if not os.path.exists(file_path):
+    import urllib.request
+    urllib.request.urlretrieve(url, file_path)
+
+imdb_data = pl.read_csv(file_path).rename({"sentiment": "old_sentiment"})
+reviews = imdb_data.head(3)
+reviews
+```
+
+## R
+
+```{r}
+url <- "https://raw.githubusercontent.com/Ankit152/IMDB-sentiment-analysis/master/IMDB-Dataset.csv"
+file_path <- "data.csv"
+if (!file.exists(file_path)) {
+  download.file(url, destfile = file_path)
+}
+imdb_data <- read.csv(file_path) %>% rename(old_sentiment = sentiment)
+reviews <- head(imdb_data, 3)
+reviews
+```
+
+:::
+
+# set up model
+
+::: {.panel-tabset group="language"}
+
+
+
+## Python
+```{python}
+chat = ChatOpenRouter(base_url='https://openrouter.ai/api/v1',
+                      api_key=os.getenv("OPENROUTER_API_KEY"),
+                      model="minimax/minimax-m2.7"
+                      )
+```
+
+
+
+
+```{python}
+reviews.llm.use(chat)
+```
+
+## R
+
+```{r}
+
+chat = chat_openrouter(api_key=Sys.getenv("OPENROUTER_API_KEY"),
+                      model="minimax/minimax-m2.7"
+                      )
+
+
+```
+
+```{r}
+llm_use(chat)
+```
+
+
+
+
+::: 
+
+
+
+# Sentiment
+
+Automatically returns “positive”, “negative”, or “neutral” based on the text.
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+reviews.llm.sentiment("review")
+```
+
+## R
+```{r}
+reviews |>
+  llm_sentiment(review)
+```
+
+:::
+
+
+# Summarize
+
+There may be a need to reduce the number of words in a given text. Typically to make it easier to understand its intent. The function has an argument to control the maximum number of words to output (max_words):
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+result=reviews.llm.summarize("review", 10)
+result
+```
+
+## R
+```{r}
+result=reviews |>
+  llm_summarize(review, max_words = 10)
+result
+```
+
+```{r}
+result$.summary
+```
+
+
+:::
+
+
+# Classify
+
+Use the LLM to categorize the text into one of the options you provide:
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+reviews.llm.classify("review", ["happy", "unhappy"])
+```
+
+## R
+```{r}
+reviews |>
+  llm_classify(review, c("happy", "unhappy"))
+```
+
+::: 
+
+
+# Extract
+
+One of the most interesting use cases Using natural language, we can tell the LLM to return a specific part of the text. In the following example, we request that the LLM return the product being referred to. We do this by simply saying "feeling". The LLM understands what we mean by that word, and looks for that in the text.
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+reviews.llm.extract("review", "feeling")
+```
+
+## R
+```{r}
+reviews |>
+  llm_extract(review, "feeling")
+```
+
+::: 
+
+
+# Verify
+
+
+This functions allows you to check and see if a statement is true, based on the provided text. By default, it will return a 1 for “yes”, and 0 for “no”. This can be customized.
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+reviews.llm.verify("review", "is the customer happy?")
+```
+
+## R
+
+```{r}
+reviews |>
+  llm_verify(review, "is the customer happy?")
+```
+
+:::
+
+
+# Translate
+
+As the title implies, this function will translate the text into a specified language. What is really nice, it is that you don’t need to specify the language of the source text. Only the target language needs to be defined. The translation accuracy will depend on the LLM
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+reviews.llm.translate("review", "chinese")
+```
+
+## R
+```{r}
+reviews |>
+  llm_translate(review, "Chinese")
+```
+
+::: 
+
+
+# Custom prompt
+
+It is possible to pass your own prompt to the LLM, and have mall run it against each text entry:
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+my_prompt = (
+    "Answer a question."
+    "Return only the answer, no explanation"
+    "Acceptable answers are 'yes', 'no'"
+    "Answer this about the following text, is this a happy customer?:"
+)
+
+reviews.llm.custom("review", prompt = my_prompt)
+```
+
+
+## R
+```{r}
+my_prompt <- paste(
+  "Answer a question.",
+  "Return only the answer, no explanation",
+  "Acceptable answers are 'yes', 'no'",
+  "Answer this about the following text, is this a happy customer?:"
+)
+
+reviews |>
+  llm_custom(review, my_prompt)
+```
+
+:::
+
+
+
+# call for Vector
+
+it can also feed Vector instead of dataframe. 
+
+::: {.panel-tabset group="language"}
+
+## Python
+```{python}
+# Pass it to a new LLMVec
+from mall import LLMVec
+llm = LLMVec(chat)    
+```
+
+
+```{python}
+llm.sentiment(["I am happy", "I am sad"])
+```
+
+
+
+## R
+```{r}
+llm_vec_sentiment(c("I am happy","I am sad"))
+```
+
+:::
+
+# Reference
+
+https://mlverse.github.io/mall/
+
+https://posit-dev.github.io/chatlas/
+
+
+
+
+
+
