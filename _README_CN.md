@@ -15,7 +15,6 @@ AI_Blog 是使用 [Quarto](https://quarto.org/) 构建的静态网站，特色�
 - **交互式代码示例** - 可执行的 Python 和 R 代码块，实时演示
 - **双语内容** - 全面的中英文支持
 - **数据可视化** - 使用 Plotly 和 Streamlit 构建的交互式仪表板
-- **专业作品集** - 展示技术专长的简历页面
 
 ## 精选项目
 
@@ -109,7 +108,6 @@ AI_Blog/
 ├── _quarto.yml          # Quarto 主配置文件
 ├── index.qmd            # 首页
 ├── posts.qmd            # 博客列表页
-├── cv.qmd               # 简历页面
 ├── styles.css           # 自定义 CSS 样式
 ├── posts/               # 博客文章目录
 │   ├── openrouter/      # OpenRouter API 教程

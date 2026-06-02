@@ -54,10 +54,30 @@ from google.adk.models.lite_llm import LiteLlm  # Essential for OpenRouter
 
 
 ```{python}
-# Mock tool implementation
+import urllib.request
+import urllib.parse
+import json
+import zoneinfo
+from datetime import datetime
+
+# Tool implementation for real-time location data
 def get_current_time(city: str) -> dict:
     """Returns the current time in a specified city."""
-    return {"status": "success", "city": city, "time": "10:30 AM"}
+    try:
+        url = f"https://geocoding-api.open-meteo.com/v1/search?name={urllib.parse.quote(city)}&count=1&format=json"
+        with urllib.request.urlopen(url) as response:
+            data = json.loads(response.read().decode())
+            if not data.get("results"):
+                return {"status": "error", "message": f"Could not find city: {city}"}
+            timezone = data["results"][0].get("timezone")
+            if not timezone:
+                return {"status": "error", "message": f"Could not find timezone for city: {city}"}
+        
+        tz_obj = zoneinfo.ZoneInfo(timezone)
+        current_time = datetime.now(tz_obj)
+        return {"status": "success", "city": city, "time": current_time.strftime("%Y-%m-%d %I:%M %p %Z")}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
 # Define the model using LiteLlm for OpenRouter
 # Format: openrouter/<provider>/<model-name>

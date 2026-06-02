@@ -16,7 +16,6 @@ AI_Blog is a static website built with [Quarto](https://quarto.org/) that featur
 - **Interactive Code Examples** - Executable Python and R code blocks with real-time demonstrations
 - **Bilingual Content** - English and Chinese support throughout
 - **Data Visualization** - Interactive dashboards and charts using Plotly and Streamlit
-- **Professional Portfolio** - CV/resume page showcasing technical expertise
 
 ## Featured Projects
 
@@ -110,7 +109,6 @@ AI_Blog/
 ├── _quarto.yml          # Main Quarto configuration
 ├── index.qmd            # Homepage
 ├── posts.qmd            # Blog listing page
-├── cv.qmd               # Resume/CV page
 ├── styles.css           # Custom CSS styling
 ├── posts/               # Blog posts directory
 │   ├── openrouter/      # OpenRouter API tutorial
